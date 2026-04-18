@@ -732,6 +732,99 @@
       .hero-stat:nth-child(3) { border-top: 1px solid var(--gray-border); }
       .hero-stat:nth-child(5) { border-top: 1px solid var(--gray-border); }
     }
+
+    /* ─── MICRO ANIMATIONS ─── */
+
+    /* Keyframes */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(36px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-36px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-10px); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 4px 14px rgba(215,0,48,0.25); }
+      50%       { box-shadow: 0 4px 28px rgba(215,0,48,0.55); }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position:  200% center; }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.93); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    /* Hero stagger — CSS puro, sem JS */
+    .hero-badge   { opacity: 0; animation: fadeInUp .55s ease forwards; animation-delay: .05s; }
+    .hero h1      { opacity: 0; animation: fadeInUp .6s ease forwards;  animation-delay: .18s; }
+    .hero-sub     { opacity: 0; animation: fadeInUp .6s ease forwards;  animation-delay: .30s; }
+    .hero-ctas    { opacity: 0; animation: fadeInUp .6s ease forwards;  animation-delay: .42s; }
+    .hero-stats   { opacity: 0; animation: fadeInUp .6s ease forwards;  animation-delay: .54s; }
+    .hero-character { opacity: 0; animation: fadeInRight .7s ease forwards; animation-delay: .20s; }
+
+    /* Float no card da personagem */
+    .hero-character img { animation: float 5s ease-in-out infinite; animation-delay: 1s; }
+
+    /* Pulse no botão primário do hero */
+    .hero .btn-primary { animation: pulse-glow 2.8s ease-in-out infinite; animation-delay: 1.2s; }
+
+    /* Reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .reveal.from-left  { transform: translateX(-28px); }
+    .reveal.from-right { transform: translateX(28px); }
+    .reveal.scale      { transform: scale(0.95); }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0) translateX(0) scale(1);
+    }
+
+    /* Stagger filhos */
+    .reveal-children > * {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .reveal-children.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:.05s; }
+    .reveal-children.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:.15s; }
+    .reveal-children.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:.25s; }
+    .reveal-children.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:.35s; }
+    .reveal-children.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:.45s; }
+    .reveal-children.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:.55s; }
+
+    /* Hover lift — cards */
+    .what-card, .testi-card, .price-card, .guarantee-card, .case-card, .metric-card, .dept-metric, .step {
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .what-card:hover, .testi-card:hover, .price-card:hover,
+    .guarantee-card:hover, .metric-card:hover, .step:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+    }
+    .price-card.featured:hover { box-shadow: 0 12px 36px rgba(215,0,48,0.2); }
+
+    /* Hover lift mockups */
+    .mockup { transition: transform .25s ease, box-shadow .25s ease; }
+    .mockup:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 28px 70px rgba(0,0,0,0.4); }
+
+    /* Hero stat hover */
+    .hero-stat { transition: background .2s ease; }
+    .hero-stat:hover { background: rgba(215,0,48,0.03); }
+
   </style>
 </head>
 <body>
@@ -1638,6 +1731,121 @@
 
   // Inicializar ícones Lucide
   if (typeof lucide !== 'undefined') lucide.createIcons();
+
+  // ── Reveal on scroll ──────────────────────────────────────────────────
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  // Adiciona .reveal dinamicamente em elementos-chave
+  const revealSelectors = [
+    { sel: '.proof-bar',         cls: '' },
+    { sel: '.dois-tipos-header', cls: '' },
+    { sel: '.dt-card',           cls: '' },
+    { sel: '.dois-tipos-cta',    cls: '' },
+    { sel: '.cost-section .section-title', cls: '' },
+    { sel: '.cost-list',         cls: 'from-left' },
+    { sel: '.cost-card',         cls: 'from-right' },
+    { sel: '.what-is-grid',      cls: 'reveal-children' },
+    { sel: '.section-header',    cls: '' },
+    { sel: '.dept-item',         cls: '' },
+    { sel: '.metrics-grid',      cls: 'reveal-children' },
+    { sel: '.testimonials-grid', cls: 'reveal-children' },
+    { sel: '.steps-grid',        cls: 'reveal-children' },
+    { sel: '.guarantees-grid',   cls: 'reveal-children' },
+    { sel: '.pricing-grid',      cls: 'reveal-children' },
+    { sel: '.faq-list',          cls: '' },
+    { sel: '.final-cta .section-title', cls: '' },
+    { sel: '.final-cta-btns',    cls: '' },
+  ];
+
+  revealSelectors.forEach(({ sel, cls }) => {
+    document.querySelectorAll(sel).forEach((el, i) => {
+      if (cls === 'reveal-children') {
+        el.classList.add('reveal-children');
+      } else {
+        el.classList.add('reveal');
+        if (cls) el.classList.add(cls);
+        // stagger entre irmãos
+        el.style.transitionDelay = (i % 4) * 0.1 + 's';
+      }
+      revealObserver.observe(el);
+    });
+  });
+
+  // ── Nav shadow on scroll ──────────────────────────────────────────────
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 10
+      ? '0 2px 24px rgba(0,0,0,0.1)'
+      : '0 1px 16px rgba(0,0,0,0.06)';
+  }, { passive: true });
+
+  // ── Count-up ──────────────────────────────────────────────────────────
+  function countUp(el, target, suffix, duration) {
+    const isFloat = target % 1 !== 0;
+    const start = performance.now();
+    const update = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      const val = isFloat ? (target * ease).toFixed(1) : Math.round(target * ease);
+      el.textContent = val + suffix;
+      if (p < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  }
+
+  // Count-up nos stats do hero (dispara após a animação de entrada)
+  const heroStatNumbers = document.querySelectorAll('.hero-stat-number');
+  const heroData = [
+    { val: 73,   suffix: 'h' },
+    { val: 2500, suffix: '' },
+    { val: 30,   suffix: 'dias' },
+    { val: 6,    suffix: '' },
+  ];
+  heroStatNumbers.forEach((el, i) => {
+    const d = heroData[i];
+    if (!d) return;
+    el.textContent = '0' + d.suffix;
+    setTimeout(() => countUp(el, d.val, d.suffix, 900), 800 + i * 120);
+  });
+
+  // Count-up no proof-bar ao entrar no viewport
+  const proofBar = document.querySelector('.proof-bar');
+  if (proofBar) {
+    const proofData = [
+      { el: proofBar.querySelectorAll('.proof-number')[0], val: 200, suffix: '+' },
+      { el: proofBar.querySelectorAll('.proof-number')[1], val: 2,   suffix: 'M+' },
+      { el: proofBar.querySelectorAll('.proof-number')[2], val: 70,  suffix: '%' },
+      { el: proofBar.querySelectorAll('.proof-number')[3], val: 4,   suffix: 'sem' },
+    ];
+    const proofObs = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        proofData.forEach((d, i) => {
+          if (!d.el) return;
+          // guardar o prefixo (R$)
+          const prefix = d.el.textContent.startsWith('R$') ? 'R$' : '';
+          d.el.textContent = prefix + '0' + d.suffix;
+          setTimeout(() => {
+            const span = document.createElement('span');
+            span.textContent = prefix;
+            d.el.innerHTML = '';
+            if (prefix) d.el.appendChild(span);
+            const numNode = document.createTextNode('0');
+            d.el.appendChild(numNode);
+            countUp({ textContent: '' , get textContent(){ return numNode.nodeValue; }, set textContent(v){ numNode.nodeValue = v; } }, d.val, d.suffix, 900);
+          }, i * 150);
+        });
+        proofObs.disconnect();
+      }
+    }, { threshold: 0.4 });
+    proofObs.observe(proofBar);
+  }
 </script>
 </body>
 </html>
