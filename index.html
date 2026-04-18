@@ -692,8 +692,14 @@
       border: 1px solid var(--gray-border); position: relative; overflow: hidden;
     }
     .price-card.featured {
-      background: var(--black); border-color: var(--red);
-      box-shadow: 0 0 0 1px var(--red);
+      background: #0E0005; border: 2px solid transparent;
+      box-shadow: none; isolation: isolate;
+      transform: translateY(-8px);
+      animation: featuredGlow 3s ease-in-out infinite;
+    }
+    @keyframes featuredGlow {
+      0%,100% { box-shadow: 0 8px 48px rgba(215,0,48,0.22), 0 0 0 0 transparent; }
+      50%      { box-shadow: 0 16px 72px rgba(215,0,48,0.42), 0 0 60px rgba(215,0,48,0.12); }
     }
     .price-popular {
       position: absolute; top: 1rem; right: 1rem;
@@ -765,100 +771,116 @@
 
     /* ─── FOOTER INSTITUCIONAL ─── */
     footer {
-      background: #0D0D0D;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      position: relative; overflow: hidden;
+      background: #080808; position: relative; overflow: hidden;
+    }
+    .footer-accent-line {
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, rgba(215,0,48,0.6) 20%, var(--red) 50%, rgba(215,0,48,0.6) 80%, transparent 100%);
     }
     footer::before {
-      content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
-      width: 700px; height: 400px; border-radius: 50%; pointer-events: none;
-      background: radial-gradient(circle, rgba(215,0,48,0.07) 0%, transparent 65%);
+      content: ''; position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 300px; border-radius: 50%; pointer-events: none;
+      background: radial-gradient(circle, rgba(215,0,48,0.06) 0%, transparent 65%);
       filter: blur(60px);
     }
-    .footer-top {
-      max-width: 1160px; margin: 0 auto; padding: 4rem 1.5rem 3rem;
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem;
-      position: relative; z-index: 1;
+    .footer-main {
+      max-width: 1160px; margin: 0 auto; padding: 4.5rem 2rem 3.5rem;
+      display: grid; grid-template-columns: 2.2fr 1fr 1fr 1.6fr; gap: 3.5rem;
+      position: relative; z-index: 1; border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    /* Brand col */
-    .footer-brand {}
+    /* Brand */
     .footer-brand-logo {
-      display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; text-decoration: none;
+      display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.25rem; text-decoration: none;
     }
     .footer-brand-mark {
-      width: 34px; height: 34px; border-radius: 8px; background: var(--red);
+      width: 38px; height: 38px; border-radius: 10px; background: var(--red);
       display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(215,0,48,0.35);
     }
-    .footer-brand-mark svg { width: 16px; height: 16px; stroke: #fff; fill: none; }
+    .footer-brand-mark svg { width: 17px; height: 17px; stroke: #fff; fill: none; }
     .footer-brand-name {
-      font-family: var(--font-display); font-weight: 800; font-size: 1rem;
-      color: var(--white); letter-spacing: -0.02em; line-height: 1.1;
+      font-family: var(--font-display); font-weight: 800; font-size: 1.05rem;
+      color: var(--white); letter-spacing: -0.025em; line-height: 1.1; display: block;
     }
     .footer-brand-name span { color: var(--red); }
+    .footer-brand-tagline {
+      font-size: 0.7rem; color: rgba(255,255,255,0.3);
+      text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-top: 1px;
+    }
     .footer-brand-desc {
-      font-size: 0.84rem; color: rgba(255,255,255,0.38); line-height: 1.65;
-      margin-bottom: 1.5rem; max-width: 240px;
+      font-size: 0.85rem; color: rgba(255,255,255,0.38); line-height: 1.7;
+      margin-bottom: 1.75rem; max-width: 250px;
     }
-    .footer-trust {
-      display: flex; flex-direction: column; gap: 0.5rem;
+    .footer-badges { display: flex; flex-direction: column; gap: 0.55rem; }
+    .footer-badge {
+      display: flex; align-items: center; gap: 0.55rem;
+      font-size: 0.78rem; color: rgba(255,255,255,0.35);
     }
-    .footer-trust-item {
-      display: flex; align-items: center; gap: 0.5rem;
-      font-size: 0.75rem; color: rgba(255,255,255,0.3);
+    .footer-badge-dot {
+      width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(215,0,48,0.7);
     }
-    .footer-trust-item::before {
-      content: ''; width: 5px; height: 5px; border-radius: 50%;
-      background: rgba(215,0,48,0.6); flex-shrink: 0;
-    }
-    /* Link cols */
-    .footer-col {}
+    /* Cols */
     .footer-col-title {
-      font-family: var(--font-display); font-weight: 700; font-size: 0.72rem;
-      color: rgba(255,255,255,0.25); text-transform: uppercase; letter-spacing: 0.1em;
-      margin-bottom: 1.25rem;
+      font-family: var(--font-display); font-weight: 700; font-size: 0.68rem;
+      color: rgba(255,255,255,0.22); text-transform: uppercase; letter-spacing: 0.12em;
+      margin-bottom: 1.35rem;
     }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
     .footer-col ul li a {
-      font-size: 0.84rem; color: rgba(255,255,255,0.5); text-decoration: none;
-      transition: color 0.2s; display: inline-block;
+      font-size: 0.86rem; color: rgba(255,255,255,0.48); text-decoration: none;
+      transition: color 0.2s; display: flex; align-items: center; gap: 0.35rem;
     }
     .footer-col ul li a:hover { color: var(--white); }
-    /* CTA col */
-    .footer-cta-col {}
+    .footer-col ul li a:hover::before { content: '›'; color: var(--red); }
+    /* CTA box */
     .footer-cta-box {
-      background: rgba(215,0,48,0.08); border: 1px solid rgba(215,0,48,0.18);
-      border-radius: 16px; padding: 1.5rem;
+      background: rgba(215,0,48,0.07); border: 1px solid rgba(215,0,48,0.2);
+      border-radius: 18px; padding: 1.75rem; position: relative; overflow: hidden;
     }
-    .footer-cta-box p {
-      font-size: 0.84rem; color: rgba(255,255,255,0.55); line-height: 1.55; margin-bottom: 1.1rem;
+    .footer-cta-box::before {
+      content: ''; position: absolute; top: -40px; right: -40px;
+      width: 120px; height: 120px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(215,0,48,0.15) 0%, transparent 70%);
+      filter: blur(20px); pointer-events: none;
     }
-    .footer-cta-box strong { color: var(--white); }
+    .footer-cta-title {
+      font-family: var(--font-display); font-weight: 800; font-size: 1rem;
+      color: var(--white); line-height: 1.25; margin-bottom: 0.6rem; letter-spacing: -0.02em;
+    }
+    .footer-cta-desc {
+      font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.55; margin-bottom: 1.25rem;
+    }
     .footer-cta-btn {
-      display: inline-block; background: var(--red); color: var(--white);
-      padding: 0.6rem 1.25rem; border-radius: 999px; font-weight: 600;
-      font-size: 0.82rem; text-decoration: none; transition: background 0.2s;
+      display: block; text-align: center; background: var(--red); color: var(--white);
+      padding: 0.7rem 1.25rem; border-radius: 999px; font-weight: 700;
+      font-size: 0.82rem; text-decoration: none; transition: background 0.2s, transform 0.1s;
     }
-    .footer-cta-btn:hover { background: var(--red-dark); }
-    /* Bottom bar */
+    .footer-cta-btn:hover { background: var(--red-dark); transform: translateY(-1px); }
+    .footer-cta-note {
+      text-align: center; margin-top: 0.6rem;
+      font-size: 0.7rem; color: rgba(255,255,255,0.25);
+    }
+    /* Bottom */
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.06);
-      max-width: 1160px; margin: 0 auto; padding: 1.25rem 1.5rem;
+      max-width: 1160px; margin: 0 auto; padding: 1.5rem 2rem;
       display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;
       position: relative; z-index: 1;
     }
     .footer-bottom-copy { font-size: 0.73rem; color: rgba(255,255,255,0.2); }
-    .footer-bottom-links { display: flex; gap: 1.5rem; }
+    .footer-bottom-links { display: flex; gap: 1.75rem; }
     .footer-bottom-links a {
-      font-size: 0.73rem; color: rgba(255,255,255,0.25); text-decoration: none; transition: color 0.2s;
+      font-size: 0.73rem; color: rgba(255,255,255,0.22); text-decoration: none; transition: color 0.2s;
     }
     .footer-bottom-links a:hover { color: rgba(255,255,255,0.6); }
-    @media (max-width: 900px) {
-      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    @media (max-width: 960px) {
+      .footer-main { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
       .footer-brand { grid-column: 1 / -1; }
+      .footer-brand-desc { max-width: none; }
     }
     @media (max-width: 560px) {
-      .footer-top { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .footer-main { grid-template-columns: 1fr; padding: 3rem 1.5rem 2.5rem; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; padding: 1.25rem 1.5rem; }
     }
 
     /* ─── TICKER TOP (fixo abaixo do nav) ─── */
@@ -1010,29 +1032,48 @@
     /* Reveal on scroll */
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .55s ease, transform .55s ease;
+      transform: translateY(40px);
+      transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1);
     }
-    .reveal.from-left  { transform: translateX(-28px); }
-    .reveal.from-right { transform: translateX(28px); }
-    .reveal.scale      { transform: scale(0.95); }
+    .reveal.from-left  { transform: translateX(-40px); }
+    .reveal.from-right { transform: translateX(40px); }
+    .reveal.scale      { transform: translateY(20px) scale(0.94); }
     .reveal.visible {
       opacity: 1;
       transform: translateY(0) translateX(0) scale(1);
     }
 
-    /* Stagger filhos */
+    /* Stagger filhos — entrada dramatica */
     .reveal-children > * {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .5s ease, transform .5s ease;
+      transform: translateY(48px) scale(0.97);
+      transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1);
     }
-    .reveal-children.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:.05s; }
-    .reveal-children.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:.15s; }
-    .reveal-children.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:.25s; }
-    .reveal-children.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:.35s; }
-    .reveal-children.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:.45s; }
-    .reveal-children.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:.55s; }
+    .reveal-children.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:.04s; }
+    .reveal-children.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:.18s; }
+    .reveal-children.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:.32s; }
+    .reveal-children.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:.46s; }
+    .reveal-children.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:.60s; }
+    .reveal-children.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:.74s; }
+
+    /* Steps — revelação sequencial com slide horizontal */
+    .steps-grid.reveal-children > * {
+      transform: translateX(32px) translateY(20px);
+    }
+    .steps-grid.reveal-children.visible > *:nth-child(1) { transform: none; transition-delay:.05s; }
+    .steps-grid.reveal-children.visible > *:nth-child(2) { transform: none; transition-delay:.25s; }
+    .steps-grid.reveal-children.visible > *:nth-child(3) { transform: none; transition-delay:.45s; }
+
+    /* Cost items — stagger individual */
+    .cost-list.reveal-children > * {
+      transform: translateX(-32px);
+    }
+    .cost-list.reveal-children.visible > *:nth-child(1) { transform: none; transition-delay:.04s; }
+    .cost-list.reveal-children.visible > *:nth-child(2) { transform: none; transition-delay:.13s; }
+    .cost-list.reveal-children.visible > *:nth-child(3) { transform: none; transition-delay:.22s; }
+    .cost-list.reveal-children.visible > *:nth-child(4) { transform: none; transition-delay:.31s; }
+    .cost-list.reveal-children.visible > *:nth-child(5) { transform: none; transition-delay:.40s; }
+    .cost-list.reveal-children.visible > *:nth-child(6) { transform: none; transition-delay:.49s; }
 
     /* ── GRADIENT BORDER ANIMADO — padrão KTANA design system ── */
     @property --border-angle {
@@ -1074,25 +1115,25 @@
       pointer-events: none;
     }
     /* Plano destaque também recebe */
-    .price-card.featured { isolation: isolate; }
     .price-card.featured::before {
       content: '';
-      position: absolute; inset: 0;
-      border-radius: inherit;
-      padding: 1px;
+      position: absolute; inset: -1px;
+      border-radius: 21px; padding: 2px;
       background: conic-gradient(from var(--border-angle),
-        rgba(215,0,48,0.0) 0%,
-        rgba(215,0,48,0.7) 9%,
-        rgba(255,255,255,0.6) 13%,
-        rgba(215,0,48,0.7) 17%,
-        rgba(215,0,48,0.0) 26%,
-        rgba(215,0,48,0.1) 100%
+        rgba(215,0,48,0.0)   0%,
+        rgba(215,0,48,1)     7%,
+        rgba(255,180,180,1)  11%,
+        rgba(255,255,255,1)  13%,
+        rgba(255,180,180,1)  15%,
+        rgba(215,0,48,1)     19%,
+        rgba(215,0,48,0.0)   27%,
+        rgba(215,0,48,0.06)  100%
       );
       -webkit-mask: linear-gradient(#fff 0 0) content-box,
                    linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
-      animation: rotateBorder 3s linear infinite;
+      animation: rotateBorder 2.5s linear infinite;
       pointer-events: none;
     }
     /* Stagger para não animarem em sincronia */
@@ -2190,7 +2231,8 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-top">
+  <div class="footer-accent-line"></div>
+  <div class="footer-main">
     <!-- Brand -->
     <div class="footer-brand">
       <a class="footer-brand-logo" href="#">
@@ -2199,14 +2241,15 @@
         </div>
         <div>
           <span class="footer-brand-name"><span>Empresa</span> Inteligente</span>
+          <span class="footer-brand-tagline">IA para PMEs brasileiras</span>
         </div>
       </a>
-      <p class="footer-brand-desc">IA nos departamentos da sua empresa. Financeiro, comercial, atendimento e marketing — funcionando do jeito que seu negócio já funciona.</p>
-      <div class="footer-trust">
-        <span class="footer-trust-item">Diagnóstico sempre gratuito</span>
-        <span class="footer-trust-item">4 garantias contratuais</span>
-        <span class="footer-trust-item">Suporte ativo incluso</span>
-        <span class="footer-trust-item">Resultado em até 30 dias</span>
+      <p class="footer-brand-desc">IA nos departamentos do seu negócio. Financeiro, comercial, atendimento e marketing — funcionando do jeito que sua empresa já funciona, sem virar a mesa.</p>
+      <div class="footer-badges">
+        <span class="footer-badge"><span class="footer-badge-dot"></span>Diagnóstico sempre gratuito e sem compromisso</span>
+        <span class="footer-badge"><span class="footer-badge-dot"></span>4 garantias escritas no contrato</span>
+        <span class="footer-badge"><span class="footer-badge-dot"></span>Suporte ativo incluso em todos os planos</span>
+        <span class="footer-badge"><span class="footer-badge-dot"></span>Primeiro departamento live em até 30 dias</span>
       </div>
     </div>
 
@@ -2216,8 +2259,9 @@
       <ul>
         <li><a href="#departamentos">Departamentos</a></li>
         <li><a href="#como-funciona">Como funciona</a></li>
-        <li><a href="#planos">Planos</a></li>
+        <li><a href="#planos">Planos e preços</a></li>
         <li><a href="#garantias">Garantias</a></li>
+        <li><a href="#depoimentos">Resultados</a></li>
       </ul>
     </div>
 
@@ -2225,23 +2269,25 @@
     <div class="footer-col">
       <div class="footer-col-title">Empresa</div>
       <ul>
-        <li><a href="https://empresainteligente.ai/morteempresas/" target="_blank">Artigo: PMEs</a></li>
+        <li><a href="https://empresainteligente.ai/morteempresas/" target="_blank">Por que PMEs fecham</a></li>
         <li><a href="#">Política de Privacidade</a></li>
         <li><a href="#">Termos de Uso</a></li>
       </ul>
     </div>
 
     <!-- CTA -->
-    <div class="footer-cta-col">
+    <div>
       <div class="footer-cta-box">
-        <p><strong>Pronto para começar?</strong><br>Diagnóstico gratuito de 30 minutos. Sem compromisso.</p>
-        <a href="https://ktana.ai/lead" target="_blank" class="footer-cta-btn">Agendar diagnóstico</a>
+        <div class="footer-cta-title">Pronto para parar<br>de perder horas?</div>
+        <p class="footer-cta-desc">30 minutos de diagnóstico gratuito. Saberá exatamente onde e quanto sua empresa perde por semana.</p>
+        <a href="https://ktana.ai/lead" target="_blank" class="footer-cta-btn">Agendar diagnóstico gratuito</a>
+        <p class="footer-cta-note">Sem compromisso · Sem proposta genérica</p>
       </div>
     </div>
   </div>
 
   <div class="footer-bottom">
-    <span class="footer-bottom-copy">© 2026 KTANA · CNPJ 57.813.462/0001-45 · Todos os direitos reservados</span>
+    <span class="footer-bottom-copy">© 2026 KTANA Inteligência Artificial · CNPJ 57.813.462/0001-45 · Todos os direitos reservados</span>
     <div class="footer-bottom-links">
       <a href="#">Privacidade</a>
       <a href="#">Termos</a>
@@ -2303,7 +2349,7 @@
     { sel: '.dt-card',           cls: '' },
     { sel: '.dois-tipos-cta',    cls: '' },
     { sel: '.cost-section .section-title', cls: '' },
-    { sel: '.cost-list',         cls: 'from-left' },
+    { sel: '.cost-list',         cls: 'reveal-children' },
     { sel: '.cost-card',         cls: 'from-right' },
     { sel: '.what-is-grid',      cls: 'reveal-children' },
     { sel: '.section-header',    cls: '' },
@@ -2313,9 +2359,10 @@
     { sel: '.steps-grid',        cls: 'reveal-children' },
     { sel: '.guarantees-grid',   cls: 'reveal-children' },
     { sel: '.pricing-grid',      cls: 'reveal-children' },
-    { sel: '.faq-list',          cls: '' },
+    { sel: '.faq-item',          cls: '' },
     { sel: '.final-cta .section-title', cls: '' },
     { sel: '.final-cta-btns',    cls: '' },
+    { sel: '.cta-inline',        cls: 'scale' },
   ];
 
   revealSelectors.forEach(({ sel, cls }) => {
