@@ -72,7 +72,7 @@
 
     /* ─── HERO ─── */
     .hero {
-      padding-top: 60px;
+      padding-top: 104px;
       background: #FFFFFF;
       min-height: 100vh;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -715,6 +715,35 @@
     .footer-links a:hover { color: rgba(255,255,255,0.7); }
     .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
 
+    /* ─── TICKER TOP (fixo abaixo do nav) ─── */
+    .ticker-top {
+      position: fixed; top: 60px; left: 0; right: 0; z-index: 99;
+      background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(215,0,48,0.18);
+      overflow: hidden;
+      padding: 10px 0;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    }
+    .ticker-top .ticker-track {
+      animation-duration: 22s;
+    }
+    .ticker-top .ticker-item {
+      font-size: 0.76rem;
+      padding: 0 1.5rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .ticker-top .ticker-item strong {
+      color: var(--red);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    .ticker-top .ticker-sep {
+      width: 3px; height: 3px;
+    }
+
     /* ─── SOLUTIONS TICKER ─── */
     .ticker-bar {
       background: #0A0A0A;
@@ -942,6 +971,36 @@
     <a href="https://ktana.ai/lead" target="_blank" class="nav-cta">Agendar demonstração</a>
   </div>
 </nav>
+
+<!-- TICKER TOP -->
+<div class="ticker-top" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item"><strong>IA</strong> para Financeiro<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Comercial<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Atendimento<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Marketing<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para RH<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Operação<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Financeiro<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Comercial<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Atendimento<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Marketing<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para RH<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Operação<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Financeiro<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Comercial<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Atendimento<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Marketing<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para RH<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Operação<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Financeiro<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Comercial<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Atendimento<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Marketing<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para RH<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Operação<span class="ticker-sep"></span></span>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="inicio">
