@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciador de Acessos — empresainteligente.ai</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'SF Mono', 'Fira Code', monospace; background: #0A0A0A; color: #E0E0E0; min-height: 100vh; padding: 2rem; }
+    h1 { font-family: system-ui, sans-serif; font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem; }
+    .subtitle { color: #666; font-size: 0.78rem; margin-bottom: 2rem; font-family: system-ui, sans-serif; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .card { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 1.25rem; }
+    .card-title { font-family: system-ui, sans-serif; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin-bottom: 0.75rem; }
+    .route { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid #1a1a1a; }
+    .route:last-child { border-bottom: none; }
+    .badge { font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+    .badge-ok { background: rgba(34,197,94,0.15); color: #22c55e; }
+    .badge-warn { background: rgba(251,191,36,0.15); color: #fbbf24; }
+    .badge-err { background: rgba(215,0,48,0.15); color: #D70030; }
+    .badge-info { background: rgba(99,102,241,0.15); color: #818cf8; }
+    .route-path { font-size: 0.82rem; color: #e0e0e0; line-height: 1.4; }
+    .route-origin { font-size: 0.72rem; color: #555; margin-top: 2px; }
+    .dns-block { margin-top: 0.75rem; }
+    .dns-record { display: flex; justify-content: space-between; align-items: center; padding: 0.3rem 0.5rem; border-radius: 6px; margin-bottom: 0.25rem; background: #0f0f0f; }
+    .dns-ip { font-size: 0.78rem; color: #a0a0a0; }
+    .dns-status { font-size: 0.65rem; font-weight: 700; }
+    .status-ok { color: #22c55e; }
+    .status-err { color: #D70030; }
+    .status-load { color: #555; }
+    .section-dns { margin-bottom: 2rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+    th { text-align: left; padding: 0.5rem 0.75rem; color: #555; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid #1a1a1a; }
+    td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #141414; color: #c0c0c0; }
+    .mono { font-family: 'SF Mono', monospace; }
+    .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; }
+    .dot-ok { background: #22c55e; }
+    .dot-err { background: #D70030; }
+    .dot-spin { background: #555; animation: spin 1s linear infinite; }
+    @keyframes spin { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .refresh-btn { background: #D70030; color: #fff; border: none; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; font-size: 0.78rem; font-weight: 600; margin-bottom: 1.5rem; }
+    .refresh-btn:hover { background: #B0002A; }
+    .last-check { font-size: 0.72rem; color: #444; margin-left: 1rem; font-family: system-ui; }
+    .conflict-warn { background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.2); border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 1.5rem; font-size: 0.8rem; color: #fbbf24; font-family: system-ui; line-height: 1.5; }
+    .conflict-warn strong { display: block; margin-bottom: 0.25rem; }
+    .log-area { background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 8px; padding: 1rem; font-size: 0.72rem; line-height: 1.7; color: #666; max-height: 200px; overflow-y: auto; }
+    .log-ok { color: #22c55e; }
+    .log-err { color: #D70030; }
+    .log-warn { color: #fbbf24; }
+  </style>
+</head>
+<body>
+  <h1>Gerenciador de Acessos</h1>
+  <p class="subtitle">empresainteligente.ai — DNS, rotas e conflitos</p>
+
+  <button class="refresh-btn" onclick="checkAll()">↻ Verificar Agora</button>
+  <span class="last-check" id="lastCheck"></span>
+
+  <div class="conflict-warn" id="conflictWarn" style="display:none">
+    <strong>⚠ Conflito Detectado</strong>
+    <span id="conflictDetail"></span>
+  </div>
+
+  <div class="grid">
+    <!-- Card: Rotas -->
+    <div class="card">
+      <div class="card-title">Mapa de Rotas</div>
+      <div class="route">
+        <span class="badge badge-info" id="status-root">—</span>
+        <div>
+          <div class="route-path">/</div>
+          <div class="route-origin">GitHub Pages · ktanadev/empresa-inteligente</div>
+        </div>
+      </div>
+      <div class="route">
+        <span class="badge badge-info" id="status-morte">—</span>
+        <div>
+          <div class="route-path">/morteempresas/</div>
+          <div class="route-origin">GitHub Pages · ktanadev/empresa-inteligente/morteempresas</div>
+        </div>
+      </div>
+      <div class="route">
+        <span class="badge badge-info" id="status-diagnostico">—</span>
+        <div>
+          <div class="route-path">/diagnostico.html</div>
+          <div class="route-origin">GitHub Pages · ktanadev/empresa-inteligente</div>
+        </div>
+      </div>
+      <div class="route">
+        <span class="badge badge-warn">⚠</span>
+        <div>
+          <div class="route-path">/oscreative</div>
+          <div class="route-origin">VPS 1535069 · Traefik porta 3003 · CONFLITO com DNS</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: DNS -->
+    <div class="card">
+      <div class="card-title">DNS Records — Spaceship</div>
+      <div class="dns-block" id="dns-records">
+        <div class="dns-record">
+          <span class="dns-ip">Verificando…</span>
+          <span class="dns-status status-load">…</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: Guardian -->
+    <div class="card">
+      <div class="card-title">DNS Guardian — VPS 960192</div>
+      <table>
+        <tr>
+          <th>Config</th>
+          <th>Valor</th>
+        </tr>
+        <tr><td>Script</td><td class="mono">/opt/dns-guardian/dns-guardian.sh</td></tr>
+        <tr><td>Cron</td><td class="mono">*/15 * * * *</td></tr>
+        <tr><td>Log</td><td class="mono">/var/log/dns-guardian.log</td></tr>
+        <tr><td>Target</td><td class="mono">empresainteligente.ai</td></tr>
+        <tr><td>IPs Esperados</td><td class="mono">185.199.108-111.153</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Seção: IPs Esperados -->
+  <div class="card section-dns">
+    <div class="card-title">Registros A Esperados (GitHub Pages)</div>
+    <div id="expected-ips"></div>
+  </div>
+
+  <div class="card" style="margin-bottom:2rem">
+    <div class="card-title">Log de Verificação</div>
+    <div class="log-area" id="logArea">Aguardando verificação…</div>
+  </div>
+
+  <script>
+    const GITHUB_PAGES_IPS = ['185.199.108.153','185.199.109.153','185.199.110.153','185.199.111.153'];
+    const DOMAIN = 'empresainteligente.ai';
+
+    function log(msg, type='') {
+      const area = document.getElementById('logArea');
+      const ts = new Date().toLocaleTimeString('pt-BR');
+      const cls = type === 'ok' ? 'log-ok' : type === 'err' ? 'log-err' : type === 'warn' ? 'log-warn' : '';
+      area.innerHTML += `<span class="${cls}">[${ts}] ${msg}</span>\n`;
+      area.scrollTop = area.scrollHeight;
+    }
+
+    function renderExpected() {
+      const container = document.getElementById('expected-ips');
+      container.innerHTML = GITHUB_PAGES_IPS.map(ip =>
+        `<div class="dns-record">
+          <span class="dns-ip">${DOMAIN} A <strong>${ip}</strong></span>
+          <span class="dns-status status-ok">✓ esperado</span>
+        </div>`
+      ).join('');
+    }
+
+    async function checkDNS() {
+      log(`Verificando DNS de ${DOMAIN}…`);
+      document.getElementById('dns-records').innerHTML =
+        '<div class="dns-record"><span class="dns-ip">Consultando…</span><span class="dns-status status-load"><span class="dot dot-spin"></span></span></div>';
+
+      try {
+        const res = await fetch(`https://dns.google/resolve?name=${DOMAIN}&type=A`);
+        const data = await res.json();
+        const answers = (data.Answer || []).filter(r => r.type === 1);
+        const currentIPs = answers.map(r => r.data);
+
+        let html = '';
+        let allOk = true;
+        let hasWrong = false;
+
+        for (const ip of currentIPs) {
+          const isExpected = GITHUB_PAGES_IPS.includes(ip);
+          html += `<div class="dns-record">
+            <span class="dns-ip"><span class="dot ${isExpected ? 'dot-ok' : 'dot-err'}"></span>${ip}</span>
+            <span class="dns-status ${isExpected ? 'status-ok' : 'status-err'}">${isExpected ? '✓ GitHub Pages' : '✗ ERRADO'}</span>
+          </div>`;
+          if (!isExpected) { allOk = false; hasWrong = true; }
+        }
+
+        for (const expectedIP of GITHUB_PAGES_IPS) {
+          if (!currentIPs.includes(expectedIP)) { allOk = false; }
+        }
+
+        document.getElementById('dns-records').innerHTML = html || '<div class="dns-record"><span class="dns-ip" style="color:#D70030">Nenhum registro A encontrado</span></div>';
+
+        // Status de cada rota
+        const statusEl = id => document.getElementById(id);
+        if (allOk) {
+          ['status-root','status-morte','status-diagnostico'].forEach(id => {
+            statusEl(id).className = 'badge badge-ok';
+            statusEl(id).textContent = 'OK';
+          });
+          log('✓ DNS correto — todos os 4 IPs GitHub Pages presentes', 'ok');
+          document.getElementById('conflictWarn').style.display = 'none';
+        } else {
+          ['status-root','status-morte','status-diagnostico'].forEach(id => {
+            statusEl(id).className = 'badge badge-err';
+            statusEl(id).textContent = 'ERRO';
+          });
+          if (hasWrong) {
+            const wrongIP = currentIPs.find(ip => !GITHUB_PAGES_IPS.includes(ip));
+            log(`✗ DNS ERRADO — IP ${wrongIP} não é GitHub Pages`, 'err');
+            document.getElementById('conflictWarn').style.display = 'block';
+            document.getElementById('conflictDetail').textContent =
+              `O registro A de ${DOMAIN} está apontando para ${wrongIP} (VPS) em vez dos IPs do GitHub Pages. O DNS Guardian no VPS 960192 corrigirá automaticamente em até 15 minutos.`;
+          } else {
+            log('⚠ Alguns IPs do GitHub Pages estão faltando', 'warn');
+          }
+        }
+
+        // Verificar /oscreative conflict
+        const hasVPSIP = currentIPs.some(ip => ip === '217.196.63.151');
+        if (!hasVPSIP) {
+          log('ℹ /oscreative (VPS 1535069:3003) inacessível — DNS aponta para GitHub Pages', 'warn');
+        }
+
+      } catch(e) {
+        document.getElementById('dns-records').innerHTML =
+          '<div class="dns-record"><span class="dns-ip" style="color:#D70030">Erro ao verificar DNS</span></div>';
+        log('Erro ao verificar DNS: ' + e.message, 'err');
+      }
+    }
+
+    async function checkRoutes() {
+      const routes = [
+        { id: 'status-root', url: `https://${DOMAIN}/`, label: '/' },
+        { id: 'status-morte', url: `https://${DOMAIN}/morteempresas/`, label: '/morteempresas/' },
+        { id: 'status-diagnostico', url: `https://${DOMAIN}/diagnostico.html`, label: '/diagnostico.html' },
+      ];
+
+      for (const route of routes) {
+        const el = document.getElementById(route.id);
+        if (el.textContent !== 'ERRO') {
+          try {
+            const res = await fetch(route.url, { mode: 'no-cors' });
+            el.className = 'badge badge-ok';
+            el.textContent = 'LIVE';
+            log(`✓ ${route.label} respondendo`, 'ok');
+          } catch(e) {
+            el.className = 'badge badge-err';
+            el.textContent = 'DOWN';
+            log(`✗ ${route.label} inacessível`, 'err');
+          }
+        }
+      }
+    }
+
+    async function checkAll() {
+      document.getElementById('logArea').innerHTML = '';
+      document.getElementById('lastCheck').textContent = 'Verificando…';
+      await checkDNS();
+      await checkRoutes();
+      document.getElementById('lastCheck').textContent = `Última verificação: ${new Date().toLocaleTimeString('pt-BR')}`;
+    }
+
+    renderExpected();
+    checkAll();
+  </script>
+</body>
+</html>
