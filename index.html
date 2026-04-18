@@ -342,14 +342,7 @@
       background: #141414; border-radius: 20px; padding: 2.5rem;
       position: relative; overflow: hidden;
     }
-    .cost-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent 0%, rgba(215,0,48,0.06) 30%, rgba(215,0,48,0.22) 50%, rgba(215,0,48,0.06) 70%, transparent 100%);
-      background-size: 200% 100%;
-      animation: scanLine 4s linear infinite;
-      pointer-events: none; z-index: 1;
-    }
+    .cost-card::before { content: none; }
     .cost-card-title {
       font-family: var(--font-display); font-weight: 800; font-size: 1.5rem;
       color: var(--white); margin-bottom: 0.5rem; letter-spacing: -0.02em;
@@ -590,14 +583,7 @@
       background: var(--dark-card); border: 1px solid var(--dark-border);
       border-radius: 16px; padding: 1.75rem; position: relative; overflow: hidden;
     }
-    .guarantee-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent 0%, rgba(215,0,48,0.06) 30%, rgba(215,0,48,0.30) 50%, rgba(215,0,48,0.06) 70%, transparent 100%);
-      background-size: 200% 100%;
-      animation: scanLine 4s linear infinite;
-      pointer-events: none; z-index: 1;
-    }
+    .guarantee-card::before { content: none; }
     .guarantee-icon {
       width: 48px; height: 48px; border-radius: 12px;
       background: rgba(215,0,48,0.15); border: 1px solid rgba(215,0,48,0.25);
@@ -905,22 +891,39 @@
 
     /* ── SCAN LINE — padrão KTANA design system ── */
     @keyframes scanLine {
-      0%   { background-position: -200% 0; }
-      100% { background-position: 300% 0; }
+      0%   { opacity: 0; transform: translateX(-100%); }
+      8%   { opacity: 1; }
+      92%  { opacity: 1; }
+      100% { opacity: 0; transform: translateX(200%); }
     }
-    .metric-card::before, .testi-card::before, .dt-card::before {
+    @keyframes idlePulse {
+      0%,100% { box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+      50%      { box-shadow: 0 2px 20px rgba(215,0,48,0.10), 0 0 0 1px rgba(215,0,48,0.06); }
+    }
+    /* Linha de luz varrendo o topo dos dark cards */
+    .metric-card::before, .testi-card::before, .dt-card::before,
+    .guarantee-card::before, .cost-card::before {
       content: '';
       position: absolute; top: 0; left: 0; right: 0; height: 1px;
       background: linear-gradient(90deg,
-        transparent 0%,
-        rgba(215,0,48,0.05) 30%,
-        rgba(215,0,48,0.20) 50%,
-        rgba(215,0,48,0.05) 70%,
-        transparent 100%
+        transparent 0%, rgba(215,0,48,0.65) 50%, transparent 100%
       );
-      background-size: 200% 100%;
-      animation: scanLine 4s linear infinite;
-      pointer-events: none; z-index: 1;
+      animation: scanLine 3.5s ease-in-out infinite;
+      pointer-events: none; z-index: 2;
+    }
+    /* Stagger para não varrerem juntos */
+    .testi-card:nth-child(2)::before,
+    .metric-card:nth-child(2)::before,
+    .guarantee-card:nth-child(2)::before { animation-delay: 1.2s; }
+    .testi-card:nth-child(3)::before,
+    .metric-card:nth-child(3)::before { animation-delay: 2.4s; }
+    .testi-card:nth-child(4)::before,
+    .metric-card:nth-child(4)::before { animation-delay: 0.6s; }
+    .dt-card:nth-child(2)::before  { animation-delay: 0.8s; }
+    .cost-card::before { animation-delay: 1.5s; }
+    /* Idle pulse no dark card */
+    .metric-card, .testi-card, .dt-card, .guarantee-card, .cost-card {
+      animation: idlePulse 3s ease-in-out infinite;
     }
 
     /* ── MORPHIC GLOW — padrão KTANA design system ── */
@@ -934,13 +937,19 @@
     }
 
     /* Hover lift — cards LIGHT */
-    .what-card, .price-card, .step {
-      transition: transform .22s ease, box-shadow .22s ease;
+    .what-card, .price-card, .step, .cost-item, .faq-item {
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
     }
     .what-card:hover, .step:hover {
       transform: translateY(-5px);
       animation: morphicGlowLight 2s ease-in-out infinite;
     }
+    .cost-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(215,0,48,0.08);
+      border-color: rgba(215,0,48,0.18);
+    }
+    .faq-item:hover { border-color: rgba(215,0,48,0.18); }
     .price-card { transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
     .price-card:hover { transform: translateY(-5px); animation: morphicGlowLight 2s ease-in-out infinite; }
     .price-card.featured:hover { animation: morphicGlow 2s ease-in-out infinite; }
