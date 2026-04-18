@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Empresa Inteligente — IA nos departamentos da sua empresa. Por menos do que um funcionário.</title>
+  <title>Empresa Inteligente v2 — IA nos departamentos da sua empresa.</title>
   <meta name="description" content="Empresa Inteligente coloca IA funcionando no seu financeiro, comercial, atendimento e marketing. Por R$2.500/mês — menos do que um funcionário CLT. 73 horas economizadas por semana.">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
   <link rel="canonical" href="https://empresainteligente.ai/">
@@ -43,32 +43,37 @@
     /* ─── NAV ─── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: var(--red);
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 1px 16px rgba(0,0,0,0.06);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 2rem; height: 60px;
     }
     .nav-logo {
       font-family: var(--font-display); font-weight: 800; font-size: 1.1rem;
-      color: var(--white); text-decoration: none; letter-spacing: -0.02em;
+      color: var(--black); text-decoration: none; letter-spacing: -0.02em;
     }
-    .nav-logo span { color: rgba(255,255,255,0.7); }
+    .nav-logo span { color: var(--red); }
     .nav-links { display: flex; align-items: center; gap: 2rem; }
     .nav-links a {
-      color: rgba(255,255,255,0.85); font-size: 0.875rem; text-decoration: none;
+      color: rgba(0,0,0,0.5); font-size: 0.875rem; text-decoration: none;
       font-weight: 500; transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover { color: var(--black); }
     .nav-cta {
-      background: var(--white); color: var(--red) !important;
+      background: var(--red); color: var(--white) !important;
       padding: 0.5rem 1.25rem; border-radius: 999px;
       font-weight: 600 !important; font-size: 0.875rem !important;
+      transition: background 0.2s;
     }
-    .nav-cta:hover { background: #f0f0f0; color: var(--red-dark) !important; }
+    .nav-cta:hover { background: var(--red-dark); color: var(--white) !important; }
 
     /* ─── HERO ─── */
     .hero {
       padding-top: 60px;
-      background: var(--black);
+      background: #FFFFFF;
       min-height: 100vh;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       text-align: center; padding-left: 1.5rem; padding-right: 1.5rem;
@@ -78,13 +83,13 @@
     .hero::before {
       content: '';
       position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
-      width: 800px; height: 800px;
-      background: radial-gradient(circle, rgba(215,0,48,0.15) 0%, transparent 70%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(215,0,48,0.04) 0%, transparent 65%);
       pointer-events: none;
     }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(215,0,48,0.15); border: 1px solid rgba(215,0,48,0.3);
+      background: rgba(215,0,48,0.08); border: 1px solid rgba(215,0,48,0.2);
       color: var(--red); padding: 0.35rem 0.85rem; border-radius: 999px;
       font-size: 0.8rem; font-weight: 600; margin-bottom: 2rem; margin-top: 3rem;
       letter-spacing: 0.05em; text-transform: uppercase;
@@ -93,12 +98,12 @@
     .hero h1 {
       font-family: var(--font-display); font-weight: 800;
       font-size: clamp(2.8rem, 6vw, 5.5rem);
-      color: var(--white); line-height: 1.05; letter-spacing: -0.03em;
+      color: var(--black); line-height: 1.05; letter-spacing: -0.03em;
       max-width: 900px; margin-bottom: 1.5rem;
     }
     .hero h1 em { color: var(--red); font-style: normal; }
     .hero-sub {
-      font-size: clamp(1rem, 1.5vw, 1.2rem); color: rgba(255,255,255,0.6);
+      font-size: clamp(1rem, 1.5vw, 1.2rem); color: var(--gray-text);
       max-width: 600px; margin-bottom: 2.5rem; line-height: 1.7;
     }
     .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 3.5rem; }
@@ -110,30 +115,40 @@
     }
     .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
     .btn-outline {
-      background: transparent; color: var(--white);
-      padding: 0.875rem 2rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.25);
+      background: transparent; color: var(--black);
+      padding: 0.875rem 2rem; border-radius: 999px; border: 1.5px solid rgba(0,0,0,0.18);
       font-weight: 600; font-size: 0.95rem; text-decoration: none;
-      transition: border-color 0.2s, background 0.2s; display: inline-block;
+      transition: border-color 0.2s, color 0.2s; display: inline-block;
     }
-    .btn-outline:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); }
+    .btn-outline:hover { border-color: var(--red); color: var(--red); }
     .hero-stats {
-      display: flex; gap: 2.5rem; flex-wrap: wrap; justify-content: center;
-      padding: 1.5rem 2.5rem; border-radius: 16px;
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      margin-top: 0; border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--gray-border); background: var(--white);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
     }
-    .hero-stat { text-align: center; }
+    .hero-stat {
+      padding: 1.5rem 1.25rem; text-align: center;
+      border-right: 1px solid var(--gray-border);
+      position: relative;
+    }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--red);
+    }
     .hero-stat-number {
       font-family: var(--font-display); font-weight: 800;
-      font-size: 1.75rem; color: var(--white); letter-spacing: -0.03em;
-      display: block; line-height: 1;
+      font-size: 2rem; color: var(--black); letter-spacing: -0.04em;
+      display: block; line-height: 1; margin-bottom: 0.4rem;
     }
     .hero-stat-number span { color: var(--red); }
     .hero-stat-label {
-      font-size: 0.75rem; color: rgba(255,255,255,0.5);
-      text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.35rem;
-      display: block;
+      font-size: 0.7rem; color: var(--gray-text);
+      text-transform: uppercase; letter-spacing: 0.06em;
+      display: block; line-height: 1.4;
     }
-    .hero-stat-sep { width: 1px; background: rgba(255,255,255,0.1); align-self: stretch; }
+    .hero-stat-sep { display: none; }
 
     /* ─── LUCIDE ICONS ─── */
     .icon-box {
@@ -712,7 +727,10 @@
     @media (max-width: 600px) {
       .hero h1 { font-size: 2.4rem; }
       section { padding: 3.5rem 1.25rem; }
-      .hero-stats { gap: 1.5rem; padding: 1.25rem 1.5rem; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .hero-stat:nth-child(2) { border-right: none; }
+      .hero-stat:nth-child(3) { border-top: 1px solid var(--gray-border); }
+      .hero-stat:nth-child(5) { border-top: 1px solid var(--gray-border); }
     }
   </style>
 </head>
@@ -737,7 +755,7 @@
       <span class="hero-badge">IA nos departamentos da sua empresa</span>
       <h1>Menos custo. Mais lucro.<br><em>IA para empresas que crescem.</em></h1>
       <p class="hero-sub">
-        Inteligência artificial trabalhando 24h em cada área da sua empresa — Comercial, Financeiro, Atendimento, Jurídico e RH. Mais performance por departamento, sem contratar, sem equipe técnica, resultado concreto desde o primeiro acesso.
+        Cada área com inteligência trabalhando 24h. Financeiro, Comercial, Marketing, RH, Jurídico. Sua operação no nível que você sempre quis — sem precisar triplicar o time.<br><br>Sem ter que aprender para implementar, sem equipe técnica, resultado concreto desde o primeiro acesso.
       </p>
       <div class="hero-ctas">
         <a href="https://ktana.ai/lead" target="_blank" class="btn-primary">Agendar demonstração gratuita</a>
