@@ -371,6 +371,14 @@
   .btn-price:hover { border-color: var(--red); color: var(--red); }
   .price-card.featured .btn-price { background: var(--red); color: #fff; border-color: var(--red); }
   .price-card.featured .btn-price:hover { opacity: 0.9; }
+  .price-name-lg { font-family: var(--font-d); font-size: 1.5rem; font-weight: 800; color: var(--text); margin-bottom: 0.4rem; }
+  .price-anchor-sm { font-size: 0.75rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.4; display: block; }
+  .price-amount-lg { font-family: var(--font-d); font-size: 2.2rem; color: var(--text); margin-bottom: 0.25rem; }
+  .price-amount-lg sup { font-size: 1rem; vertical-align: super; font-weight: 700; }
+  .price-amount-lg span { font-size: 0.85rem; color: var(--muted); font-family: var(--font-b); }
+  .price-alt { font-size: 0.75rem; color: var(--red); font-weight: 600; margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
+  .price-check { color: var(--red); font-weight: 900; font-size: 0.75rem; flex-shrink: 0; }
+  .pricing-note-sm { text-align: center; font-size: 0.78rem; color: var(--muted); margin-top: 1.5rem; line-height: 1.6; }
 
   /* FOOTER */
   footer {
@@ -985,50 +993,66 @@
 <!-- PLANOS -->
 <div class="pricing-section">
   <span class="section-tag">Planos</span>
-  <h2>Comece com o CEO. <em>Expanda por área.</em></h2>
-  <p class="sub">O agente CEO é grátis para sempre. Adicione inteligência por área conforme a empresa cresce.</p>
+  <h2>Menos que um funcionário.<br><em>Muito mais resultado.</em></h2>
+  <p class="sub">Todos os planos incluem diagnóstico completo, implementação assistida e as 4 garantias contratuais.</p>
   <div class="pricing-grid">
     <div class="price-card">
-      <div class="price-tier">CEO de IA</div>
-      <div class="price-amount">Grátis <span>/ para sempre</span></div>
-      <div class="price-period">Sem cartão. Sem contrato. Começa em 2 minutos.</div>
+      <div class="price-tier">Plano</div>
+      <div class="price-name-lg">Essencial</div>
+      <div class="price-anchor-sm">Menos que um assistente CLT — que cobre uma função por R$4.125/mês</div>
+      <div class="price-amount-lg"><sup>R$</sup>2.125<span>/mês · anual</span></div>
+      <div class="price-alt">ou R$2.500/mês mensal</div>
       <ul class="price-features">
-        <li>CEO com contexto da sua empresa</li>
-        <li>Decisões estratégicas assistidas</li>
-        <li>Gestão de prioridades e agenda</li>
-        <li>Briefings e sínteses automáticas</li>
-        <li>Acesso à plataforma Empresa Inteligente</li>
+        <li><span class="price-check">✓</span> Diagnóstico completo da empresa</li>
+        <li><span class="price-check">✓</span> Implementação em 2 departamentos</li>
+        <li><span class="price-check">✓</span> Ferramentas configuradas para seu fluxo</li>
+        <li><span class="price-check">✓</span> Treinamento do time operacional</li>
+        <li><span class="price-check">✓</span> Suporte via chat (horário comercial)</li>
+        <li><span class="price-check">✓</span> Suporte ativo por 60 dias</li>
+        <li><span class="price-check">✓</span> Relatório mensal de horas economizadas</li>
+        <li><span class="price-check">✓</span> 4 garantias contratuais</li>
       </ul>
-      <a href="https://ktana.ai/lead" target="_blank" class="btn-price">Ativar CEO grátis</a>
+      <a href="https://ktana.ai/lead" target="_blank" class="btn-price">Agendar diagnóstico</a>
     </div>
     <div class="price-card featured">
       <div class="price-badge">Mais escolhido</div>
-      <div class="price-tier">Equipe IA</div>
-      <div class="price-amount">R$ 1.950 <span>/mês</span></div>
-      <div class="price-period">3 agentes à escolha + CEO · Anual</div>
+      <div class="price-tier" style="color:rgba(255,255,255,0.4)">Plano</div>
+      <div class="price-name-lg" style="color:#fff">Profissional</div>
+      <div class="price-anchor-sm" style="color:rgba(255,255,255,0.4)">Menos que um analista CLT — que cobre uma função por R$6.600/mês</div>
+      <div class="price-amount-lg" style="color:#fff"><sup>R$</sup>2.975<span style="color:rgba(255,255,255,0.4)">/mês · anual</span></div>
+      <div class="price-alt" style="color:rgba(255,255,255,0.35)">ou R$3.500/mês mensal</div>
       <ul class="price-features">
-        <li>Agente CEO incluso</li>
-        <li>3 agentes: Comercial, Financeiro, Atendimento</li>
-        <li>Integração com seus sistemas</li>
-        <li>Relatórios automáticos por área</li>
-        <li>Suporte de implementação</li>
+        <li><span class="price-check">✓</span> Tudo do Essencial</li>
+        <li><span class="price-check">✓</span> Implementação em 4 departamentos</li>
+        <li><span class="price-check">✓</span> Onboarding dedicado de 4 semanas</li>
+        <li><span class="price-check">✓</span> Suporte via WhatsApp direto</li>
+        <li><span class="price-check">✓</span> Suporte ativo por 90 dias</li>
+        <li><span class="price-check">✓</span> Reunião mensal de resultado</li>
+        <li><span class="price-check">✓</span> Acesso a cursos práticos do time</li>
+        <li><span class="price-check">✓</span> Dashboard de performance por área</li>
       </ul>
-      <a href="https://ktana.ai/lead" target="_blank" class="btn-price">Ativar equipe agora</a>
+      <a href="https://ktana.ai/lead" target="_blank" class="btn-price">Agendar diagnóstico</a>
     </div>
     <div class="price-card">
-      <div class="price-tier">Empresa Inteligente</div>
-      <div class="price-amount">R$ 3.950 <span>/mês</span></div>
-      <div class="price-period">Todos os agentes + CEO · Anual</div>
+      <div class="price-tier">Plano</div>
+      <div class="price-name-lg">Empresarial</div>
+      <div class="price-anchor-sm">Menos que um coordenador CLT — que cobre uma função por R$9.900/mês</div>
+      <div class="price-amount-lg"><sup>R$</sup>5.100<span>/mês · anual</span></div>
+      <div class="price-alt">ou R$6.000/mês mensal</div>
       <ul class="price-features">
-        <li>Todos os agentes (6 áreas)</li>
-        <li>CEO + equipe completa de IA</li>
-        <li>Personalização profunda por empresa</li>
-        <li>Implementação assistida dedicada</li>
-        <li>Suporte 1:1 + expansão ilimitada</li>
+        <li><span class="price-check">✓</span> Tudo do Profissional</li>
+        <li><span class="price-check">✓</span> Todos os 6 departamentos</li>
+        <li><span class="price-check">✓</span> Gerente de conta dedicado</li>
+        <li><span class="price-check">✓</span> Reuniões quinzenais de estratégia</li>
+        <li><span class="price-check">✓</span> Suporte prioritário 7 dias/semana</li>
+        <li><span class="price-check">✓</span> Customizações para processos únicos</li>
+        <li><span class="price-check">✓</span> Integrações com ERP e sistemas legados</li>
+        <li><span class="price-check">✓</span> SLA garantido em contrato</li>
       </ul>
-      <a href="https://ktana.ai/lead" target="_blank" class="btn-price">Falar com especialista</a>
+      <a href="https://ktana.ai/lead" target="_blank" class="btn-price">Agendar diagnóstico</a>
     </div>
   </div>
+  <p class="pricing-note-sm">Todos os planos incluem as 4 garantias contratuais. Diagnóstico sempre gratuito e sem compromisso de compra.</p>
 </div>
 
 <!-- FINAL CTA -->
