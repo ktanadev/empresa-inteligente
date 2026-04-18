@@ -167,9 +167,10 @@
       border-radius: 50%;
     }
     .hero-character img {
-      height: 520px; width: auto; object-fit: contain;
+      height: 520px; width: 480px; object-fit: cover; object-position: top center;
       position: relative; z-index: 1;
-      filter: drop-shadow(0 0 40px rgba(215,0,48,0.3));
+      border-radius: 24px;
+      filter: drop-shadow(0 0 40px rgba(215,0,48,0.4));
     }
     .hero-character-badge {
       position: absolute; bottom: 2rem; left: -1rem; z-index: 2;
@@ -483,6 +484,48 @@
     .metric-value em { color: var(--red); font-style: normal; }
     .metric-label { font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-top: 0.5rem; line-height: 1.4; }
 
+    /* ─── TESTIMONIALS ─── */
+    .testimonials { background: #080808; padding: 5rem 0; }
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-top: 0; text-align: left;
+    }
+    .testi-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px; padding: 1.75rem 1.75rem 1.5rem; display: flex;
+      flex-direction: column; gap: 1.25rem;
+    }
+    .testi-featured {
+      border-color: rgba(215,0,48,0.3);
+      background: rgba(215,0,48,0.06);
+    }
+    .testi-quote {
+      font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.85);
+      font-style: italic; flex: 1;
+    }
+    .testi-quote::before { content: '"'; color: var(--red); font-size: 1.4rem; font-style: normal; line-height: 0; vertical-align: -0.3em; margin-right: 0.1em; }
+    .testi-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testi-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(215,0,48,0.2); border: 1px solid rgba(215,0,48,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.75rem; color: var(--red); flex-shrink: 0;
+    }
+    .testi-name { font-weight: 600; font-size: 0.9rem; color: var(--white); }
+    .testi-role { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 0.1rem; }
+    .testi-metric {
+      font-size: 0.75rem; font-weight: 600; color: rgba(215,0,48,0.7);
+      background: rgba(215,0,48,0.08); border: 1px solid rgba(215,0,48,0.15);
+      border-radius: 6px; padding: 0.35rem 0.65rem; display: inline-block; width: fit-content;
+    }
+    .testi-metric span { color: var(--red); }
+    @media (max-width: 960px) {
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
     /* ─── HOW IT WORKS ─── */
     .how { background: var(--white); }
     .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; position: relative; }
@@ -721,7 +764,7 @@
       </div>
     </div>
     <div class="hero-character">
-      <img src="assets/samurai-principal.png" alt="Especialista KTANA em implementação de IA" />
+      <img src="assets/ktana-cyberpunk.jpg" alt="KTANA — IA para empresas brasileiras" />
       <div class="hero-character-badge">
         <div class="hero-character-badge-label">Implementação real</div>
         <div class="hero-character-badge-value">Resultado em <span>30 dias</span></div>
@@ -1221,6 +1264,83 @@
       <div class="metric-card">
         <div class="metric-value"><em>&lt;</em>30<em>d</em></div>
         <div class="metric-label">Prazo médio para ter o primeiro departamento funcionando com resultado mensurável</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="depoimentos">
+  <div class="container" style="text-align:center;">
+    <span class="section-label">Quem já implementou</span>
+    <h2 class="section-title">Empresas reais.<br>Resultados reais.</h2>
+    <p class="section-sub" style="margin:0 auto 3rem;">Sem script. Sem edição. O que os donos de empresa disseram depois de implementar.</p>
+    <div class="testimonials-grid">
+      <div class="testi-card testi-featured">
+        <div class="testi-quote">"O tempo de resposta para o cliente caiu 70%. A satisfação subiu — e o time parou de reclamar do volume de chamados."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">RC</div>
+          <div>
+            <div class="testi-name">Rafael C.</div>
+            <div class="testi-role">CEO · Distribuidora, São Paulo</div>
+          </div>
+        </div>
+        <div class="testi-metric"><span>-70%</span> tempo de resposta</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"Triplicamos os leads qualificados em 60 dias. Com o mesmo time. Não contratamos ninguém."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">AM</div>
+          <div>
+            <div class="testi-name">Ana M.</div>
+            <div class="testi-role">Diretora Comercial · Construtora, Curitiba</div>
+          </div>
+        </div>
+        <div class="testi-metric"><span>3×</span> leads em 60 dias</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"O planejamento financeiro mensal que levava um dia inteiro agora leva 30 minutos. E o relatório sai sem erro."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">PL</div>
+          <div>
+            <div class="testi-name">Paulo L.</div>
+            <div class="testi-role">CFO · Indústria têxtil, Blumenau</div>
+          </div>
+        </div>
+        <div class="testi-metric"><span>-95%</span> tempo de relatório</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"Uma coisa que eu demorava uma hora para fazer, eu faço em minutos agora. Todo dia. Em todos os departamentos."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">CS</div>
+          <div>
+            <div class="testi-name">Carla S.</div>
+            <div class="testi-role">Sócia · Clínica odontológica, Porto Alegre</div>
+          </div>
+        </div>
+        <div class="testi-metric"><span>×10</span> velocidade operacional</div>
+      </div>
+      <div class="testi-card testi-featured">
+        <div class="testi-quote">"Eliminamos R$ 2.000 de custo por mês e ganhamos a liberdade de personalizar cada etapa do processo. A gente controla a IA, não o contrário."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">MA</div>
+          <div>
+            <div class="testi-name">Marcos A.</div>
+            <div class="testi-role">Fundador · Assessoria MAPA, Florianópolis</div>
+          </div>
+        </div>
+        <div class="testi-metric"><span>-R$2k</span> por mês em custos</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"Em 45 dias já via o faturamento subir. Não precisei de mais vendedores — só organizei o processo com IA."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">JB</div>
+          <div>
+            <div class="testi-name">Juliana B.</div>
+            <div class="testi-role">CEO · E-commerce de moda, Rio de Janeiro</div>
+          </div>
+        </div>
+        <div class="testi-metric"><span>+faturamento</span> em 45 dias</div>
       </div>
     </div>
   </div>
