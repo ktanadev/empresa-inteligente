@@ -3,808 +3,628 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KTANA — Empresa IA First</title>
+<title>Sua empresa vai sobreviver? — Empresa Inteligente</title>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="canonical" href="https://empresainteligente.ai/morteempresas">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Dots&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --cream:    #FAF5EA;
-    --cream-2:  #F0EBD8;
-    --white:    #FFFFFF;
-    --navy:     #0B0D12;
-    --navy-2:   #141820;
+    --bg:       #FFFFFF;
+    --bg-2:     #F5F5F7;
+    --bg-3:     #EFEFEF;
     --text:     #141414;
     --muted:    #6E6E73;
+    --border:   rgba(0,0,0,0.08);
     --red:      #D70030;
-    --red-dark: #A60028;
-    --orange:   #F97316;
-    --orange-bg:#FFF7ED;
-    --radius:   12px;
-    --font-d:   'Zen Dots', cursive;
+    --green:    #008F54;
+    --font-d:   'Space Grotesk', sans-serif;
     --font-b:   'Inter', system-ui;
   }
-  body { font-family: var(--font-b); background: var(--cream); color: var(--text); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-b); background: var(--bg); color: var(--text); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { text-decoration: none; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
 
   /* NAV */
-  nav {
+  .nav {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(250,245,234,0.94); backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-    padding: 0 48px; height: 64px;
+    background: rgba(255,255,255,0.94); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 1.5rem; height: 58px;
     display: flex; align-items: center; justify-content: space-between;
   }
-  .nav-logo { font-family: var(--font-d); font-size: 16px; color: var(--text); display: flex; align-items: center; gap: 8px; }
-  .nav-logo-dot { color: var(--red); }
-  .nav-links { display: flex; align-items: center; gap: 32px; }
-  .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .2s; }
-  .nav-links a:hover { color: var(--text); }
-  .btn-nav { background: var(--text); color: var(--white); font-size: 14px; font-weight: 600; padding: 10px 22px; border-radius: 8px; cursor: pointer; border: none; transition: background .2s; }
-  .btn-nav:hover { background: var(--red); }
-
-  /* TOP BANNER */
-  .top-banner { background: var(--red); text-align: center; padding: 10px 16px; font-size: 13px; font-weight: 600; color: var(--white); }
-  .top-banner a { color: var(--white); }
+  .nav-back {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.85rem; font-weight: 500; color: var(--muted);
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--text); }
+  .nav-back svg { width: 16px; height: 16px; }
+  .nav-brand { font-family: var(--font-d); font-weight: 700; font-size: 0.9rem; color: var(--text); }
+  .nav-cta {
+    background: var(--red); color: #fff;
+    font-size: 0.8rem; font-weight: 600;
+    padding: 8px 18px; border-radius: 8px;
+    transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.85; }
 
   /* HERO */
-  .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; padding: 120px 48px; max-width: 1200px; margin: 0 auto; }
-  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(215,0,48,0.08); border: 1px solid rgba(215,0,48,0.2); color: var(--red); font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 100px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.08em; }
-  .hero-eyebrow::before { content: ''; width: 6px; height: 6px; background: var(--red); border-radius: 50%; }
-  h1 { font-family: var(--font-d); font-size: 48px; line-height: 1.1; color: var(--text); margin-bottom: 20px; }
-  h1 em { font-style: normal; color: var(--red); }
-  .hero-sub { font-size: 17px; color: var(--muted); line-height: 1.65; margin-bottom: 40px; }
-  .hero-ctas { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
-  .btn-primary { background: var(--red); color: var(--white); font-size: 15px; font-weight: 600; padding: 14px 28px; border-radius: 8px; cursor: pointer; border: none; transition: all .2s; box-shadow: 0 4px 14px rgba(215,0,48,0.25); }
-  .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
-  .btn-ghost { background: transparent; color: var(--text); font-size: 14px; font-weight: 500; padding: 14px 24px; border-radius: 8px; cursor: pointer; border: 1.5px solid rgba(0,0,0,0.15); transition: all .2s; }
-  .btn-ghost:hover { border-color: var(--red); color: var(--red); }
-  .hero-cta-note { font-size: 12px; color: var(--muted); margin-top: 12px; }
-  .hero-visual { background: var(--navy); border-radius: 20px; aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; position: relative; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.18); }
-  .hero-visual::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 40%, rgba(215,0,48,0.12) 0%, transparent 70%); }
-  .hero-visual-tag { font-family: var(--font-d); font-size: 10px; color: rgba(255,255,255,0.2); letter-spacing: 0.1em; text-transform: uppercase; }
-  .hero-samurai-badge { background: rgba(215,0,48,0.15); border: 1px solid rgba(215,0,48,0.3); color: rgba(215,0,48,0.9); font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 100px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .hero {
+    padding: 5rem 1.5rem 4rem;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(215,0,48,0.05) 0%, transparent 60%);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-label {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(215,0,48,0.07); border: 1px solid rgba(215,0,48,0.2);
+    color: var(--red); font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    padding: 5px 14px; border-radius: 100px; margin-bottom: 1.75rem;
+  }
+  .hero-label::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--red); animation: blink 1.5s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .hero h1 {
+    font-family: var(--font-d); font-weight: 800;
+    font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+    line-height: 1.06; margin-bottom: 1.25rem; color: var(--text);
+  }
+  .hero h1 em { color: var(--red); font-style: normal; }
+  .hero p { font-size: 1.1rem; color: var(--muted); max-width: 580px; margin: 0 auto 2.5rem; line-height: 1.7; }
+  .hero-score {
+    display: inline-flex; align-items: center; gap: 2rem;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.25rem 2rem;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  }
+  .score-item { text-align: center; }
+  .score-num { font-family: var(--font-d); font-size: 2rem; font-weight: 800; color: var(--text); line-height: 1; }
+  .score-num.red { color: var(--red); }
+  .score-label { font-size: 0.72rem; color: var(--muted); margin-top: 0.25rem; }
+  .score-div { width: 1px; height: 40px; background: var(--border); }
 
-  /* PROOF BAR */
-  .proof-bar { background: var(--navy); padding: 48px; }
-  .proof-bar-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; align-items: center; }
-  .proof-label { font-size: 12px; color: rgba(255,255,255,0.35); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-  .proof-logos { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
-  .proof-logo { font-size: 13px; color: rgba(255,255,255,0.25); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; transition: color .2s; cursor: default; }
-  .proof-logo:hover { color: rgba(255,255,255,0.6); }
+  /* SECTION HEADER */
+  .section-header { text-align: center; padding: 4rem 1.5rem 3rem; }
+  .section-tag { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); margin-bottom: 0.75rem; }
+  .section-header h2 {
+    font-family: var(--font-d); font-weight: 800;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    line-height: 1.1; margin-bottom: 1rem; color: var(--text);
+  }
+  .section-header h2 em { color: var(--red); font-style: normal; }
+  .section-header p { color: var(--muted); max-width: 560px; margin: 0 auto; font-size: 1rem; }
 
-  /* SECTION */
-  section { padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
-  .section-header { text-align: center; margin-bottom: 64px; }
-  .section-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
-  h2 { font-family: var(--font-d); font-size: 38px; line-height: 1.15; color: var(--text); margin-bottom: 16px; }
-  h2 em { font-style: normal; color: var(--red); }
-  .section-sub { font-size: 17px; color: var(--muted); max-width: 560px; margin: 0 auto; line-height: 1.65; }
+  /* DEPARTMENT PILLARS */
+  .dept-section { padding: 0 1.5rem 1rem; }
+  .pillar {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden; margin-bottom: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  .pillar-left { padding: 2.5rem; border-right: 1px solid var(--border); background: #FFF9F9; }
+  .pillar-right { padding: 2.5rem; background: #F7FDF9; }
+  .dept-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; padding: 4px 12px; border-radius: 100px; margin-bottom: 1rem;
+  }
+  .dept-tag svg { width: 12px; height: 12px; }
+  .pillar-left .dept-tag { border: 1px solid rgba(215,0,48,0.2); background: rgba(215,0,48,0.06); color: var(--red); }
+  .pillar-right .dept-tag { border: 1px solid rgba(0,143,84,0.2); background: rgba(0,143,84,0.06); color: var(--green); }
 
-  /* METRICS */
-  .metrics-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--cream-2); border-radius: 16px; overflow: hidden; margin-bottom: 80px; }
-  .metric-block { background: var(--white); padding: 40px 32px; text-align: center; }
-  .metric-number { font-family: var(--font-d); font-size: 44px; color: var(--red); line-height: 1; margin-bottom: 8px; }
-  .metric-desc { font-size: 14px; color: var(--muted); line-height: 1.5; }
+  .pillar-headline {
+    font-family: var(--font-d); font-weight: 700;
+    font-size: 1.15rem; line-height: 1.25; margin-bottom: 1.5rem; color: var(--text);
+  }
+  .pillar-left .pillar-headline { color: #5C0015; }
+  .pillar-right .pillar-headline { color: #003D22; }
 
-  /* PILARES ANTES/DEPOIS */
-  .pillar { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; padding: 64px 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
-  .pillar:last-child { border-bottom: none; }
-  .pillar.reverse { direction: rtl; }
-  .pillar.reverse > * { direction: ltr; }
-  .pillar-tag { font-size: 11px; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
-  h3 { font-family: var(--font-d); font-size: 26px; color: var(--text); margin-bottom: 24px; line-height: 1.2; }
-  .before-after { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
-  .ba-block { display: flex; gap: 12px; align-items: flex-start; }
-  .ba-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+  .ba-block { margin-bottom: 0.9rem; display: flex; flex-direction: column; gap: 0.35rem; }
+  .ba-label {
+    font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; padding: 2px 8px; border-radius: 4px;
+    display: inline-block; width: fit-content;
+  }
   .ba-label.before { background: rgba(0,0,0,0.06); color: var(--muted); }
-  .ba-label.after { background: rgba(249,115,22,0.1); color: var(--orange); }
-  .ba-text { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .ba-label.after { background: rgba(215,0,48,0.1); color: var(--red); }
+  .ba-label.now { background: rgba(0,143,84,0.1); color: var(--green); }
+  .ba-text { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
   .ba-text strong { color: var(--text); font-weight: 600; }
-  .result-anchor { font-size: 13px; font-weight: 600; color: var(--text); background: var(--orange-bg); padding: 10px 16px; border-radius: 8px; border-left: 3px solid var(--orange); }
-  .pillar-screen { background: var(--navy); border-radius: 16px; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; box-shadow: 0 16px 48px rgba(0,0,0,0.14); position: relative; overflow: hidden; }
-  .pillar-screen::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 70%, rgba(215,0,48,0.08) 0%, transparent 60%); }
-  .pillar-screen span { font-family: var(--font-d); font-size: 10px; color: rgba(255,255,255,0.18); letter-spacing: 0.08em; text-transform: uppercase; }
 
-  /* ─── DEPARTAMENTOS ─── */
-  .depts-section { background: var(--white); padding: 100px 48px; }
-  .depts-inner { max-width: 1200px; margin: 0 auto; }
-  .depts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 64px; }
-  .dept-card {
-    background: var(--cream);
-    border: 1px solid rgba(0,0,0,0.06);
-    border-radius: 16px;
-    padding: 28px 24px;
-    display: flex; flex-direction: column; gap: 16px;
-    transition: box-shadow .2s, transform .2s, border-color .2s;
-    cursor: default;
+  .result-anchor {
+    margin-top: 1.25rem; padding: 0.75rem 1rem;
+    border-left: 3px solid var(--red);
+    background: rgba(215,0,48,0.05);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.85rem; font-weight: 600; color: #5C0015;
   }
-  .dept-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-2px); border-color: rgba(249,115,22,0.3); }
-  .dept-header { display: flex; align-items: center; gap: 10px; }
-  .dept-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
-  .dept-name { font-family: var(--font-d); font-size: 13px; color: var(--text); letter-spacing: 0.02em; }
-  .dept-tasks { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-  .dept-tasks li { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 7px; line-height: 1.4; }
-  .dept-tasks li::before { content: ''; width: 4px; height: 4px; background: rgba(0,0,0,0.2); border-radius: 50%; flex-shrink: 0; }
-  .dept-gain {
-    margin-top: auto;
-    background: var(--orange-bg);
-    border: 1px solid rgba(249,115,22,0.15);
-    border-radius: 8px;
-    padding: 10px 12px;
+  .result-anchor-green {
+    margin-top: 1.25rem; padding: 0.75rem 1rem;
+    border-left: 3px solid var(--green);
+    background: rgba(0,143,84,0.05);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.85rem; font-weight: 600; color: #003D22;
   }
-  .dept-gain-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--orange); margin-bottom: 4px; }
-  .dept-gain-text { font-size: 12px; color: var(--text); font-weight: 600; line-height: 1.4; }
 
-  /* EMPRESA INTELIGENTE — visão geral */
-  .empresa-gain { background: var(--navy); border-radius: 20px; padding: 48px; margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-  .empresa-gain h3 { font-family: var(--font-d); font-size: 28px; color: var(--white); margin-bottom: 16px; line-height: 1.2; }
-  .empresa-gain h3 em { color: var(--orange); font-style: normal; }
-  .empresa-gain p { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.65; }
-  .empresa-gain-metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .eg-metric { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 20px; }
-  .eg-number { font-family: var(--font-d); font-size: 32px; color: var(--orange); line-height: 1; margin-bottom: 6px; }
-  .eg-desc { font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.5; }
+  /* COLUMN HEADERS */
+  .dept-cols-header {
+    max-width: 1100px; margin: 0 auto 1rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  }
+  .col-h {
+    padding: 0.6rem 1.25rem; border-radius: 8px;
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .col-h.dying { background: rgba(215,0,48,0.07); color: var(--red); border: 1px solid rgba(215,0,48,0.2); }
+  .col-h.surviving { background: rgba(0,143,84,0.07); color: var(--green); border: 1px solid rgba(0,143,84,0.2); }
+  .col-h svg { width: 14px; height: 14px; }
 
-  /* RESULTS DARK */
-  .results-section { background: var(--navy); padding: 100px 48px; }
-  .results-inner { max-width: 1200px; margin: 0 auto; }
-  .results-section h2 { color: var(--white); }
-  .results-section .section-sub { color: rgba(255,255,255,0.4); }
-  .results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: rgba(255,255,255,0.04); border-radius: 16px; overflow: hidden; margin-top: 64px; }
-  .result-block { background: var(--navy-2); padding: 48px 40px; }
-  .result-number { font-family: var(--font-d); font-size: 60px; color: var(--orange); line-height: 1; margin-bottom: 12px; }
-  .result-title { font-size: 17px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
-  .result-desc { font-size: 14px; color: rgba(255,255,255,0.35); line-height: 1.6; }
+  /* CLONE DOS LÍDERES */
+  .clone-section {
+    background: var(--bg-2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 5rem 1.5rem;
+  }
+  .clone-inner { max-width: 1100px; margin: 0 auto; }
+  .clone-header { text-align: center; margin-bottom: 3.5rem; }
+  .clone-header h2 {
+    font-family: var(--font-d); font-weight: 800;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    line-height: 1.1; margin-bottom: 1rem; color: var(--text);
+  }
+  .clone-header h2 em { color: var(--red); font-style: normal; }
+  .clone-header p { color: var(--muted); max-width: 600px; margin: 0 auto; font-size: 1rem; line-height: 1.7; }
 
-  /* HOW IT WORKS */
-  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
-  .step { text-align: center; padding: 40px 28px; background: var(--white); border: 1px solid rgba(0,0,0,0.06); border-radius: 16px; }
-  .step-num { font-family: var(--font-d); font-size: 48px; color: rgba(249,115,22,0.15); margin-bottom: 16px; }
-  .step h4 { font-family: var(--font-d); font-size: 16px; color: var(--text); margin-bottom: 10px; }
-  .step p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+  .clone-statement {
+    max-width: 1100px; margin: 0 auto 3rem;
+    background: var(--bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--red);
+    border-radius: 0 16px 16px 0;
+    padding: 2rem 2.5rem;
+    display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: center;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  }
+  .clone-vs { font-family: var(--font-d); font-size: 3rem; font-weight: 800; color: rgba(215,0,48,0.15); }
+  .clone-statement p { font-size: 1rem; line-height: 1.7; color: var(--muted); }
+  .clone-statement p strong { color: var(--text); }
 
-  /* CASES */
-  .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
-  .case-card { background: var(--white); border: 1px solid rgba(0,0,0,0.06); border-radius: 16px; padding: 28px; transition: box-shadow .2s, transform .2s; }
-  .case-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.1); transform: translateY(-2px); }
-  .case-metric { font-family: var(--font-d); font-size: 34px; color: var(--orange); margin-bottom: 4px; }
-  .case-metric-label { font-size: 12px; color: var(--muted); margin-bottom: 20px; }
-  .case-quote { font-size: 14px; color: var(--text); line-height: 1.65; margin-bottom: 20px; font-style: italic; }
-  .case-author { display: flex; align-items: center; gap: 12px; }
-  .case-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--cream-2); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--muted); }
-  .case-name { font-size: 13px; font-weight: 600; color: var(--text); }
-  .case-role { font-size: 12px; color: var(--muted); }
+  .clone-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+  .clone-card {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.75rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+  }
+  .clone-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.1); transform: translateY(-2px); }
+  .clone-icon {
+    width: 42px; height: 42px; border-radius: 10px;
+    background: rgba(215,0,48,0.07); border: 1px solid rgba(215,0,48,0.15);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .clone-icon svg { width: 20px; height: 20px; color: var(--red); }
+  .clone-card h4 { font-family: var(--font-d); font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.6rem; }
+  .clone-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
 
-  /* PRICING */
-  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
-  .price-card { background: var(--white); border: 1.5px solid rgba(0,0,0,0.08); border-radius: 16px; padding: 36px 28px; position: relative; transition: border-color .2s; }
-  .price-card.featured { border-color: var(--red); box-shadow: 0 0 0 1px var(--red), 0 12px 40px rgba(215,0,48,0.1); }
-  .price-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--red); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 14px; border-radius: 100px; white-space: nowrap; }
-  .price-tier { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
-  .price-amount { font-family: var(--font-d); font-size: 38px; color: var(--text); margin-bottom: 4px; }
-  .price-amount span { font-size: 15px; color: var(--muted); font-family: var(--font-b); }
-  .price-period { font-size: 12px; color: var(--muted); margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid rgba(0,0,0,0.06); }
-  .price-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
-  .price-features li { font-size: 14px; color: var(--text); display: flex; align-items: flex-start; gap: 10px; }
-  .price-features li::before { content: '✓'; color: var(--orange); font-weight: 700; flex-shrink: 0; }
-  .btn-price { width: 100%; padding: 13px; border-radius: 8px; border: 1.5px solid rgba(0,0,0,0.15); background: transparent; font-size: 14px; font-weight: 600; color: var(--text); cursor: pointer; transition: all .2s; }
-  .btn-price:hover { border-color: var(--red); color: var(--red); }
-  .price-card.featured .btn-price { background: var(--red); color: white; border-color: var(--red); }
-  .price-card.featured .btn-price:hover { background: var(--red-dark); }
+  .clone-frameworks {
+    margin-top: 2.5rem;
+    background: var(--bg); border: 1px solid rgba(215,0,48,0.15);
+    border-radius: 16px; padding: 2rem 2.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .clone-frameworks h4 {
+    font-family: var(--font-d); font-size: 1.1rem; font-weight: 700;
+    color: var(--text); margin-bottom: 0.5rem;
+  }
+  .clone-frameworks p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
+  .framework-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .framework-tag {
+    background: rgba(215,0,48,0.06); border: 1px solid rgba(215,0,48,0.15);
+    color: var(--red); font-size: 0.75rem; font-weight: 600;
+    padding: 5px 12px; border-radius: 100px;
+  }
 
-  /* ADS SECTION */
-  .ads-section { background: var(--navy); padding: 100px 48px; }
-  .ads-inner { max-width: 1200px; margin: 0 auto; }
-  .ads-section h2 { color: var(--white); }
-  .ads-section .section-sub { color: rgba(255,255,255,0.4); }
-  .ads-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 48px; }
-  .ad-card { background: var(--navy-2); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; }
-  .ad-stage { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(215,0,48,0.7); margin-bottom: 8px; }
-  .ad-headline { font-family: var(--font-d); font-size: 15px; color: var(--white); margin-bottom: 16px; line-height: 1.3; }
-  .ad-body { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 16px; font-style: italic; }
-  .ad-cta-tag { display: inline-block; font-size: 11px; font-weight: 700; color: var(--red); background: rgba(215,0,48,0.1); padding: 4px 10px; border-radius: 4px; }
-
-  /* CTA FINAL */
-  .cta-section { background: var(--navy); padding: 100px 48px; text-align: center; }
-  .cta-inner { max-width: 600px; margin: 0 auto; }
-  .cta-section h2 { color: var(--white); font-size: 42px; margin-bottom: 16px; }
-  .cta-section h2 em { color: var(--red); font-style: normal; }
-  .cta-section p { color: rgba(255,255,255,0.45); font-size: 17px; margin-bottom: 40px; line-height: 1.6; }
-  .cta-section .btn-primary { font-size: 16px; padding: 16px 36px; }
-  .cta-disclaimer { font-size: 12px; color: rgba(255,255,255,0.2); margin-top: 16px; }
+  /* FINAL CTA */
+  .final-cta {
+    padding: 5rem 1.5rem;
+    text-align: center;
+    background: var(--text);
+  }
+  .final-cta h2 {
+    font-family: var(--font-d); font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.08; margin-bottom: 1.25rem; color: #fff;
+  }
+  .final-cta h2 em { color: var(--red); font-style: normal; }
+  .final-cta p { color: rgba(255,255,255,0.5); font-size: 1.05rem; max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.7; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--red); color: #fff;
+    font-size: 1rem; font-weight: 700;
+    padding: 1rem 2.5rem; border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(215,0,48,0.4);
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+  .cta-note { font-size: 0.8rem; color: rgba(255,255,255,0.25); margin-top: 1rem; }
 
   /* FOOTER */
-  footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.06); padding: 48px; }
-  .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
-  .footer-logo { font-family: var(--font-d); font-size: 15px; color: white; }
-  .footer-logo span { color: var(--red); }
-  .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
-  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color .2s; }
-  .footer-links a:hover { color: white; }
-  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
-  .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(215,0,48,0.25), transparent); }
+  footer {
+    background: #0A0A0A; border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 2rem 1.5rem; text-align: center;
+  }
+  footer p { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
+  footer a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+  footer a:hover { color: #fff; }
+
+  /* MOBILE */
+  @media(max-width: 768px) {
+    .pillar { grid-template-columns: 1fr; }
+    .pillar-left { border-right: none; border-bottom: 1px solid var(--border); }
+    .dept-cols-header { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .clone-grid { grid-template-columns: 1fr; }
+    .clone-statement { grid-template-columns: 1fr; gap: 1rem; }
+    .clone-vs { font-size: 2rem; }
+    .hero-score { gap: 1rem; padding: 1rem 1.25rem; }
+  }
+  @media(max-width: 480px) {
+    .dept-cols-header { grid-template-columns: 1fr; }
+    .hero-score { flex-direction: column; gap: 0.75rem; }
+    .score-div { width: 60px; height: 1px; }
+  }
 </style>
 </head>
 <body>
 
-<!-- TOP BANNER -->
-<div class="top-banner">
-  Há dois tipos de empresa no Brasil agora. Saiba qual a sua. →
-</div>
-
 <!-- NAV -->
-<nav>
-  <div class="nav-logo">KTANA <span class="nav-logo-dot">·</span> Empresa Inteligente</div>
-  <div class="nav-links">
-    <a href="#">Por Área</a>
-    <a href="#">Cases</a>
-    <a href="#">Planos</a>
-    <a href="#">CEO Grátis</a>
-    <button class="btn-nav">Tornar minha empresa IA First</button>
-  </div>
+<nav class="nav">
+  <a href="/" class="nav-back">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    Voltar para Empresa Inteligente
+  </a>
+  <span class="nav-brand">Empresa Inteligente</span>
+  <a href="https://ktana.ai/lead" target="_blank" class="nav-cta">Falar com especialista</a>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div>
-    <div class="hero-eyebrow">Empresa IA First</div>
-    <h1>Sua empresa não usa IA. Sua empresa <em>é</em> IA.</h1>
-    <p class="hero-sub">Cada área com inteligência trabalhando 24h. Financeiro, Comercial, Marketing, RH, Jurídico. Sua operação no nível que você sempre quis — sem precisar triplicar o time.</p>
-    <div class="hero-ctas">
-      <button class="btn-primary">Monte sua equipe inteligente</button>
-      <button class="btn-ghost">Comece com o CEO — grátis</button>
-    </div>
-    <p class="hero-cta-note">CEO de IA: grátis, para sempre. Dois minutos para ativar.</p>
-  </div>
-  <div class="hero-visual">
-    <div class="hero-visual-tag">Empresa IA First · Dashboard</div>
-    <div class="hero-samurai-badge">Samurais ativos agora</div>
-  </div>
-</div>
-
-<!-- PROOF BAR -->
-<div class="proof-bar">
-  <div class="proof-bar-inner">
-    <div class="proof-label">Empresas que já operam em outro nível</div>
-    <div class="proof-logos">
-      <div class="proof-logo">Empresa A</div>
-      <div class="proof-logo">Empresa B</div>
-      <div class="proof-logo">Empresa C</div>
-      <div class="proof-logo">Empresa D</div>
-      <div class="proof-logo">Empresa E</div>
-      <div class="proof-logo">Empresa F</div>
-    </div>
-  </div>
-</div>
-
-<!-- MÉTRICAS + PILARES -->
-<section>
-  <div class="metrics-row">
-    <div class="metric-block">
-      <div class="metric-number">24h</div>
-      <div class="metric-desc">Cada samurai opera ininterruptamente — sem folga, sem férias, sem limite</div>
-    </div>
-    <div class="metric-block">
-      <div class="metric-number">2 min</div>
-      <div class="metric-desc">Para ativar o primeiro samurai. Sem cartão, sem contrato, sem técnico</div>
-    </div>
-    <div class="metric-block">
-      <div class="metric-number">8 áreas</div>
-      <div class="metric-desc">Financeiro, Comercial, Marketing, RH, Jurídico, Projetos, Administrativo e Tecnologia</div>
-    </div>
-  </div>
-
-  <div class="section-header">
-    <div class="section-tag">Por Área</div>
-    <h2>O que muda em cada <em>departamento</em></h2>
-    <p class="section-sub">O empresário não pensa em "IA". Pensa em Comercial, Financeiro, Atendimento. É assim que os samurais trabalham — um para cada área.</p>
-  </div>
-
-  <div>
-    <div class="pillar">
-      <div>
-        <div class="pillar-tag">Comercial</div>
-        <h3>Prospecção ativa 24h. Nenhum lead sem resposta.</h3>
-        <div class="before-after">
-          <div class="ba-block">
-            <span class="ba-label before">Antes</span>
-            <p class="ba-text">SDR trabalhando 8h/dia, prospectando 30 empresas por semana, perdendo follow-up no fim de semana.</p>
-          </div>
-          <div class="ba-block">
-            <span class="ba-label after">Depois</span>
-            <p class="ba-text"><strong>Prospecção ativa 24h.</strong> Follow-up automático. Nenhum lead sem resposta. Qualificação antes de chegar no humano.</p>
-          </div>
-        </div>
-        <div class="result-anchor">Times com IA no comercial triplicam leads qualificados — sem contratar.</div>
+  <div class="container">
+    <div class="hero-label">Diagnóstico de sobrevivência</div>
+    <h1>Há dois tipos de empresa<br>no Brasil agora.<br><em>Saiba qual é a sua.</em></h1>
+    <p>Veja departamento por departamento o que está acontecendo na empresa que vai morrer — e o que muda quando a IA entra em operação.</p>
+    <div class="hero-score">
+      <div class="score-item">
+        <div class="score-num red">6</div>
+        <div class="score-label">Departamentos analisados</div>
       </div>
-      <div class="pillar-screen"><span>Comercial · Pipeline</span></div>
-    </div>
-
-    <div class="pillar reverse">
-      <div>
-        <div class="pillar-tag">Financeiro</div>
-        <h3>DRE em 30 minutos. Fluxo em tempo real.</h3>
-        <div class="before-after">
-          <div class="ba-block">
-            <span class="ba-label before">Antes</span>
-            <p class="ba-text">DRE levando 1 dia inteiro. Fluxo de caixa atualizado a cada semana. Decisão financeira no escuro.</p>
-          </div>
-          <div class="ba-block">
-            <span class="ba-label after">Depois</span>
-            <p class="ba-text"><strong>DRE em 30 minutos.</strong> Fluxo em tempo real. Alertas automáticos de risco antes de virar problema.</p>
-          </div>
-        </div>
-        <div class="result-anchor">Planejamento que levava 1 dia, em 30 minutos.</div>
+      <div class="score-div"></div>
+      <div class="score-item">
+        <div class="score-num">24h</div>
+        <div class="score-label">Operação com IA</div>
       </div>
-      <div class="pillar-screen"><span>Financeiro · DRE</span></div>
-    </div>
-
-    <div class="pillar">
-      <div>
-        <div class="pillar-tag">Marketing</div>
-        <h3>Constância que o time humano não consegue manter sozinho.</h3>
-        <div class="before-after">
-          <div class="ba-block">
-            <span class="ba-label before">Antes</span>
-            <p class="ba-text">Conteúdo dependendo de uma pessoa. Campanha levando semanas para sair. Engajamento inconsistente.</p>
-          </div>
-          <div class="ba-block">
-            <span class="ba-label after">Depois</span>
-            <p class="ba-text"><strong>Pauta gerada, conteúdo produzido, campanha estruturada.</strong> Constância sem depender de inspiração ou disponibilidade.</p>
-          </div>
-        </div>
-        <div class="result-anchor">De 4 posts/mês para presença diária — sem nova contratação.</div>
-      </div>
-      <div class="pillar-screen"><span>Marketing · Pauta</span></div>
-    </div>
-
-    <div class="pillar reverse">
-      <div>
-        <div class="pillar-tag">Jurídico</div>
-        <h3>Contratos revisados. Prazos monitorados. Zero surpresa.</h3>
-        <div class="before-after">
-          <div class="ba-block">
-            <span class="ba-label before">Antes</span>
-            <p class="ba-text">Contrato esperando advogado externo. Prazo perdido. Custo de consulta para perguntas básicas.</p>
-          </div>
-          <div class="ba-block">
-            <span class="ba-label after">Depois</span>
-            <p class="ba-text"><strong>Contratos revisados, compliance monitorado, alertas de prazo.</strong> Advogado só para o que é realmente estratégico.</p>
-          </div>
-        </div>
-        <div class="result-anchor">Revisão de contrato: de 3 dias para 40 minutos.</div>
-      </div>
-      <div class="pillar-screen"><span>Jurídico · Contratos</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── SEÇÃO DEPARTAMENTOS COM HIERARQUIA ─── -->
-<div class="depts-section">
-  <div class="depts-inner">
-    <div class="section-header">
-      <div class="section-tag" style="color:var(--orange)">Estrutura Completa</div>
-      <h2>Cada departamento com <em style="color:var(--orange)">hierarquia própria</em></h2>
-      <p class="section-sub">Antes de ativar o copiloto, veja o que cada samurai assume na sua empresa. Oito áreas. Uma inteligência dedicada em cada uma.</p>
-    </div>
-
-    <div class="depts-grid">
-
-      <!-- Financeiro -->
-      <div class="dept-card">
-        <div class="dept-header">
-          <div class="dept-dot"></div>
-          <div class="dept-name">Financeiro</div>
-        </div>
-        <ul class="dept-tasks">
-          <li>Controller — visão consolidada</li>
-          <li>Cobranças — régua automática</li>
-          <li>Contas a pagar e receber</li>
-          <li>DRE — fechamento em minutos</li>
-          <li>Fluxo de caixa em tempo real</li>
-        </ul>
-        <div class="dept-gain">
-          <div class="dept-gain-label">Ganho</div>
-          <div class="dept-gain-text">DRE de 1 dia para 30 min. Decisão financeira com dados, não intuição.</div>
-        </div>
-      </div>
-
-      <!-- Administrativo -->
-      <div class="dept-card">
-        <div class="dept-header">
-          <div class="dept-dot"></div>
-          <div class="dept-name">Administrativo</div>
-        </div>
-        <ul class="dept-tasks">
-          <li>Secretaria — filtro de demandas</li>
-          <li>Agenda — organização e prioridade</li>
-          <li>E-mails — triagem e respostas</li>
-          <li>Briefings — sínteses automáticas</li>
-          <li>Organização — processos internos</li>
-        </ul>
-        <div class="dept-gain">
-          <div class="dept-gain-label">Ganho</div>
-          <div class="dept-gain-text">CEO com agenda limpa. Zero tempo perdido em tarefas operacionais.</div>
-        </div>
-      </div>
-
-      <!-- Projetos -->
-      <div class="dept-card">
-        <div class="dept-header">
-          <div class="dept-dot"></div>
-          <div class="dept-name">Projetos</div>
-        </div>
-        <ul class="dept-tasks">
-          <li>PM — gestão de escopo e equipe</li>
-          <li>Sprints — planejamento e acompanhamento</li>
-          <li>Prazos — alertas e previsões</li>
-          <li>Cobrança de entregas — follow-up</li>
-          <li>Reports — status automático</li>
-        </ul>
-        <div class="dept-gain">
-          <div class="dept-gain-label">Ganho</div>
-          <div class="dept-gain-text">Projetos no prazo. Gestor focado em decisão, não em cobrar status.</div>
-        </div>
-      </div>
-
-      <!-- Comercial -->
-      <div class="dept-card">
-        <div class="dept-header">
-          <div class="dept-dot"></div>
-          <div class="dept-name">Comercial</div>
-        </div>
-        <ul class="dept-tasks">
-          <li>SDR — prospecção ativa 24h</li>
-          <li>Prospecção — lista e abordagem</li>
-          <li>Qualificação — antes do humano</li>
-          <li>Follow-up — régua automática</li>
-          <li>CRM — atualização em tempo real</li>
-        </ul>
-        <div class="dept-gain">
-          <div class="dept-gain-label">Ganho</div>
-          <div class="dept-gain-text">3x mais leads qualificados. Pipeline ativo sem depender de SDR humano.</div>
-        </div>
-      </div>
-
-      <!-- Marketing -->
-      <div class="dept-card">
-        <div class="dept-header">
-          <div class="dept-dot"></div>
-          <div class="dept-name">Marketing</div>
-        </div>
-        <ul class="dept-tasks">
-          <li>Social media — pauta e publicação</li>
-          <li>Conteúdo — produção constante</li>
-          <li>Campanhas — estrutura e copy</li>
-          <li>Engajamento — monitoramento</li>
-          <li>Relatórios — performance semanal</li>
-        </ul>
-        <div class="dept-gain">
-          <div class="dept-gain-label">Ganho</div>
-          <div class="dept-gain-text">De 4 posts/mês para presença diária. Sem novo contratado.</div>
-        </div>
-      </div>
-
-      <!-- RH -->
-      <div class="dept-card">
-        <div class="dept-header">
-          <div class="dept-dot"></div>
-          <div class="dept-name">RH</div>
-        </div>
-        <ul class="dept-tasks">
-          <li>Vagas — JD e publicação</li>
-          <li>Triagem de CVs — filtro inicial</li>
-          <li>Entrevistas — agendamento e prep</li>
-          <li>Onboarding — fluxo estruturado</li>
-          <li>Cultura — acompanhamento contínuo</li>
-        </ul>
-        <div class="dept-gain">
-          <div class="dept-gain-label">Ganho</div>
-          <div class="dept-gain-text">Contratação mais rápida. Onboarding padronizado. RH focado em gente.</div>
-        </div>
-      </div>
-
-      <!-- Jurídico -->
-      <div class="dept-card">
-        <div class="dept-header">
-          <div class="dept-dot"></div>
-          <div class="dept-name">Jurídico</div>
-        </div>
-        <ul class="dept-tasks">
-          <li>Contratos — revisão e alertas</li>
-          <li>Compliance — monitoramento</li>
-          <li>Orientação — consultas básicas</li>
-          <li>Certidões — controle e renovação</li>
-          <li>Prazos — nenhum esquecido</li>
-        </ul>
-        <div class="dept-gain">
-          <div class="dept-gain-label">Ganho</div>
-          <div class="dept-gain-text">Contrato revisado em 40 min. Advogado externo só para o estratégico.</div>
-        </div>
-      </div>
-
-      <!-- Tecnologia -->
-      <div class="dept-card">
-        <div class="dept-header">
-          <div class="dept-dot"></div>
-          <div class="dept-name">Tecnologia</div>
-        </div>
-        <ul class="dept-tasks">
-          <li>Infra — uptime e escalabilidade</li>
-          <li>DevOps — deploy e automação</li>
-          <li>Arquitetura — decisões técnicas</li>
-          <li>Monitoramento — alertas 24h</li>
-          <li>Segurança — auditoria contínua</li>
-        </ul>
-        <div class="dept-gain">
-          <div class="dept-gain-label">Ganho</div>
-          <div class="dept-gain-text">Infra monitorada 24h. Problemas identificados antes de virar incidente.</div>
-        </div>
-      </div>
-
-    </div><!-- /depts-grid -->
-
-    <!-- EMPRESA COMO UM TODO -->
-    <div class="empresa-gain">
-      <div>
-        <h3>A empresa como <em>um organismo inteligente.</em></h3>
-        <p>Cada área operando com IA própria. Cada decisão alimentada por dados. A empresa no nível que o empresário sempre quis — sem precisar triplicar o time ou depender de pessoas que podem sair amanhã.</p>
-      </div>
-      <div class="empresa-gain-metrics">
-        <div class="eg-metric">
-          <div class="eg-number">8x</div>
-          <div class="eg-desc">Mais capacidade operacional sem novas contratações</div>
-        </div>
-        <div class="eg-metric">
-          <div class="eg-number">24h</div>
-          <div class="eg-desc">Cada departamento ativo, sem pausas, fins de semana ou feriados</div>
-        </div>
-        <div class="eg-metric">
-          <div class="eg-number">-60%</div>
-          <div class="eg-desc">Redução de tempo em tarefas operacionais em todas as áreas</div>
-        </div>
-        <div class="eg-metric">
-          <div class="eg-number">2 min</div>
-          <div class="eg-desc">Para ativar o primeiro samurai e sentir a diferença</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div><!-- /depts-section -->
-
-<!-- COMO FUNCIONA — COPILOTO -->
-<div class="divider"></div>
-<section>
-  <div class="section-header">
-    <div class="section-tag">Como Funciona</div>
-    <h2>O samurai já chegou <em>pronto.</em></h2>
-    <p class="section-sub">Sem treinamento. Sem manual. Sem período de adaptação. Dois minutos para ativar o primeiro.</p>
-  </div>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">01</div>
-      <h4>Escolha a área</h4>
-      <p>Comece pelo CEO. Ou pelo Comercial. Ou pelo Financeiro. Você decide onde a empresa precisa mais agora.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <h4>Apresente sua empresa</h4>
-      <p>Nome, setor, estilo. Dois minutos. O samurai aprende o contexto e já começa a trabalhar.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <h4>Sua empresa opera em outro nível</h4>
-      <p>O samurai já chegou treinado. Sem onboarding. Sem curva. Resultado desde o primeiro dia.</p>
-    </div>
-  </div>
-</section>
-
-<!-- RESULTADOS DARK -->
-<div class="results-section">
-  <div class="results-inner">
-    <div class="section-header">
-      <div class="section-tag">Resultados</div>
-      <h2>Âncoras <em>reais</em> de empresas IA First</h2>
-      <p class="section-sub" style="color:rgba(255,255,255,0.4)">Números que aparecem no caixa e na operação. Não em relatório de plataforma.</p>
-    </div>
-    <div class="results-grid">
-      <div class="result-block">
-        <div class="result-number">3x</div>
-        <div class="result-title">Mais leads qualificados no Comercial</div>
-        <div class="result-desc">Sem aumentar time de vendas. SDR IA trabalhando em paralelo ao time humano, 24h.</div>
-      </div>
-      <div class="result-block">
-        <div class="result-number">70%</div>
-        <div class="result-title">Redução no tempo de resposta ao cliente</div>
-        <div class="result-desc">Atendimento resolvido em segundos. Humano liberado para casos complexos.</div>
+      <div class="score-div"></div>
+      <div class="score-item">
+        <div class="score-num red">0</div>
+        <div class="score-label">Contratações necessárias</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- CASES -->
-<section>
-  <div class="section-header">
-    <div class="section-tag">Cases</div>
-    <h2>Empresas que já <em>operam em outro nível</em></h2>
-    <p class="section-sub">Depoimentos reais com a estrutura que importa: antes, o que mudou, o número.</p>
-  </div>
-  <div class="cases-grid">
-    <div class="case-card">
-      <div class="case-metric">45 min</div>
-      <div class="case-metric-label">Para fechar o DRE (antes: 1 dia inteiro)</div>
-      <p class="case-quote">"Antes meu financeiro fechava em 2 dias — e ainda tinha erro. Hoje o DRE sai em 45 minutos, todo dia, automático. Minha analista agora faz análise estratégica, não planilha."</p>
-      <div class="case-author">
-        <div class="case-avatar">CF</div>
-        <div>
-          <div class="case-name">[Nome], CFO</div>
-          <div class="case-role">Empresa · Setor</div>
-        </div>
-      </div>
-    </div>
-    <div class="case-card">
-      <div class="case-metric">R$ 20K</div>
-      <div class="case-metric-label">Economia mensal com atendimento</div>
-      <p class="case-quote">"A equipe dobrou a capacidade sem contratar ninguém. O samurai de atendimento resolve 80% dos chamados antes de chegar ao time humano."</p>
-      <div class="case-author">
-        <div class="case-avatar">MS</div>
-        <div>
-          <div class="case-name">[Nome], CEO</div>
-          <div class="case-role">Empresa · Setor</div>
-        </div>
-      </div>
-    </div>
-    <div class="case-card">
-      <div class="case-metric">4 dias</div>
-      <div class="case-metric-label">Até o primeiro resultado concreto</div>
-      <p class="case-quote">"Em menos de uma semana o samurai comercial já estava qualificando leads e fazendo follow-up. Sem configurar nada além do básico."</p>
-      <div class="case-author">
-        <div class="case-avatar">RP</div>
-        <div>
-          <div class="case-name">[Nome], Founder</div>
-          <div class="case-role">Empresa · Setor</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- DEPT SECTION HEADER -->
+<div class="section-header">
+  <div class="section-tag">Por departamento</div>
+  <h2>O que está acontecendo<br>na sua empresa <em>agora</em></h2>
+  <p>Cada área com ou sem IA. Dois caminhos. Apenas um sobrevive.</p>
+</div>
 
-<!-- ANÚNCIOS / COPY FUNIL -->
-<div class="ads-section">
-  <div class="ads-inner">
-    <div class="section-header">
-      <div class="section-tag">Criativos do Funil</div>
-      <h2 style="color:white">Copy por <em>etapa</em></h2>
-      <p class="section-sub" style="color:rgba(255,255,255,0.4)">Estrutura dos anúncios Meta Ads por nível de consciência do público.</p>
+<!-- COL HEADERS -->
+<div class="dept-section">
+  <div class="dept-cols-header">
+    <div class="col-h dying">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+      Empresa que vai morrer
     </div>
-    <div class="ads-grid">
-      <div class="ad-card">
-        <div class="ad-stage">Topo · Identidade</div>
-        <div class="ad-headline">Empresa IA First — KTANA</div>
-        <div class="ad-body">
-          Tem dois tipos de empresa hoje.<br><br>
-          A que usa IA como ferramenta quando lembra.<br>
-          E a que tem IA no DNA — rodando Financeiro, Comercial, Marketing e Atendimento 24 horas por dia.<br><br>
-          A segunda opera em outro nível. Escala sem contratar. Decide mais rápido. Perde menos.<br><br>
-          A KTANA transforma sua empresa na segunda. Começa pelo CEO de IA — grátis, para sempre.
-        </div>
-        <span class="ad-cta-tag">CTA: Começar Agora</span>
+    <div class="col-h surviving">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Empresa que vai crescer
+    </div>
+  </div>
+
+  <!-- COMERCIAL -->
+  <div class="pillar">
+    <div class="pillar-left">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        Comercial
       </div>
-      <div class="ad-card">
-        <div class="ad-stage">Meio · Custo Operacional</div>
-        <div class="ad-headline">Monte sua equipe inteligente — sem CLT</div>
-        <div class="ad-body">
-          Cada área da sua empresa tem uma pessoa responsável.<br>
-          Essa pessoa trabalha 8h, tira férias, fica doente e um dia pede demissão.<br><br>
-          Agora imagina cada área com uma inteligência dedicada.<br>
-          Trabalha 24h. Não esquece. Não atrasa. Não pede aumento.<br><br>
-          Financeiro. Comercial. Marketing. Projetos. RH. Jurídico. Tecnologia. Administrativo.<br>
-          Um samurai para cada área. Todos trabalhando agora.<br><br>
-          CEO de IA: grátis. Para sempre. Dois minutos para ativar.
-        </div>
-        <span class="ad-cta-tag">CTA: Ativar Agora</span>
+      <div class="pillar-headline">Seu vendedor não fecha porque chega cansado no lead errado.</div>
+      <div class="ba-block">
+        <span class="ba-label before">Hoje</span>
+        <p class="ba-text">SDR prospecta 8h por dia, faz cold call que não converte. Follow-up esquecido no fim de semana. Lead quente virou frio porque ninguém retornou a tempo.</p>
       </div>
-      <div class="ad-card">
-        <div class="ad-stage">Topo · Velocidade (vídeo curto)</div>
-        <div class="ad-headline">Sua empresa no modo 24/7</div>
-        <div class="ad-body">
-          Sua empresa fecha o mês em 1 dia. Ou fecha em 30 minutos?<br><br>
-          Seus leads ficam sem resposta nos fins de semana. Ou são respondidos em segundos, às 3h da manhã?<br><br>
-          Sua empresa opera no ritmo de quem está dormindo. Ou no ritmo de quem nunca dorme?<br><br>
-          Empresa IA First. Começa grátis.
-        </div>
-        <span class="ad-cta-tag">CTA: Quero isso</span>
+      <div class="ba-block">
+        <span class="ba-label after">Resultado</span>
+        <p class="ba-text">Pipeline desatualizado. Previsão de vendas errada. Reunião toda semana para entender o que travou — e ninguém sabe.</p>
       </div>
-      <div class="ad-card">
-        <div class="ad-stage">Fundo · Retargeting</div>
-        <div class="ad-headline">Seu CEO de IA está esperando</div>
-        <div class="ad-body">
-          Você já visitou a KTANA.<br>
-          Deve ter visto que o CEO de IA é grátis — para sempre.<br><br>
-          O que você vai fazer com um CEO de IA que nunca dorme, nunca esquece um prazo e trabalha nos 7 dias da semana?<br><br>
-          Dois minutos para descobrir.
+      <div class="result-anchor">Empresa paga caro por vendedor que passa o dia fazendo o que a IA faria em segundos.</div>
+    </div>
+    <div class="pillar-right">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        Comercial com IA
+      </div>
+      <div class="pillar-headline">Seu vendedor só fala com quem já quer comprar.</div>
+      <div class="ba-block">
+        <span class="ba-label now">Com IA</span>
+        <p class="ba-text"><strong>Prospecção ativa 24h.</strong> IA qualifica lead antes de chegar no humano. Follow-up automático no momento certo — nenhum contato esquecido.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label now">Resultado</span>
+        <p class="ba-text"><strong>Pipeline em tempo real.</strong> Proposta gerada em minutos. Vendedor foca em fechar — não em prospectar, não em preencher CRM, não em lembrar de ligar.</p>
+      </div>
+      <div class="result-anchor-green">Times com IA no comercial triplicam leads qualificados sem contratar ninguém.</div>
+    </div>
+  </div>
+
+  <!-- FINANCEIRO -->
+  <div class="pillar">
+    <div class="pillar-left">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Financeiro
+      </div>
+      <div class="pillar-headline">Seu financeiro vive apagando incêndio que ele mesmo poderia ter evitado.</div>
+      <div class="ba-block">
+        <span class="ba-label before">Hoje</span>
+        <p class="ba-text">DRE leva 2 dias inteiros. Erros descobertos na reunião com o sócio. Fluxo de caixa atualizado uma vez por semana — quando lembram.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label after">Resultado</span>
+        <p class="ba-text">Decisão financeira baseada em dado de 10 dias atrás. Risco que poderia ter sido evitado virou custo real. Reunião que poderia ter durado 15 minutos durou 2 horas.</p>
+      </div>
+      <div class="result-anchor">O financeiro que demora 2 dias é o financeiro que decide tarde — e decide errado.</div>
+    </div>
+    <div class="pillar-right">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Financeiro com IA
+      </div>
+      <div class="pillar-headline">DRE em 30 minutos. Fluxo em tempo real. Alerta antes do problema.</div>
+      <div class="ba-block">
+        <span class="ba-label now">Com IA</span>
+        <p class="ba-text"><strong>Fechamento em 30 minutos.</strong> DRE automático com alertas de desvio. Fluxo de caixa projetado todo dia pela manhã com base no histórico real.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label now">Resultado</span>
+        <p class="ba-text"><strong>Decisão financeira com dados de hoje.</strong> Risco identificado antes de virar problema. Reunião de 15 minutos porque todo mundo já chegou sabendo os números.</p>
+      </div>
+      <div class="result-anchor-green">Planejamento que levava 1 dia inteiro agora leva 30 minutos — com mais precisão.</div>
+    </div>
+  </div>
+
+  <!-- ATENDIMENTO -->
+  <div class="pillar">
+    <div class="pillar-left">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Atendimento
+      </div>
+      <div class="pillar-headline">Seu cliente está esperando. Sua equipe está cansada. Ambos estão perdendo.</div>
+      <div class="ba-block">
+        <span class="ba-label before">Hoje</span>
+        <p class="ba-text">Fila de mensagens que ninguém consegue zerar. Mesmo cliente perguntando a mesma coisa pelo terceiro dia — porque o atendimento anterior não registrou nada.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label after">Resultado</span>
+        <p class="ba-text">Time frustrado, respondendo com pressa e sem contexto. Cliente insatisfeito. Avaliação negativa. Concorrente que responde em segundos rouba o cliente que você pagou para adquirir.</p>
+      </div>
+      <div class="result-anchor">Atendimento lento não é problema de time — é problema de estrutura. E o cliente não espera.</div>
+    </div>
+    <div class="pillar-right">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Atendimento com IA
+      </div>
+      <div class="pillar-headline">Resposta em segundos. Às 3h da manhã. Sem time extra.</div>
+      <div class="ba-block">
+        <span class="ba-label now">Com IA</span>
+        <p class="ba-text"><strong>70% dos atendimentos resolvidos sem humano.</strong> Resposta em segundos, 24h por dia, em todos os canais. Histórico completo disponível para quando o humano precisar entrar.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label now">Resultado</span>
+        <p class="ba-text"><strong>Time focado no que realmente precisa de empatia.</strong> Satisfação subindo. Cliente atendido às 2h da manhã sem custo adicional. Fila que nunca zera — zerada.</p>
+      </div>
+      <div class="result-anchor-green">Tempo de resposta reduzido em 70%. Satisfação do cliente subindo desde o primeiro mês.</div>
+    </div>
+  </div>
+
+  <!-- MARKETING -->
+  <div class="pillar">
+    <div class="pillar-left">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 5.882V19.24a1.76 1.76 0 0 1-3.417.592l-2.147-6.15M18 13a3 3 0 1 0 0-6M5.436 13.683A4.001 4.001 0 0 0 7 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 0 0-1.564.317z"/></svg>
+        Marketing
+      </div>
+      <div class="pillar-headline">Seu Instagram ficou 4 dias sem postar. Ninguém sabe o ROI da campanha que rodou semana passada.</div>
+      <div class="ba-block">
+        <span class="ba-label before">Hoje</span>
+        <p class="ba-text">Briefing que trava uma semana na aprovação. Conteúdo criado na correria, sem estratégia, sem consistência. Instagram que pouco quando dá.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label after">Resultado</span>
+        <p class="ba-text">Resultado de campanha chega no fim do mês — tarde demais para ajustar. Investimento em mídia baseado em feeling. Brand sem voz, sem presença, sem crescimento.</p>
+      </div>
+      <div class="result-anchor">Marketing inconsistente não é falta de talento — é falta de estrutura. A concorrência já tem.</div>
+    </div>
+    <div class="pillar-right">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 5.882V19.24a1.76 1.76 0 0 1-3.417.592l-2.147-6.15M18 13a3 3 0 1 0 0-6M5.436 13.683A4.001 4.001 0 0 0 7 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 0 0-1.564.317z"/></svg>
+        Marketing com IA
+      </div>
+      <div class="pillar-headline">Calendário do mês gerado em 2 horas. Posts criados, aprovados e agendados automaticamente.</div>
+      <div class="ba-block">
+        <span class="ba-label now">Com IA</span>
+        <p class="ba-text"><strong>Estratégia de conteúdo mensal em 2 horas.</strong> Posts criados no tom da marca, revisados por IA e agendados automaticamente. Zero surpresa no calendário editorial.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label now">Resultado</span>
+        <p class="ba-text"><strong>Performance de campanha em tempo real.</strong> CAC e ROI atualizados todo dia. Decisão de onde investir baseada em dado — não em sensação do gestor de tráfego.</p>
+      </div>
+      <div class="result-anchor-green">Conteúdo consistente, todos os dias, com 90% menos tempo de aprovação.</div>
+    </div>
+  </div>
+
+  <!-- RH -->
+  <div class="pillar">
+    <div class="pillar-left">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        RH
+      </div>
+      <div class="pillar-headline">Sua vaga está aberta há 3 semanas. Você já leu 200 currículos e ainda não entrevistou ninguém certo.</div>
+      <div class="ba-block">
+        <span class="ba-label before">Hoje</span>
+        <p class="ba-text">Triagem manual de currículo por currículo. Candidato some entre etapas porque ninguém avisou no prazo. Processo que leva 3 semanas e ainda assim contrata errado.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label after">Resultado</span>
+        <p class="ba-text">Vaga aberta por um mês. Time sobrecarregado com a falta. Onboarding explicado do zero para cada pessoa nova — sem manual, sem processo, sem padrão.</p>
+      </div>
+      <div class="result-anchor">Recrutamento lento custa caro duas vezes: o salário de quem você precisa e o custo de quem está sobrecarregado esperando.</div>
+    </div>
+    <div class="pillar-right">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        RH com IA
+      </div>
+      <div class="pillar-headline">200 currículos triados em 1 hora. Processo fechado em 6 dias. Só o certo chega na entrevista final.</div>
+      <div class="ba-block">
+        <span class="ba-label now">Com IA</span>
+        <p class="ba-text"><strong>Triagem automática de 200 currículos em menos de 1 hora.</strong> Entrevista inicial conduzida por IA. Comunicação automática em cada etapa — nenhum candidato some sem resposta.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label now">Resultado</span>
+        <p class="ba-text"><strong>Processo em 6 dias.</strong> Você entrevista só quem passou por 3 filtros. Onboarding guiado por IA desde o primeiro dia — sem depender de ninguém para explicar o básico.</p>
+      </div>
+      <div class="result-anchor-green">Processo seletivo de 3 semanas para 6 dias. Com candidatos melhores, não piores.</div>
+    </div>
+  </div>
+
+  <!-- GESTÃO -->
+  <div class="pillar">
+    <div class="pillar-left">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Gestão
+      </div>
+      <div class="pillar-headline">Você é o gargalo da sua própria empresa. Toda decisão passa por você — e ninguém sabe o status de nada.</div>
+      <div class="ba-block">
+        <span class="ba-label before">Hoje</span>
+        <p class="ba-text">Reunião toda semana porque ninguém sabe o que está acontecendo. Aprovação travada na sua caixa de entrada. Você no meio de tudo — desde o estratégico até o que não precisava da sua atenção.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label after">Resultado</span>
+        <p class="ba-text">Relatório que ninguém tem tempo de montar. Decisão tomada com dado de semana passada. Você apagando incêndio em vez de construir empresa.</p>
+      </div>
+      <div class="result-anchor">O dono que aprova tudo é o dono que trava tudo. Incluindo o crescimento da própria empresa.</div>
+    </div>
+    <div class="pillar-right">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Gestão com IA
+      </div>
+      <div class="pillar-headline">Você decide. A IA executa. O time opera sem precisar de você para tudo.</div>
+      <div class="ba-block">
+        <span class="ba-label now">Com IA</span>
+        <p class="ba-text"><strong>Dashboard com status de tudo em tempo real.</strong> Aprovações simples resolvidas sem passar por você. Alertas só quando você realmente precisa ser acionado.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label now">Resultado</span>
+        <p class="ba-text"><strong>Relatório semanal gerado automaticamente.</strong> Reunião de 15 minutos porque todo mundo já chegou preparado. Você para de ser o gargalo e começa a ser o estrategista.</p>
+      </div>
+      <div class="result-anchor-green">Donos com IA na gestão têm 40% mais horas estratégicas por semana.</div>
+    </div>
+  </div>
+
+</div><!-- /dept-section -->
+
+<!-- CLONE DOS LÍDERES -->
+<div class="clone-section">
+  <div class="clone-inner">
+    <div class="clone-header">
+      <div class="section-tag">O diferencial que ninguém explica</div>
+      <h2>O copiloto inteligente dos seus<br><em>melhores líderes</em></h2>
+      <p>Toda empresa tem aquele profissional que "sabe como fazer". O que acontece quando ele sai? O conhecimento vai junto. Com a Empresa Inteligente, esse conhecimento vira um agente — e fica para sempre.</p>
+    </div>
+
+    <div class="clone-statement">
+      <div class="clone-vs">24h</div>
+      <p>O seu melhor vendedor trabalha <strong>8 horas por dia</strong> — e um dia ele pede demissão. O agente de IA opera <strong>24 horas por dia</strong>, com o framework de decisão dele, sem tirar férias, sem rescisão, sem variação de humor. O conhecimento não sai quando o colaborador sai.</p>
+    </div>
+
+    <div class="clone-grid">
+      <div class="clone-card">
+        <div class="clone-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
         </div>
-        <span class="ad-cta-tag">CTA: Ativar Agora</span>
+        <h4>Framework de decisão</h4>
+        <p>Como seu melhor vendedor qualifica um lead. Como seu financeiro avalia um risco. Como seu atendimento lida com cliente difícil. Tudo programado dentro do agente — operando exatamente como o melhor que você já teve.</p>
+      </div>
+      <div class="clone-card">
+        <div class="clone-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h4>Tom e linguagem da sua empresa</h4>
+        <p>O agente fala como sua empresa. O vocabulário, o ritmo, o nível de formalidade, as expressões que você usa com cliente. Não é IA genérica — é IA calibrada para o seu negócio específico.</p>
+      </div>
+      <div class="clone-card">
+        <div class="clone-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4>Conhecimento que não sai</h4>
+        <p>Processos, exceções, regras de negócio, critérios que só quem está há 3 anos na empresa conhece — documentados e operando. Independente de quem entra e sai do time.</p>
+      </div>
+    </div>
+
+    <div class="clone-frameworks">
+      <h4>Frameworks operacionais por departamento</h4>
+      <p>Cada agente vem com frameworks testados para o seu setor — prontos para ser adaptados à realidade específica da sua empresa. Você não precisa construir do zero. Você ajusta o que já funciona.</p>
+      <div class="framework-tags">
+        <span class="framework-tag">Framework de qualificação de leads</span>
+        <span class="framework-tag">Framework de análise financeira</span>
+        <span class="framework-tag">Framework de atendimento ao cliente</span>
+        <span class="framework-tag">Framework de seleção de pessoas</span>
+        <span class="framework-tag">Framework de criação de conteúdo</span>
+        <span class="framework-tag">Framework de gestão operacional</span>
+        <span class="framework-tag">Framework jurídico preventivo</span>
       </div>
     </div>
   </div>
 </div>
 
-<!-- PRICING -->
-<section>
-  <div class="section-header">
-    <div class="section-tag">Planos</div>
-    <h2>Comece com o CEO. <em>Expanda por área.</em></h2>
-    <p class="section-sub">O CEO de IA é grátis para sempre. Adicione samurais por área conforme a empresa cresce.</p>
-  </div>
-  <div class="pricing-grid">
-    <div class="price-card">
-      <div class="price-tier">CEO de IA</div>
-      <div class="price-amount">Grátis <span>/ para sempre</span></div>
-      <div class="price-period">Sem cartão. Sem contrato. Começa em 2 minutos.</div>
-      <ul class="price-features">
-        <li>CEO com contexto da sua empresa</li>
-        <li>Decisões estratégicas assistidas</li>
-        <li>Gestão de prioridades e agenda</li>
-        <li>Briefings e sínteses automáticas</li>
-        <li>Acesso à plataforma Empresa Inteligente</li>
-      </ul>
-      <button class="btn-price">Ativar CEO grátis</button>
-    </div>
-    <div class="price-card featured">
-      <div class="price-badge">Mais escolhido</div>
-      <div class="price-tier">Equipe IA</div>
-      <div class="price-amount">R$ 1.950 <span>/mês</span></div>
-      <div class="price-period">3 samurais à escolha + CEO · Anual</div>
-      <ul class="price-features">
-        <li>CEO de IA incluso</li>
-        <li>3 samurais: Comercial, Financeiro, Marketing</li>
-        <li>Integração com seus sistemas</li>
-        <li>Relatórios automáticos por área</li>
-        <li>Suporte de implementação</li>
-      </ul>
-      <button class="btn-price">Ativar equipe agora</button>
-    </div>
-    <div class="price-card">
-      <div class="price-tier">Empresa Inteligente</div>
-      <div class="price-amount">R$ 3.950 <span>/mês</span></div>
-      <div class="price-period">Todos os samurais + CEO · Anual</div>
-      <ul class="price-features">
-        <li>Todos os 8 samurais (todas as áreas)</li>
-        <li>CEO + equipe completa de IA</li>
-        <li>Personalização profunda por empresa</li>
-        <li>Implementação assistida dedicada</li>
-        <li>Suporte 1:1 + expansão ilimitada</li>
-      </ul>
-      <button class="btn-price">Falar com especialista</button>
-    </div>
-  </div>
-</section>
-
-<!-- CTA FINAL -->
-<div class="cta-section">
-  <div class="cta-inner">
-    <h2>Há dois tipos de empresa. <em>Escolha o seu lado.</em></h2>
-    <p>A empresa que tem IA no DNA opera em outro nível. Escala sem contratar. Decide mais rápido. Perde menos. Começa agora — grátis.</p>
-    <button class="btn-primary">Tornar minha empresa IA First</button>
-    <div class="cta-disclaimer">CEO de IA grátis para sempre · Sem cartão · 2 minutos para ativar</div>
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <div class="container">
+    <h2>Sua empresa tem 6 departamentos.<br><em>Quantos estão com IA?</em></h2>
+    <p>Se a resposta for zero — você já sabe o que está em jogo. A empresa que implementa IA agora vai dominar o mercado dela nos próximos 3 anos. A que espera vai assistir isso acontecer.</p>
+    <a href="https://ktana.ai/lead" target="_blank" class="btn-primary">
+      Quero que minha empresa sobreviva
+    </a>
+    <p class="cta-note">Diagnóstico gratuito · 30 minutos · Sem compromisso · Resultado em 30 dias</p>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-logo">KTANA <span>·</span> Empresa Inteligente</div>
-    <div class="footer-links">
-      <a href="#">Por Área</a>
-      <a href="#">Planos</a>
-      <a href="#">Cases</a>
-      <a href="#">Blog</a>
-      <a href="#">Contato</a>
-    </div>
-    <div class="footer-copy">© 2026 KTANA. Todos os direitos reservados.</div>
-  </div>
+  <p>© 2026 <a href="/">Empresa Inteligente</a> · KTANA Tech Fin LTDA · CNPJ 57.813.462/0001-45</p>
 </footer>
 
 </body>
