@@ -1139,16 +1139,18 @@
       transition-delay: .9s;
     }
 
-    /* Cost items — stagger individual */
+    /* Cost items — fade de cima para baixo, um a um */
     .cost-list.reveal-children > * {
-      transform: translateX(-32px);
+      opacity: 0;
+      transform: translateY(-18px);
+      transition: opacity .5s cubic-bezier(.22,1,.36,1), transform .5s cubic-bezier(.22,1,.36,1);
     }
-    .cost-list.reveal-children.visible > *:nth-child(1) { transform: none; transition-delay:.04s; }
-    .cost-list.reveal-children.visible > *:nth-child(2) { transform: none; transition-delay:.13s; }
-    .cost-list.reveal-children.visible > *:nth-child(3) { transform: none; transition-delay:.22s; }
-    .cost-list.reveal-children.visible > *:nth-child(4) { transform: none; transition-delay:.31s; }
-    .cost-list.reveal-children.visible > *:nth-child(5) { transform: none; transition-delay:.40s; }
-    .cost-list.reveal-children.visible > *:nth-child(6) { transform: none; transition-delay:.49s; }
+    .cost-list.reveal-children.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:.00s; }
+    .cost-list.reveal-children.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:.12s; }
+    .cost-list.reveal-children.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:.24s; }
+    .cost-list.reveal-children.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:.36s; }
+    .cost-list.reveal-children.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:.48s; }
+    .cost-list.reveal-children.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:.60s; }
 
     /* ── GRADIENT BORDER ANIMADO — padrão KTANA design system ── */
     @property --border-angle {
