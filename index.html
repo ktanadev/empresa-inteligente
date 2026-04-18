@@ -438,7 +438,7 @@
       background: #141414; border-radius: 20px; padding: 2.5rem;
       position: relative; overflow: hidden;
     }
-    .cost-card::before { content: none; }
+    /* ::before liberado — gradient border animado pelo bloco unificado abaixo */
     .cost-card-title {
       font-family: var(--font-display); font-weight: 800; font-size: 1.5rem;
       color: var(--white); margin-bottom: 0.5rem; letter-spacing: -0.02em;
@@ -2461,7 +2461,7 @@
         revealObserver.unobserve(e.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
 
   // Adiciona .reveal dinamicamente em elementos-chave
   const revealSelectors = [
