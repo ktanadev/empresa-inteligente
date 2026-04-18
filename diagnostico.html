@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sua empresa vai sobreviver? — Empresa Inteligente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:       #FFFFFF;
+    --bg-2:     #F5F5F7;
+    --bg-3:     #EFEFEF;
+    --text:     #141414;
+    --muted:    #6E6E73;
+    --border:   rgba(0,0,0,0.08);
+    --red:      #D70030;
+    --green:    #008F54;
+    --font-d:   'Space Grotesk', sans-serif;
+    --font-b:   'Inter', system-ui;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-b); background: var(--bg); color: var(--text); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { text-decoration: none; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* NAV */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.94); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 1.5rem; height: 58px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-back {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.85rem; font-weight: 500; color: var(--muted);
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--text); }
+  .nav-back svg { width: 16px; height: 16px; }
+  .nav-brand { font-family: var(--font-d); font-weight: 700; font-size: 0.9rem; color: var(--text); }
+  .nav-cta {
+    background: var(--red); color: #fff;
+    font-size: 0.8rem; font-weight: 600;
+    padding: 8px 18px; border-radius: 8px;
+    transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* HERO */
+  .hero {
+    padding: 5rem 1.5rem 4rem;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(215,0,48,0.05) 0%, transparent 60%);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-label {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(215,0,48,0.07); border: 1px solid rgba(215,0,48,0.2);
+    color: var(--red); font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    padding: 5px 14px; border-radius: 100px; margin-bottom: 1.75rem;
+  }
+  .hero-label::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--red); animation: blink 1.5s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .hero h1 {
+    font-family: var(--font-d); font-weight: 800;
+    font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+    line-height: 1.06; margin-bottom: 1.25rem; color: var(--text);
+  }
+  .hero h1 em { color: var(--red); font-style: normal; }
+  .hero p { font-size: 1.1rem; color: var(--muted); max-width: 580px; margin: 0 auto 2.5rem; line-height: 1.7; }
+  .hero-score {
+    display: inline-flex; align-items: center; gap: 2rem;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.25rem 2rem;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  }
+  .score-item { text-align: center; }
+  .score-num { font-family: var(--font-d); font-size: 2rem; font-weight: 800; color: var(--text); line-height: 1; }
+  .score-num.red { color: var(--red); }
+  .score-label { font-size: 0.72rem; color: var(--muted); margin-top: 0.25rem; }
+  .score-div { width: 1px; height: 40px; background: var(--border); }
+
+  /* SECTION HEADER */
+  .section-header { text-align: center; padding: 4rem 1.5rem 3rem; }
+  .section-tag { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); margin-bottom: 0.75rem; }
+  .section-header h2 {
+    font-family: var(--font-d); font-weight: 800;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    line-height: 1.1; margin-bottom: 1rem; color: var(--text);
+  }
+  .section-header h2 em { color: var(--red); font-style: normal; }
+  .section-header p { color: var(--muted); max-width: 560px; margin: 0 auto; font-size: 1rem; }
+
+  /* DEPARTMENT PILLARS */
+  .dept-section { padding: 0 1.5rem 1rem; }
+  .pillar {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden; margin-bottom: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  .pillar-left { padding: 2.5rem; border-right: 1px solid var(--border); background: #FFF9F9; }
+  .pillar-right { padding: 2.5rem; background: #F7FDF9; }
+  .dept-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; padding: 4px 12px; border-radius: 100px; margin-bottom: 1rem;
+  }
+  .dept-tag svg { width: 12px; height: 12px; }
+  .pillar-left .dept-tag { border: 1px solid rgba(215,0,48,0.2); background: rgba(215,0,48,0.06); color: var(--red); }
+  .pillar-right .dept-tag { border: 1px solid rgba(0,143,84,0.2); background: rgba(0,143,84,0.06); color: var(--green); }
+
+  .pillar-headline {
+    font-family: var(--font-d); font-weight: 700;
+    font-size: 1.15rem; line-height: 1.25; margin-bottom: 1.5rem; color: var(--text);
+  }
+  .pillar-left .pillar-headline { color: #5C0015; }
+  .pillar-right .pillar-headline { color: #003D22; }
+
+  .ba-block { margin-bottom: 0.9rem; display: flex; flex-direction: column; gap: 0.35rem; }
+  .ba-label {
+    font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; padding: 2px 8px; border-radius: 4px;
+    display: inline-block; width: fit-content;
+  }
+  .ba-label.before { background: rgba(0,0,0,0.06); color: var(--muted); }
+  .ba-label.after { background: rgba(215,0,48,0.1); color: var(--red); }
+  .ba-label.now { background: rgba(0,143,84,0.1); color: var(--green); }
+  .ba-text { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+  .ba-text strong { color: var(--text); font-weight: 600; }
+
+  .result-anchor {
+    margin-top: 1.25rem; padding: 0.75rem 1rem;
+    border-left: 3px solid var(--red);
+    background: rgba(215,0,48,0.05);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.85rem; font-weight: 600; color: #5C0015;
+  }
+  .result-anchor-green {
+    margin-top: 1.25rem; padding: 0.75rem 1rem;
+    border-left: 3px solid var(--green);
+    background: rgba(0,143,84,0.05);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.85rem; font-weight: 600; color: #003D22;
+  }
+
+  /* COLUMN HEADERS */
+  .dept-cols-header {
+    max-width: 1100px; margin: 0 auto 1rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  }
+  .col-h {
+    padding: 0.6rem 1.25rem; border-radius: 8px;
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .col-h.dying { background: rgba(215,0,48,0.07); color: var(--red); border: 1px solid rgba(215,0,48,0.2); }
+  .col-h.surviving { background: rgba(0,143,84,0.07); color: var(--green); border: 1px solid rgba(0,143,84,0.2); }
+  .col-h svg { width: 14px; height: 14px; }
+
+  /* CLONE DOS LÍDERES */
+  .clone-section {
+    background: var(--bg-2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 5rem 1.5rem;
+  }
+  .clone-inner { max-width: 1100px; margin: 0 auto; }
+  .clone-header { text-align: center; margin-bottom: 3.5rem; }
+  .clone-header h2 {
+    font-family: var(--font-d); font-weight: 800;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    line-height: 1.1; margin-bottom: 1rem; color: var(--text);
+  }
+  .clone-header h2 em { color: var(--red); font-style: normal; }
+  .clone-header p { color: var(--muted); max-width: 600px; margin: 0 auto; font-size: 1rem; line-height: 1.7; }
+
+  .clone-statement {
+    max-width: 1100px; margin: 0 auto 3rem;
+    background: var(--bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--red);
+    border-radius: 0 16px 16px 0;
+    padding: 2rem 2.5rem;
+    display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: center;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  }
+  .clone-vs { font-family: var(--font-d); font-size: 3rem; font-weight: 800; color: rgba(215,0,48,0.15); }
+  .clone-statement p { font-size: 1rem; line-height: 1.7; color: var(--muted); }
+  .clone-statement p strong { color: var(--text); }
+
+  .clone-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+  .clone-card {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.75rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+  }
+  .clone-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.1); transform: translateY(-2px); }
+  .clone-icon {
+    width: 42px; height: 42px; border-radius: 10px;
+    background: rgba(215,0,48,0.07); border: 1px solid rgba(215,0,48,0.15);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .clone-icon svg { width: 20px; height: 20px; color: var(--red); }
+  .clone-card h4 { font-family: var(--font-d); font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.6rem; }
+  .clone-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+  .clone-frameworks {
+    margin-top: 2.5rem;
+    background: var(--bg); border: 1px solid rgba(215,0,48,0.15);
+    border-radius: 16px; padding: 2rem 2.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .clone-frameworks h4 {
+    font-family: var(--font-d); font-size: 1.1rem; font-weight: 700;
+    color: var(--text); margin-bottom: 0.5rem;
+  }
+  .clone-frameworks p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
+  .framework-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .framework-tag {
+    background: rgba(215,0,48,0.06); border: 1px solid rgba(215,0,48,0.15);
+    color: var(--red); font-size: 0.75rem; font-weight: 600;
+    padding: 5px 12px; border-radius: 100px;
+  }
+
+  /* FINAL CTA */
+  .final-cta {
+    padding: 5rem 1.5rem;
+    text-align: center;
+    background: var(--text);
+  }
+  .final-cta h2 {
+    font-family: var(--font-d); font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.08; margin-bottom: 1.25rem; color: #fff;
+  }
+  .final-cta h2 em { color: var(--red); font-style: normal; }
+  .final-cta p { color: rgba(255,255,255,0.5); font-size: 1.05rem; max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.7; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--red); color: #fff;
+    font-size: 1rem; font-weight: 700;
+    padding: 1rem 2.5rem; border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(215,0,48,0.4);
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+  .cta-note { font-size: 0.8rem; color: rgba(255,255,255,0.25); margin-top: 1rem; }
+
+  /* FOOTER */
+  footer {
+    background: #0A0A0A; border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 2rem 1.5rem; text-align: center;
+  }
+  footer p { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
+  footer a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+  footer a:hover { color: #fff; }
+
+  /* MOBILE */
+  @media(max-width: 768px) {
+    .pillar { grid-template-columns: 1fr; }
+    .pillar-left { border-right: none; border-bottom: 1px solid var(--border); }
+    .dept-cols-header { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .clone-grid { grid-template-columns: 1fr; }
+    .clone-statement { grid-template-columns: 1fr; gap: 1rem; }
+    .clone-vs { font-size: 2rem; }
+    .hero-score { gap: 1rem; padding: 1rem 1.25rem; }
+  }
+  @media(max-width: 480px) {
+    .dept-cols-header { grid-template-columns: 1fr; }
+    .hero-score { flex-direction: column; gap: 0.75rem; }
+    .score-div { width: 60px; height: 1px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="/" class="nav-back">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    Voltar para Empresa Inteligente
+  </a>
+  <span class="nav-brand">Empresa Inteligente</span>
+  <a href="https://wa.me/5548991050105?text=Quero+o+diagn%C3%B3stico+da+minha+empresa" target="_blank" class="nav-cta">Falar com especialista</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-label">Diagnóstico de sobrevivência</div>
+    <h1>Há dois tipos de empresa<br>no Brasil agora.<br><em>Saiba qual é a sua.</em></h1>
+    <p>Veja departamento por departamento o que está acontecendo na empresa que vai morrer — e o que muda quando a IA entra em operação.</p>
+    <div class="hero-score">
+      <div class="score-item">
+        <div class="score-num red">6</div>
+        <div class="score-label">Departamentos analisados</div>
+      </div>
+      <div class="score-div"></div>
+      <div class="score-item">
+        <div class="score-num">24h</div>
+        <div class="score-label">Operação com IA</div>
+      </div>
+      <div class="score-div"></div>
+      <div class="score-item">
+        <div class="score-num red">0</div>
+        <div class="score-label">Contratações necessárias</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DEPT SECTION HEADER -->
+<div class="section-header">
+  <div class="section-tag">Por departamento</div>
+  <h2>O que está acontecendo<br>na sua empresa <em>agora</em></h2>
+  <p>Cada área com ou sem IA. Dois caminhos. Apenas um sobrevive.</p>
+</div>
+
+<!-- COL HEADERS -->
+<div class="dept-section">
+  <div class="dept-cols-header">
+    <div class="col-h dying">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+      Empresa que vai morrer
+    </div>
+    <div class="col-h surviving">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Empresa que vai crescer
+    </div>
+  </div>
+
+  <!-- COMERCIAL -->
+  <div class="pillar">
+    <div class="pillar-left">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        Comercial
+      </div>
+      <div class="pillar-headline">Seu vendedor não fecha porque chega cansado no lead errado.</div>
+      <div class="ba-block">
+        <span class="ba-label before">Hoje</span>
+        <p class="ba-text">SDR prospecta 8h por dia, faz cold call que não converte. Follow-up esquecido no fim de semana. Lead quente virou frio porque ninguém retornou a tempo.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label after">Resultado</span>
+        <p class="ba-text">Pipeline desatualizado. Previsão de vendas errada. Reunião toda semana para entender o que travou — e ninguém sabe.</p>
+      </div>
+      <div class="result-anchor">Empresa paga caro por vendedor que passa o dia fazendo o que a IA faria em segundos.</div>
+    </div>
+    <div class="pillar-right">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        Comercial com IA
+      </div>
+      <div class="pillar-headline">Seu vendedor só fala com quem já quer comprar.</div>
+      <div class="ba-block">
+        <span class="ba-label now">Com IA</span>
+        <p class="ba-text"><strong>Prospecção ativa 24h.</strong> IA qualifica lead antes de chegar no humano. Follow-up automático no momento certo — nenhum contato esquecido.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label now">Resultado</span>
+        <p class="ba-text"><strong>Pipeline em tempo real.</strong> Proposta gerada em minutos. Vendedor foca em fechar — não em prospectar, não em preencher CRM, não em lembrar de ligar.</p>
+      </div>
+      <div class="result-anchor-green">Times com IA no comercial triplicam leads qualificados sem contratar ninguém.</div>
+    </div>
+  </div>
+
+  <!-- FINANCEIRO -->
+  <div class="pillar">
+    <div class="pillar-left">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Financeiro
+      </div>
+      <div class="pillar-headline">Seu financeiro vive apagando incêndio que ele mesmo poderia ter evitado.</div>
+      <div class="ba-block">
+        <span class="ba-label before">Hoje</span>
+        <p class="ba-text">DRE leva 2 dias inteiros. Erros descobertos na reunião com o sócio. Fluxo de caixa atualizado uma vez por semana — quando lembram.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label after">Resultado</span>
+        <p class="ba-text">Decisão financeira baseada em dado de 10 dias atrás. Risco que poderia ter sido evitado virou custo real. Reunião que poderia ter durado 15 minutos durou 2 horas.</p>
+      </div>
+      <div class="result-anchor">O financeiro que demora 2 dias é o financeiro que decide tarde — e decide errado.</div>
+    </div>
+    <div class="pillar-right">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Financeiro com IA
+      </div>
+      <div class="pillar-headline">DRE em 30 minutos. Fluxo em tempo real. Alerta antes do problema.</div>
+      <div class="ba-block">
+        <span class="ba-label now">Com IA</span>
+        <p class="ba-text"><strong>Fechamento em 30 minutos.</strong> DRE automático com alertas de desvio. Fluxo de caixa projetado todo dia pela manhã com base no histórico real.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label now">Resultado</span>
+        <p class="ba-text"><strong>Decisão financeira com dados de hoje.</strong> Risco identificado antes de virar problema. Reunião de 15 minutos porque todo mundo já chegou sabendo os números.</p>
+      </div>
+      <div class="result-anchor-green">Planejamento que levava 1 dia inteiro agora leva 30 minutos — com mais precisão.</div>
+    </div>
+  </div>
+
+  <!-- ATENDIMENTO -->
+  <div class="pillar">
+    <div class="pillar-left">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Atendimento
+      </div>
+      <div class="pillar-headline">Seu cliente está esperando. Sua equipe está cansada. Ambos estão perdendo.</div>
+      <div class="ba-block">
+        <span class="ba-label before">Hoje</span>
+        <p class="ba-text">Fila de mensagens que ninguém consegue zerar. Mesmo cliente perguntando a mesma coisa pelo terceiro dia — porque o atendimento anterior não registrou nada.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label after">Resultado</span>
+        <p class="ba-text">Time frustrado, respondendo com pressa e sem contexto. Cliente insatisfeito. Avaliação negativa. Concorrente que responde em segundos rouba o cliente que você pagou para adquirir.</p>
+      </div>
+      <div class="result-anchor">Atendimento lento não é problema de time — é problema de estrutura. E o cliente não espera.</div>
+    </div>
+    <div class="pillar-right">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Atendimento com IA
+      </div>
+      <div class="pillar-headline">Resposta em segundos. Às 3h da manhã. Sem time extra.</div>
+      <div class="ba-block">
+        <span class="ba-label now">Com IA</span>
+        <p class="ba-text"><strong>70% dos atendimentos resolvidos sem humano.</strong> Resposta em segundos, 24h por dia, em todos os canais. Histórico completo disponível para quando o humano precisar entrar.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label now">Resultado</span>
+        <p class="ba-text"><strong>Time focado no que realmente precisa de empatia.</strong> Satisfação subindo. Cliente atendido às 2h da manhã sem custo adicional. Fila que nunca zera — zerada.</p>
+      </div>
+      <div class="result-anchor-green">Tempo de resposta reduzido em 70%. Satisfação do cliente subindo desde o primeiro mês.</div>
+    </div>
+  </div>
+
+  <!-- MARKETING -->
+  <div class="pillar">
+    <div class="pillar-left">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 5.882V19.24a1.76 1.76 0 0 1-3.417.592l-2.147-6.15M18 13a3 3 0 1 0 0-6M5.436 13.683A4.001 4.001 0 0 0 7 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 0 0-1.564.317z"/></svg>
+        Marketing
+      </div>
+      <div class="pillar-headline">Seu Instagram ficou 4 dias sem postar. Ninguém sabe o ROI da campanha que rodou semana passada.</div>
+      <div class="ba-block">
+        <span class="ba-label before">Hoje</span>
+        <p class="ba-text">Briefing que trava uma semana na aprovação. Conteúdo criado na correria, sem estratégia, sem consistência. Instagram que pouco quando dá.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label after">Resultado</span>
+        <p class="ba-text">Resultado de campanha chega no fim do mês — tarde demais para ajustar. Investimento em mídia baseado em feeling. Brand sem voz, sem presença, sem crescimento.</p>
+      </div>
+      <div class="result-anchor">Marketing inconsistente não é falta de talento — é falta de estrutura. A concorrência já tem.</div>
+    </div>
+    <div class="pillar-right">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 5.882V19.24a1.76 1.76 0 0 1-3.417.592l-2.147-6.15M18 13a3 3 0 1 0 0-6M5.436 13.683A4.001 4.001 0 0 0 7 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 0 0-1.564.317z"/></svg>
+        Marketing com IA
+      </div>
+      <div class="pillar-headline">Calendário do mês gerado em 2 horas. Posts criados, aprovados e agendados automaticamente.</div>
+      <div class="ba-block">
+        <span class="ba-label now">Com IA</span>
+        <p class="ba-text"><strong>Estratégia de conteúdo mensal em 2 horas.</strong> Posts criados no tom da marca, revisados por IA e agendados automaticamente. Zero surpresa no calendário editorial.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label now">Resultado</span>
+        <p class="ba-text"><strong>Performance de campanha em tempo real.</strong> CAC e ROI atualizados todo dia. Decisão de onde investir baseada em dado — não em sensação do gestor de tráfego.</p>
+      </div>
+      <div class="result-anchor-green">Conteúdo consistente, todos os dias, com 90% menos tempo de aprovação.</div>
+    </div>
+  </div>
+
+  <!-- RH -->
+  <div class="pillar">
+    <div class="pillar-left">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        RH
+      </div>
+      <div class="pillar-headline">Sua vaga está aberta há 3 semanas. Você já leu 200 currículos e ainda não entrevistou ninguém certo.</div>
+      <div class="ba-block">
+        <span class="ba-label before">Hoje</span>
+        <p class="ba-text">Triagem manual de currículo por currículo. Candidato some entre etapas porque ninguém avisou no prazo. Processo que leva 3 semanas e ainda assim contrata errado.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label after">Resultado</span>
+        <p class="ba-text">Vaga aberta por um mês. Time sobrecarregado com a falta. Onboarding explicado do zero para cada pessoa nova — sem manual, sem processo, sem padrão.</p>
+      </div>
+      <div class="result-anchor">Recrutamento lento custa caro duas vezes: o salário de quem você precisa e o custo de quem está sobrecarregado esperando.</div>
+    </div>
+    <div class="pillar-right">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        RH com IA
+      </div>
+      <div class="pillar-headline">200 currículos triados em 1 hora. Processo fechado em 6 dias. Só o certo chega na entrevista final.</div>
+      <div class="ba-block">
+        <span class="ba-label now">Com IA</span>
+        <p class="ba-text"><strong>Triagem automática de 200 currículos em menos de 1 hora.</strong> Entrevista inicial conduzida por IA. Comunicação automática em cada etapa — nenhum candidato some sem resposta.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label now">Resultado</span>
+        <p class="ba-text"><strong>Processo em 6 dias.</strong> Você entrevista só quem passou por 3 filtros. Onboarding guiado por IA desde o primeiro dia — sem depender de ninguém para explicar o básico.</p>
+      </div>
+      <div class="result-anchor-green">Processo seletivo de 3 semanas para 6 dias. Com candidatos melhores, não piores.</div>
+    </div>
+  </div>
+
+  <!-- GESTÃO -->
+  <div class="pillar">
+    <div class="pillar-left">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Gestão
+      </div>
+      <div class="pillar-headline">Você é o gargalo da sua própria empresa. Toda decisão passa por você — e ninguém sabe o status de nada.</div>
+      <div class="ba-block">
+        <span class="ba-label before">Hoje</span>
+        <p class="ba-text">Reunião toda semana porque ninguém sabe o que está acontecendo. Aprovação travada na sua caixa de entrada. Você no meio de tudo — desde o estratégico até o que não precisava da sua atenção.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label after">Resultado</span>
+        <p class="ba-text">Relatório que ninguém tem tempo de montar. Decisão tomada com dado de semana passada. Você apagando incêndio em vez de construir empresa.</p>
+      </div>
+      <div class="result-anchor">O dono que aprova tudo é o dono que trava tudo. Incluindo o crescimento da própria empresa.</div>
+    </div>
+    <div class="pillar-right">
+      <div class="dept-tag">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Gestão com IA
+      </div>
+      <div class="pillar-headline">Você decide. A IA executa. O time opera sem precisar de você para tudo.</div>
+      <div class="ba-block">
+        <span class="ba-label now">Com IA</span>
+        <p class="ba-text"><strong>Dashboard com status de tudo em tempo real.</strong> Aprovações simples resolvidas sem passar por você. Alertas só quando você realmente precisa ser acionado.</p>
+      </div>
+      <div class="ba-block">
+        <span class="ba-label now">Resultado</span>
+        <p class="ba-text"><strong>Relatório semanal gerado automaticamente.</strong> Reunião de 15 minutos porque todo mundo já chegou preparado. Você para de ser o gargalo e começa a ser o estrategista.</p>
+      </div>
+      <div class="result-anchor-green">Donos com IA na gestão têm 40% mais horas estratégicas por semana.</div>
+    </div>
+  </div>
+
+</div><!-- /dept-section -->
+
+<!-- CLONE DOS LÍDERES -->
+<div class="clone-section">
+  <div class="clone-inner">
+    <div class="clone-header">
+      <div class="section-tag">O diferencial que ninguém explica</div>
+      <h2>O copiloto inteligente dos seus<br><em>melhores líderes</em></h2>
+      <p>Toda empresa tem aquele profissional que "sabe como fazer". O que acontece quando ele sai? O conhecimento vai junto. Com a Empresa Inteligente, esse conhecimento vira um agente — e fica para sempre.</p>
+    </div>
+
+    <div class="clone-statement">
+      <div class="clone-vs">24h</div>
+      <p>O seu melhor vendedor trabalha <strong>8 horas por dia</strong> — e um dia ele pede demissão. O agente de IA opera <strong>24 horas por dia</strong>, com o framework de decisão dele, sem tirar férias, sem rescisão, sem variação de humor. O conhecimento não sai quando o colaborador sai.</p>
+    </div>
+
+    <div class="clone-grid">
+      <div class="clone-card">
+        <div class="clone-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <h4>Framework de decisão</h4>
+        <p>Como seu melhor vendedor qualifica um lead. Como seu financeiro avalia um risco. Como seu atendimento lida com cliente difícil. Tudo programado dentro do agente — operando exatamente como o melhor que você já teve.</p>
+      </div>
+      <div class="clone-card">
+        <div class="clone-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h4>Tom e linguagem da sua empresa</h4>
+        <p>O agente fala como sua empresa. O vocabulário, o ritmo, o nível de formalidade, as expressões que você usa com cliente. Não é IA genérica — é IA calibrada para o seu negócio específico.</p>
+      </div>
+      <div class="clone-card">
+        <div class="clone-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4>Conhecimento que não sai</h4>
+        <p>Processos, exceções, regras de negócio, critérios que só quem está há 3 anos na empresa conhece — documentados e operando. Independente de quem entra e sai do time.</p>
+      </div>
+    </div>
+
+    <div class="clone-frameworks">
+      <h4>Frameworks operacionais por departamento</h4>
+      <p>Cada agente vem com frameworks testados para o seu setor — prontos para ser adaptados à realidade específica da sua empresa. Você não precisa construir do zero. Você ajusta o que já funciona.</p>
+      <div class="framework-tags">
+        <span class="framework-tag">Framework de qualificação de leads</span>
+        <span class="framework-tag">Framework de análise financeira</span>
+        <span class="framework-tag">Framework de atendimento ao cliente</span>
+        <span class="framework-tag">Framework de seleção de pessoas</span>
+        <span class="framework-tag">Framework de criação de conteúdo</span>
+        <span class="framework-tag">Framework de gestão operacional</span>
+        <span class="framework-tag">Framework jurídico preventivo</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <div class="container">
+    <h2>Sua empresa tem 6 departamentos.<br><em>Quantos estão com IA?</em></h2>
+    <p>Se a resposta for zero — você já sabe o que está em jogo. A empresa que implementa IA agora vai dominar o mercado dela nos próximos 3 anos. A que espera vai assistir isso acontecer.</p>
+    <a href="https://wa.me/5548991050105?text=Vi+o+diagn%C3%B3stico+e+quero+que+minha+empresa+sobreviva" target="_blank" class="btn-primary">
+      Quero que minha empresa sobreviva
+    </a>
+    <p class="cta-note">Diagnóstico gratuito · 30 minutos · Sem compromisso · Resultado em 30 dias</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <a href="/">Empresa Inteligente</a> · KTANA Tech Fin LTDA · CNPJ 57.813.462/0001-45</p>
+</footer>
+
+</body>
+</html>
