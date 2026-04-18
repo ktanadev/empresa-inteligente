@@ -22,9 +22,9 @@
       --gray-card: #FFFFFF;
       --gray-border: #E5E5E5;
       --gray-text: #6B7280;
-      --dark-bg: #111111;
+      --dark-bg: #141414;
       --dark-card: #1A1A1A;
-      --dark-border: #2A2A2A;
+      --dark-border: #303030;
       --white: #FFFFFF;
       --font-display: 'Space Grotesk', sans-serif;
       --font-body: 'Inter', sans-serif;
@@ -112,7 +112,17 @@
       padding: 0.875rem 2rem; border-radius: 999px;
       font-weight: 700; font-size: 0.95rem; text-decoration: none;
       transition: background 0.2s, transform 0.1s; display: inline-block;
+      position: relative; overflow: hidden;
     }
+    .btn-primary::before {
+      content: '';
+      position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.5s ease;
+      pointer-events: none;
+    }
+    .btn-primary:hover::before { left: 160%; }
     .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
     .btn-outline {
       background: transparent; color: var(--black);
@@ -208,7 +218,7 @@
 
     /* ─── DOIS TIPOS ─── */
     .dois-tipos {
-      background: var(--black); padding: 5rem 1.5rem;
+      background: #141414; padding: 5rem 1.5rem;
       border-top: 1px solid rgba(255,255,255,0.06);
     }
     .dois-tipos-inner { max-width: 1160px; margin: 0 auto; }
@@ -292,7 +302,7 @@
 
     /* ─── PROOF BAR ─── */
     .proof-bar {
-      background: var(--black); padding: 2rem 1.5rem;
+      background: #141414; padding: 2rem 1.5rem;
     }
     .proof-bar-inner {
       max-width: 1160px; margin: 0 auto;
@@ -329,14 +339,16 @@
     .cost-item-text { font-size: 0.9rem; color: var(--black); font-weight: 500; }
     .cost-item-hours { margin-left: auto; font-size: 0.8rem; color: var(--red); font-weight: 700; white-space: nowrap; }
     .cost-card {
-      background: var(--black); border-radius: 20px; padding: 2.5rem;
+      background: #141414; border-radius: 20px; padding: 2.5rem;
       position: relative; overflow: hidden;
     }
     .cost-card::before {
       content: '';
-      position: absolute; top: -100px; right: -100px;
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(215,0,48,0.2) 0%, transparent 70%);
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(215,0,48,0.06) 30%, rgba(215,0,48,0.22) 50%, rgba(215,0,48,0.06) 70%, transparent 100%);
+      background-size: 200% 100%;
+      animation: scanLine 4s linear infinite;
+      pointer-events: none; z-index: 1;
     }
     .cost-card-title {
       font-family: var(--font-display); font-weight: 800; font-size: 1.5rem;
@@ -487,7 +499,7 @@
     .mock-tag.red { background: rgba(215,0,48,0.15); color: var(--red); }
 
     /* ─── METRICS ─── */
-    .metrics { background: var(--black); color: var(--white); }
+    .metrics { background: #141414; color: var(--white); }
     .metrics-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3rem; }
     .metric-card {
       background: var(--dark-card); border: 1px solid var(--dark-border);
@@ -502,7 +514,7 @@
     .metric-label { font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-top: 0.5rem; line-height: 1.4; }
 
     /* ─── TESTIMONIALS ─── */
-    .testimonials { background: #080808; padding: 5rem 0; }
+    .testimonials { background: #141414; padding: 5rem 0; }
     .testimonials-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem; margin-top: 0; text-align: left;
@@ -570,7 +582,7 @@
     }
 
     /* ─── GUARANTEES ─── */
-    .guarantees { background: var(--black); }
+    .guarantees { background: #141414; }
     .guarantees .section-title { color: var(--white); }
     .guarantees .section-sub { color: rgba(255,255,255,0.5); }
     .guarantees-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; margin-top: 3rem; }
@@ -580,8 +592,11 @@
     }
     .guarantee-card::before {
       content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: var(--red);
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(215,0,48,0.06) 30%, rgba(215,0,48,0.30) 50%, rgba(215,0,48,0.06) 70%, transparent 100%);
+      background-size: 200% 100%;
+      animation: scanLine 4s linear infinite;
+      pointer-events: none; z-index: 1;
     }
     .guarantee-icon {
       width: 48px; height: 48px; border-radius: 12px;
@@ -694,7 +709,7 @@
     .faq-item.open .faq-a { display: block; }
 
     /* ─── FINAL CTA ─── */
-    .final-cta { background: var(--black); text-align: center; }
+    .final-cta { background: #141414; text-align: center; }
     .final-cta .section-title { color: var(--white); max-width: 700px; margin: 0 auto 1rem; }
     .final-cta .section-sub { margin: 0 auto 2.5rem; color: rgba(255,255,255,0.5); }
     .final-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
@@ -702,7 +717,7 @@
 
     /* ─── FOOTER ─── */
     footer {
-      background: var(--black); border-top: 1px solid var(--dark-border);
+      background: #141414; border-top: 1px solid var(--dark-border);
       padding: 2.5rem 1.5rem;
     }
     .footer-inner {
@@ -718,7 +733,7 @@
     /* ─── TICKER TOP (fixo abaixo do nav) ─── */
     .ticker-top {
       position: fixed; top: 60px; left: 0; right: 0; z-index: 99;
-      background: rgba(10,10,10,0.97);
+      background: rgba(20,20,20,0.97);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(215,0,48,0.18);
@@ -746,7 +761,7 @@
 
     /* ─── SOLUTIONS TICKER ─── */
     .ticker-bar {
-      background: #0A0A0A;
+      background: #141414;
       border-top: 1px solid rgba(255,255,255,0.07);
       border-bottom: 1px solid rgba(255,255,255,0.07);
       overflow: hidden;
@@ -876,6 +891,26 @@
     .reveal-children.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:.35s; }
     .reveal-children.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:.45s; }
     .reveal-children.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:.55s; }
+
+    /* ── SCAN LINE — padrão KTANA design system ── */
+    @keyframes scanLine {
+      0%   { background-position: -200% 0; }
+      100% { background-position: 300% 0; }
+    }
+    .metric-card::before, .testi-card::before, .dt-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(215,0,48,0.05) 30%,
+        rgba(215,0,48,0.20) 50%,
+        rgba(215,0,48,0.05) 70%,
+        transparent 100%
+      );
+      background-size: 200% 100%;
+      animation: scanLine 4s linear infinite;
+      pointer-events: none; z-index: 1;
+    }
 
     /* ── MORPHIC GLOW — padrão KTANA design system ── */
     @keyframes morphicGlow {
