@@ -889,42 +889,74 @@
     .reveal-children.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:.45s; }
     .reveal-children.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:.55s; }
 
-    /* ── SCAN LINE — padrão KTANA design system ── */
-    @keyframes scanLine {
-      0%   { opacity: 0; transform: translateX(-100%); }
-      8%   { opacity: 1; }
-      92%  { opacity: 1; }
-      100% { opacity: 0; transform: translateX(200%); }
+    /* ── GRADIENT BORDER ANIMADO — padrão KTANA design system ── */
+    @property --border-angle {
+      syntax: '<angle>';
+      inherits: false;
+      initial-value: 0deg;
     }
+    @keyframes rotateBorder { to { --border-angle: 360deg; } }
     @keyframes idlePulse {
-      0%,100% { box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
-      50%      { box-shadow: 0 2px 20px rgba(215,0,48,0.10), 0 0 0 1px rgba(215,0,48,0.06); }
+      0%,100% { box-shadow: 0 2px 16px rgba(0,0,0,0.35); }
+      50%      { box-shadow: 0 4px 24px rgba(215,0,48,0.12), 0 0 0 1px rgba(215,0,48,0.06); }
     }
-    /* Linha de luz varrendo o topo dos dark cards */
+
+    .metric-card, .testi-card, .dt-card, .guarantee-card, .cost-card {
+      isolation: isolate;
+      animation: idlePulse 3s ease-in-out infinite;
+    }
+
+    /* Borda com luz girando — todos os dark cards */
     .metric-card::before, .testi-card::before, .dt-card::before,
     .guarantee-card::before, .cost-card::before {
       content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg,
-        transparent 0%, rgba(215,0,48,0.65) 50%, transparent 100%
+      position: absolute; inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: conic-gradient(from var(--border-angle),
+        rgba(215,0,48,0.0)  0%,
+        rgba(215,0,48,0.55) 9%,
+        rgba(255,255,255,0.55) 13%,
+        rgba(215,0,48,0.55) 17%,
+        rgba(215,0,48,0.0)  26%,
+        rgba(215,0,48,0.06) 100%
       );
-      animation: scanLine 3.5s ease-in-out infinite;
-      pointer-events: none; z-index: 2;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                   linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: rotateBorder 4s linear infinite;
+      pointer-events: none;
     }
-    /* Stagger para não varrerem juntos */
-    .testi-card:nth-child(2)::before,
-    .metric-card:nth-child(2)::before,
-    .guarantee-card:nth-child(2)::before { animation-delay: 1.2s; }
-    .testi-card:nth-child(3)::before,
-    .metric-card:nth-child(3)::before { animation-delay: 2.4s; }
-    .testi-card:nth-child(4)::before,
-    .metric-card:nth-child(4)::before { animation-delay: 0.6s; }
-    .dt-card:nth-child(2)::before  { animation-delay: 0.8s; }
-    .cost-card::before { animation-delay: 1.5s; }
-    /* Idle pulse no dark card */
-    .metric-card, .testi-card, .dt-card, .guarantee-card, .cost-card {
-      animation: idlePulse 3s ease-in-out infinite;
+    /* Plano destaque também recebe */
+    .price-card.featured { isolation: isolate; }
+    .price-card.featured::before {
+      content: '';
+      position: absolute; inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: conic-gradient(from var(--border-angle),
+        rgba(215,0,48,0.0) 0%,
+        rgba(215,0,48,0.7) 9%,
+        rgba(255,255,255,0.6) 13%,
+        rgba(215,0,48,0.7) 17%,
+        rgba(215,0,48,0.0) 26%,
+        rgba(215,0,48,0.1) 100%
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                   linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: rotateBorder 3s linear infinite;
+      pointer-events: none;
     }
+    /* Stagger para não animarem em sincronia */
+    .testi-card:nth-child(2)::before, .metric-card:nth-child(2)::before,
+    .guarantee-card:nth-child(2)::before { animation-delay: -1.3s; }
+    .testi-card:nth-child(3)::before, .metric-card:nth-child(3)::before { animation-delay: -2.6s; }
+    .testi-card:nth-child(4)::before, .metric-card:nth-child(4)::before { animation-delay: -0.6s; }
+    .dt-card:nth-child(2)::before { animation-delay: -2s; }
+    .cost-card::before { animation-delay: -1.5s; }
 
     /* ── MORPHIC GLOW — padrão KTANA design system ── */
     @keyframes morphicGlow {
