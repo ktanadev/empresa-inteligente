@@ -848,24 +848,84 @@
     .reveal-children.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:.45s; }
     .reveal-children.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:.55s; }
 
-    /* Hover lift — cards */
-    .what-card, .testi-card, .price-card, .guarantee-card, .case-card, .metric-card, .dept-metric, .step {
+    /* ── MORPHIC GLOW — padrão KTANA design system ── */
+    @keyframes morphicGlow {
+      0%,100% { box-shadow: 0 0 10px rgba(215,0,48,0.12), 0 8px 32px rgba(0,0,0,0.35); }
+      50%      { box-shadow: 0 0 28px rgba(215,0,48,0.30), 0 8px 48px rgba(0,0,0,0.40); }
+    }
+    @keyframes morphicGlowLight {
+      0%,100% { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+      50%      { box-shadow: 0 4px 32px rgba(215,0,48,0.14), 0 0 16px rgba(215,0,48,0.06); }
+    }
+
+    /* Hover lift — cards LIGHT */
+    .what-card, .price-card, .step {
       transition: transform .22s ease, box-shadow .22s ease;
     }
-    .what-card:hover, .testi-card:hover, .price-card:hover,
-    .guarantee-card:hover, .metric-card:hover, .step:hover {
+    .what-card:hover, .step:hover {
       transform: translateY(-5px);
-      box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+      animation: morphicGlowLight 2s ease-in-out infinite;
     }
-    .price-card.featured:hover { box-shadow: 0 12px 36px rgba(215,0,48,0.2); }
+    .price-card { transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
+    .price-card:hover { transform: translateY(-5px); animation: morphicGlowLight 2s ease-in-out infinite; }
+    .price-card.featured:hover { animation: morphicGlow 2s ease-in-out infinite; }
+
+    /* Hover DARK cards — morphic vivo */
+    .testi-card, .guarantee-card, .metric-card, .dt-card, .cost-card {
+      transition: transform .25s ease, border-color .25s ease;
+      position: relative; overflow: hidden;
+    }
+
+    /* Radial glow interno — aparece no hover */
+    .testi-card::after, .guarantee-card::after, .metric-card::after,
+    .dt-card::after, .cost-card::after {
+      content: '';
+      position: absolute; bottom: -60px; left: 50%; transform: translateX(-50%);
+      width: 220px; height: 220px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(215,0,48,0.18) 0%, transparent 70%);
+      opacity: 0; pointer-events: none;
+      transition: opacity .4s ease;
+    }
+    .testi-card:hover::after, .guarantee-card:hover::after,
+    .metric-card:hover::after, .dt-card:hover::after, .cost-card:hover::after {
+      opacity: 1;
+    }
+
+    .testi-card:hover, .guarantee-card:hover, .metric-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(215,0,48,0.25) !important;
+      animation: morphicGlow 2.2s ease-in-out infinite;
+    }
+    .dt-card.com:hover {
+      border-color: rgba(215,0,48,0.5) !important;
+      animation: morphicGlow 2s ease-in-out infinite;
+    }
+    .dt-card.sem:hover {
+      border-color: rgba(255,255,255,0.18) !important;
+      animation: morphicGlow 2.5s ease-in-out infinite;
+    }
 
     /* Hover lift mockups */
-    .mockup { transition: transform .25s ease, box-shadow .25s ease; }
-    .mockup:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 28px 70px rgba(0,0,0,0.4); }
+    .mockup { transition: transform .25s ease, box-shadow .25s ease; overflow: hidden; position: relative; }
+    .mockup::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 110%, rgba(215,0,48,0.12) 0%, transparent 65%);
+      opacity: 0; pointer-events: none;
+      transition: opacity .35s ease;
+    }
+    .mockup:hover { transform: translateY(-4px); box-shadow: 0 28px 70px rgba(0,0,0,0.45); }
+    .mockup:hover::after { opacity: 1; }
 
     /* Hero stat hover */
     .hero-stat { transition: background .2s ease; }
     .hero-stat:hover { background: rgba(215,0,48,0.03); }
+
+    /* Proof-bar items */
+    .proof-item { transition: transform .2s ease; }
+    .proof-item:hover { transform: translateY(-3px); }
+    .proof-item:hover .proof-number { color: var(--white); }
+    .proof-item:hover .proof-number em { text-shadow: 0 0 12px rgba(215,0,48,0.6); }
 
   </style>
 </head>
