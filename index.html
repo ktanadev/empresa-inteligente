@@ -715,6 +715,48 @@
     .footer-links a:hover { color: rgba(255,255,255,0.7); }
     .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
 
+    /* ─── SOLUTIONS TICKER ─── */
+    .ticker-bar {
+      background: #0A0A0A;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      overflow: hidden;
+      padding: 16px 0;
+      position: relative;
+      -webkit-mask-image: linear-gradient(to right,
+        transparent 0%, rgba(0,0,0,1) 8%,
+        rgba(0,0,0,1) 92%, transparent 100%);
+      mask-image: linear-gradient(to right,
+        transparent 0%, rgba(0,0,0,1) 8%,
+        rgba(0,0,0,1) 92%, transparent 100%);
+    }
+    .ticker-track {
+      display: inline-flex;
+      white-space: nowrap;
+      animation: ticker 28s linear infinite;
+      will-change: transform;
+    }
+    .ticker-bar:hover .ticker-track { animation-play-state: paused; }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .ticker-item {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0 2rem;
+      font-family: var(--font-display); font-weight: 600;
+      font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      transition: color .2s;
+    }
+    .ticker-item:hover { color: rgba(255,255,255,0.85); }
+    .ticker-item strong { color: var(--red); font-weight: 800; }
+    .ticker-sep {
+      display: inline-block; width: 4px; height: 4px;
+      background: var(--red); border-radius: 50%;
+      opacity: 0.5; flex-shrink: 0;
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       .cost-grid, .dept-item, .what-is-grid, .steps-grid, .guarantees-grid, .pricing-grid, .metrics-grid { grid-template-columns: 1fr !important; }
@@ -908,6 +950,38 @@
       <div class="proof-number">4<em>sem</em></div>
       <div class="proof-label">Prazo médio de retorno</div>
     </div>
+  </div>
+</div>
+
+<!-- SOLUTIONS TICKER -->
+<div class="ticker-bar" aria-hidden="true">
+  <div class="ticker-track">
+    <!-- copy 1 -->
+    <span class="ticker-item"><strong>IA</strong> para Financeiro<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Comercial<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Atendimento<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Marketing<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para RH<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Operação<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Financeiro<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Comercial<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Atendimento<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Marketing<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para RH<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Operação<span class="ticker-sep"></span></span>
+    <!-- copy 2 (seamless loop) -->
+    <span class="ticker-item"><strong>IA</strong> para Financeiro<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Comercial<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Atendimento<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Marketing<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para RH<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Operação<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Financeiro<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Comercial<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Atendimento<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Marketing<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para RH<span class="ticker-sep"></span></span>
+    <span class="ticker-item"><strong>IA</strong> para Operação<span class="ticker-sep"></span></span>
   </div>
 </div>
 
