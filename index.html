@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -132,6 +133,127 @@
     }
     .hero-stat-sep { width: 1px; background: rgba(255,255,255,0.1); align-self: stretch; }
 
+    /* ─── LUCIDE ICONS ─── */
+    .icon-box {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(215,0,48,0.12); border: 1px solid rgba(215,0,48,0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .icon-box svg { width: 18px; height: 18px; color: var(--red); stroke: var(--red); }
+    .icon-box.dark { background: rgba(215,0,48,0.18); border-color: rgba(215,0,48,0.3); }
+    .icon-box.sm { width: 36px; height: 36px; border-radius: 8px; }
+    .icon-box.sm svg { width: 16px; height: 16px; }
+
+    /* ─── HERO 2-COL ─── */
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 480px;
+      gap: 4rem; align-items: center;
+      max-width: 1160px; width: 100%;
+      text-align: left; padding-top: 2rem;
+    }
+    .hero-left { display: flex; flex-direction: column; align-items: flex-start; }
+    .hero-left .hero-badge { margin-top: 0; }
+    .hero-left .hero-ctas { justify-content: flex-start; }
+    .hero-left .hero-stats { justify-content: flex-start; }
+    .hero-character {
+      position: relative; display: flex; align-items: flex-end; justify-content: center;
+      height: 540px;
+    }
+    .hero-character::before {
+      content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(215,0,48,0.25) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-character img {
+      height: 520px; width: auto; object-fit: contain;
+      position: relative; z-index: 1;
+      filter: drop-shadow(0 0 40px rgba(215,0,48,0.3));
+    }
+    .hero-character-badge {
+      position: absolute; bottom: 2rem; left: -1rem; z-index: 2;
+      background: rgba(0,0,0,0.8); border: 1px solid rgba(215,0,48,0.4);
+      border-radius: 12px; padding: 0.75rem 1.1rem;
+      backdrop-filter: blur(10px);
+    }
+    .hero-character-badge-label { font-size: 0.7rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; }
+    .hero-character-badge-value { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--white); margin-top: 0.1rem; }
+    .hero-character-badge-value span { color: var(--red); }
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+      .hero-left { align-items: center; }
+      .hero-left .hero-ctas, .hero-left .hero-stats { justify-content: center; }
+      .hero-character { height: 340px; }
+      .hero-character img { height: 320px; }
+    }
+
+    /* ─── DOIS TIPOS ─── */
+    .dois-tipos {
+      background: var(--black); padding: 5rem 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .dois-tipos-inner { max-width: 1160px; margin: 0 auto; }
+    .dois-tipos-header { text-align: center; margin-bottom: 3.5rem; }
+    .dois-tipos-header h2 {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--white);
+      letter-spacing: -0.03em; line-height: 1.1;
+    }
+    .dois-tipos-header p { color: rgba(255,255,255,0.45); margin-top: 1rem; font-size: 1rem; }
+    .dois-tipos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .dt-card {
+      border-radius: 20px; padding: 2.5rem;
+      border: 1px solid;
+    }
+    .dt-card.sem { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.08); }
+    .dt-card.com { background: rgba(215,0,48,0.06); border-color: rgba(215,0,48,0.25); }
+    .dt-card-label {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+      margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .dt-card.sem .dt-card-label { color: rgba(255,255,255,0.3); }
+    .dt-card.com .dt-card-label { color: var(--red); }
+    .dt-card-title {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 1.4rem; letter-spacing: -0.02em; margin-bottom: 1.75rem;
+    }
+    .dt-card.sem .dt-card-title { color: rgba(255,255,255,0.5); }
+    .dt-card.com .dt-card-title { color: var(--white); }
+    .dt-item {
+      display: flex; align-items: flex-start; gap: 0.85rem;
+      margin-bottom: 1rem; padding-bottom: 1rem;
+      border-bottom: 1px solid;
+    }
+    .dt-card.sem .dt-item { border-color: rgba(255,255,255,0.06); }
+    .dt-card.com .dt-item { border-color: rgba(215,0,48,0.1); }
+    .dt-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .dt-icon {
+      width: 30px; height: 30px; border-radius: 7px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; margin-top: 1px;
+    }
+    .dt-card.sem .dt-icon { background: rgba(255,255,255,0.05); }
+    .dt-card.sem .dt-icon svg { width: 14px; height: 14px; color: rgba(255,255,255,0.25); stroke: rgba(255,255,255,0.25); }
+    .dt-card.com .dt-icon { background: rgba(215,0,48,0.15); }
+    .dt-card.com .dt-icon svg { width: 14px; height: 14px; color: var(--red); stroke: var(--red); }
+    .dt-text { font-size: 0.9rem; line-height: 1.5; }
+    .dt-card.sem .dt-text { color: rgba(255,255,255,0.4); }
+    .dt-card.com .dt-text { color: rgba(255,255,255,0.8); }
+    .dt-highlight {
+      margin-top: 2rem; padding: 1rem 1.25rem; border-radius: 10px;
+      font-size: 0.85rem; font-weight: 600;
+    }
+    .dt-card.sem .dt-highlight { background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.3); }
+    .dt-card.com .dt-highlight { background: rgba(215,0,48,0.12); color: var(--red); border: 1px solid rgba(215,0,48,0.2); }
+    .dois-tipos-cta {
+      text-align: center; margin-top: 3rem;
+      padding: 2.5rem; border-radius: 20px;
+      background: rgba(215,0,48,0.08); border: 1px solid rgba(215,0,48,0.2);
+    }
+    .dois-tipos-cta p { color: rgba(255,255,255,0.7); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .dois-tipos-cta strong { color: var(--white); }
+    @media (max-width: 768px) { .dois-tipos-grid { grid-template-columns: 1fr; } }
+
     /* ─── SECTION COMMONS ─── */
     section { padding: 5rem 1.5rem; }
     .container { max-width: 1160px; margin: 0 auto; }
@@ -181,9 +303,10 @@
       border: 1px solid var(--gray-border);
     }
     .cost-item-icon {
-      width: 36px; height: 36px; border-radius: 8px;
-      background: #FFF0F3; display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .cost-item-icon.icon-box.sm {
+      background: rgba(215,0,48,0.08); border: 1px solid rgba(215,0,48,0.15);
     }
     .cost-item-text { font-size: 0.9rem; color: var(--black); font-weight: 500; }
     .cost-item-hours { margin-left: auto; font-size: 0.8rem; color: var(--red); font-weight: 700; white-space: nowrap; }
@@ -402,9 +525,11 @@
     }
     .guarantee-icon {
       width: 48px; height: 48px; border-radius: 12px;
-      background: rgba(215,0,48,0.15); display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; margin-bottom: 1rem;
+      background: rgba(215,0,48,0.15); border: 1px solid rgba(215,0,48,0.25);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
     }
+    .guarantee-icon svg { width: 22px; height: 22px; color: var(--red); stroke: var(--red); }
     .guarantee-title { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--white); margin-bottom: 0.5rem; }
     .guarantee-desc { font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
     .guarantee-badge {
@@ -562,34 +687,45 @@
 
 <!-- HERO -->
 <section class="hero" id="inicio">
-  <span class="hero-badge">IA nos departamentos da sua empresa</span>
-  <h1>Sua empresa operando com IA.<br><em>Por menos do que um funcionário.</em></h1>
-  <p class="hero-sub">
-    Marketing, financeiro, RH, atendimento e comercial rodando com IA — configurado para o seu negócio, com suporte real até funcionar de verdade.
-  </p>
-  <div class="hero-ctas">
-    <a href="https://wa.me/5548991050105?text=Quero+agendar+uma+demonstracao+da+Empresa+Inteligente" target="_blank" class="btn-primary">Agendar demonstração gratuita</a>
-    <a href="#como-funciona" class="btn-outline">Ver como funciona</a>
-  </div>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <span class="hero-stat-number"><span>73</span>h</span>
-      <span class="hero-stat-label">Economizadas por semana</span>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <span class="hero-badge">IA nos departamentos da sua empresa</span>
+      <h1>Sua empresa operando com IA.<br><em>Por menos do que um funcionário.</em></h1>
+      <p class="hero-sub">
+        Marketing, financeiro, RH, atendimento e comercial rodando com IA — configurado para o seu negócio, com suporte real até funcionar de verdade.
+      </p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/5548991050105?text=Quero+agendar+uma+demonstracao+da+Empresa+Inteligente" target="_blank" class="btn-primary">Agendar demonstração gratuita</a>
+        <a href="#como-funciona" class="btn-outline">Ver como funciona</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-number"><span>73</span>h</span>
+          <span class="hero-stat-label">Economizadas por semana</span>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">R$<span>2.500</span></span>
+          <span class="hero-stat-label">Plano inicial/mês</span>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-number"><span>30</span>dias</span>
+          <span class="hero-stat-label">Para resultado mensurável</span>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-number"><span>6</span></span>
+          <span class="hero-stat-label">Departamentos cobertos</span>
+        </div>
+      </div>
     </div>
-    <div class="hero-stat-sep"></div>
-    <div class="hero-stat">
-      <span class="hero-stat-number">R$<span>2.500</span></span>
-      <span class="hero-stat-label">Plano inicial/mês</span>
-    </div>
-    <div class="hero-stat-sep"></div>
-    <div class="hero-stat">
-      <span class="hero-stat-number"><span>30</span>dias</span>
-      <span class="hero-stat-label">Para resultado mensurável</span>
-    </div>
-    <div class="hero-stat-sep"></div>
-    <div class="hero-stat">
-      <span class="hero-stat-number"><span>6</span></span>
-      <span class="hero-stat-label">Departamentos cobertos</span>
+    <div class="hero-character">
+      <img src="assets/samurai-principal.png" alt="Especialista KTANA em implementação de IA" />
+      <div class="hero-character-badge">
+        <div class="hero-character-badge-label">Implementação real</div>
+        <div class="hero-character-badge-value">Resultado em <span>30 dias</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -619,6 +755,71 @@
   </div>
 </div>
 
+<!-- DOIS TIPOS DE EMPRESA -->
+<section class="dois-tipos">
+  <div class="dois-tipos-inner">
+    <div class="dois-tipos-header">
+      <span class="section-label" style="display:block;text-align:center;margin-bottom:1rem;">O mercado se dividiu</span>
+      <h2>Existem dois tipos de empresa<br>no mercado hoje.</h2>
+      <p>A diferença entre elas não é o tamanho. É a decisão que tomaram.</p>
+    </div>
+    <div class="dois-tipos-grid">
+      <div class="dt-card sem">
+        <div class="dt-card-label">
+          <i data-lucide="x-circle"></i>
+          A empresa que ainda não usa IA
+        </div>
+        <div class="dt-card-title">Opera no limite.<br>Cresce com custo.</div>
+        <div class="dt-item">
+          <div class="dt-icon"><i data-lucide="clock"></i></div>
+          <div class="dt-text">Time gasta horas toda semana em trabalho repetitivo que não gera resultado</div>
+        </div>
+        <div class="dt-item">
+          <div class="dt-icon"><i data-lucide="trending-down"></i></div>
+          <div class="dt-text">Para crescer, precisa contratar — e custo cresce junto com o faturamento</div>
+        </div>
+        <div class="dt-item">
+          <div class="dt-icon"><i data-lucide="eye-off"></i></div>
+          <div class="dt-text">Decisões no feeling — sem dados em tempo real sobre financeiro, vendas e atendimento</div>
+        </div>
+        <div class="dt-item">
+          <div class="dt-icon"><i data-lucide="alert-circle"></i></div>
+          <div class="dt-text">Concorrentes que já usam IA respondem mais rápido, cobram menos e fecham mais</div>
+        </div>
+        <div class="dt-highlight">Não é falta de esforço. É falta de alavancagem.</div>
+      </div>
+      <div class="dt-card com">
+        <div class="dt-card-label">
+          <i data-lucide="zap"></i>
+          A empresa que opera com IA
+        </div>
+        <div class="dt-card-title">Opera com precisão.<br>Cresce sem custo proporcional.</div>
+        <div class="dt-item">
+          <div class="dt-icon"><i data-lucide="zap"></i></div>
+          <div class="dt-text">Time foca no que gera resultado — atendimento, vendas, estratégia. O resto é automático</div>
+        </div>
+        <div class="dt-item">
+          <div class="dt-icon"><i data-lucide="trending-up"></i></div>
+          <div class="dt-text">Dobra o volume de trabalho sem dobrar o time — margem aumenta junto com o faturamento</div>
+        </div>
+        <div class="dt-item">
+          <div class="dt-icon"><i data-lucide="bar-chart-2"></i></div>
+          <div class="dt-text">Dados em tempo real — financeiro, pipeline, atendimento tudo visível sem ninguém montar relatório</div>
+        </div>
+        <div class="dt-item">
+          <div class="dt-icon"><i data-lucide="shield"></i></div>
+          <div class="dt-text">Vantagem competitiva real — não dá pra imitar sem implementação. É processo, não ferramenta</div>
+        </div>
+        <div class="dt-highlight">Isso é o que a Empresa Inteligente entrega. Nos seus departamentos. Em 30 dias.</div>
+      </div>
+    </div>
+    <div class="dois-tipos-cta">
+      <p><strong>Qual empresa você quer ser daqui a 6 meses?</strong><br>A decisão de implementar IA agora determina quem lidera o mercado amanhã.</p>
+      <a href="https://wa.me/5548991050105?text=Quero+saber+mais+sobre+a+Empresa+Inteligente" target="_blank" class="btn-primary">Agendar diagnóstico gratuito</a>
+    </div>
+  </div>
+</section>
+
 <!-- COST SECTION -->
 <section class="cost-section">
   <div class="container">
@@ -630,12 +831,12 @@
           Não é culpa de ninguém. Mas pensa no que seu time faz toda semana que poderia ser automático.
         </p>
         <div class="cost-list">
-          <div class="cost-item"><div class="cost-item-icon">📊</div><span class="cost-item-text">Conciliar extrato bancário na mão</span><span class="cost-item-hours">10h/sem</span></div>
-          <div class="cost-item"><div class="cost-item-icon">💬</div><span class="cost-item-text">Responder sempre as mesmas perguntas no WhatsApp</span><span class="cost-item-hours">20h/sem</span></div>
-          <div class="cost-item"><div class="cost-item-icon">📱</div><span class="cost-item-text">Lembrar de postar no Instagram</span><span class="cost-item-hours">15h/sem</span></div>
-          <div class="cost-item"><div class="cost-item-icon">📄</div><span class="cost-item-text">Ler 80 currículos para uma vaga</span><span class="cost-item-hours">8h/sem</span></div>
-          <div class="cost-item"><div class="cost-item-icon">📈</div><span class="cost-item-text">Montar relatório que poderia ser automático</span><span class="cost-item-hours">8h/sem</span></div>
-          <div class="cost-item"><div class="cost-item-icon">📞</div><span class="cost-item-text">Follow-up manual de leads</span><span class="cost-item-hours">12h/sem</span></div>
+          <div class="cost-item"><div class="cost-item-icon icon-box sm"><i data-lucide="bar-chart-2"></i></div><span class="cost-item-text">Conciliar extrato bancário na mão</span><span class="cost-item-hours">10h/sem</span></div>
+          <div class="cost-item"><div class="cost-item-icon icon-box sm"><i data-lucide="message-square"></i></div><span class="cost-item-text">Responder sempre as mesmas perguntas no WhatsApp</span><span class="cost-item-hours">20h/sem</span></div>
+          <div class="cost-item"><div class="cost-item-icon icon-box sm"><i data-lucide="smartphone"></i></div><span class="cost-item-text">Lembrar de postar no Instagram</span><span class="cost-item-hours">15h/sem</span></div>
+          <div class="cost-item"><div class="cost-item-icon icon-box sm"><i data-lucide="file-text"></i></div><span class="cost-item-text">Ler 80 currículos para uma vaga</span><span class="cost-item-hours">8h/sem</span></div>
+          <div class="cost-item"><div class="cost-item-icon icon-box sm"><i data-lucide="trending-up"></i></div><span class="cost-item-text">Montar relatório que poderia ser automático</span><span class="cost-item-hours">8h/sem</span></div>
+          <div class="cost-item"><div class="cost-item-icon icon-box sm"><i data-lucide="phone"></i></div><span class="cost-item-text">Follow-up manual de leads</span><span class="cost-item-hours">12h/sem</span></div>
         </div>
         <div style="margin-top:1.5rem; padding:1rem 1.25rem; background:rgba(215,0,48,0.06); border-radius:12px; border:1px solid rgba(215,0,48,0.15);">
           <strong style="font-family:var(--font-display); font-size:1.1rem; color:var(--red);">73 horas por semana</strong>
@@ -688,19 +889,19 @@
     <h2 class="section-title">Não é curso. Não é plataforma.<br>É sua empresa funcionando com IA.</h2>
     <div class="what-is-grid">
       <div class="what-card">
-        <div class="what-card-icon red">🎓</div>
+        <div class="what-card-icon icon-box"><i data-lucide="book-open"></i></div>
         <h3>Não é curso de IA</h3>
         <p>Você não vai assistir aula sobre como a IA poderia funcionar na sua empresa. O nosso trabalho não termina na entrega do conteúdo.</p>
         <span class="what-card-tag">Sem teoria</span>
       </div>
       <div class="what-card highlight">
-        <div class="what-card-icon dark">⚙️</div>
+        <div class="what-card-icon icon-box dark"><i data-lucide="settings"></i></div>
         <h3>É implementação real</h3>
         <p>A gente entra nos departamentos da sua empresa, entende como funciona hoje e configura a IA para o seu processo específico — não para uma empresa genérica.</p>
         <span class="what-card-tag">Do zero ao funcionando</span>
       </div>
       <div class="what-card">
-        <div class="what-card-icon red">📦</div>
+        <div class="what-card-icon icon-box"><i data-lucide="layers"></i></div>
         <h3>Não é plataforma</h3>
         <p>Plataforma que o time não sabe usar é assinatura desperdiçada. Aqui você recebe o processo configurado, treinamento e suporte até rodar de verdade.</p>
         <span class="what-card-tag">Sem acesso parado</span>
@@ -724,7 +925,7 @@
     <!-- FINANCEIRO -->
     <div class="dept-item" style="margin-top:3rem;">
       <div>
-        <span class="dept-tag">💰 Financeiro</span>
+        <span class="dept-tag"><i data-lucide="dollar-sign" style="width:13px;height:13px;display:inline;vertical-align:middle;"></i> Financeiro</span>
         <h3 class="dept-title">Fecha o mês sem<br>sua equipe travar 3 dias.</h3>
         <p class="dept-problem">Toda empresa que cresce chega no mesmo ponto: o fechamento mensal vira um projeto. Horas conciliando extrato, corrigindo planilha, esperando alguém terminar o relatório antes de ter visibilidade do caixa.</p>
         <div class="dept-benefits">
@@ -774,7 +975,7 @@
     <!-- COMERCIAL -->
     <div class="dept-item reverse">
       <div>
-        <span class="dept-tag">📈 Comercial</span>
+        <span class="dept-tag"><i data-lucide="trending-up" style="width:13px;height:13px;display:inline;vertical-align:middle;"></i> Comercial</span>
         <h3 class="dept-title">Seu vendedor só fala<br>com quem já quer comprar.</h3>
         <p class="dept-problem">Vendedor que passa metade do dia qualificando lead frio não está vendendo — está desperdiçando energia. O follow-up fica para quando dá, e quando dá já é tarde.</p>
         <div class="dept-benefits">
@@ -823,7 +1024,7 @@
     <!-- ATENDIMENTO -->
     <div class="dept-item">
       <div>
-        <span class="dept-tag">💬 Atendimento</span>
+        <span class="dept-tag"><i data-lucide="message-square" style="width:13px;height:13px;display:inline;vertical-align:middle;"></i> Atendimento</span>
         <h3 class="dept-title">70% dos atendimentos<br>resolvidos sem humano.</h3>
         <p class="dept-problem">Seu WhatsApp acumula mensagem. Sempre as mesmas perguntas: prazo, preço, status, como cancelar. Alguém do time para tudo para responder. Quando a demanda aumenta, o atendimento piora.</p>
         <div class="dept-benefits">
@@ -864,7 +1065,7 @@
     <!-- MARKETING -->
     <div class="dept-item reverse">
       <div>
-        <span class="dept-tag">📣 Marketing</span>
+        <span class="dept-tag"><i data-lucide="megaphone" style="width:13px;height:13px;display:inline;vertical-align:middle;"></i> Marketing</span>
         <h3 class="dept-title">Instagram postando 3x<br>por semana sem você tocar.</h3>
         <p class="dept-problem">Seu Instagram fica 4 dias sem postar porque ninguém teve tempo. Quando posta, é o que deu. Não tem consistência, não tem estratégia, não tem resultado — e isso custa mais do que parece.</p>
         <div class="dept-benefits">
@@ -909,7 +1110,7 @@
     <!-- RH -->
     <div class="dept-item">
       <div>
-        <span class="dept-tag">👥 RH</span>
+        <span class="dept-tag"><i data-lucide="users" style="width:13px;height:13px;display:inline;vertical-align:middle;"></i> RH</span>
         <h3 class="dept-title">Processo seletivo de<br>3 semanas para 6 dias.</h3>
         <p class="dept-problem">Abriu uma vaga. Chegaram 80 currículos. Alguém vai ter que ler os 80, filtrar, entrar em contato, agendar entrevista. Isso leva semanas e cansa quem faz. Resultado: contratação errada por pressa.</p>
         <div class="dept-benefits">
@@ -949,7 +1150,7 @@
     <!-- OPERAÇÃO -->
     <div class="dept-item reverse">
       <div>
-        <span class="dept-tag">⚙️ Operação</span>
+        <span class="dept-tag"><i data-lucide="cpu" style="width:13px;height:13px;display:inline;vertical-align:middle;"></i> Operação</span>
         <h3 class="dept-title">A reunião semanal de<br>alinhamento deixa de existir.</h3>
         <p class="dept-problem">Reunião de alinhamento toda semana porque ninguém sabe o status de cada tarefa. Aprovações travadas. Relatório que ninguém tem tempo de montar. Você no meio de tudo.</p>
         <div class="dept-benefits">
@@ -1062,25 +1263,25 @@
     <p class="section-sub" style="color:rgba(255,255,255,0.5);">Não é promessa de marketing. Está no contrato — com critérios objetivos e o que acontece se não cumprirmos.</p>
     <div class="guarantees-grid">
       <div class="guarantee-card">
-        <div class="guarantee-icon">📅</div>
+        <div class="guarantee-icon icon-box"><i data-lucide="calendar"></i></div>
         <div class="guarantee-title">Resultado em 30 dias</div>
         <p class="guarantee-desc">Se em 30 dias não tiver pelo menos 1 departamento funcionando com resultado mensurável (definido em contrato antes de começar), devolvemos o valor proporcional do primeiro mês.</p>
         <span class="guarantee-badge">✓ No contrato</span>
       </div>
       <div class="guarantee-card">
-        <div class="guarantee-icon">🛟</div>
+        <div class="guarantee-icon icon-box"><i data-lucide="shield"></i></div>
         <div class="guarantee-title">A gente não some</div>
         <p class="guarantee-desc">Suporte ativo incluso no contrato com SLA definido por plano. Não abandonamos no meio. Você tem acesso direto a quem implementou — não a um help desk genérico.</p>
         <span class="guarantee-badge">✓ SLA contratual</span>
       </div>
       <div class="guarantee-card">
-        <div class="guarantee-icon">🔄</div>
+        <div class="guarantee-icon icon-box"><i data-lucide="refresh-cw"></i></div>
         <div class="guarantee-title">Troca de departamento em 60 dias</div>
         <p class="guarantee-desc">Se nos primeiros 60 dias você perceber que escolheu o departamento errado para começar, trocamos sem custo adicional. Você escolhe o que faz mais sentido para o momento da empresa.</p>
         <span class="guarantee-badge">✓ Sem custo extra</span>
       </div>
       <div class="guarantee-card">
-        <div class="guarantee-icon">📊</div>
+        <div class="guarantee-icon icon-box"><i data-lucide="bar-chart-2"></i></div>
         <div class="guarantee-title">ROI em 90 dias</div>
         <p class="guarantee-desc">Se em 90 dias você não conseguir identificar economia equivalente a pelo menos 1 mês do plano (calculamos juntos antes de começar), adicionamos 1 mês gratuito no contrato.</p>
         <span class="guarantee-badge">✓ Extensão automática</span>
@@ -1294,6 +1495,9 @@
       if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     });
   });
+
+  // Inicializar ícones Lucide
+  if (typeof lucide !== 'undefined') lucide.createIcons();
 </script>
 </body>
 </html>
