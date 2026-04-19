@@ -43,19 +43,24 @@
     /* ─── ANNOUNCEMENT BAR ─── */
     .announce-bar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 102;
-      height: 40px; background: #FFFFFF;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
+      height: 40px; background: #0D0009;
+      border-bottom: 1px solid rgba(215,0,48,0.22);
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
     }
-    .announce-bar::before { content: none; }
+    .announce-bar::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(215,0,48,0.07) 50%, transparent 100%);
+      animation: announceShimmer 4s ease-in-out infinite;
+    }
     @keyframes announceShimmer { 0%,100%{opacity:.4} 50%{opacity:1} }
     .announce-bar a {
-      color: rgba(0,0,0,0.55); font-size: 0.78rem; font-weight: 500;
+      color: rgba(255,255,255,0.72); font-size: 0.78rem; font-weight: 500;
       text-decoration: none; letter-spacing: 0.01em; position: relative; z-index: 1;
       display: flex; align-items: center; gap: 0.55rem; transition: color 0.2s;
     }
-    .announce-bar a:hover { color: var(--black); }
+    .announce-bar a:hover { color: var(--white); }
     .announce-dot {
       width: 6px; height: 6px; border-radius: 50%; background: var(--red);
       flex-shrink: 0; animation: announcePulse 1.8s ease-in-out infinite;
@@ -206,10 +211,10 @@
     }
     .hero-stat-number {
       font-family: var(--font-display); font-weight: 800;
-      font-size: 2.4rem; color: var(--red); letter-spacing: -0.04em;
+      font-size: 2.4rem; color: var(--black); letter-spacing: -0.04em;
       display: block; line-height: 1; margin-bottom: 0.5rem;
     }
-    .hero-stat-number span { color: inherit; }
+    .hero-stat-number span { color: var(--red); }
     .hero-stat-label {
       font-size: 0.78rem; color: var(--gray-text);
       text-transform: uppercase; letter-spacing: 0.05em;
@@ -291,49 +296,49 @@
       border-radius: 20px; padding: 2.5rem;
       border: 1px solid;
     }
-    .dt-card.sem { background: var(--red); border-color: var(--red); }
-    .dt-card.com { background: #111111; border-color: #1A1A1A; }
+    .dt-card.sem { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.08); }
+    .dt-card.com { background: rgba(215,0,48,0.06); border-color: rgba(215,0,48,0.25); }
     .dt-card-label {
       font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
       margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;
     }
-    .dt-card.sem .dt-card-label { color: rgba(255,255,255,0.85); }
+    .dt-card.sem .dt-card-label { color: rgba(255,255,255,0.3); }
     .dt-card.com .dt-card-label { color: var(--red); }
     .dt-card-title {
       font-family: var(--font-display); font-weight: 800;
       font-size: 1.4rem; letter-spacing: -0.02em; margin-bottom: 1.75rem;
     }
-    .dt-card.sem .dt-card-title { color: rgba(255,255,255,0.97); }
+    .dt-card.sem .dt-card-title { color: rgba(255,255,255,0.5); }
     .dt-card.com .dt-card-title { color: var(--white); }
     .dt-item {
       display: flex; align-items: flex-start; gap: 0.85rem;
       margin-bottom: 1rem; padding-bottom: 1rem;
       border-bottom: 1px solid;
     }
-    .dt-card.sem .dt-item { border-color: rgba(255,255,255,0.22); }
+    .dt-card.sem .dt-item { border-color: rgba(255,255,255,0.06); }
     .dt-card.com .dt-item { border-color: rgba(215,0,48,0.1); }
     .dt-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
     .dt-icon {
       width: 30px; height: 30px; border-radius: 7px; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center; margin-top: 1px;
     }
-    .dt-card.sem .dt-icon { background: rgba(255,255,255,0.2); }
-    .dt-card.sem .dt-icon svg { width: 14px; height: 14px; color: rgba(255,255,255,0.75); stroke: rgba(255,255,255,0.75); }
+    .dt-card.sem .dt-icon { background: rgba(255,255,255,0.05); }
+    .dt-card.sem .dt-icon svg { width: 14px; height: 14px; color: rgba(255,255,255,0.25); stroke: rgba(255,255,255,0.25); }
     .dt-card.com .dt-icon { background: rgba(215,0,48,0.15); }
     .dt-card.com .dt-icon svg { width: 14px; height: 14px; color: var(--red); stroke: var(--red); }
     .dt-text { font-size: 0.9rem; line-height: 1.5; }
-    .dt-card.sem .dt-text { color: rgba(255,255,255,0.88); }
+    .dt-card.sem .dt-text { color: rgba(255,255,255,0.4); }
     .dt-card.com .dt-text { color: rgba(255,255,255,0.8); }
     .dt-highlight {
       margin-top: 2rem; padding: 1rem 1.25rem; border-radius: 10px;
       font-size: 0.85rem; font-weight: 600;
     }
-    .dt-card.sem .dt-highlight { background: rgba(0,0,0,0.22); color: rgba(255,255,255,0.85); }
+    .dt-card.sem .dt-highlight { background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.3); }
     .dt-card.com .dt-highlight { background: rgba(215,0,48,0.12); color: var(--red); border: 1px solid rgba(215,0,48,0.2); }
     .dois-tipos-cta {
       text-align: center; margin-top: 3rem;
       padding: 2.5rem; border-radius: 20px;
-      background: #111111; border: 1px solid #1A1A1A;
+      background: rgba(215,0,48,0.08); border: 1px solid rgba(215,0,48,0.2);
       position: relative; overflow: hidden;
     }
     /* Morphic glow no fundo do CTA — padrão chat */
@@ -410,13 +415,7 @@
     .proof-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.1); }
 
     /* ─── COST SECTION ─── */
-    .cost-section { background: var(--red); }
-    .cost-section .section-label { color: rgba(255,255,255,0.75); }
-    .cost-section .section-title { color: var(--white); }
-    .cost-section .section-sub { color: rgba(255,255,255,0.75); }
-    .cost-section .cta-inline { border-top-color: rgba(255,255,255,0.15); }
-    .cost-section .cta-inline p { color: rgba(255,255,255,0.75); }
-    .cost-section .cta-inline strong { color: var(--white); }
+    .cost-section { background: var(--gray-bg); }
     .cost-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
       margin-top: 3rem;
@@ -468,11 +467,10 @@
     .what-is { background: var(--white); }
     .what-is-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
     .what-card {
-      background: var(--white); border-radius: 16px; padding: 1.75rem;
+      background: var(--gray-bg); border-radius: 16px; padding: 1.75rem;
       border: 1px solid var(--gray-border);
     }
-    .what-card.highlight { background: var(--red); border-color: transparent; }
-    .what-card.highlight .what-card-tag { color: var(--white); background: rgba(0,0,0,0.2); }
+    .what-card.highlight { background: var(--black); border-color: transparent; }
     .what-card-icon {
       width: 44px; height: 44px; border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
@@ -495,7 +493,7 @@
     }
 
     /* ─── DEPARTMENTS ─── */
-    .departments { background: var(--white); }
+    .departments { background: var(--gray-bg); }
     .dept-item {
       display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
       align-items: center; padding: 4rem 0;
@@ -591,15 +589,12 @@
 
     /* ─── METRICS ─── */
     .metrics {
-      background: var(--red); color: var(--white);
-      box-shadow: none;
+      background: #0F0F0F; color: var(--white);
+      box-shadow: inset 0 2px 0 rgba(215,0,48,0.25), inset 0 3px 0 rgba(255,255,255,0.04);
     }
-    .metrics .section-label { color: rgba(255,255,255,0.75); }
-    .metrics .section-title { color: var(--white); }
-    .metrics .section-sub { color: rgba(255,255,255,0.75); }
     .metrics-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3rem; }
     .metric-card {
-      background: rgba(0,0,0,0.25); border: 1px solid rgba(0,0,0,0.2);
+      background: var(--dark-card); border: 1px solid var(--dark-border);
       border-radius: 16px; padding: 1.75rem; text-align: center;
     }
     .metric-value {
@@ -607,7 +602,7 @@
       font-size: 2.5rem; letter-spacing: -0.04em; color: var(--white);
       line-height: 1;
     }
-    .metric-value em { color: rgba(255,255,255,0.55); font-style: normal; }
+    .metric-value em { color: var(--red); font-style: normal; }
     .metric-label { font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-top: 0.5rem; line-height: 1.4; }
 
     /* ─── TESTIMONIALS ─── */
@@ -661,27 +656,24 @@
     }
 
     /* ─── HOW IT WORKS ─── */
-    .how { background: #111111; }
-    .how .section-label { color: rgba(215,0,48,0.85); }
-    .how .section-title { color: var(--white); }
-    .how .section-sub { color: rgba(255,255,255,0.6); }
+    .how { background: var(--white); }
     .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; position: relative; }
     .steps-grid::before {
       content: '';
       position: absolute; top: 40px; left: calc(16.67% + 1rem); right: calc(16.67% + 1rem);
-      height: 1px; background: rgba(255,255,255,0.15);
+      height: 1px; background: var(--gray-border);
     }
     .step { text-align: center; position: relative; }
     .step-num {
       width: 56px; height: 56px; border-radius: 50%;
-      background: var(--red); color: var(--white);
+      background: var(--black); color: var(--white);
       font-family: var(--font-display); font-weight: 800; font-size: 1.1rem;
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 1.25rem;
     }
-    .step.active .step-num { background: var(--white); color: var(--red); }
-    .step-title { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--white); }
-    .step-desc { font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.65; }
+    .step.active .step-num { background: var(--red); }
+    .step-title { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; margin-bottom: 0.5rem; }
+    .step-desc { font-size: 0.875rem; color: var(--gray-text); line-height: 1.65; }
     .step-tag {
       display: inline-block; margin-top: 0.75rem;
       font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem;
@@ -691,17 +683,14 @@
 
     /* ─── GUARANTEES ─── */
     .guarantees {
-      background: var(--red);
-      box-shadow: none;
+      background: #0A0A0A;
+      box-shadow: inset 0 2px 0 rgba(215,0,48,0.25), inset 0 3px 0 rgba(255,255,255,0.04);
     }
-    .guarantees .section-label { color: rgba(255,255,255,0.75); }
-    .guarantees .section-title { color: var(--white); }
-    .guarantees .section-sub { color: rgba(255,255,255,0.75); }
     .guarantees .section-title { color: var(--white); }
     .guarantees .section-sub { color: rgba(255,255,255,0.5); }
     .guarantees-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; margin-top: 3rem; }
     .guarantee-card {
-      background: rgba(0,0,0,0.25); border: 1px solid rgba(0,0,0,0.2);
+      background: var(--dark-card); border: 1px solid var(--dark-border);
       border-radius: 16px; padding: 1.75rem; position: relative; overflow: hidden;
     }
     .guarantee-card::before { content: none; }
@@ -721,7 +710,7 @@
     }
 
     /* ─── PRICING ─── */
-    .pricing { background: var(--white); padding-top: 5.5rem; overflow: visible; }
+    .pricing { background: var(--gray-bg); padding-top: 5.5rem; overflow: visible; }
     .pricing-toggle {
       display: flex; align-items: center; gap: 0.75rem; justify-content: center;
       margin: 2rem 0; font-size: 0.875rem;
@@ -972,10 +961,10 @@
     /* ─── TICKER TOP (fixo abaixo do nav) ─── */
     .ticker-top {
       position: fixed; top: 104px; left: 0; right: 0; z-index: 99;
-      background: rgba(240,240,240,0.97);
+      background: rgba(20,20,20,0.97);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,0,0,0.08);
+      border-bottom: 1px solid rgba(215,0,48,0.18);
       overflow: hidden;
       padding: 10px 0;
       -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
@@ -987,7 +976,7 @@
     .ticker-top .ticker-item {
       font-size: 0.76rem;
       padding: 0 1.5rem;
-      color: rgba(0,0,0,0.45);
+      color: rgba(255,255,255,0.5);
     }
     .ticker-top .ticker-item strong {
       color: var(--red);
@@ -1490,7 +1479,7 @@
         </div>
         <div class="hero-stat-sep"></div>
         <div class="hero-stat">
-          <span class="hero-stat-number"><span>30</span> dias</span>
+          <span class="hero-stat-number"><span>30</span>dias</span>
           <span class="hero-stat-label">Para resultado mensurável</span>
         </div>
         <div class="hero-stat-sep"></div>
