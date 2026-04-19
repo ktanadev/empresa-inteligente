@@ -1430,7 +1430,7 @@
     .hero-character { opacity: 0; animation: fadeInRight .7s ease forwards; animation-delay: .20s; }
 
     /* Float no card da personagem */
-    .hero-character img { animation: float 5s ease-in-out infinite; animation-delay: 1s; }
+    .hero-character img, .hero-character video { animation: float 5s ease-in-out infinite; animation-delay: 1s; }
 
     /* Pulse no botão primário do hero */
     .hero .btn-primary { animation: pulse-glow 2.8s ease-in-out infinite; animation-delay: 1.2s; }
@@ -1846,7 +1846,7 @@
         min-height: 240px;
         max-height: 420px;
       }
-      .hero-character img {
+      .hero-character img, .hero-character video {
         width: 100% !important;
         max-width: 480px !important;
         height: auto !important;
@@ -2121,7 +2121,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="hero-character">
-      <img src="assets/ktana-cyberpunk.jpg" alt="KTANA — IA para empresas brasileiras" />
+      <video src="assets/ktana-cyberpunk-video.mp4" autoplay muted loop playsinline
+        poster="assets/ktana-cyberpunk.jpg"></video>
       <div class="hero-character-badge">
         <div class="hero-character-badge-label">Implementação real</div>
         <div class="hero-character-badge-value">Resultado em <span>30 dias</span></div>
