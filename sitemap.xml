@@ -4,7 +4,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <!-- ══════════════════════════════════════════
-       HOMEPAGE — Prioridade máxima
+       HOMEPAGE
        ══════════════════════════════════════════ -->
   <url>
     <loc>https://empresainteligente.ai/</loc>
@@ -20,122 +20,86 @@
   </url>
 
   <!-- ══════════════════════════════════════════
-       SEÇÕES — Topo de funil
+       SEÇÕES DA HOMEPAGE (âncoras)
        ══════════════════════════════════════════ -->
-
-  <!-- Hero — proposta de valor principal -->
   <url>
     <loc>https://empresainteligente.ai/#inicio</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-
-  <!-- Por que IA — mercado dividido, urgência -->
   <url>
     <loc>https://empresainteligente.ai/#por-que-ia</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
-
-  <!-- Comparativo — CLT vs IA, intenção comercial alta -->
   <url>
     <loc>https://empresainteligente.ai/#comparativo</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.88</priority>
   </url>
-
-  <!-- O que é — educação sobre a plataforma -->
   <url>
     <loc>https://empresainteligente.ai/#plataforma</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-
-  <!-- ══════════════════════════════════════════
-       SEÇÕES — Core do produto
-       ══════════════════════════════════════════ -->
-
-  <!-- Departamentos — 6 áreas com IA -->
   <url>
     <loc>https://empresainteligente.ai/#departamentos</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
-
-  <!-- Números — provas sociais consolidadas -->
   <url>
     <loc>https://empresainteligente.ai/#numeros</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-
-  <!-- Resultados — métricas de quem implementou -->
   <url>
     <loc>https://empresainteligente.ai/#resultados</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.83</priority>
   </url>
-
-  <!-- Depoimentos — prova social, vídeos -->
   <url>
     <loc>https://empresainteligente.ai/#depoimentos</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-
-  <!-- ══════════════════════════════════════════
-       SEÇÕES — Conversão
-       ══════════════════════════════════════════ -->
-
-  <!-- Planos e Preços — seção de conversão direta -->
   <url>
     <loc>https://empresainteligente.ai/#planos</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
-
-  <!-- Garantias — redução de objeções -->
   <url>
     <loc>https://empresainteligente.ai/#garantias</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-
-  <!-- Como Funciona — funil médio, educação -->
   <url>
     <loc>https://empresainteligente.ai/#como-funciona</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-
-  <!-- Mentoria e Suporte — diferencial competitivo -->
   <url>
     <loc>https://empresainteligente.ai/#mentoria</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-
-  <!-- FAQ — perguntas frequentes, long tail SEO -->
   <url>
     <loc>https://empresainteligente.ai/#faq</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.78</priority>
   </url>
-
-  <!-- Agendar — CTA final, fundo de funil -->
   <url>
     <loc>https://empresainteligente.ai/#agendar</loc>
     <lastmod>2026-04-19</lastmod>
@@ -144,19 +108,61 @@
   </url>
 
   <!-- ══════════════════════════════════════════
+       PÁGINAS POR DEPARTAMENTO
+       ══════════════════════════════════════════ -->
+  <url>
+    <loc>https://empresainteligente.ai/ia-para-financeiro/</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://empresainteligente.ai/ia-para-financeiro/"/>
+  </url>
+  <url>
+    <loc>https://empresainteligente.ai/ia-para-comercial/</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://empresainteligente.ai/ia-para-comercial/"/>
+  </url>
+  <url>
+    <loc>https://empresainteligente.ai/ia-para-atendimento/</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://empresainteligente.ai/ia-para-atendimento/"/>
+  </url>
+  <url>
+    <loc>https://empresainteligente.ai/ia-para-marketing/</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://empresainteligente.ai/ia-para-marketing/"/>
+  </url>
+  <url>
+    <loc>https://empresainteligente.ai/ia-para-rh/</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://empresainteligente.ai/ia-para-rh/"/>
+  </url>
+  <url>
+    <loc>https://empresainteligente.ai/ia-para-operacao/</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://empresainteligente.ai/ia-para-operacao/"/>
+  </url>
+
+  <!-- ══════════════════════════════════════════
        PÁGINAS INDEPENDENTES
        ══════════════════════════════════════════ -->
-
-  <!-- Diagnóstico / Agendamento — página de conversão -->
   <url>
     <loc>https://empresainteligente.ai/diagnostico</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.92</priority>
+    <priority>0.93</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://empresainteligente.ai/diagnostico"/>
   </url>
-
-  <!-- Morte das Empresas — LP de conteúdo, topo de funil -->
   <url>
     <loc>https://empresainteligente.ai/morteempresas/</loc>
     <lastmod>2026-04-19</lastmod>
