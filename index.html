@@ -331,15 +331,17 @@
     .dt-card.com .dt-highlight { background: rgba(215,0,48,0.2); color: var(--red); border: 1px solid rgba(215,0,48,0.35); }
     .dois-tipos-cta {
       text-align: center; margin-top: 3rem;
-      padding: 2.5rem; border-radius: 20px;
-      background: #111111; border: 1px solid #1A1A1A;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+      padding: 2.5rem 2rem; border-radius: 20px;
+      background: var(--white); border: 2px solid var(--red);
+      box-shadow: 0 4px 32px rgba(215,0,48,0.12);
       position: relative; overflow: hidden;
     }
     .dois-tipos-cta::before { content: none; }
     .dois-tipos-cta > * { position: relative; z-index: 1; }
-    .dois-tipos-cta p { color: rgba(255,255,255,0.6); font-size: 1.05rem; margin-bottom: 1.5rem; }
-    .dois-tipos-cta strong { color: #FFFFFF; }
+    .dois-tipos-cta p { color: var(--gray-text); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .dois-tipos-cta strong { color: var(--red); display: block; font-family: var(--font-display); font-size: 1.3rem; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+    .dois-tipos-cta .btn-primary { background: var(--white); color: var(--red); border: 2px solid var(--red); }
+    .dois-tipos-cta .btn-primary:hover { background: var(--red); color: var(--white); }
 
     /* Dois tipos grid — animação sequencial comparativa */
     .dois-tipos-grid.reveal-children > *:nth-child(1) {
@@ -455,7 +457,7 @@
       background: var(--gray-bg); border-radius: 16px; padding: 1.75rem;
       border: 1px solid var(--gray-border);
     }
-    .what-card.highlight { background: var(--black); border-color: transparent; }
+    .what-card.highlight { background: var(--red); border-color: transparent; }
     .what-card-icon {
       width: 44px; height: 44px; border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
@@ -814,11 +816,12 @@
     .faq-item.open .faq-a { display: block; }
 
     /* ─── FINAL CTA ─── */
-    .final-cta { background: var(--white); text-align: center; }
-    .final-cta .section-title { color: var(--black); max-width: 700px; margin: 0 auto 1rem; }
-    .final-cta .section-sub { margin: 0 auto 2.5rem; color: var(--gray-text); }
+    .final-cta { background: var(--red); text-align: center; }
+    .final-cta .section-title { color: var(--white); max-width: 700px; margin: 0 auto 1rem; }
+    .final-cta .section-sub { margin: 0 auto 2.5rem; color: rgba(255,255,255,0.75); }
+    .final-cta .section-label { color: rgba(255,255,255,0.7); }
     .final-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .final-trust { margin-top: 2rem; font-size: 0.8rem; color: var(--gray-text); }
+    .final-trust { margin-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.5); }
 
     /* ─── FOOTER INSTITUCIONAL ─── */
     footer {
@@ -848,7 +851,7 @@
       font-family: var(--font-display); font-weight: 800; font-size: 1.05rem;
       color: #FFFFFF; letter-spacing: -0.025em; line-height: 1.1; display: block;
     }
-    .footer-brand-name span { color: var(--red); }
+    .footer-brand-name span { color: rgba(255,255,255,0.7); }
     .footer-brand-tagline {
       font-size: 0.7rem; color: rgba(255,255,255,0.4);
       text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-top: 1px;
@@ -864,7 +867,7 @@
     }
     .footer-badge-dot {
       width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
-      background: rgba(215,0,48,0.7);
+      background: rgba(255,255,255,0.6);
     }
     /* Cols */
     .footer-col-title {
@@ -1018,13 +1021,16 @@
     /* ─── INLINE CTA BLOCK ─── */
     .cta-inline {
       text-align: center; margin-top: 3rem; padding: 2.5rem;
-      background: #111111; border-radius: 20px;
-      border: 1px solid #1A1A1A;
+      background: var(--white); border-radius: 20px;
+      border: 2px solid var(--red);
+      box-shadow: 0 4px 32px rgba(215,0,48,0.12);
     }
-    .cta-inline p { font-size: 0.95rem; color: rgba(255,255,255,0.65); margin-bottom: 1.25rem; line-height: 1.6; }
-    .cta-inline strong { color: var(--red); }
-    .cta-inline.dark { background: #111111; }
-    .cta-inline.dark p { color: rgba(255,255,255,0.5); }
+    .cta-inline p { font-size: 0.95rem; color: var(--gray-text); margin-bottom: 1.25rem; line-height: 1.6; }
+    .cta-inline strong { color: var(--red); display: block; font-family: var(--font-display); font-size: 1.2rem; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
+    .cta-inline .btn-primary { background: var(--white); color: var(--red); border: 2px solid var(--red); }
+    .cta-inline .btn-primary:hover { background: var(--red); color: var(--white); }
+    .cta-inline.dark { background: var(--white); }
+    .cta-inline.dark p { color: var(--gray-text); }
     .cta-inline.dark strong { color: var(--red); }
 
     /* ─── RESPONSIVE ─── */
