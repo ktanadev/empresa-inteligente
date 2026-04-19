@@ -162,7 +162,7 @@ footer{padding:.6rem 1rem;text-align:center;font-size:.75rem;color:var(--muted);
           <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <div>
             <div class="info-label">Formato</div>
-            <div class="info-value">Google Meet (link enviado por e-mail)</div>
+            <div class="info-value" id="info-format">Google Meet</div>
           </div>
         </div>
       </div>
@@ -239,6 +239,10 @@ function renderSessionInfo(data){
     document.getElementById('info-datetime').textContent = fmt.charAt(0).toUpperCase()+fmt.slice(1);
   }
   if(data?.nome_lead) document.getElementById('info-name').textContent = data.nome_lead;
+  if(data?.meet_url && data.meet_url !== '#'){
+    const el = document.getElementById('info-format');
+    if(el) el.innerHTML = '<a href="'+data.meet_url+'" target="_blank" rel="noopener" style="color:var(--red);text-decoration:underline">Google Meet ↗</a>';
+  }
 }
 
 async function fetchStatus(){
