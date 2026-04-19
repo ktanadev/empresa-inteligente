@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -27,9 +28,17 @@
       --dark-border: #303030;
       --white: #FFFFFF;
       --font-display: 'Space Grotesk', sans-serif;
-      --font-body: 'Inter', sans-serif;
+      --font-body: 'Satoshi', 'Inter', sans-serif;
       --font-mono: 'JetBrains Mono', ui-monospace, monospace;
       --font-editorial: 'IBM Plex Sans', Georgia, serif;
+      /* Design System — Ktana White v1.0 */
+      --ink: #0B0B0C;
+      --paper: #FEFEF6;
+      --accent: #A01E24;
+      --accent-lo: #E5433A;
+      --accent-hi: #4A0E12;
+      --accent-grad: linear-gradient(135deg, #E5433A 0%, #A01E24 48%, #4A0E12 100%);
+      --shadow-blade: 0 20px 60px -20px rgba(107,15,20,.45);
     }
 
     html { scroll-behavior: smooth; }
@@ -413,14 +422,14 @@
       max-width: 560px; line-height: 1.7;
     }
 
-    /* ─── BLADE SEPARATOR ─── */
+    /* ─── BLADE SEPARATOR — Design System Ktana ─── */
     .blade-sep {
-      height: 3px;
-      background: linear-gradient(90deg, var(--red) 0%, var(--red-dark) 60%, transparent 100%);
-      transform: skewY(-0.7deg);
+      height: 2px;
+      background: var(--accent-grad);
+      transform: skewY(-1.2deg);
       transform-origin: left center;
       position: relative; z-index: 2;
-      box-shadow: 0 3px 16px -4px rgba(215,0,48,0.35);
+      box-shadow: var(--shadow-blade);
     }
 
     /* ─── PROOF BAR ─── */
@@ -723,15 +732,18 @@
     @media (max-width: 700px) { .testimonials-grid { grid-template-columns: 1fr; } }
 
     /* ─── HOW IT WORKS ─── */
-    .how { background: #BC002D; position: relative; overflow: hidden; }
-    .how .section-title { color: var(--white); }
-    .how .section-label { color: rgba(255,255,255,0.65); }
-    .how .section-label::before { background: rgba(255,255,255,0.45); }
-    .how .section-sub { color: rgba(255,255,255,0.7); }
-    /* Arco decorativo institucional */
-    .how-arc {
-      position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+    .how { background: var(--ink); position: relative; overflow: hidden; }
+    .how::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 85% 50%, rgba(160,30,36,.32) 0%, transparent 55%);
+      pointer-events: none; z-index: 0;
     }
+    .how .section-title { color: var(--white); }
+    .how .section-label { color: rgba(255,255,255,0.55); }
+    .how .section-label::before { background: var(--accent-lo); opacity: 0.7; }
+    .how .section-sub { color: rgba(255,255,255,0.6); }
+    .how-arc { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
     .how .container { position: relative; z-index: 1; }
     .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; position: relative; }
     .steps-grid::before {
@@ -902,71 +914,85 @@
     .faq-a { display: none; padding: 0 1.25rem 1.25rem; font-size: 0.875rem; color: var(--gray-text); line-height: 1.7; }
     .faq-item.open .faq-a { display: block; }
 
-    /* ─── FINAL CTA ─── */
+    /* ─── FINAL CTA — Design System .strip ─── */
     .final-cta {
-      background: #BC002D; text-align: center;
+      background: var(--ink); text-align: center;
       position: relative; overflow: hidden;
       isolation: isolate;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 20% 55%, rgba(160,30,36,.32) 0%, transparent 55%);
+      pointer-events: none; z-index: 0;
     }
     .final-cta-arc {
       position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
     }
-    /* Cubo fantasma centrado — decoração sutil */
     .final-cta-ghost {
       position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
       width: 420px; height: 280px;
       background: url('assets/institucional-cubo.jpg') center center / cover no-repeat;
-      opacity: 0.07;
+      opacity: 0.05;
       pointer-events: none; z-index: 0;
     }
     .final-cta .container { position: relative; z-index: 2; }
     .final-cta .section-title { color: var(--white); max-width: 700px; margin: 0 auto 1rem; }
-    .final-cta .section-sub { margin: 0 auto 2.5rem; color: rgba(255,255,255,0.7); }
-    .final-cta .section-label { color: rgba(255,255,255,0.55); }
-    .final-cta .section-label::before { background: rgba(255,255,255,0.35); }
+    .final-cta .section-sub { margin: 0 auto 2.5rem; color: rgba(255,255,255,0.6); }
+    .final-cta .section-label { color: rgba(255,255,255,0.45); }
+    .final-cta .section-label::before { background: var(--accent-lo); }
     .final-cta .section-label { justify-content: center; }
     .final-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    /* Botão primário em fundo vermelho → branco com texto vermelho */
+    /* Blade button — Design System */
     .final-cta .btn-primary {
-      background: #FFFFFF !important; color: #BC002D !important;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      background: var(--accent-grad) !important; color: #fff !important;
+      box-shadow: var(--shadow-blade);
     }
-    .final-cta .btn-primary:hover { background: rgba(255,255,255,0.92) !important; transform: translateY(-1px); }
-    .final-cta .btn-outline { color: rgba(255,255,255,0.9) !important; border-color: rgba(255,255,255,0.4) !important; }
-    .final-cta .btn-outline:hover { background: rgba(255,255,255,0.1) !important; border-color: rgba(255,255,255,0.7) !important; }
-    .final-trust { margin-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.45); }
+    .final-cta .btn-primary:hover { filter: brightness(1.1) !important; transform: translateY(-1px); }
+    .final-cta .btn-outline { color: rgba(255,255,255,0.85) !important; border-color: rgba(255,255,255,0.35) !important; }
+    .final-cta .btn-outline:hover { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.6) !important; }
+    .final-trust { margin-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.35); }
 
-    /* ─── FOOTER INSTITUCIONAL ─── */
+    /* ─── FOOTER — Design System .strip ─── */
     footer {
-      background: #BC002D; position: relative; overflow: hidden;
+      background: var(--ink); position: relative; overflow: hidden;
     }
-    /* Cubo de cristal institucional — ghost elegante no fundo */
+    /* Radial glow vermelho — assinatura do design system */
+    footer::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 80% 50%, rgba(160,30,36,.22) 0%, transparent 55%);
+      pointer-events: none; z-index: 0;
+    }
+    /* Cubo de cristal institucional — ghost à direita */
     footer::after {
       content: '';
       position: absolute;
       right: 0; top: 0; bottom: 0;
       width: 55%;
       background: url('assets/institucional-cubo.jpg') center center / cover no-repeat;
-      opacity: 0.09;
+      opacity: 0.06;
       pointer-events: none;
       z-index: 0;
     }
-    /* Linha arco — elemento gráfico do design system institucional */
     .footer-arc {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
       pointer-events: none; z-index: 0; overflow: hidden;
     }
+    /* Blade no topo do footer — Design System */
     .footer-accent-line {
-      height: 1px;
-      background: rgba(255,255,255,0.08);
+      height: 2px;
+      background: var(--accent-grad);
+      transform: skewY(-1.2deg);
+      transform-origin: left center;
       position: relative; z-index: 2;
+      box-shadow: var(--shadow-blade);
     }
-    footer::before { content: none; }
     .footer-main {
       max-width: 1160px; margin: 0 auto; padding: 4.5rem 2rem 3.5rem;
       display: grid; grid-template-columns: 2.2fr 1fr 1fr 1.6fr; gap: 3.5rem;
-      position: relative; z-index: 1; border-bottom: 1px solid rgba(0,0,0,0.08);
+      position: relative; z-index: 1; border-bottom: 1px solid rgba(255,255,255,0.07);
     }
     /* Brand */
     .footer-brand-logo {
@@ -1017,35 +1043,36 @@
       transition: color 0.2s; display: flex; align-items: center; gap: 0.35rem;
     }
     .footer-col ul li a:hover { color: #FFFFFF; }
-    .footer-col ul li a:hover::before { content: '›'; color: var(--red); }
+    .footer-col ul li a:hover::before { content: '›'; color: var(--accent-lo); }
     /* CTA box */
     .footer-cta-box {
-      background: var(--white); border: 1px solid rgba(215,0,48,0.2);
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
       border-radius: 18px; padding: 1.75rem; position: relative; overflow: hidden;
-      box-shadow: 0 2px 16px rgba(215,0,48,0.06);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.3);
     }
     .footer-cta-box::before {
       content: ''; position: absolute; top: -40px; right: -40px;
       width: 120px; height: 120px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(215,0,48,0.15) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(160,30,36,.28) 0%, transparent 70%);
       filter: blur(20px); pointer-events: none;
     }
     .footer-cta-title {
       font-family: var(--font-display); font-weight: 800; font-size: 1rem;
-      color: var(--black); line-height: 1.25; margin-bottom: 0.6rem; letter-spacing: -0.02em;
+      color: var(--white); line-height: 1.25; margin-bottom: 0.6rem; letter-spacing: -0.02em;
     }
     .footer-cta-desc {
-      font-size: 0.82rem; color: var(--gray-text); line-height: 1.55; margin-bottom: 1.25rem;
+      font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.55; margin-bottom: 1.25rem;
     }
     .footer-cta-btn {
-      display: block; text-align: center; background: var(--red); color: var(--white);
+      display: block; text-align: center; background: var(--accent-grad); color: #fff;
       padding: 0.7rem 1.25rem; border-radius: 999px; font-weight: 700;
-      font-size: 0.82rem; text-decoration: none; transition: background 0.2s, transform 0.1s;
+      font-size: 0.82rem; text-decoration: none; transition: filter 0.2s, transform 0.1s;
+      box-shadow: var(--shadow-blade);
     }
-    .footer-cta-btn:hover { background: var(--red-dark); transform: translateY(-1px); }
+    .footer-cta-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
     .footer-cta-note {
       text-align: center; margin-top: 0.6rem;
-      font-size: 0.7rem; color: var(--gray-text);
+      font-size: 0.7rem; color: rgba(255,255,255,0.3);
     }
     /* Bottom */
     .footer-bottom {
