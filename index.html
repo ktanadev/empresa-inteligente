@@ -94,32 +94,25 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 2.5rem; height: 64px;
     }
-    /* ─── NAV LOGO — v6 typographic lockup ─── */
+    /* ─── NAV LOGO ─── */
     .nav-logo {
-      display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
+      display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
       text-decoration: none; flex-shrink: 0;
     }
-    .nav-empresa {
-      font-family: 'Zen Dots', sans-serif; font-weight: 400;
-      font-size: 13px; letter-spacing: 0.05em; color: #0B0B0C; line-height: 1;
-      text-transform: uppercase;
-    }
-    .nav-lockup-tail { display: flex; align-items: baseline; gap: 0.32em; }
+    .nav-empresa-svg { height: 12px; width: auto; display: block; }
+    .nav-lockup-tail { display: flex; align-items: baseline; gap: 0.28em; }
     .nav-inteligente {
-      font-family: 'IBM Plex Sans', Georgia, serif; font-style: italic; font-weight: 300;
-      font-size: 11px; color: #BC002D; line-height: 1; letter-spacing: 0.008em;
-    }
-    .nav-i-dot { position: relative; display: inline-block; }
-    .nav-i-dot .stem { font-style: italic; font-weight: inherit; }
-    .nav-i-dot .tittle {
-      position: absolute; top: -.22em; left: 50%;
-      transform: translateX(-58%);
-      width: .27em; height: .27em; border-radius: 50%;
-      background: #BC002D; display: block;
+      font-family: var(--font-editorial); font-style: italic; font-weight: 700;
+      font-size: 11.5px; letter-spacing: -0.022em; color: var(--black); line-height: 1;
     }
     .nav-ai-text {
-      font-family: 'Zen Dots', sans-serif; font-size: 8px; letter-spacing: 0.06em;
-      color: #BC002D; line-height: 1;
+      font-family: 'Zen Dots', sans-serif; font-size: 7.5px; letter-spacing: -0.01em;
+      text-transform: uppercase; color: var(--black);
+      display: inline-flex; align-items: baseline; gap: 0.12em;
+    }
+    .nav-ai-dot {
+      display: inline-block; width: 0.38em; height: 0.38em; border-radius: 50%;
+      background: var(--red); align-self: flex-end; margin-bottom: 0.05em;
     }
     .nav-links { display: flex; align-items: center; gap: 0.25rem; }
     .nav-links a {
@@ -1016,30 +1009,23 @@
     }
     /* Brand */
     .footer-brand-logo {
-      display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
+      display: flex; flex-direction: column; align-items: flex-start; gap: 5px;
       margin-bottom: 1.25rem; text-decoration: none;
     }
-    .footer-empresa {
-      font-family: 'Zen Dots', sans-serif; font-weight: 400;
-      font-size: 15px; letter-spacing: 0.05em; color: rgba(255,255,255,0.92); line-height: 1;
-      text-transform: uppercase;
-    }
-    .footer-lockup-tail { display: flex; align-items: baseline; gap: 0.32em; }
+    .footer-empresa-svg { height: 15px; width: auto; display: block; }
+    .footer-lockup-tail { display: flex; align-items: baseline; gap: 0.28em; }
     .footer-inteligente {
-      font-family: 'IBM Plex Sans', Georgia, serif; font-style: italic; font-weight: 300;
-      font-size: 13px; color: #BC002D; line-height: 1; letter-spacing: 0.008em;
-    }
-    .footer-i-dot { position: relative; display: inline-block; }
-    .footer-i-dot .stem { font-style: italic; font-weight: inherit; }
-    .footer-i-dot .tittle {
-      position: absolute; top: -.22em; left: 50%;
-      transform: translateX(-58%);
-      width: .27em; height: .27em; border-radius: 50%;
-      background: #BC002D; display: block;
+      font-family: var(--font-editorial); font-style: italic; font-weight: 700;
+      font-size: 14px; letter-spacing: -0.022em; color: rgba(255,255,255,0.85); line-height: 1;
     }
     .footer-ai-text {
-      font-family: 'Zen Dots', sans-serif; font-size: 9px; letter-spacing: 0.06em;
-      color: #BC002D; line-height: 1;
+      font-family: 'Zen Dots', sans-serif; font-size: 9px; letter-spacing: -0.01em;
+      text-transform: uppercase; color: rgba(255,255,255,0.85);
+      display: inline-flex; align-items: baseline; gap: 0.12em;
+    }
+    .footer-ai-dot {
+      display: inline-block; width: 0.36em; height: 0.36em; border-radius: 50%;
+      background: rgba(255,255,255,0.5); align-self: flex-end; margin-bottom: 0.05em;
     }
     .footer-brand-tagline {
       font-size: 0.7rem; color: rgba(255,255,255,0.4);
@@ -1695,10 +1681,18 @@
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="/">
-    <span class="nav-empresa">Empresa</span>
+    <svg class="nav-empresa-svg" viewBox="0 0 234 32.519" xmlns="http://www.w3.org/2000/svg" fill="#BC002D" aria-label="EMPRESA">
+      <g transform="translate(0 0)"><rect x="0" y="0" width="6.503" height="32.519" rx="0.76"/><rect x="0" y="0" width="29.267" height="6.503" rx="0.76"/><rect x="0" y="13.008" width="22.764" height="6.503" rx="0.76"/><rect x="0" y="26.016" width="29.267" height="6.503" rx="0.76"/></g>
+      <g transform="translate(33.5 0)"><rect x="0" y="0" width="6.503" height="32.519" rx="0.76"/><rect x="29.497" y="0" width="6.503" height="32.519" rx="0.76"/><path d="M 6.503 0 L 12.5 0 L 19.75 18 L 19.75 19.8 L 14.85 19.8 Z"/><path d="M 29.497 0 L 23.5 0 L 16.25 18 L 16.25 19.8 L 21.15 19.8 Z"/></g>
+      <g transform="translate(73.5 0)"><rect x="0" y="0" width="6.503" height="32.519" rx="0.76"/><rect x="0" y="0" width="25.5" height="6.503" rx="0.76"/><rect x="19" y="6.503" width="6.5" height="6.505" rx="0.76"/><rect x="0" y="13.008" width="25.5" height="6.503" rx="0.76"/></g>
+      <g transform="translate(103.0 0)"><rect x="0" y="0" width="6.503" height="32.519" rx="0.76"/><rect x="0" y="0" width="25.5" height="6.503" rx="0.76"/><rect x="19" y="6.503" width="6.5" height="6.505" rx="0.76"/><rect x="0" y="13.008" width="25.5" height="6.503" rx="0.76"/><path d="M 13 19.511 L 19.5 19.511 L 27.5 32.519 L 21 32.519 Z"/></g>
+      <g transform="translate(134.5 0)"><rect x="0" y="0" width="6.503" height="32.519" rx="0.76"/><rect x="0" y="0" width="29.267" height="6.503" rx="0.76"/><rect x="0" y="13.008" width="22.764" height="6.503" rx="0.76"/><rect x="0" y="26.016" width="29.267" height="6.503" rx="0.76"/></g>
+      <g transform="translate(168.0 0)"><rect x="0" y="0" width="25.5" height="6.503" rx="0.76"/><rect x="0" y="6.503" width="6.503" height="6.505" rx="0.76"/><rect x="0" y="13.008" width="25.5" height="6.503" rx="0.76"/><rect x="18.997" y="19.511" width="6.503" height="6.505" rx="0.76"/><rect x="0" y="26.016" width="25.5" height="6.503" rx="0.76"/></g>
+      <g transform="translate(197.5 0)"><path d="M 23.525 17.018 L 31.755 25.248 C 32.243 25.736 32.516 26.399 32.516 27.089 L 32.516 32.515 L 26.013 32.515 L 26.013 25.362 C 26.013 23.925 24.849 22.761 23.411 22.761 L 9.104 22.761 C 7.667 22.761 6.503 23.925 6.503 25.362 L 6.503 32.515 L 0 32.515 L 0 27.089 C 0 26.399 0.273 25.736 0.761 25.248 L 8.991 17.018 C 9.478 16.531 10.142 16.258 10.831 16.258 L 21.682 16.258 C 22.371 16.258 23.034 16.531 23.522 17.018 L 23.525 17.018 Z M 10.838 0 C 10.148 0 9.485 0.273 8.997 0.76 L 0.767 8.99 C 0.28 9.478 0.007 10.141 0.007 10.831 L 0.007 17.883 L 6.51 17.883 L 6.51 9.104 C 6.51 7.667 7.674 6.503 9.111 6.503 L 23.418 6.503 C 24.855 6.503 26.019 7.667 26.019 9.104 L 26.019 17.883 L 32.522 17.883 L 32.522 10.831 C 32.522 10.141 32.249 9.478 31.761 8.99 L 23.532 0.76 C 23.044 0.273 22.381 0 21.691 0 L 10.838 0 Z"/></g>
+    </svg>
     <div class="nav-lockup-tail">
-      <span class="nav-inteligente"><span class="nav-i-dot"><span class="stem">ı</span><span class="tittle"></span></span>nteligente</span>
-      <span class="nav-ai-text">AI</span>
+      <span class="nav-inteligente">inteligente</span>
+      <span class="nav-ai-text">AI<span class="nav-ai-dot"></span></span>
     </div>
   </a>
   <div class="nav-links">
@@ -2799,10 +2793,18 @@
     <!-- Brand -->
     <div class="footer-brand">
       <a class="footer-brand-logo" href="/">
-        <span class="footer-empresa">Empresa</span>
+        <svg class="footer-empresa-svg" viewBox="0 0 234 32.519" xmlns="http://www.w3.org/2000/svg" fill="rgba(255,255,255,0.9)" aria-label="EMPRESA">
+          <g transform="translate(0 0)"><rect x="0" y="0" width="6.503" height="32.519" rx="0.76"/><rect x="0" y="0" width="29.267" height="6.503" rx="0.76"/><rect x="0" y="13.008" width="22.764" height="6.503" rx="0.76"/><rect x="0" y="26.016" width="29.267" height="6.503" rx="0.76"/></g>
+          <g transform="translate(33.5 0)"><rect x="0" y="0" width="6.503" height="32.519" rx="0.76"/><rect x="29.497" y="0" width="6.503" height="32.519" rx="0.76"/><path d="M 6.503 0 L 12.5 0 L 19.75 18 L 19.75 19.8 L 14.85 19.8 Z"/><path d="M 29.497 0 L 23.5 0 L 16.25 18 L 16.25 19.8 L 21.15 19.8 Z"/></g>
+          <g transform="translate(73.5 0)"><rect x="0" y="0" width="6.503" height="32.519" rx="0.76"/><rect x="0" y="0" width="25.5" height="6.503" rx="0.76"/><rect x="19" y="6.503" width="6.5" height="6.505" rx="0.76"/><rect x="0" y="13.008" width="25.5" height="6.503" rx="0.76"/></g>
+          <g transform="translate(103.0 0)"><rect x="0" y="0" width="6.503" height="32.519" rx="0.76"/><rect x="0" y="0" width="25.5" height="6.503" rx="0.76"/><rect x="19" y="6.503" width="6.5" height="6.505" rx="0.76"/><rect x="0" y="13.008" width="25.5" height="6.503" rx="0.76"/><path d="M 13 19.511 L 19.5 19.511 L 27.5 32.519 L 21 32.519 Z"/></g>
+          <g transform="translate(134.5 0)"><rect x="0" y="0" width="6.503" height="32.519" rx="0.76"/><rect x="0" y="0" width="29.267" height="6.503" rx="0.76"/><rect x="0" y="13.008" width="22.764" height="6.503" rx="0.76"/><rect x="0" y="26.016" width="29.267" height="6.503" rx="0.76"/></g>
+          <g transform="translate(168.0 0)"><rect x="0" y="0" width="25.5" height="6.503" rx="0.76"/><rect x="0" y="6.503" width="6.503" height="6.505" rx="0.76"/><rect x="0" y="13.008" width="25.5" height="6.503" rx="0.76"/><rect x="18.997" y="19.511" width="6.503" height="6.505" rx="0.76"/><rect x="0" y="26.016" width="25.5" height="6.503" rx="0.76"/></g>
+          <g transform="translate(197.5 0)"><path d="M 23.525 17.018 L 31.755 25.248 C 32.243 25.736 32.516 26.399 32.516 27.089 L 32.516 32.515 L 26.013 32.515 L 26.013 25.362 C 26.013 23.925 24.849 22.761 23.411 22.761 L 9.104 22.761 C 7.667 22.761 6.503 23.925 6.503 25.362 L 6.503 32.515 L 0 32.515 L 0 27.089 C 0 26.399 0.273 25.736 0.761 25.248 L 8.991 17.018 C 9.478 16.531 10.142 16.258 10.831 16.258 L 21.682 16.258 C 22.371 16.258 23.034 16.531 23.522 17.018 L 23.525 17.018 Z M 10.838 0 C 10.148 0 9.485 0.273 8.997 0.76 L 0.767 8.99 C 0.28 9.478 0.007 10.141 0.007 10.831 L 0.007 17.883 L 6.51 17.883 L 6.51 9.104 C 6.51 7.667 7.674 6.503 9.111 6.503 L 23.418 6.503 C 24.855 6.503 26.019 7.667 26.019 9.104 L 26.019 17.883 L 32.522 17.883 L 32.522 10.831 C 32.522 10.141 32.249 9.478 31.761 8.99 L 23.532 0.76 C 23.044 0.273 22.381 0 21.691 0 L 10.838 0 Z"/></g>
+        </svg>
         <div class="footer-lockup-tail">
-          <span class="footer-inteligente"><span class="footer-i-dot"><span class="stem">ı</span><span class="tittle"></span></span>nteligente</span>
-          <span class="footer-ai-text">AI</span>
+          <span class="footer-inteligente">inteligente</span>
+          <span class="footer-ai-text">AI<span class="footer-ai-dot"></span></span>
         </div>
       </a>
       <p class="footer-brand-desc">IA nos departamentos do seu negócio. Financeiro, comercial, atendimento e marketing — funcionando do jeito que sua empresa já funciona, sem virar a mesa.</p>
