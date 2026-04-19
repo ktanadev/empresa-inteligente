@@ -435,12 +435,23 @@
       background: radial-gradient(circle, rgba(215,0,48,0.25) 0%, transparent 70%);
       border-radius: 50%;
     }
-    .hero-character img {
+    .hero-character img,
+    .hero-character video {
       height: 520px; width: 480px; object-fit: cover; object-position: top center;
       position: relative; z-index: 1;
       border-radius: 24px;
       filter: drop-shadow(0 0 40px rgba(215,0,48,0.4));
     }
+    .hero-sound-btn {
+      position: absolute; bottom: 5.5rem; right: 0.5rem; z-index: 3;
+      background: rgba(0,0,0,0.7); border: 1px solid rgba(215,0,48,0.5);
+      border-radius: 999px; padding: 0.35rem 0.75rem;
+      color: rgba(255,255,255,0.8); font-size: 0.72rem; font-weight: 600;
+      cursor: pointer; display: flex; align-items: center; gap: 0.4rem;
+      backdrop-filter: blur(8px); transition: background 0.2s;
+    }
+    .hero-sound-btn:hover { background: rgba(215,0,48,0.3); }
+    .hero-sound-btn svg { width: 13px; height: 13px; }
     .hero-character-badge {
       position: absolute; bottom: 2rem; left: -1rem; z-index: 2;
       background: rgba(0,0,0,0.8); border: 1px solid rgba(215,0,48,0.4);
@@ -2120,7 +2131,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="hero-character">
-      <img src="assets/ktana-cyberpunk.jpg" alt="KTANA — IA para empresas brasileiras" />
+      <video id="heroVideo" src="assets/personagem-alerta.mp4" autoplay muted loop playsinline
+        poster="assets/ktana-cyberpunk.jpg"></video>
+      <button class="hero-sound-btn" onclick="toggleSound()" id="soundBtn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+        Ativar som
+      </button>
       <div class="hero-character-badge">
         <div class="hero-character-badge-label">Implementação real</div>
         <div class="hero-character-badge-value">Resultado em <span>30 dias</span></div>
@@ -3260,6 +3276,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   // Inicializar ícones Lucide
   if (typeof lucide !== 'undefined') lucide.createIcons();
+
+  // ── Hero video sound toggle ──────────────────────────────────────────
+  function toggleSound() {
+    const v = document.getElementById('heroVideo');
+    const btn = document.getElementById('soundBtn');
+    if (!v) return;
+    v.muted = !v.muted;
+    if (!v.muted) {
+      v.play();
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM19 12c0 3.04-1.73 5.64-4.25 6.96l1.28 1.28C18.99 18.53 21 15.47 21 12c0-3.47-2.01-6.53-4.97-8.24l-1.28 1.28C17.27 6.36 19 8.96 19 12z"/></svg> Som ligado';
+    } else {
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg> Ativar som';
+    }
+  }
 
   // ── Carousel de depoimentos em vídeo ──────────────────────────────────
   (function() {
