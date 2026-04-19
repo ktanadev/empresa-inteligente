@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://empresainteligente.ai/</loc>
+    <image:image>
+      <image:loc>https://empresainteligente.ai/assets/ktana-cyberpunk.jpg</image:loc>
+      <image:title>Empresa Inteligente AI — Plataforma de IA para empresas</image:title>
+      <image:caption>IA nos departamentos da sua empresa: financeiro, comercial, atendimento, marketing, RH e operação. Por R$2.500/mês.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://empresainteligente.ai/assets/institucional-cubo.jpg</image:loc>
+      <image:title>Empresa Inteligente AI — Estrutura institucional</image:title>
+      <image:caption>Implementação de inteligência artificial em empresas brasileiras</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://empresainteligente.ai/assets/institucional-textura.jpg</image:loc>
+      <image:title>Empresa Inteligente AI — Identidade visual</image:title>
+      <image:caption>Plataforma de IA B2B para PMEs no Brasil</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://empresainteligente.ai/morteempresas/</loc>
+    <image:image>
+      <image:loc>https://empresainteligente.ai/assets/ktana-cyberpunk.jpg</image:loc>
+      <image:title>Existem 2 tipos de empresa: as que usam IA e as que vão fechar</image:title>
+      <image:caption>Empresas que adotam inteligência artificial crescem. As que ignoram perdem competitividade.</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

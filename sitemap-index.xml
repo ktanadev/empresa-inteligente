@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Sitemap principal — páginas e seções -->
+  <sitemap>
+    <loc>https://empresainteligente.ai/sitemap.xml</loc>
+    <lastmod>2026-04-19</lastmod>
+  </sitemap>
+
+  <!-- Sitemap de imagens -->
+  <sitemap>
+    <loc>https://empresainteligente.ai/sitemap-images.xml</loc>
+    <lastmod>2026-04-19</lastmod>
+  </sitemap>
+
+  <!-- Futuro: blog -->
+  <!-- <sitemap>
+    <loc>https://empresainteligente.ai/sitemap-blog.xml</loc>
+    <lastmod>2026-04-19</lastmod>
+  </sitemap> -->
+
+</sitemapindex>

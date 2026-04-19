@@ -1,10 +1,29 @@
+# Empresa Inteligente AI — robots.txt
+# Atualizado: 2026-04-19
+
 User-agent: *
 Allow: /
+
+# Bloqueio de páginas internas e administrativas
 Disallow: /admin.html
 Disallow: /sessao.html
 
+# Googlebot — sem delay, rastreamento completo
 User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bingbot
+User-agent: bingbot
 Allow: /
 Crawl-delay: 1
 
+# Outros bots
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Sitemaps — índice principal + específicos
+Sitemap: https://empresainteligente.ai/sitemap-index.xml
 Sitemap: https://empresainteligente.ai/sitemap.xml
+Sitemap: https://empresainteligente.ai/sitemap-images.xml
