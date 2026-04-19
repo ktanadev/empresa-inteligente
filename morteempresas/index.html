@@ -406,6 +406,22 @@
   footer a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
   footer a:hover { color: #fff; }
 
+  /* SECTION IMAGES */
+  .section-img-wrap { padding: 0 1.5rem; margin: 2.5rem auto; max-width: 1100px; }
+  .section-img {
+    width: 100%; border-radius: 20px; overflow: hidden; position: relative;
+    box-shadow: 0 8px 48px rgba(0,0,0,0.13);
+  }
+  .section-img img { width: 100%; height: 420px; object-fit: cover; display: block; }
+  .section-img-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 100%);
+    padding: 2.5rem 1.75rem 1.5rem;
+  }
+  .section-img-caption { color: rgba(255,255,255,0.9); font-size: 0.875rem; font-weight: 500; line-height: 1.5; }
+  .section-img-caption strong { color: #fff; display: block; font-family: var(--font-d); font-size: 1rem; margin-bottom: 0.25rem; }
+  @media(max-width: 768px) { .section-img img { height: 260px; } .section-img-wrap { padding: 0 1rem; } }
+
   /* MOBILE */
   @media(max-width: 768px) {
     .pillar { grid-template-columns: 1fr; }
@@ -464,6 +480,19 @@
       <div class="score-item">
         <div class="score-num red">0</div>
         <div class="score-label">Contratações necessárias</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- IMAGEM: empresa sem IA -->
+<div class="section-img-wrap">
+  <div class="section-img">
+    <img src="/img/hero-stress.jpg" alt="Empresário sobrecarregado sem IA — trabalhando até tarde sem resultado" loading="lazy">
+    <div class="section-img-overlay">
+      <div class="section-img-caption">
+        <strong>A empresa sem IA em 2025</strong>
+        Trabalha o dobro, fatura a metade. Cada decisão depende de uma pessoa específica estar presente.
       </div>
     </div>
   </div>
@@ -755,6 +784,19 @@
       </div>
     </div>
 
+    <!-- IMAGEM: IA nos negócios -->
+    <div class="section-img-wrap" style="padding:0; margin: 2.5rem 0;">
+      <div class="section-img">
+        <img src="/img/ai-business.jpg" alt="Empresário utilizando IA para automatizar processos e aumentar produtividade" loading="lazy">
+        <div class="section-img-overlay">
+          <div class="section-img-caption">
+            <strong>A empresa com IA opera em outro nível</strong>
+            Decisões automatizadas, processos inteligentes e crescimento sem precisar contratar mais.
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- CLONE DE LÍDERES -->
     <div class="clone-leader-block">
       <div class="clone-leader-header">
@@ -783,6 +825,19 @@
           <div class="clone-step-body">
             <h5>O copiloto entra em operação</h5>
             <p>O agente opera com o framework do líder — tomando decisões, respondendo, orientando o time — exatamente como ele faria. Sem férias, sem rescisão, sem humor variável.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- IMAGEM: líder com time -->
+      <div style="margin: 2.5rem 0;">
+        <div class="section-img">
+          <img src="/img/leader-clone.jpg" alt="CEO líder com tablet em reunião com seu time — padrão de decisão replicado em IA" loading="lazy">
+          <div class="section-img-overlay">
+            <div class="section-img-caption">
+              <strong>Clone o raciocínio do seu melhor líder</strong>
+              O copiloto opera com o mesmo framework — mesmo quando o líder não está disponível.
+            </div>
           </div>
         </div>
       </div>
@@ -906,6 +961,19 @@
           <li>Turnover não destrói o conhecimento acumulado</li>
           <li>Empresa que cresce mantém o nível de excelência</li>
         </ul>
+      </div>
+    </div>
+
+    <!-- IMAGEM: liderança escalável -->
+    <div class="section-img-wrap" style="padding:0; margin: 2.5rem 0;">
+      <div class="section-img">
+        <img src="/img/leadership-team.jpg" alt="Time de liderança em reunião estratégica — líderes multiplicados com IA" loading="lazy">
+        <div class="section-img-overlay">
+          <div class="section-img-caption">
+            <strong>Liderança que não depende de uma pessoa</strong>
+            Quando qualquer colaborador tem acesso ao padrão do melhor líder, o time inteiro opera em outro nível.
+          </div>
+        </div>
       </div>
     </div>
 
