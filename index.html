@@ -1370,8 +1370,19 @@
     .cta-inline.dark { border-top-color: rgba(255,255,255,0.1); }
     .cta-inline.dark p { color: rgba(255,255,255,0.55); }
     .cta-inline.dark strong { color: var(--white); }
-    .cta-inline.dark .btn-primary { background: var(--white); color: var(--red); border-color: rgba(255,255,255,0.4); }
-    .cta-inline.dark .btn-primary:hover { background: rgba(255,255,255,0.9); }
+    .cta-inline.dark .btn-primary {
+      background: rgba(0,0,0,0.22); color: var(--white);
+      border-color: rgba(255,255,255,0.28); position: relative; overflow: hidden;
+    }
+    .cta-inline.dark .btn-primary::after {
+      content: ''; position: absolute; top: 0; left: -110%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+      transform: skewX(-18deg);
+    }
+    .cta-inline.dark .btn-primary:hover { background: rgba(0,0,0,0.32); border-color: rgba(255,255,255,0.45); }
+    .cta-inline.dark .btn-primary:hover::after { animation: btn-shimmer .75s ease forwards; }
+    @keyframes btn-shimmer { to { left: 160%; } }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
