@@ -94,17 +94,17 @@
     }
     .nav-links { display: flex; align-items: center; gap: 0.25rem; }
     .nav-links a {
-      color: rgba(0,0,0,0.5); font-size: 0.84rem; text-decoration: none;
-      font-weight: 500; transition: color 0.2s; padding: 0.4rem 0.75rem;
-      border-radius: 6px; position: relative;
+      color: rgba(0,0,0,0.65); font-size: 0.9rem; text-decoration: none;
+      font-weight: 600; transition: color 0.2s, background 0.2s; padding: 0.5rem 1rem;
+      border-radius: 8px; position: relative; letter-spacing: -0.01em;
     }
     .nav-links a::after {
       content: ''; display: block; height: 2px; background: var(--red);
-      width: 0; border-radius: 1px; position: absolute; bottom: 4px; left: 0.75rem; right: 0.75rem;
+      width: 0; border-radius: 1px; position: absolute; bottom: 5px; left: 1rem; right: 1rem;
       transition: width 0.22s ease;
     }
-    .nav-links a:hover { color: var(--black); background: rgba(0,0,0,0.03); }
-    .nav-links a:hover::after { width: calc(100% - 1.5rem); }
+    .nav-links a:hover { color: var(--black); background: rgba(0,0,0,0.04); }
+    .nav-links a:hover::after { width: calc(100% - 2rem); }
     .nav-sep { width: 1px; height: 20px; background: rgba(0,0,0,0.1); margin: 0 0.5rem; }
     .nav-cta {
       background: var(--red); color: var(--white) !important;
