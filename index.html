@@ -17,7 +17,7 @@
     :root {
       --red: #D70030;
       --red-dark: #B0002A;
-      --black: #0A0A0A;
+      --black: #1C1C1C;
       --gray-bg: #F4F4F4;
       --gray-card: #FFFFFF;
       --gray-border: #E5E5E5;
@@ -43,24 +43,19 @@
     /* ─── ANNOUNCEMENT BAR ─── */
     .announce-bar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 102;
-      height: 40px; background: #0D0009;
-      border-bottom: 1px solid rgba(215,0,48,0.22);
+      height: 40px; background: #FFFFFF;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
     }
-    .announce-bar::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(90deg, transparent 0%, rgba(215,0,48,0.07) 50%, transparent 100%);
-      animation: announceShimmer 4s ease-in-out infinite;
-    }
+    .announce-bar::before { content: none; }
     @keyframes announceShimmer { 0%,100%{opacity:.4} 50%{opacity:1} }
     .announce-bar a {
-      color: rgba(255,255,255,0.72); font-size: 0.78rem; font-weight: 500;
+      color: rgba(0,0,0,0.55); font-size: 0.78rem; font-weight: 500;
       text-decoration: none; letter-spacing: 0.01em; position: relative; z-index: 1;
       display: flex; align-items: center; gap: 0.55rem; transition: color 0.2s;
     }
-    .announce-bar a:hover { color: var(--white); }
+    .announce-bar a:hover { color: var(--black); }
     .announce-dot {
       width: 6px; height: 6px; border-radius: 50%; background: var(--red);
       flex-shrink: 0; animation: announcePulse 1.8s ease-in-out infinite;
@@ -280,81 +275,71 @@
 
     /* ─── DOIS TIPOS ─── */
     .dois-tipos {
-      background: #141414; padding: 5rem 1.5rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      background: var(--gray-bg); padding: 6rem 1.5rem;
     }
     .dois-tipos-inner { max-width: 1160px; margin: 0 auto; }
     .dois-tipos-header { text-align: center; margin-bottom: 3.5rem; }
     .dois-tipos-header h2 {
       font-family: var(--font-display); font-weight: 800;
-      font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--white);
+      font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--black);
       letter-spacing: -0.03em; line-height: 1.1;
     }
-    .dois-tipos-header p { color: rgba(255,255,255,0.45); margin-top: 1rem; font-size: 1rem; }
+    .dois-tipos-header p { color: var(--gray-text); margin-top: 1rem; font-size: 1rem; }
     .dois-tipos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
     .dt-card {
       border-radius: 20px; padding: 2.5rem;
       border: 1px solid;
     }
-    .dt-card.sem { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.08); }
-    .dt-card.com { background: rgba(215,0,48,0.06); border-color: rgba(215,0,48,0.25); }
+    .dt-card.sem { background: var(--red); border-color: var(--red); }
+    .dt-card.com { background: #111111; border-color: #1A1A1A; box-shadow: 0 4px 24px rgba(0,0,0,0.25); }
     .dt-card-label {
       font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
       margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;
     }
-    .dt-card.sem .dt-card-label { color: rgba(255,255,255,0.3); }
+    .dt-card.sem .dt-card-label { color: rgba(255,255,255,0.65); }
     .dt-card.com .dt-card-label { color: var(--red); }
     .dt-card-title {
       font-family: var(--font-display); font-weight: 800;
       font-size: 1.4rem; letter-spacing: -0.02em; margin-bottom: 1.75rem;
     }
-    .dt-card.sem .dt-card-title { color: rgba(255,255,255,0.5); }
-    .dt-card.com .dt-card-title { color: var(--white); }
+    .dt-card.sem .dt-card-title { color: rgba(255,255,255,0.85); }
+    .dt-card.com .dt-card-title { color: #FFFFFF; }
     .dt-item {
       display: flex; align-items: flex-start; gap: 0.85rem;
       margin-bottom: 1rem; padding-bottom: 1rem;
       border-bottom: 1px solid;
     }
-    .dt-card.sem .dt-item { border-color: rgba(255,255,255,0.06); }
-    .dt-card.com .dt-item { border-color: rgba(215,0,48,0.1); }
+    .dt-card.sem .dt-item { border-color: rgba(255,255,255,0.18); }
+    .dt-card.com .dt-item { border-color: rgba(255,255,255,0.1); }
     .dt-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
     .dt-icon {
       width: 30px; height: 30px; border-radius: 7px; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center; margin-top: 1px;
     }
-    .dt-card.sem .dt-icon { background: rgba(255,255,255,0.05); }
-    .dt-card.sem .dt-icon svg { width: 14px; height: 14px; color: rgba(255,255,255,0.25); stroke: rgba(255,255,255,0.25); }
-    .dt-card.com .dt-icon { background: rgba(215,0,48,0.15); }
+    .dt-card.sem .dt-icon { background: rgba(255,255,255,0.18); }
+    .dt-card.sem .dt-icon svg { width: 14px; height: 14px; color: rgba(255,255,255,0.6); stroke: rgba(255,255,255,0.6); }
+    .dt-card.com .dt-icon { background: rgba(215,0,48,0.2); }
     .dt-card.com .dt-icon svg { width: 14px; height: 14px; color: var(--red); stroke: var(--red); }
     .dt-text { font-size: 0.9rem; line-height: 1.5; }
-    .dt-card.sem .dt-text { color: rgba(255,255,255,0.4); }
-    .dt-card.com .dt-text { color: rgba(255,255,255,0.8); }
+    .dt-card.sem .dt-text { color: rgba(255,255,255,0.75); }
+    .dt-card.com .dt-text { color: rgba(255,255,255,0.7); }
     .dt-highlight {
       margin-top: 2rem; padding: 1rem 1.25rem; border-radius: 10px;
       font-size: 0.85rem; font-weight: 600;
     }
-    .dt-card.sem .dt-highlight { background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.3); }
-    .dt-card.com .dt-highlight { background: rgba(215,0,48,0.12); color: var(--red); border: 1px solid rgba(215,0,48,0.2); }
+    .dt-card.sem .dt-highlight { background: rgba(0,0,0,0.15); color: rgba(255,255,255,0.7); }
+    .dt-card.com .dt-highlight { background: rgba(215,0,48,0.2); color: var(--red); border: 1px solid rgba(215,0,48,0.35); }
     .dois-tipos-cta {
       text-align: center; margin-top: 3rem;
       padding: 2.5rem; border-radius: 20px;
-      background: rgba(215,0,48,0.08); border: 1px solid rgba(215,0,48,0.2);
+      background: #111111; border: 1px solid #1A1A1A;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
       position: relative; overflow: hidden;
     }
-    /* Morphic glow no fundo do CTA — padrão chat */
-    .dois-tipos-cta::before {
-      content: '';
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 500px; height: 180px; border-radius: 50%;
-      background: radial-gradient(ellipse, rgba(215,0,48,0.22) 0%, transparent 65%);
-      filter: blur(48px);
-      animation: orbPulse 5s ease-in-out infinite;
-      pointer-events: none; z-index: 0;
-    }
+    .dois-tipos-cta::before { content: none; }
     .dois-tipos-cta > * { position: relative; z-index: 1; }
-    .dois-tipos-cta p { color: rgba(255,255,255,0.7); font-size: 1.05rem; margin-bottom: 1.5rem; }
-    .dois-tipos-cta strong { color: var(--white); }
+    .dois-tipos-cta p { color: rgba(255,255,255,0.6); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .dois-tipos-cta strong { color: #FFFFFF; }
 
     /* Dois tipos grid — animação sequencial comparativa */
     .dois-tipos-grid.reveal-children > *:nth-child(1) {
@@ -493,7 +478,7 @@
     }
 
     /* ─── DEPARTMENTS ─── */
-    .departments { background: var(--gray-bg); }
+    .departments { background: var(--white); }
     .dept-item {
       display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
       align-items: center; padding: 4rem 0;
@@ -589,65 +574,67 @@
 
     /* ─── METRICS ─── */
     .metrics {
-      background: #0F0F0F; color: var(--white);
-      box-shadow: inset 0 2px 0 rgba(215,0,48,0.25), inset 0 3px 0 rgba(255,255,255,0.04);
+      background: var(--red);
     }
     .metrics-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3rem; }
     .metric-card {
-      background: var(--dark-card); border: 1px solid var(--dark-border);
+      background: var(--white); border: 1px solid var(--gray-border);
       border-radius: 16px; padding: 1.75rem; text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      transition: box-shadow .25s ease, transform .25s ease;
     }
+    .metric-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.08); transform: translateY(-3px); }
     .metric-value {
       font-family: var(--font-display); font-weight: 800;
-      font-size: 2.5rem; letter-spacing: -0.04em; color: var(--white);
+      font-size: 2.5rem; letter-spacing: -0.04em; color: var(--red);
       line-height: 1;
     }
-    .metric-value em { color: var(--red); font-style: normal; }
-    .metric-label { font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-top: 0.5rem; line-height: 1.4; }
+    .metric-value em { color: var(--black); font-style: normal; }
+    .metric-label { font-size: 0.8rem; color: var(--gray-text); margin-top: 0.5rem; line-height: 1.4; }
 
     /* ─── TESTIMONIALS ─── */
     .testimonials {
-      background: #080808; padding: 5rem 0;
-      /* Divisor luminoso no topo — sem usar ::before (reservado para orb) */
-      box-shadow: inset 0 2px 0 rgba(215,0,48,0.3), inset 0 3px 0 rgba(255,255,255,0.05);
+      background: var(--white); padding: 6rem 0;
     }
-    /* Título e subtítulo brancos na seção dark */
-    .testimonials .section-title { color: var(--white); }
-    .testimonials .section-label { color: rgba(215,0,48,0.85); }
-    .testimonials .section-sub { color: rgba(255,255,255,0.45); }
+    .testimonials .section-title { color: var(--black); }
+    .testimonials .section-label { color: var(--red); }
+    .testimonials .section-sub { color: var(--gray-text); }
     .testimonials-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem; margin-top: 0; text-align: left;
     }
     .testi-card {
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      background: var(--white); border: 1px solid var(--gray-border);
       border-radius: 16px; padding: 1.75rem 1.75rem 1.5rem; display: flex;
       flex-direction: column; gap: 1.25rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      transition: box-shadow .25s ease, transform .25s ease;
     }
+    .testi-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.08); transform: translateY(-3px); }
     .testi-featured {
-      border-color: rgba(215,0,48,0.3);
-      background: rgba(215,0,48,0.06);
+      border-color: var(--gray-border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
     }
     .testi-quote {
-      font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.85);
+      font-size: 1rem; line-height: 1.65; color: #2A2A2A;
       font-style: italic; flex: 1;
     }
     .testi-quote::before { content: '"'; color: var(--red); font-size: 1.4rem; font-style: normal; line-height: 0; vertical-align: -0.3em; margin-right: 0.1em; }
     .testi-author { display: flex; align-items: center; gap: 0.75rem; }
     .testi-avatar {
       width: 40px; height: 40px; border-radius: 50%;
-      background: rgba(215,0,48,0.2); border: 1px solid rgba(215,0,48,0.4);
+      background: rgba(215,0,48,0.1); border: 1.5px solid rgba(215,0,48,0.3);
       display: flex; align-items: center; justify-content: center;
       font-weight: 700; font-size: 0.75rem; color: var(--red); flex-shrink: 0;
     }
-    .testi-name { font-weight: 600; font-size: 0.9rem; color: var(--white); }
-    .testi-role { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 0.1rem; }
+    .testi-name { font-weight: 600; font-size: 0.9rem; color: var(--black); }
+    .testi-role { font-size: 0.75rem; color: var(--gray-text); margin-top: 0.1rem; }
     .testi-metric {
-      font-size: 0.75rem; font-weight: 600; color: rgba(215,0,48,0.7);
-      background: rgba(215,0,48,0.08); border: 1px solid rgba(215,0,48,0.15);
+      font-size: 0.75rem; font-weight: 600; color: var(--red);
+      background: rgba(215,0,48,0.07); border: 1px solid rgba(215,0,48,0.18);
       border-radius: 6px; padding: 0.35rem 0.65rem; display: inline-block; width: fit-content;
     }
-    .testi-metric span { color: var(--red); }
+    .testi-metric span { color: var(--red); font-weight: 800; }
     @media (max-width: 960px) {
       .testimonials-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -656,53 +643,56 @@
     }
 
     /* ─── HOW IT WORKS ─── */
-    .how { background: var(--white); }
+    .how { background: var(--red); }
     .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; position: relative; }
     .steps-grid::before {
       content: '';
       position: absolute; top: 40px; left: calc(16.67% + 1rem); right: calc(16.67% + 1rem);
-      height: 1px; background: var(--gray-border);
+      height: 1px; background: rgba(255,255,255,0.2);
     }
     .step { text-align: center; position: relative; }
     .step-num {
       width: 56px; height: 56px; border-radius: 50%;
-      background: var(--black); color: var(--white);
+      background: #111111; color: var(--white);
       font-family: var(--font-display); font-weight: 800; font-size: 1.1rem;
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 1.25rem;
     }
-    .step.active .step-num { background: var(--red); }
-    .step-title { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; margin-bottom: 0.5rem; }
-    .step-desc { font-size: 0.875rem; color: var(--gray-text); line-height: 1.65; }
+    .step.active .step-num { background: #111111; }
+    .step-title { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; margin-bottom: 0.5rem; color: #FFFFFF; }
+    .step-desc { font-size: 0.875rem; color: rgba(255,255,255,0.7); line-height: 1.65; }
     .step-tag {
       display: inline-block; margin-top: 0.75rem;
       font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem;
-      border-radius: 999px; color: var(--red); background: rgba(215,0,48,0.1);
+      border-radius: 999px; color: #FFFFFF; background: rgba(0,0,0,0.2);
       text-transform: uppercase; letter-spacing: 0.05em;
     }
 
     /* ─── GUARANTEES ─── */
     .guarantees {
-      background: #0A0A0A;
-      box-shadow: inset 0 2px 0 rgba(215,0,48,0.25), inset 0 3px 0 rgba(255,255,255,0.04);
+      background: var(--red);
     }
-    .guarantees .section-title { color: var(--white); }
-    .guarantees .section-sub { color: rgba(255,255,255,0.5); }
+    .guarantees .section-title { color: var(--black); }
+    .guarantees .section-label { color: var(--red); }
+    .guarantees .section-sub { color: var(--gray-text); }
     .guarantees-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; margin-top: 3rem; }
     .guarantee-card {
-      background: var(--dark-card); border: 1px solid var(--dark-border);
+      background: var(--white); border: 1px solid var(--gray-border);
       border-radius: 16px; padding: 1.75rem; position: relative; overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      transition: box-shadow .25s ease, transform .25s ease;
     }
+    .guarantee-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.08); transform: translateY(-3px); }
     .guarantee-card::before { content: none; }
     .guarantee-icon {
       width: 48px; height: 48px; border-radius: 12px;
-      background: rgba(215,0,48,0.15); border: 1px solid rgba(215,0,48,0.25);
+      background: rgba(215,0,48,0.08); border: 1px solid rgba(215,0,48,0.18);
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 1rem;
     }
     .guarantee-icon svg { width: 22px; height: 22px; color: var(--red); stroke: var(--red); }
-    .guarantee-title { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--white); margin-bottom: 0.5rem; }
-    .guarantee-desc { font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+    .guarantee-title { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--black); margin-bottom: 0.5rem; }
+    .guarantee-desc { font-size: 0.875rem; color: var(--gray-text); line-height: 1.65; }
     .guarantee-badge {
       display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1rem;
       font-size: 0.75rem; font-weight: 700; color: var(--red);
@@ -710,7 +700,7 @@
     }
 
     /* ─── PRICING ─── */
-    .pricing { background: var(--gray-bg); padding-top: 5.5rem; overflow: visible; }
+    .pricing { background: var(--white); padding-top: 5.5rem; overflow: visible; }
     .pricing-toggle {
       display: flex; align-items: center; gap: 0.75rem; justify-content: center;
       margin: 2rem 0; font-size: 0.875rem;
@@ -824,30 +814,25 @@
     .faq-item.open .faq-a { display: block; }
 
     /* ─── FINAL CTA ─── */
-    .final-cta { background: #141414; text-align: center; }
-    .final-cta .section-title { color: var(--white); max-width: 700px; margin: 0 auto 1rem; }
-    .final-cta .section-sub { margin: 0 auto 2.5rem; color: rgba(255,255,255,0.5); }
+    .final-cta { background: var(--white); text-align: center; }
+    .final-cta .section-title { color: var(--black); max-width: 700px; margin: 0 auto 1rem; }
+    .final-cta .section-sub { margin: 0 auto 2.5rem; color: var(--gray-text); }
     .final-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .final-trust { margin-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+    .final-trust { margin-top: 2rem; font-size: 0.8rem; color: var(--gray-text); }
 
     /* ─── FOOTER INSTITUCIONAL ─── */
     footer {
-      background: #080808; position: relative; overflow: hidden;
+      background: #0A0A0A; position: relative; overflow: hidden;
     }
     .footer-accent-line {
       height: 3px;
       background: linear-gradient(90deg, transparent 0%, rgba(215,0,48,0.6) 20%, var(--red) 50%, rgba(215,0,48,0.6) 80%, transparent 100%);
     }
-    footer::before {
-      content: ''; position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
-      width: 800px; height: 300px; border-radius: 50%; pointer-events: none;
-      background: radial-gradient(circle, rgba(215,0,48,0.06) 0%, transparent 65%);
-      filter: blur(60px);
-    }
+    footer::before { content: none; }
     .footer-main {
       max-width: 1160px; margin: 0 auto; padding: 4.5rem 2rem 3.5rem;
       display: grid; grid-template-columns: 2.2fr 1fr 1fr 1.6fr; gap: 3.5rem;
-      position: relative; z-index: 1; border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: relative; z-index: 1; border-bottom: 1px solid rgba(0,0,0,0.08);
     }
     /* Brand */
     .footer-brand-logo {
@@ -861,21 +846,21 @@
     .footer-brand-mark svg { width: 17px; height: 17px; stroke: #fff; fill: none; }
     .footer-brand-name {
       font-family: var(--font-display); font-weight: 800; font-size: 1.05rem;
-      color: var(--white); letter-spacing: -0.025em; line-height: 1.1; display: block;
+      color: #FFFFFF; letter-spacing: -0.025em; line-height: 1.1; display: block;
     }
     .footer-brand-name span { color: var(--red); }
     .footer-brand-tagline {
-      font-size: 0.7rem; color: rgba(255,255,255,0.3);
+      font-size: 0.7rem; color: rgba(255,255,255,0.4);
       text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-top: 1px;
     }
     .footer-brand-desc {
-      font-size: 0.85rem; color: rgba(255,255,255,0.38); line-height: 1.7;
+      font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.7;
       margin-bottom: 1.75rem; max-width: 250px;
     }
     .footer-badges { display: flex; flex-direction: column; gap: 0.55rem; }
     .footer-badge {
       display: flex; align-items: center; gap: 0.55rem;
-      font-size: 0.78rem; color: rgba(255,255,255,0.35);
+      font-size: 0.78rem; color: rgba(255,255,255,0.45);
     }
     .footer-badge-dot {
       width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
@@ -884,20 +869,21 @@
     /* Cols */
     .footer-col-title {
       font-family: var(--font-display); font-weight: 700; font-size: 0.68rem;
-      color: rgba(255,255,255,0.22); text-transform: uppercase; letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.12em;
       margin-bottom: 1.35rem;
     }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
     .footer-col ul li a {
-      font-size: 0.86rem; color: rgba(255,255,255,0.48); text-decoration: none;
+      font-size: 0.86rem; color: rgba(255,255,255,0.45); text-decoration: none;
       transition: color 0.2s; display: flex; align-items: center; gap: 0.35rem;
     }
-    .footer-col ul li a:hover { color: var(--white); }
+    .footer-col ul li a:hover { color: #FFFFFF; }
     .footer-col ul li a:hover::before { content: '›'; color: var(--red); }
     /* CTA box */
     .footer-cta-box {
-      background: rgba(215,0,48,0.07); border: 1px solid rgba(215,0,48,0.2);
+      background: var(--white); border: 1px solid rgba(215,0,48,0.2);
       border-radius: 18px; padding: 1.75rem; position: relative; overflow: hidden;
+      box-shadow: 0 2px 16px rgba(215,0,48,0.06);
     }
     .footer-cta-box::before {
       content: ''; position: absolute; top: -40px; right: -40px;
@@ -907,10 +893,10 @@
     }
     .footer-cta-title {
       font-family: var(--font-display); font-weight: 800; font-size: 1rem;
-      color: var(--white); line-height: 1.25; margin-bottom: 0.6rem; letter-spacing: -0.02em;
+      color: var(--black); line-height: 1.25; margin-bottom: 0.6rem; letter-spacing: -0.02em;
     }
     .footer-cta-desc {
-      font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.55; margin-bottom: 1.25rem;
+      font-size: 0.82rem; color: var(--gray-text); line-height: 1.55; margin-bottom: 1.25rem;
     }
     .footer-cta-btn {
       display: block; text-align: center; background: var(--red); color: var(--white);
@@ -920,7 +906,7 @@
     .footer-cta-btn:hover { background: var(--red-dark); transform: translateY(-1px); }
     .footer-cta-note {
       text-align: center; margin-top: 0.6rem;
-      font-size: 0.7rem; color: rgba(255,255,255,0.25);
+      font-size: 0.7rem; color: var(--gray-text);
     }
     /* Bottom */
     .footer-bottom {
@@ -928,26 +914,26 @@
       display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;
       position: relative; z-index: 1;
     }
-    .footer-bottom-copy { font-size: 0.73rem; color: rgba(255,255,255,0.2); }
+    .footer-bottom-copy { font-size: 0.73rem; color: rgba(255,255,255,0.25); }
     .footer-bottom-links { display: flex; gap: 1.75rem; }
     .footer-bottom-links a {
-      font-size: 0.73rem; color: rgba(255,255,255,0.22); text-decoration: none; transition: color 0.2s;
+      font-size: 0.73rem; color: rgba(255,255,255,0.25); text-decoration: none; transition: color 0.2s;
     }
     .footer-bottom-links a:hover { color: rgba(255,255,255,0.6); }
     /* Redes sociais */
     .footer-social { display: flex; gap: 0.75rem; margin-top: 1.75rem; }
     .footer-social a {
       width: 36px; height: 36px; border-radius: 9px;
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09);
+      background: var(--white); border: 1px solid rgba(0,0,0,0.1);
       display: flex; align-items: center; justify-content: center;
       text-decoration: none; transition: background .2s, border-color .2s, transform .15s;
     }
     .footer-social a:hover {
-      background: rgba(215,0,48,0.15); border-color: rgba(215,0,48,0.35);
+      background: rgba(215,0,48,0.08); border-color: rgba(215,0,48,0.25);
       transform: translateY(-2px);
     }
-    .footer-social a svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.5); fill: none; transition: stroke .2s; }
-    .footer-social a:hover svg { stroke: rgba(255,255,255,0.9); }
+    .footer-social a svg { width: 16px; height: 16px; stroke: var(--gray-text); fill: none; transition: stroke .2s; }
+    .footer-social a:hover svg { stroke: var(--red); }
     @media (max-width: 960px) {
       .footer-main { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
       .footer-brand { grid-column: 1 / -1; }
@@ -961,7 +947,7 @@
     /* ─── TICKER TOP (fixo abaixo do nav) ─── */
     .ticker-top {
       position: fixed; top: 104px; left: 0; right: 0; z-index: 99;
-      background: rgba(20,20,20,0.97);
+      background: rgba(240,240,240,0.97);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(215,0,48,0.18);
@@ -976,7 +962,7 @@
     .ticker-top .ticker-item {
       font-size: 0.76rem;
       padding: 0 1.5rem;
-      color: rgba(255,255,255,0.5);
+      color: rgba(0,0,0,0.45);
     }
     .ticker-top .ticker-item strong {
       color: var(--red);
@@ -1031,14 +1017,15 @@
 
     /* ─── INLINE CTA BLOCK ─── */
     .cta-inline {
-      text-align: center; margin-top: 3rem; padding-top: 2.5rem;
-      border-top: 1px solid rgba(0,0,0,0.07);
+      text-align: center; margin-top: 3rem; padding: 2.5rem;
+      background: #111111; border-radius: 20px;
+      border: 1px solid #1A1A1A;
     }
-    .cta-inline p { font-size: 0.95rem; color: var(--gray-text); margin-bottom: 1.25rem; line-height: 1.6; }
-    .cta-inline strong { color: var(--black); }
-    .cta-inline.dark { border-top-color: rgba(255,255,255,0.07); }
+    .cta-inline p { font-size: 0.95rem; color: rgba(255,255,255,0.65); margin-bottom: 1.25rem; line-height: 1.6; }
+    .cta-inline strong { color: var(--red); }
+    .cta-inline.dark { background: #111111; }
     .cta-inline.dark p { color: rgba(255,255,255,0.5); }
-    .cta-inline.dark strong { color: var(--white); }
+    .cta-inline.dark strong { color: var(--red); }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
@@ -1301,34 +1288,8 @@
 
     .dois-tipos, .metrics, .testimonials, .guarantees, .final-cta { position: relative; }
 
-    /* Orb 1 — canto superior esq */
-    .dois-tipos::before, .metrics::before, .testimonials::before,
-    .guarantees::before, .final-cta::before {
-      content: '';
-      position: absolute; top: -80px; left: -60px; z-index: 0;
-      width: 480px; height: 480px; border-radius: 50%; pointer-events: none;
-      background: radial-gradient(circle, rgba(215,0,48,0.13) 0%, transparent 65%);
-      filter: blur(56px);
-      animation: orbPulse 7s ease-in-out infinite;
-    }
-    /* Orb 2 — canto inferior dir */
-    .dois-tipos::after, .metrics::after, .testimonials::after,
-    .guarantees::after {
-      content: '';
-      position: absolute; bottom: -80px; right: -60px; z-index: 0;
-      width: 360px; height: 360px; border-radius: 50%; pointer-events: none;
-      background: radial-gradient(circle, rgba(215,0,48,0.09) 0%, transparent 65%);
-      filter: blur(64px);
-      animation: orbPulse2 9s ease-in-out infinite;
-    }
-    .final-cta::after {
-      content: '';
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 0;
-      width: 560px; height: 560px; border-radius: 50%; pointer-events: none;
-      background: radial-gradient(circle, rgba(215,0,48,0.11) 0%, transparent 65%);
-      filter: blur(80px);
-      animation: orbPulse 6s ease-in-out infinite;
-    }
+    .final-cta::before { content: none; }
+    .final-cta::after { content: none; }
     /* Conteúdo acima dos orbs */
     .dois-tipos-inner, .metrics .container, .testimonials .container,
     .guarantees .container, .final-cta .container { position: relative; z-index: 1; }
@@ -1364,7 +1325,7 @@
       animation: morphicGlow 2s ease-in-out infinite;
     }
     .dt-card.sem:hover {
-      border-color: rgba(255,255,255,0.18) !important;
+      border-color: rgba(255,255,255,0.4) !important;
       animation: morphicGlow 2.5s ease-in-out infinite;
     }
 
@@ -1389,6 +1350,148 @@
     .proof-item:hover { transform: translateY(-3px); }
     .proof-item:hover .proof-number { color: var(--white); }
     .proof-item:hover .proof-number em { text-shadow: 0 0 12px rgba(215,0,48,0.6); }
+
+
+    /* ─── MENTORIA SECTION ─── */
+    .mentoria-section {
+      background: var(--white); padding: 5rem 1.5rem;
+      position: relative; overflow: hidden;
+    }
+    .mentoria-section .container { position: relative; z-index: 1; }
+    .mentoria-section .section-title { color: var(--black); }
+    .mentoria-section .section-sub { color: var(--gray-text); }
+    .mentoria-section .section-label { color: var(--red); }
+
+    .mentoria-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.25rem; margin-top: 3rem;
+    }
+    .mentoria-card {
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: 20px; padding: 2rem;
+      position: relative; overflow: hidden;
+      transition: border-color .3s ease, box-shadow .3s ease;
+    }
+    .mentoria-card:hover {
+      border-color: rgba(215,0,48,0.25);
+      box-shadow: 0 8px 32px rgba(215,0,48,0.07);
+    }
+    .mentoria-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(215,0,48,0.45), transparent);
+      opacity: 0; transition: opacity .3s ease;
+    }
+    .mentoria-card:hover::before { opacity: 1; }
+    .mentoria-card-num {
+      font-family: var(--font-display); font-weight: 800; font-size: 2.5rem;
+      color: rgba(215,0,48,0.1); letter-spacing: -0.04em;
+      line-height: 1; margin-bottom: 1.25rem; user-select: none;
+    }
+    .mentoria-card-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(215,0,48,0.08); border: 1px solid rgba(215,0,48,0.15);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;
+    }
+    .mentoria-card-icon svg { width: 20px; height: 20px; stroke: var(--red); fill: none; }
+    .mentoria-card-title {
+      font-family: var(--font-display); font-weight: 700; font-size: 1.1rem;
+      color: var(--black); margin-bottom: 0.75rem; letter-spacing: -0.02em;
+    }
+    .mentoria-card-desc {
+      font-size: 0.875rem; color: var(--gray-text); line-height: 1.7;
+    }
+    .mentoria-card-tag {
+      display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 1.25rem;
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em;
+      color: var(--red); background: rgba(215,0,48,0.07); border: 1px solid rgba(215,0,48,0.18);
+      padding: 0.25rem 0.7rem; border-radius: 999px;
+    }
+
+    /* Processo linha do tempo */
+    .mentoria-process {
+      margin-top: 3.5rem; padding: 3rem 3rem 3rem;
+      background: var(--gray-bg); border: 1px solid var(--gray-border);
+      border-radius: 24px; position: relative; overflow: hidden;
+    }
+    .mentoria-process::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, transparent 0%, var(--red) 30%, var(--red) 70%, transparent 100%);
+      opacity: 0.35;
+    }
+    .mentoria-process-label {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--red); text-align: center; margin-bottom: 2.5rem;
+    }
+    .mentoria-process-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1rem; position: relative;
+    }
+    .mentoria-process-steps::before {
+      content: ''; position: absolute; top: 24px; left: calc(12.5% + 12px); right: calc(12.5% + 12px);
+      height: 1px; background: var(--gray-border); z-index: 0;
+    }
+    .mprocess-step { text-align: center; position: relative; z-index: 1; padding: 0 0.5rem; }
+    .mprocess-dot {
+      width: 48px; height: 48px; border-radius: 50%; margin: 0 auto 1rem;
+      background: var(--white); border: 2px solid var(--gray-border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-weight: 800; font-size: 1rem; color: var(--red);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .mprocess-step.active .mprocess-dot {
+      background: var(--red); border-color: var(--red); color: var(--white);
+      box-shadow: 0 4px 20px rgba(215,0,48,0.35);
+    }
+    .mprocess-title {
+      font-size: 0.88rem; font-weight: 700; color: var(--black);
+      margin-bottom: 0.5rem; letter-spacing: -0.01em;
+    }
+    .mprocess-step.active .mprocess-title { color: var(--red); }
+    .mprocess-desc { font-size: 0.78rem; color: var(--gray-text); line-height: 1.6; padding: 0 0.25rem; }
+
+    /* Resultado mensal banner */
+    .mentoria-result {
+      margin-top: 1.5rem; padding: 1.75rem 2rem;
+      background: rgba(215,0,48,0.05); border: 1px solid rgba(215,0,48,0.18);
+      border-radius: 16px; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .mentoria-result-icon {
+      width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
+      background: rgba(215,0,48,0.1); border: 1px solid rgba(215,0,48,0.22);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mentoria-result-icon svg { width: 22px; height: 22px; stroke: var(--red); fill: none; }
+    .mentoria-result-text { flex: 1; min-width: 200px; }
+    .mentoria-result-title {
+      font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--black);
+      margin-bottom: 0.3rem; letter-spacing: -0.02em;
+    }
+    .mentoria-result-sub { font-size: 0.82rem; color: var(--gray-text); line-height: 1.55; }
+    .mentoria-result-badge {
+      flex-shrink: 0; font-family: var(--font-display); font-weight: 800;
+      font-size: 1.6rem; color: var(--red); letter-spacing: -0.03em; white-space: nowrap;
+    }
+    .mentoria-result-badge span { font-size: 0.8rem; color: var(--gray-text); display: block; font-weight: 500; font-family: var(--font-body); letter-spacing: 0; margin-top: 0.1rem; }
+
+    @media (max-width: 768px) {
+      .mentoria-grid { grid-template-columns: 1fr; }
+      .mentoria-process-steps { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+      .mentoria-process-steps::before { display: none; }
+    }
+    @media (max-width: 480px) {
+      .mentoria-process-steps { grid-template-columns: 1fr; }
+    }
+
+    /* Reveal animations para mentoria */
+    .mentoria-grid.reveal-children > * {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1);
+    }
+    .mentoria-grid.reveal-children.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:.0s; }
+    .mentoria-grid.reveal-children.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:.15s; }
+    .mentoria-grid.reveal-children.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:.30s; }
+    .mentoria-grid.reveal-children.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:.45s; }
 
   </style>
 </head>
@@ -2281,6 +2384,109 @@
   </div>
 </section>
 
+<!-- MENTORIA & SUPORTE -->
+<section class="mentoria-section" id="mentoria">
+  <div class="container">
+    <span class="section-label">Mentoria & Suporte Diário</span>
+    <h2 class="section-title">Não instalamos IA e sumimos.<br>Ficamos até os números mudarem.</h2>
+    <p class="section-sub" style="margin-top:1rem; max-width:580px;">Cada empresa recebe mentores dedicados que entendem seu negócio antes de tocar em qualquer ferramenta. A IA certa, no processo certo, com resultado definido antes de começar.</p>
+
+    <div class="mentoria-grid reveal-children">
+
+      <!-- Card 1 -->
+      <div class="mentoria-card">
+        <div class="mentoria-card-num">01</div>
+        <div class="mentoria-card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </div>
+        <div class="mentoria-card-title">Diagnóstico de Impacto Real</div>
+        <p class="mentoria-card-desc">Antes de qualquer IA entrar, mapeamos onde sua empresa perde tempo, dinheiro e energia. Identificamos os cenários de ganho real — com número, não com achismo. O que tem ROI positivo entra. O que não tem, fica de fora.</p>
+        <span class="mentoria-card-tag">Cenários validados</span>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="mentoria-card">
+        <div class="mentoria-card-num">02</div>
+        <div class="mentoria-card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </div>
+        <div class="mentoria-card-title">Implementação Pensada e Validada</div>
+        <p class="mentoria-card-desc">Cada automação tem um resultado esperado definido antes de começar. Nada entra na operação sem estar validado no contexto da sua empresa. Não implantamos IA por implantar — implantamos para resolver um problema específico.</p>
+        <span class="mentoria-card-tag">Resultado definido antes</span>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="mentoria-card">
+        <div class="mentoria-card-num">03</div>
+        <div class="mentoria-card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="mentoria-card-title">Mentores no Dia a Dia</div>
+        <p class="mentoria-card-desc">Seu time tem acesso a mentores especializados todos os dias. Dúvida, ajuste, novo cenário de uso — respondido em horas, não em semanas. Não é suporte técnico frio: é parceria com quem entende o seu setor.</p>
+        <span class="mentoria-card-tag">Acesso diário garantido</span>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="mentoria-card">
+        <div class="mentoria-card-num">04</div>
+        <div class="mentoria-card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+        </div>
+        <div class="mentoria-card-title">Resultado Mensurável Todo Mês</div>
+        <p class="mentoria-card-desc">No fim de cada mês você recebe um relatório com o que a IA fez, quanto tempo economizou, quanto isso representa em reais e onde há espaço para crescer. Sem promessa vaga. Com número real na sua tela.</p>
+        <span class="mentoria-card-tag">Relatório mensal incluso</span>
+      </div>
+
+    </div>
+
+    <!-- Linha do tempo do processo -->
+    <div class="mentoria-process reveal">
+      <div class="mentoria-process-label">Como a jornada acontece na prática</div>
+      <div class="mentoria-process-steps">
+        <div class="mprocess-step">
+          <div class="mprocess-dot">1</div>
+          <div class="mprocess-title">Diagnóstico</div>
+          <div class="mprocess-desc">Entendemos seu negócio e mapeamos os cenários de impacto real</div>
+        </div>
+        <div class="mprocess-step">
+          <div class="mprocess-dot">2</div>
+          <div class="mprocess-title">Planejamento</div>
+          <div class="mprocess-desc">Definimos quais automações entram, em que ordem e com qual resultado esperado</div>
+        </div>
+        <div class="mprocess-step active">
+          <div class="mprocess-dot">3</div>
+          <div class="mprocess-title">Implementação</div>
+          <div class="mprocess-desc">IA configurada no seu processo. Seu time treinado. Suporte diário ativo</div>
+        </div>
+        <div class="mprocess-step">
+          <div class="mprocess-dot">4</div>
+          <div class="mprocess-title">Resultado Mensal</div>
+          <div class="mprocess-desc">Relatório com o que a IA fez, economizou e onde crescer no próximo mês</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner resultado -->
+    <div class="mentoria-result reveal">
+      <div class="mentoria-result-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.8"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+      </div>
+      <div class="mentoria-result-text">
+        <div class="mentoria-result-title">IA com foco em resultado. Não em tecnologia.</div>
+        <div class="mentoria-result-sub">A maioria das empresas implanta IA e não sabe se funcionou. Aqui você sabe — porque cada entrega tem uma métrica, e cada mês tem um número para comparar com o anterior.</div>
+      </div>
+      <div class="mentoria-result-badge">
+        73h<span>economizadas/semana<br>em média — com número</span>
+      </div>
+    </div>
+
+    <div class="cta-inline" style="margin-top:2.5rem;">
+      <p><strong>Quer entender onde sua empresa ganha mais com IA?</strong><br>O diagnóstico é gratuito, feito por um mentor — não por um robô.</p>
+      <a href="https://ktana.ai/lead" target="_blank" class="btn-primary">Agendar diagnóstico com mentor</a>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="faq">
   <div class="container">
@@ -2494,6 +2700,9 @@
     { sel: '.steps-grid',        cls: 'reveal-children' },
     { sel: '.guarantees-grid',   cls: 'reveal-children' },
     { sel: '.pricing-grid',      cls: 'reveal-children' },
+    { sel: '.mentoria-grid',     cls: 'reveal-children' },
+    { sel: '.mentoria-process',  cls: '' },
+    { sel: '.mentoria-result',   cls: '' },
     { sel: '.faq-item',          cls: '' },
     { sel: '.final-cta .section-title', cls: '' },
     { sel: '.final-cta-btns',    cls: '' },
