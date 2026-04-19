@@ -43,25 +43,24 @@
     /* ─── ANNOUNCEMENT BAR ─── */
     .announce-bar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 102;
-      height: 40px; background: #FFFFFF;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
+      height: 40px; background: var(--red);
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
     }
     .announce-bar::before { content: none; }
     @keyframes announceShimmer { 0%,100%{opacity:.4} 50%{opacity:1} }
     .announce-bar a {
-      color: rgba(0,0,0,0.55); font-size: 0.78rem; font-weight: 500;
+      color: rgba(255,255,255,0.9); font-size: 0.78rem; font-weight: 500;
       text-decoration: none; letter-spacing: 0.01em; position: relative; z-index: 1;
       display: flex; align-items: center; gap: 0.55rem; transition: color 0.2s;
     }
-    .announce-bar a:hover { color: var(--black); }
+    .announce-bar a:hover { color: var(--white); }
     .announce-dot {
-      width: 6px; height: 6px; border-radius: 50%; background: var(--red);
+      width: 6px; height: 6px; border-radius: 50%; background: var(--white);
       flex-shrink: 0; animation: announcePulse 1.8s ease-in-out infinite;
     }
     @keyframes announcePulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.45;transform:scale(.65)} }
-    .announce-arrow { color: var(--red); font-weight: 700; margin-left: 0.15rem; }
+    .announce-arrow { color: rgba(255,255,255,0.7); font-weight: 700; margin-left: 0.15rem; }
 
     /* ─── NAV ─── */
     nav {
@@ -1534,7 +1533,7 @@
 <div class="announce-bar">
   <a href="https://empresainteligente.ai/morteempresas/" target="_blank">
     <span class="announce-dot"></span>
-    Artigo: Por que 60% das PMEs fecham antes dos 5 anos?
+    Existem 2 tipos de empresa no Brasil hoje: as que usam IA e as que vão fechar.
     <span class="announce-arrow">→</span>
   </a>
 </div>
