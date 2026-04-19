@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage -->
   <url>
     <loc>https://empresainteligente.ai/</loc>
-    <lastmod>2026-04-18</lastmod>
+    <lastmod>2026-04-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://empresainteligente.ai/"/>
   </url>
+
+  <!-- Morte das Empresas — artigo/LP -->
   <url>
-    <loc>https://empresainteligente.ai/morteempresas</loc>
-    <lastmod>2026-04-18</lastmod>
+    <loc>https://empresainteligente.ai/morteempresas/</loc>
+    <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Diagnóstico / Agendamento -->
+  <url>
+    <loc>https://empresainteligente.ai/diagnostico</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
 </urlset>
