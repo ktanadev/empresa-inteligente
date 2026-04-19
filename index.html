@@ -331,17 +331,15 @@
     .dt-card.com .dt-highlight { background: rgba(215,0,48,0.2); color: var(--red); border: 1px solid rgba(215,0,48,0.35); }
     .dois-tipos-cta {
       text-align: center; margin-top: 3rem;
-      padding: 2.5rem 2rem; border-radius: 20px;
-      background: var(--white); border: 2px solid var(--red);
-      box-shadow: 0 4px 32px rgba(215,0,48,0.12);
-      position: relative; overflow: hidden;
+      padding: 2rem 2rem; border-radius: 20px;
+      background: var(--red); border: none;
     }
     .dois-tipos-cta::before { content: none; }
     .dois-tipos-cta > * { position: relative; z-index: 1; }
-    .dois-tipos-cta p { color: var(--gray-text); font-size: 1.05rem; margin-bottom: 1.5rem; }
-    .dois-tipos-cta strong { color: var(--red); display: block; font-family: var(--font-display); font-size: 1.3rem; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
-    .dois-tipos-cta .btn-primary { background: var(--white); color: var(--red); border: 2px solid var(--red); }
-    .dois-tipos-cta .btn-primary:hover { background: var(--red); color: var(--white); }
+    .dois-tipos-cta p { color: rgba(255,255,255,0.75); font-size: 1.05rem; margin-bottom: 1.25rem; }
+    .dois-tipos-cta strong { color: var(--white); display: block; font-family: var(--font-display); font-size: 1.3rem; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+    .dois-tipos-cta .btn-primary { background: var(--white); color: var(--red); border: 2px solid var(--white); }
+    .dois-tipos-cta .btn-primary:hover { background: transparent; color: var(--white); }
 
     /* Dois tipos grid — animação sequencial comparativa */
     .dois-tipos-grid.reveal-children > *:nth-child(1) {
@@ -595,52 +593,89 @@
     .metric-label { font-size: 0.8rem; color: var(--gray-text); margin-top: 0.5rem; line-height: 1.4; }
 
     /* ─── TESTIMONIALS ─── */
-    .testimonials {
-      background: #0A0A0A; padding: 6rem 0;
-      box-shadow: inset 0 2px 0 rgba(215,0,48,0.3), inset 0 3px 0 rgba(255,255,255,0.05);
+    .testimonials { background: var(--white); padding: 6rem 0; }
+    .testimonials .section-title { color: var(--black); }
+    .testimonials .section-label { color: var(--red); }
+    .testimonials .section-sub { color: var(--gray-text); }
+
+    /* Video cards row */
+    .testi-video-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem;
     }
-    .testimonials .section-title { color: var(--white); }
-    .testimonials .section-label { color: rgba(215,0,48,0.85); }
-    .testimonials .section-sub { color: rgba(255,255,255,0.45); }
-    .testimonials-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem; margin-top: 0; text-align: left;
-    }
-    .testi-card {
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px; padding: 1.75rem 1.75rem 1.5rem; display: flex;
-      flex-direction: column; gap: 1.25rem;
+    .testi-video-card {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--gray-border);
+      background: var(--white);
       transition: box-shadow .25s ease, transform .25s ease;
     }
-    .testi-card:hover { border-color: rgba(215,0,48,0.25); transform: translateY(-3px); }
-    .testi-featured {
-      border-color: rgba(215,0,48,0.3);
-      background: rgba(215,0,48,0.06);
+    .testi-video-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.1); transform: translateY(-2px); }
+    .testi-thumb {
+      position: relative; width: 100%; aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #111 0%, #222 100%);
+      overflow: hidden; cursor: pointer;
     }
+    .testi-thumb-gradient { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(215,0,48,0.25) 0%, rgba(0,0,0,0.7) 100%); }
+    .testi-thumb-initials {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: rgba(255,255,255,0.12); letter-spacing: -0.04em;
+    }
+    .testi-play {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    }
+    .testi-play-btn {
+      width: 56px; height: 56px; background: var(--red); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 24px rgba(215,0,48,0.55);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .testi-video-card:hover .testi-play-btn { transform: scale(1.1); background: var(--red-dark); }
+    .testi-play-btn svg { width: 20px; height: 20px; fill: #fff; margin-left: 3px; }
+    .testi-video-body { padding: 1.25rem 1.5rem 1.5rem; }
+    .testi-video-quote {
+      font-size: 0.95rem; line-height: 1.65; color: var(--black);
+      font-style: italic; margin-bottom: 1rem;
+    }
+    .testi-video-quote::before { content: '"'; color: var(--red); font-size: 1.3rem; font-style: normal; line-height: 0; vertical-align: -0.3em; margin-right: 0.1em; }
+
+    /* Text cards grid */
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1rem; text-align: left;
+    }
+    .testi-card {
+      background: var(--gray-bg); border: 1px solid var(--gray-border);
+      border-radius: 14px; padding: 1.4rem 1.4rem 1.25rem; display: flex;
+      flex-direction: column; gap: 1rem;
+      transition: box-shadow .25s ease, transform .25s ease;
+    }
+    .testi-card:hover { border-color: rgba(215,0,48,0.25); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
+    .testi-featured { border-color: rgba(215,0,48,0.25); background: var(--white); }
     .testi-quote {
-      font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.85);
+      font-size: 0.9rem; line-height: 1.65; color: var(--black);
       font-style: italic; flex: 1;
     }
-    .testi-quote::before { content: '"'; color: var(--red); font-size: 1.4rem; font-style: normal; line-height: 0; vertical-align: -0.3em; margin-right: 0.1em; }
-    .testi-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testi-quote::before { content: '"'; color: var(--red); font-size: 1.3rem; font-style: normal; line-height: 0; vertical-align: -0.3em; margin-right: 0.1em; }
+    .testi-author { display: flex; align-items: center; gap: 0.6rem; }
     .testi-avatar {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: rgba(215,0,48,0.1); border: 1.5px solid rgba(215,0,48,0.3);
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(215,0,48,0.08); border: 1.5px solid rgba(215,0,48,0.2);
       display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 0.75rem; color: var(--red); flex-shrink: 0;
+      font-weight: 700; font-size: 0.7rem; color: var(--red); flex-shrink: 0;
     }
-    .testi-name { font-weight: 600; font-size: 0.9rem; color: var(--white); }
-    .testi-role { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 0.1rem; }
+    .testi-name { font-weight: 600; font-size: 0.85rem; color: var(--black); }
+    .testi-role { font-size: 0.7rem; color: var(--gray-text); margin-top: 0.1rem; }
     .testi-metric {
-      font-size: 0.75rem; font-weight: 600; color: rgba(215,0,48,0.7);
-      background: rgba(215,0,48,0.08); border: 1px solid rgba(215,0,48,0.15);
-      border-radius: 6px; padding: 0.35rem 0.65rem; display: inline-block; width: fit-content;
+      font-size: 0.72rem; font-weight: 600; color: var(--red);
+      background: rgba(215,0,48,0.07); border: 1px solid rgba(215,0,48,0.18);
+      border-radius: 6px; padding: 0.3rem 0.6rem; display: inline-block; width: fit-content;
     }
-    .testi-metric span { color: var(--red); font-weight: 800; }
-    @media (max-width: 960px) {
+    .testi-metric span { font-weight: 800; }
+    @media (max-width: 1100px) {
       .testimonials-grid { grid-template-columns: 1fr 1fr; }
     }
-    @media (max-width: 640px) {
+    @media (max-width: 700px) {
+      .testi-video-row { grid-template-columns: 1fr; }
       .testimonials-grid { grid-template-columns: 1fr; }
     }
 
@@ -1022,13 +1057,13 @@
 
     /* ─── INLINE CTA BLOCK ─── */
     .cta-inline {
-      text-align: center; margin-top: 3rem; padding: 2.5rem;
-      background: var(--red); border-radius: 20px;
+      text-align: center; margin-top: 2rem; padding: 1.75rem 2rem;
+      background: var(--red); border-radius: 16px;
       border: none;
     }
-    .cta-inline p { font-size: 0.95rem; color: rgba(255,255,255,0.75); margin-bottom: 1.25rem; line-height: 1.6; }
-    .cta-inline strong { color: var(--white); display: block; font-family: var(--font-display); font-size: 1.2rem; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
-    .cta-inline .btn-primary { background: var(--white); color: var(--red); border: 2px solid var(--white); }
+    .cta-inline p { font-size: 0.9rem; color: rgba(255,255,255,0.75); margin-bottom: 1rem; line-height: 1.55; }
+    .cta-inline strong { color: var(--white); display: block; font-family: var(--font-display); font-size: 1.1rem; letter-spacing: -0.02em; margin-bottom: 0.35rem; }
+    .cta-inline .btn-primary { background: var(--white); color: var(--red); border: 2px solid var(--white); font-size: 0.9rem; padding: 0.75rem 1.75rem; }
     .cta-inline .btn-primary:hover { background: transparent; color: var(--white); border-color: var(--white); }
     .cta-inline.dark { background: var(--red); }
     .cta-inline.dark p { color: rgba(255,255,255,0.75); }
@@ -2156,77 +2191,107 @@
   <div class="container" style="text-align:center;">
     <span class="section-label">Quem já implementou</span>
     <h2 class="section-title">Empresas reais.<br>Resultados reais.</h2>
-    <p class="section-sub" style="margin:0 auto 3rem;">Sem script. Sem edição. O que os donos de empresa disseram depois de implementar.</p>
+    <p class="section-sub" style="margin:0 auto;">Vídeos dos donos de empresa — sem script, sem edição. O que mudou na operação depois de implementar.</p>
+
+    <!-- Vídeos em destaque -->
+    <div class="testi-video-row">
+      <div class="testi-video-card">
+        <div class="testi-thumb">
+          <div class="testi-thumb-gradient"></div>
+          <div class="testi-thumb-initials">FR</div>
+          <div class="testi-play">
+            <div class="testi-play-btn">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="testi-video-body">
+          <div class="testi-video-quote">"Em 30 dias o financeiro estava funcionando sozinho. Economizamos mais de R$8.000 por mês só nessa área."</div>
+          <div class="testi-author" style="justify-content:flex-start;">
+            <div class="testi-avatar">FR</div>
+            <div>
+              <div class="testi-name">Fernanda Rocha</div>
+              <div class="testi-role">Sócia · Distribuidora de materiais, Campinas</div>
+            </div>
+          </div>
+          <div class="testi-metric" style="margin-top:0.75rem;"><span>-R$8k</span>/mês em custos operacionais</div>
+        </div>
+      </div>
+
+      <div class="testi-video-card">
+        <div class="testi-thumb">
+          <div class="testi-thumb-gradient" style="background:linear-gradient(160deg,rgba(215,0,48,0.18) 0%,rgba(0,0,0,0.75) 100%)"></div>
+          <div class="testi-thumb-initials">RT</div>
+          <div class="testi-play">
+            <div class="testi-play-btn">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="testi-video-body">
+          <div class="testi-video-quote">"Triplicamos os leads qualificados em 60 dias. Com o mesmo time. Sem contratar ninguém novo."</div>
+          <div class="testi-author" style="justify-content:flex-start;">
+            <div class="testi-avatar">RT</div>
+            <div>
+              <div class="testi-name">Rodrigo Tavares</div>
+              <div class="testi-role">CEO · Escritório contábil, Belo Horizonte</div>
+            </div>
+          </div>
+          <div class="testi-metric" style="margin-top:0.75rem;"><span>3×</span> leads qualificados em 60 dias</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards de apoio -->
     <div class="testimonials-grid">
-      <div class="testi-card testi-featured">
-        <div class="testi-quote">"O tempo de resposta para o cliente caiu 70%. A satisfação subiu — e o time parou de reclamar do volume de chamados."</div>
-        <div class="testi-author">
-          <div class="testi-avatar">RC</div>
-          <div>
-            <div class="testi-name">Rafael C.</div>
-            <div class="testi-role">CEO · Distribuidora, São Paulo</div>
-          </div>
-        </div>
-        <div class="testi-metric"><span>-70%</span> tempo de resposta</div>
-      </div>
       <div class="testi-card">
-        <div class="testi-quote">"Triplicamos os leads qualificados em 60 dias. Com o mesmo time. Não contratamos ninguém."</div>
+        <div class="testi-quote">"O planejamento financeiro que levava um dia inteiro agora leva 30 minutos. E sai sem erro."</div>
         <div class="testi-author">
-          <div class="testi-avatar">AM</div>
+          <div class="testi-avatar">PN</div>
           <div>
-            <div class="testi-name">Ana M.</div>
-            <div class="testi-role">Diretora Comercial · Construtora, Curitiba</div>
-          </div>
-        </div>
-        <div class="testi-metric"><span>3×</span> leads em 60 dias</div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-quote">"O planejamento financeiro mensal que levava um dia inteiro agora leva 30 minutos. E o relatório sai sem erro."</div>
-        <div class="testi-author">
-          <div class="testi-avatar">PL</div>
-          <div>
-            <div class="testi-name">Paulo L.</div>
-            <div class="testi-role">CFO · Indústria têxtil, Blumenau</div>
+            <div class="testi-name">Patrícia Nunes</div>
+            <div class="testi-role">CFO · Indústria alimentícia, Porto Alegre</div>
           </div>
         </div>
         <div class="testi-metric"><span>-95%</span> tempo de relatório</div>
       </div>
       <div class="testi-card">
-        <div class="testi-quote">"Uma coisa que eu demorava uma hora para fazer, eu faço em minutos agora. Todo dia. Em todos os departamentos."</div>
+        <div class="testi-quote">"Uma tarefa que levava uma hora, faço em minutos. Todo dia. Em todos os departamentos."</div>
         <div class="testi-author">
-          <div class="testi-avatar">CS</div>
+          <div class="testi-avatar">MC</div>
           <div>
-            <div class="testi-name">Carla S.</div>
-            <div class="testi-role">Sócia · Clínica odontológica, Porto Alegre</div>
+            <div class="testi-name">Mariana Costa</div>
+            <div class="testi-role">Diretora Comercial · Construtora, Goiânia</div>
           </div>
         </div>
         <div class="testi-metric"><span>×10</span> velocidade operacional</div>
       </div>
-      <div class="testi-card testi-featured">
-        <div class="testi-quote">"Eliminamos R$ 2.000 de custo por mês e ganhamos a liberdade de personalizar cada etapa do processo. A gente controla a IA, não o contrário."</div>
+      <div class="testi-card">
+        <div class="testi-quote">"Eliminamos R$2.000 de custo fixo por mês. A IA faz o que a gente controlava manualmente."</div>
         <div class="testi-author">
-          <div class="testi-avatar">MA</div>
+          <div class="testi-avatar">BM</div>
           <div>
-            <div class="testi-name">Marcos A.</div>
-            <div class="testi-role">Fundador · Assessoria MAPA, Florianópolis</div>
+            <div class="testi-name">Bruno Menezes</div>
+            <div class="testi-role">Fundador · Agência digital, São Paulo</div>
           </div>
         </div>
-        <div class="testi-metric"><span>-R$2k</span> por mês em custos</div>
+        <div class="testi-metric"><span>-R$2k</span> por mês em custo fixo</div>
       </div>
       <div class="testi-card">
-        <div class="testi-quote">"Em 45 dias já via o faturamento subir. Não precisei de mais vendedores — só organizei o processo com IA."</div>
+        <div class="testi-quote">"Em 45 dias o faturamento já subiu. Não contratei vendedor — organizei o processo com IA."</div>
         <div class="testi-author">
-          <div class="testi-avatar">JB</div>
+          <div class="testi-avatar">LC</div>
           <div>
-            <div class="testi-name">Juliana B.</div>
-            <div class="testi-role">CEO · E-commerce de moda, Rio de Janeiro</div>
+            <div class="testi-name">Leandro Campos</div>
+            <div class="testi-role">Sócio · Distribuidora de insumos, Ribeirão Preto</div>
           </div>
         </div>
         <div class="testi-metric"><span>+faturamento</span> em 45 dias</div>
       </div>
     </div>
+
     <div class="cta-inline dark">
-      <p><strong>Sua empresa pode ser o próximo caso de sucesso.</strong><br>Agende agora e veja o diagnóstico completo da sua operação.</p>
+      <p><strong>Sua empresa pode ser o próximo caso.</strong><br>Diagnóstico gratuito — veja o que muda na sua operação.</p>
       <a href="https://ktana.ai/lead" target="_blank" class="btn-primary">Agendar diagnóstico gratuito</a>
     </div>
   </div>
