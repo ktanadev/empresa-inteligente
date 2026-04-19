@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://empresainteligente.ai/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,6 +28,8 @@
       --white: #FFFFFF;
       --font-display: 'Space Grotesk', sans-serif;
       --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+      --font-editorial: 'IBM Plex Sans', Georgia, serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -38,6 +40,16 @@
       color: var(--black);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+    }
+    /* Grain texture — signature premium feel (barely visible at 3%) */
+    body::after {
+      content: "";
+      position: fixed; inset: 0;
+      pointer-events: none;
+      opacity: .03;
+      mix-blend-mode: multiply;
+      z-index: 9999;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.9'/></svg>");
     }
 
     /* ─── ANNOUNCEMENT BAR ─── */
@@ -144,13 +156,13 @@
       pointer-events: none;
     }
     .hero-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(215,0,48,0.08); border: 1px solid rgba(215,0,48,0.2);
-      color: var(--red); padding: 0.35rem 0.85rem; border-radius: 999px;
-      font-size: 0.8rem; font-weight: 600; margin-bottom: 2rem; margin-top: 3rem;
-      letter-spacing: 0.05em; text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      background: rgba(215,0,48,0.07); border: 1px solid rgba(215,0,48,0.18);
+      color: var(--red); padding: 0.35rem 0.9rem; border-radius: 999px;
+      font-family: var(--font-mono); font-size: 0.67rem; font-weight: 500; margin-bottom: 2rem; margin-top: 3rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
     }
-    .hero-badge::before { content: '●'; font-size: 0.5rem; }
+    .hero-badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
     .hero h1 {
       font-family: var(--font-display); font-weight: 800;
       font-size: clamp(2.8rem, 6vw, 5.5rem);
@@ -159,7 +171,9 @@
     }
     .hero h1 em { color: var(--red); font-style: normal; }
     .hero-sub {
-      font-size: clamp(1rem, 1.5vw, 1.2rem); color: var(--gray-text);
+      font-family: var(--font-editorial);
+      font-style: italic;
+      font-size: clamp(1rem, 1.5vw, 1.18rem); color: var(--gray-text);
       max-width: 600px; margin-bottom: 2.5rem; line-height: 1.7;
     }
     .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 3.5rem; }
@@ -210,8 +224,9 @@
     }
     .hero-stat-number span { color: var(--red); }
     .hero-stat-label {
-      font-size: 0.78rem; color: var(--gray-text);
-      text-transform: uppercase; letter-spacing: 0.05em;
+      font-family: var(--font-mono);
+      font-size: 0.65rem; color: var(--gray-text);
+      text-transform: uppercase; letter-spacing: 0.14em;
       display: block; line-height: 1.4;
     }
     .hero-stat-sep { display: none; }
@@ -283,7 +298,7 @@
       font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--black);
       letter-spacing: -0.03em; line-height: 1.1;
     }
-    .dois-tipos-header p { color: var(--gray-text); margin-top: 1rem; font-size: 1rem; }
+    .dois-tipos-header p { font-family: var(--font-editorial); font-style: italic; color: var(--gray-text); margin-top: 1rem; font-size: 1rem; }
     .dois-tipos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
     .dt-card {
       border-radius: 20px; padding: 2.5rem;
@@ -292,8 +307,9 @@
     .dt-card.sem { background: var(--red); border-color: var(--red); }
     .dt-card.com { background: #0F2D6B; border-color: #183580; box-shadow: 0 4px 24px rgba(15,45,107,0.35); }
     .dt-card-label {
-      font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
-      margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.18em;
+      margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem;
     }
     .dt-card.sem .dt-card-label { color: rgba(255,255,255,0.65); }
     .dt-card.com .dt-card-label { color: var(--red); }
@@ -366,18 +382,44 @@
     section { padding: 5rem 1.5rem; }
     .container { max-width: 1160px; margin: 0 auto; }
     .section-label {
-      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.1em; color: var(--red); margin-bottom: 1rem;
-      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.67rem; font-weight: 500; text-transform: uppercase;
+      letter-spacing: 0.22em; color: var(--red); margin-bottom: 1.1rem;
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .section-label::before {
+      content: ""; width: 20px; height: 1px; background: var(--red);
+      flex-shrink: 0;
+    }
+    .section-label.center {
+      display: flex; justify-content: center;
+    }
+    .section-label.on-dark {
+      color: rgba(255,255,255,0.6);
+    }
+    .section-label.on-dark::before {
+      background: rgba(255,255,255,0.45);
     }
     .section-title {
       font-family: var(--font-display); font-weight: 800;
-      font-size: clamp(2rem, 3.5vw, 3rem); letter-spacing: -0.03em;
-      line-height: 1.1; margin-bottom: 1rem;
+      font-size: clamp(2rem, 3.5vw, 3rem); letter-spacing: -0.04em;
+      line-height: 1.05; margin-bottom: 1rem;
     }
     .section-sub {
+      font-family: var(--font-editorial);
+      font-style: italic;
       font-size: 1.05rem; color: var(--gray-text);
       max-width: 560px; line-height: 1.7;
+    }
+
+    /* ─── BLADE SEPARATOR ─── */
+    .blade-sep {
+      height: 3px;
+      background: linear-gradient(90deg, var(--red) 0%, var(--red-dark) 60%, transparent 100%);
+      transform: skewY(-0.7deg);
+      transform-origin: left center;
+      position: relative; z-index: 2;
+      box-shadow: 0 3px 16px -4px rgba(215,0,48,0.35);
     }
 
     /* ─── PROOF BAR ─── */
@@ -395,7 +437,7 @@
       line-height: 1;
     }
     .proof-number em { color: var(--red); font-style: normal; }
-    .proof-label { font-size: 0.75rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.25rem; }
+    .proof-label { font-family: var(--font-mono); font-size: 0.65rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.14em; margin-top: 0.25rem; }
     .proof-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.1); }
 
     /* ─── COST SECTION ─── */
@@ -683,6 +725,7 @@
     .how { background: var(--red); }
     .how .section-title { color: var(--white); }
     .how .section-label { color: rgba(255,255,255,0.65); }
+    .how .section-label::before { background: rgba(255,255,255,0.45); }
     .how .section-sub { color: rgba(255,255,255,0.7); }
     .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; position: relative; }
     .steps-grid::before {
@@ -858,6 +901,8 @@
     .final-cta .section-title { color: var(--white); max-width: 700px; margin: 0 auto 1rem; }
     .final-cta .section-sub { margin: 0 auto 2.5rem; color: rgba(255,255,255,0.55); }
     .final-cta .section-label { color: rgba(255,255,255,0.5); }
+    .final-cta .section-label::before { background: rgba(255,255,255,0.35); }
+    .final-cta .section-label { justify-content: center; }
     .final-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
     .final-cta .btn-outline { color: rgba(255,255,255,0.8); border-color: rgba(255,255,255,0.25); }
     .final-cta .btn-outline:hover { color: var(--white); border-color: var(--white); }
@@ -1638,6 +1683,9 @@
   </div>
 </section>
 
+<!-- BLADE SEPARATOR -->
+<div class="blade-sep"></div>
+
 <!-- PROOF BAR -->
 <div class="proof-bar">
   <div class="proof-bar-inner">
@@ -1699,7 +1747,7 @@
 <section class="dois-tipos">
   <div class="dois-tipos-inner">
     <div class="dois-tipos-header">
-      <span class="section-label" style="display:block;text-align:center;margin-bottom:1rem;">O mercado se dividiu</span>
+      <span class="section-label center">O mercado se dividiu</span>
       <h2>Existem dois tipos de empresa<br>no mercado hoje.</h2>
       <p>A diferença entre elas — uma vai sobreviver e a outra vai morrer.</p>
     </div>
@@ -2152,7 +2200,7 @@
 <!-- METRICS -->
 <section class="metrics">
   <div class="container" style="text-align:center;">
-    <span class="section-label" style="color:rgba(215,0,48,0.8);">Resultado consolidado</span>
+    <span class="section-label on-dark center">Resultado consolidado</span>
     <h2 class="section-title" style="color:var(--white); margin-bottom:0.5rem;">Os números de quem já implementou.</h2>
     <p style="color:rgba(255,255,255,0.4); font-size:0.875rem; margin-bottom:3rem;">Média entre clientes com mais de 90 dias de implementação ativa.</p>
     <div class="metrics-grid">
@@ -2335,7 +2383,7 @@
 <!-- GUARANTEES -->
 <section class="guarantees" id="garantias">
   <div class="container">
-    <span class="section-label" style="color:rgba(215,0,48,0.8);">Garantias</span>
+    <span class="section-label">Garantias</span>
     <h2 class="section-title" style="color:var(--red);">Quatro garantias escritas<br>no contrato.</h2>
     <p class="section-sub" style="color:var(--gray-text);">Não é promessa de marketing. Está no contrato — com critérios objetivos e o que acontece se não cumprirmos.</p>
     <div class="guarantees-grid">
@@ -2374,7 +2422,7 @@
 <!-- PRICING -->
 <section class="pricing" id="planos">
   <div class="container">
-    <span class="section-label" style="text-align:center; display:block;">Planos</span>
+    <span class="section-label center">Planos</span>
     <h2 class="section-title" style="text-align:center;">Menos do que você paga<br>a um funcionário.</h2>
     <p class="section-sub" style="text-align:center; margin:0 auto;">Assinatura anual com contrato de 12 meses. Pagamento mensal ou à vista com 15% de desconto.</p>
 
@@ -2568,7 +2616,7 @@
 <!-- FAQ -->
 <section class="faq">
   <div class="container">
-    <span class="section-label" style="text-align:center; display:block;">Perguntas frequentes</span>
+    <span class="section-label center">Perguntas frequentes</span>
     <h2 class="section-title" style="text-align:center;">Você não é o primeiro<br>a ter essas dúvidas.</h2>
     <div class="faq-list">
       <div class="faq-item">
