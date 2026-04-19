@@ -420,7 +420,7 @@
     .cost-item-text { font-size: 0.9rem; color: var(--black); font-weight: 500; }
     .cost-item-hours { margin-left: auto; font-size: 0.8rem; color: var(--red); font-weight: 700; white-space: nowrap; }
     .cost-card {
-      background: #141414; border-radius: 20px; padding: 2.5rem;
+      background: var(--red); border-radius: 20px; padding: 2.5rem;
       position: relative; overflow: hidden;
     }
     /* ::before liberado — gradient border animado pelo bloco unificado abaixo */
@@ -434,19 +434,19 @@
       display: flex; justify-content: space-between; align-items: center;
       padding: 0.875rem 1rem; border-radius: 10px;
     }
-    .cost-row.bad { background: rgba(255,255,255,0.05); }
-    .cost-row.good { background: rgba(215,0,48,0.15); border: 1px solid rgba(215,0,48,0.3); }
-    .cost-row-label { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+    .cost-row.bad { background: rgba(0,0,0,0.2); }
+    .cost-row.good { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); }
+    .cost-row-label { font-size: 0.85rem; color: rgba(255,255,255,0.85); }
     .cost-row-value { font-family: var(--font-display); font-weight: 700; font-size: 1rem; }
-    .cost-row.bad .cost-row-value { color: rgba(255,255,255,0.4); }
-    .cost-row.good .cost-row-value { color: var(--red); }
-    .cost-row-detail { font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 0.15rem; }
+    .cost-row.bad .cost-row-value { color: rgba(255,255,255,0.55); }
+    .cost-row.good .cost-row-value { color: var(--white); }
+    .cost-row-detail { font-size: 0.75rem; color: rgba(255,255,255,0.55); margin-top: 0.15rem; }
     .cost-savings {
-      background: rgba(215,0,48,0.1); border: 1px solid rgba(215,0,48,0.2);
+      background: rgba(0,0,0,0.2); border: 1px solid rgba(0,0,0,0.15);
       border-radius: 10px; padding: 1rem; text-align: center;
     }
-    .cost-savings-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
-    .cost-savings-value { font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; color: var(--red); }
+    .cost-savings-label { font-size: 0.8rem; color: rgba(255,255,255,0.65); }
+    .cost-savings-value { font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; color: var(--white); }
 
     /* ─── WHAT IS ─── */
     .what-is { background: var(--white); }
@@ -594,29 +594,29 @@
 
     /* ─── TESTIMONIALS ─── */
     .testimonials {
-      background: var(--white); padding: 6rem 0;
+      background: #0A0A0A; padding: 6rem 0;
+      box-shadow: inset 0 2px 0 rgba(215,0,48,0.3), inset 0 3px 0 rgba(255,255,255,0.05);
     }
-    .testimonials .section-title { color: var(--black); }
-    .testimonials .section-label { color: var(--red); }
-    .testimonials .section-sub { color: var(--gray-text); }
+    .testimonials .section-title { color: var(--white); }
+    .testimonials .section-label { color: rgba(215,0,48,0.85); }
+    .testimonials .section-sub { color: rgba(255,255,255,0.45); }
     .testimonials-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem; margin-top: 0; text-align: left;
     }
     .testi-card {
-      background: var(--white); border: 1px solid var(--gray-border);
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
       border-radius: 16px; padding: 1.75rem 1.75rem 1.5rem; display: flex;
       flex-direction: column; gap: 1.25rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
       transition: box-shadow .25s ease, transform .25s ease;
     }
-    .testi-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.08); transform: translateY(-3px); }
+    .testi-card:hover { border-color: rgba(215,0,48,0.25); transform: translateY(-3px); }
     .testi-featured {
-      border-color: var(--gray-border);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      border-color: rgba(215,0,48,0.3);
+      background: rgba(215,0,48,0.06);
     }
     .testi-quote {
-      font-size: 1rem; line-height: 1.65; color: #2A2A2A;
+      font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.85);
       font-style: italic; flex: 1;
     }
     .testi-quote::before { content: '"'; color: var(--red); font-size: 1.4rem; font-style: normal; line-height: 0; vertical-align: -0.3em; margin-right: 0.1em; }
@@ -627,11 +627,11 @@
       display: flex; align-items: center; justify-content: center;
       font-weight: 700; font-size: 0.75rem; color: var(--red); flex-shrink: 0;
     }
-    .testi-name { font-weight: 600; font-size: 0.9rem; color: var(--black); }
-    .testi-role { font-size: 0.75rem; color: var(--gray-text); margin-top: 0.1rem; }
+    .testi-name { font-weight: 600; font-size: 0.9rem; color: var(--white); }
+    .testi-role { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 0.1rem; }
     .testi-metric {
-      font-size: 0.75rem; font-weight: 600; color: var(--red);
-      background: rgba(215,0,48,0.07); border: 1px solid rgba(215,0,48,0.18);
+      font-size: 0.75rem; font-weight: 600; color: rgba(215,0,48,0.7);
+      background: rgba(215,0,48,0.08); border: 1px solid rgba(215,0,48,0.15);
       border-radius: 6px; padding: 0.35rem 0.65rem; display: inline-block; width: fit-content;
     }
     .testi-metric span { color: var(--red); font-weight: 800; }
@@ -670,7 +670,7 @@
 
     /* ─── GUARANTEES ─── */
     .guarantees {
-      background: var(--red);
+      background: var(--white);
     }
     .guarantees .section-title { color: var(--black); }
     .guarantees .section-label { color: var(--red); }
@@ -733,7 +733,7 @@
       border: 1px solid var(--gray-border); position: relative; overflow: hidden;
     }
     .price-card.featured {
-      background: #0E0005; border: 2px solid transparent;
+      background: var(--red); border: 2px solid transparent;
       isolation: isolate;
       transform: translateY(-16px) scale(1.02);
       animation: featuredGlow 3s ease-in-out infinite;
@@ -822,7 +822,7 @@
 
     /* ─── FOOTER INSTITUCIONAL ─── */
     footer {
-      background: #0A0A0A; position: relative; overflow: hidden;
+      background: var(--red); position: relative; overflow: hidden;
     }
     .footer-accent-line {
       height: 3px;
