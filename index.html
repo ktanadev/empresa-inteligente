@@ -1396,74 +1396,73 @@
 
     /* ─── MENTORIA SECTION ─── */
     .mentoria-section {
-      background: var(--white); padding: 5rem 1.5rem;
+      background: var(--red); padding: 5rem 1.5rem;
       position: relative; overflow: hidden;
     }
     .mentoria-section .container { position: relative; z-index: 1; }
-    .mentoria-section .section-title { color: var(--black); }
-    .mentoria-section .section-sub { color: var(--gray-text); }
-    .mentoria-section .section-label { color: var(--red); }
+    .mentoria-section .section-title { color: var(--white); }
+    .mentoria-section .section-sub { color: rgba(255,255,255,0.7); }
+    .mentoria-section .section-label { color: rgba(255,255,255,0.65); }
 
     .mentoria-grid {
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 1.25rem; margin-top: 3rem;
     }
     .mentoria-card {
-      background: var(--white);
-      border: 1px solid var(--gray-border);
+      background: rgba(0,0,0,0.18);
+      border: 1px solid rgba(0,0,0,0.2);
       border-radius: 20px; padding: 2rem;
       position: relative; overflow: hidden;
       transition: border-color .3s ease, box-shadow .3s ease;
     }
     .mentoria-card:hover {
-      border-color: rgba(215,0,48,0.25);
-      box-shadow: 0 8px 32px rgba(215,0,48,0.07);
+      border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
     }
     .mentoria-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(215,0,48,0.45), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
       opacity: 0; transition: opacity .3s ease;
     }
     .mentoria-card:hover::before { opacity: 1; }
     .mentoria-card-num {
       font-family: var(--font-display); font-weight: 800; font-size: 2.5rem;
-      color: rgba(215,0,48,0.1); letter-spacing: -0.04em;
+      color: rgba(255,255,255,0.1); letter-spacing: -0.04em;
       line-height: 1; margin-bottom: 1.25rem; user-select: none;
     }
     .mentoria-card-icon {
       width: 44px; height: 44px; border-radius: 12px;
-      background: rgba(215,0,48,0.08); border: 1px solid rgba(215,0,48,0.15);
+      background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.15);
       display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;
     }
-    .mentoria-card-icon svg { width: 20px; height: 20px; stroke: var(--red); fill: none; }
+    .mentoria-card-icon svg { width: 20px; height: 20px; stroke: var(--white); fill: none; }
     .mentoria-card-title {
       font-family: var(--font-display); font-weight: 700; font-size: 1.1rem;
-      color: var(--black); margin-bottom: 0.75rem; letter-spacing: -0.02em;
+      color: var(--white); margin-bottom: 0.75rem; letter-spacing: -0.02em;
     }
     .mentoria-card-desc {
-      font-size: 0.875rem; color: var(--gray-text); line-height: 1.7;
+      font-size: 0.875rem; color: rgba(255,255,255,0.7); line-height: 1.7;
     }
     .mentoria-card-tag {
       display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 1.25rem;
       font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em;
-      color: var(--red); background: rgba(215,0,48,0.07); border: 1px solid rgba(215,0,48,0.18);
+      color: var(--white); background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
       padding: 0.25rem 0.7rem; border-radius: 999px;
     }
 
     /* Processo linha do tempo */
     .mentoria-process {
-      margin-top: 3.5rem; padding: 3rem 3rem 3rem;
-      background: var(--gray-bg); border: 1px solid var(--gray-border);
+      margin-top: 3.5rem; padding: 3rem;
+      background: rgba(0,0,0,0.18); border: 1px solid rgba(0,0,0,0.2);
       border-radius: 24px; position: relative; overflow: hidden;
     }
     .mentoria-process::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, transparent 0%, var(--red) 30%, var(--red) 70%, transparent 100%);
-      opacity: 0.35;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.5) 30%, rgba(255,255,255,0.5) 70%, transparent 100%);
     }
     .mentoria-process-label {
       font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--red); text-align: center; margin-bottom: 2.5rem;
+      color: rgba(255,255,255,0.6); text-align: center; margin-bottom: 2.5rem;
     }
     .mentoria-process-steps {
       display: grid; grid-template-columns: repeat(4, 1fr);
@@ -1471,50 +1470,49 @@
     }
     .mentoria-process-steps::before {
       content: ''; position: absolute; top: 24px; left: calc(12.5% + 12px); right: calc(12.5% + 12px);
-      height: 1px; background: var(--gray-border); z-index: 0;
+      height: 1px; background: rgba(255,255,255,0.2); z-index: 0;
     }
     .mprocess-step { text-align: center; position: relative; z-index: 1; padding: 0 0.5rem; }
     .mprocess-dot {
       width: 48px; height: 48px; border-radius: 50%; margin: 0 auto 1rem;
-      background: var(--white); border: 2px solid var(--gray-border);
+      background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3);
       display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-display); font-weight: 800; font-size: 1rem; color: var(--red);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      font-family: var(--font-display); font-weight: 800; font-size: 1rem; color: var(--white);
     }
     .mprocess-step.active .mprocess-dot {
-      background: var(--red); border-color: var(--red); color: var(--white);
-      box-shadow: 0 4px 20px rgba(215,0,48,0.35);
+      background: var(--white); border-color: var(--white); color: var(--red);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     }
     .mprocess-title {
-      font-size: 0.88rem; font-weight: 700; color: var(--black);
+      font-size: 0.88rem; font-weight: 700; color: var(--white);
       margin-bottom: 0.5rem; letter-spacing: -0.01em;
     }
-    .mprocess-step.active .mprocess-title { color: var(--red); }
-    .mprocess-desc { font-size: 0.78rem; color: var(--gray-text); line-height: 1.6; padding: 0 0.25rem; }
+    .mprocess-step.active .mprocess-title { color: var(--white); }
+    .mprocess-desc { font-size: 0.78rem; color: rgba(255,255,255,0.65); line-height: 1.6; padding: 0 0.25rem; }
 
     /* Resultado mensal banner */
     .mentoria-result {
       margin-top: 1.5rem; padding: 1.75rem 2rem;
-      background: rgba(215,0,48,0.05); border: 1px solid rgba(215,0,48,0.18);
+      background: rgba(0,0,0,0.18); border: 1px solid rgba(0,0,0,0.2);
       border-radius: 16px; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
     }
     .mentoria-result-icon {
       width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
-      background: rgba(215,0,48,0.1); border: 1px solid rgba(215,0,48,0.22);
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
       display: flex; align-items: center; justify-content: center;
     }
-    .mentoria-result-icon svg { width: 22px; height: 22px; stroke: var(--red); fill: none; }
+    .mentoria-result-icon svg { width: 22px; height: 22px; stroke: var(--white); fill: none; }
     .mentoria-result-text { flex: 1; min-width: 200px; }
     .mentoria-result-title {
-      font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--black);
+      font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--white);
       margin-bottom: 0.3rem; letter-spacing: -0.02em;
     }
-    .mentoria-result-sub { font-size: 0.82rem; color: var(--gray-text); line-height: 1.55; }
+    .mentoria-result-sub { font-size: 0.82rem; color: rgba(255,255,255,0.7); line-height: 1.55; }
     .mentoria-result-badge {
       flex-shrink: 0; font-family: var(--font-display); font-weight: 800;
-      font-size: 1.6rem; color: var(--red); letter-spacing: -0.03em; white-space: nowrap;
+      font-size: 1.6rem; color: var(--white); letter-spacing: -0.03em; white-space: nowrap;
     }
-    .mentoria-result-badge span { font-size: 0.8rem; color: var(--gray-text); display: block; font-weight: 500; font-family: var(--font-body); letter-spacing: 0; margin-top: 0.1rem; }
+    .mentoria-result-badge span { font-size: 0.8rem; color: rgba(255,255,255,0.65); display: block; font-weight: 500; font-family: var(--font-body); letter-spacing: 0; margin-top: 0.1rem; }
 
     @media (max-width: 768px) {
       .mentoria-grid { grid-template-columns: 1fr; }
@@ -2552,9 +2550,9 @@
       </div>
     </div>
 
-    <div class="cta-inline" style="margin-top:2.5rem;">
+    <div class="cta-inline dark" style="margin-top:2.5rem;">
       <p><strong>Quer entender onde sua empresa ganha mais com IA?</strong><br>O diagnóstico é gratuito, feito por um mentor — não por um robô.</p>
-      <a href="https://ktana.ai/lead" target="_blank" class="btn-primary">Agendar diagnóstico com mentor</a>
+      <a href="https://ktana.ai/lead" target="_blank" class="btn-primary" style="background:var(--white);color:var(--red);border-color:var(--white);">Agendar diagnóstico com mentor</a>
     </div>
   </div>
 </section>
