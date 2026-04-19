@@ -597,50 +597,59 @@
     .testimonials .section-label { color: var(--red); }
     .testimonials .section-sub { color: var(--gray-text); }
 
-    /* Video cards row */
-    .testi-video-row {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem;
-    }
-    .testi-video-card {
-      border-radius: 16px; overflow: hidden;
-      border: 1px solid var(--gray-border);
-      background: var(--white);
-      transition: box-shadow .25s ease, transform .25s ease;
-    }
-    .testi-video-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.1); transform: translateY(-2px); }
+    /* Carousel de vídeo */
+    .testi-carousel { max-width: 760px; margin: 3rem auto 0; }
+    .testi-carousel-track { border-radius: 20px; overflow: hidden; border: 1px solid var(--gray-border); background: var(--white); }
+    .testi-carousel-slide { display: none; }
+    .testi-carousel-slide.active { display: block; }
     .testi-thumb {
       position: relative; width: 100%; aspect-ratio: 16/9;
-      background: linear-gradient(135deg, #111 0%, #222 100%);
+      background: linear-gradient(135deg, #111 0%, #1e1e1e 100%);
       overflow: hidden; cursor: pointer;
     }
-    .testi-thumb-gradient { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(215,0,48,0.25) 0%, rgba(0,0,0,0.7) 100%); }
+    .testi-thumb-gradient { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(215,0,48,0.2) 0%, rgba(0,0,0,0.65) 100%); }
     .testi-thumb-initials {
       position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: rgba(255,255,255,0.12); letter-spacing: -0.04em;
+      font-family: var(--font-display); font-size: 5rem; font-weight: 800; color: rgba(255,255,255,0.06); letter-spacing: -0.04em;
     }
-    .testi-play {
-      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-    }
+    .testi-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
     .testi-play-btn {
-      width: 56px; height: 56px; background: var(--red); border-radius: 50%;
+      width: 68px; height: 68px; background: var(--red); border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 24px rgba(215,0,48,0.55);
+      box-shadow: 0 6px 32px rgba(215,0,48,0.6);
       transition: transform 0.2s, background 0.2s;
     }
-    .testi-video-card:hover .testi-play-btn { transform: scale(1.1); background: var(--red-dark); }
-    .testi-play-btn svg { width: 20px; height: 20px; fill: #fff; margin-left: 3px; }
-    .testi-video-body { padding: 1.25rem 1.5rem 1.5rem; }
+    .testi-carousel-track:hover .testi-play-btn { transform: scale(1.08); background: var(--red-dark); }
+    .testi-play-btn svg { width: 24px; height: 24px; fill: #fff; margin-left: 4px; }
+    .testi-video-body { padding: 1.5rem 2rem 2rem; text-align: left; }
     .testi-video-quote {
-      font-size: 0.95rem; line-height: 1.65; color: var(--black);
-      font-style: italic; margin-bottom: 1rem;
+      font-size: 1.05rem; line-height: 1.7; color: var(--black);
+      font-style: italic; margin-bottom: 1.25rem;
     }
-    .testi-video-quote::before { content: '"'; color: var(--red); font-size: 1.3rem; font-style: normal; line-height: 0; vertical-align: -0.3em; margin-right: 0.1em; }
+    .testi-video-quote::before { content: '"'; color: var(--red); font-size: 1.5rem; font-style: normal; line-height: 0; vertical-align: -0.35em; margin-right: 0.1em; }
+    .testi-video-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
 
-    /* Text cards grid */
+    /* Nav do carousel */
+    .testi-carousel-nav { display: flex; align-items: center; justify-content: center; gap: 1.25rem; margin-top: 1.5rem; }
+    .testi-nav-btn {
+      width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
+      background: var(--white); border: 1.5px solid var(--gray-border);
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.2s, color 0.2s; color: var(--black);
+    }
+    .testi-nav-btn:hover { border-color: var(--red); color: var(--red); }
+    .testi-nav-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .testi-dots { display: flex; gap: 0.5rem; align-items: center; }
+    .testi-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--gray-border);
+      cursor: pointer; transition: all 0.25s ease;
+    }
+    .testi-dot.active { background: var(--red); width: 24px; border-radius: 4px; }
+
+    /* Cards texto de apoio */
     .testimonials-grid {
       display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 1rem; text-align: left;
+      gap: 1rem; text-align: left; margin-top: 1.5rem;
     }
     .testi-card {
       background: var(--gray-bg); border: 1px solid var(--gray-border);
@@ -649,12 +658,8 @@
       transition: box-shadow .25s ease, transform .25s ease;
     }
     .testi-card:hover { border-color: rgba(215,0,48,0.25); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
-    .testi-featured { border-color: rgba(215,0,48,0.25); background: var(--white); }
-    .testi-quote {
-      font-size: 0.9rem; line-height: 1.65; color: var(--black);
-      font-style: italic; flex: 1;
-    }
-    .testi-quote::before { content: '"'; color: var(--red); font-size: 1.3rem; font-style: normal; line-height: 0; vertical-align: -0.3em; margin-right: 0.1em; }
+    .testi-quote { font-size: 0.88rem; line-height: 1.65; color: var(--black); font-style: italic; flex: 1; }
+    .testi-quote::before { content: '"'; color: var(--red); font-size: 1.2rem; font-style: normal; line-height: 0; vertical-align: -0.3em; margin-right: 0.1em; }
     .testi-author { display: flex; align-items: center; gap: 0.6rem; }
     .testi-avatar {
       width: 36px; height: 36px; border-radius: 50%;
@@ -670,13 +675,8 @@
       border-radius: 6px; padding: 0.3rem 0.6rem; display: inline-block; width: fit-content;
     }
     .testi-metric span { font-weight: 800; }
-    @media (max-width: 1100px) {
-      .testimonials-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 700px) {
-      .testi-video-row { grid-template-columns: 1fr; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 1100px) { .testimonials-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 700px) { .testimonials-grid { grid-template-columns: 1fr; } }
 
     /* ─── HOW IT WORKS ─── */
     .how { background: var(--red); }
@@ -2183,52 +2183,68 @@
     <h2 class="section-title">Empresas reais.<br>Resultados reais.</h2>
     <p class="section-sub" style="margin:0 auto;">Vídeos dos donos de empresa — sem script, sem edição. O que mudou na operação depois de implementar.</p>
 
-    <!-- Vídeos em destaque -->
-    <div class="testi-video-row">
-      <div class="testi-video-card">
-        <div class="testi-thumb">
-          <div class="testi-thumb-gradient"></div>
-          <div class="testi-thumb-initials">FR</div>
-          <div class="testi-play">
-            <div class="testi-play-btn">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-        </div>
-        <div class="testi-video-body">
-          <div class="testi-video-quote">"Em 30 dias o financeiro estava funcionando sozinho. Economizamos mais de R$8.000 por mês só nessa área."</div>
-          <div class="testi-author" style="justify-content:flex-start;">
-            <div class="testi-avatar">FR</div>
-            <div>
-              <div class="testi-name">Fernanda Rocha</div>
-              <div class="testi-role">Sócia · Distribuidora de materiais, Campinas</div>
-            </div>
-          </div>
-          <div class="testi-metric" style="margin-top:0.75rem;"><span>-R$8k</span>/mês em custos operacionais</div>
-        </div>
-      </div>
+    <!-- Carousel de vídeo: um por vez -->
+    <div class="testi-carousel">
+      <div class="testi-carousel-track">
 
-      <div class="testi-video-card">
-        <div class="testi-thumb">
-          <div class="testi-thumb-gradient" style="background:linear-gradient(160deg,rgba(215,0,48,0.18) 0%,rgba(0,0,0,0.75) 100%)"></div>
-          <div class="testi-thumb-initials">RT</div>
-          <div class="testi-play">
-            <div class="testi-play-btn">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+        <div class="testi-carousel-slide active">
+          <div class="testi-thumb">
+            <div class="testi-thumb-gradient"></div>
+            <div class="testi-thumb-initials">FR</div>
+            <div class="testi-play">
+              <div class="testi-play-btn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div>
+            </div>
+          </div>
+          <div class="testi-video-body">
+            <div class="testi-video-quote">"Em 30 dias o financeiro estava funcionando sozinho. Economizamos mais de R$8.000 por mês só nessa área."</div>
+            <div class="testi-video-footer">
+              <div class="testi-author">
+                <div class="testi-avatar">FR</div>
+                <div>
+                  <div class="testi-name">Fernanda Rocha</div>
+                  <div class="testi-role">Sócia · Distribuidora de materiais, Campinas</div>
+                </div>
+              </div>
+              <div class="testi-metric"><span>-R$8k</span>/mês em custos</div>
             </div>
           </div>
         </div>
-        <div class="testi-video-body">
-          <div class="testi-video-quote">"Triplicamos os leads qualificados em 60 dias. Com o mesmo time. Sem contratar ninguém novo."</div>
-          <div class="testi-author" style="justify-content:flex-start;">
-            <div class="testi-avatar">RT</div>
-            <div>
-              <div class="testi-name">Rodrigo Tavares</div>
-              <div class="testi-role">CEO · Escritório contábil, Belo Horizonte</div>
+
+        <div class="testi-carousel-slide">
+          <div class="testi-thumb">
+            <div class="testi-thumb-gradient"></div>
+            <div class="testi-thumb-initials">RT</div>
+            <div class="testi-play">
+              <div class="testi-play-btn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div>
             </div>
           </div>
-          <div class="testi-metric" style="margin-top:0.75rem;"><span>3×</span> leads qualificados em 60 dias</div>
+          <div class="testi-video-body">
+            <div class="testi-video-quote">"Triplicamos os leads qualificados em 60 dias. Com o mesmo time. Sem contratar ninguém novo."</div>
+            <div class="testi-video-footer">
+              <div class="testi-author">
+                <div class="testi-avatar">RT</div>
+                <div>
+                  <div class="testi-name">Rodrigo Tavares</div>
+                  <div class="testi-role">CEO · Escritório contábil, Belo Horizonte</div>
+                </div>
+              </div>
+              <div class="testi-metric"><span>3×</span> leads em 60 dias</div>
+            </div>
+          </div>
         </div>
+
+      </div>
+      <div class="testi-carousel-nav">
+        <button class="testi-nav-btn testi-prev" aria-label="Anterior">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="testi-dots">
+          <span class="testi-dot active"></span>
+          <span class="testi-dot"></span>
+        </div>
+        <button class="testi-nav-btn testi-next" aria-label="Próximo">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
       </div>
     </div>
 
@@ -2734,6 +2750,24 @@
 
   // Inicializar ícones Lucide
   if (typeof lucide !== 'undefined') lucide.createIcons();
+
+  // ── Carousel de depoimentos em vídeo ──────────────────────────────────
+  (function() {
+    const slides = document.querySelectorAll('.testi-carousel-slide');
+    const dots   = document.querySelectorAll('.testi-dot');
+    if (!slides.length) return;
+    let cur = 0;
+    function go(n) {
+      slides[cur].classList.remove('active');
+      dots[cur].classList.remove('active');
+      cur = (n + slides.length) % slides.length;
+      slides[cur].classList.add('active');
+      dots[cur].classList.add('active');
+    }
+    document.querySelector('.testi-prev').addEventListener('click', () => go(cur - 1));
+    document.querySelector('.testi-next').addEventListener('click', () => go(cur + 1));
+    dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+  })();
 
   // ── Reveal on scroll ──────────────────────────────────────────────────
   const revealObserver = new IntersectionObserver((entries) => {
