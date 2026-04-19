@@ -723,11 +723,16 @@
     @media (max-width: 700px) { .testimonials-grid { grid-template-columns: 1fr; } }
 
     /* ─── HOW IT WORKS ─── */
-    .how { background: var(--red); }
+    .how { background: #BC002D; position: relative; overflow: hidden; }
     .how .section-title { color: var(--white); }
     .how .section-label { color: rgba(255,255,255,0.65); }
     .how .section-label::before { background: rgba(255,255,255,0.45); }
     .how .section-sub { color: rgba(255,255,255,0.7); }
+    /* Arco decorativo institucional */
+    .how-arc {
+      position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+    }
+    .how .container { position: relative; z-index: 1; }
     .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; position: relative; }
     .steps-grid::before {
       content: '';
@@ -898,24 +903,64 @@
     .faq-item.open .faq-a { display: block; }
 
     /* ─── FINAL CTA ─── */
-    .final-cta { background: #0A0A0A; text-align: center; border-bottom: 1px solid rgba(215,0,48,0.25); }
+    .final-cta {
+      background: #BC002D; text-align: center;
+      position: relative; overflow: hidden;
+      isolation: isolate;
+    }
+    .final-cta-arc {
+      position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+    }
+    /* Cubo fantasma centrado — decoração sutil */
+    .final-cta-ghost {
+      position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+      width: 420px; height: 280px;
+      background: url('assets/institucional-cubo.jpg') center center / cover no-repeat;
+      opacity: 0.07;
+      pointer-events: none; z-index: 0;
+    }
+    .final-cta .container { position: relative; z-index: 2; }
     .final-cta .section-title { color: var(--white); max-width: 700px; margin: 0 auto 1rem; }
-    .final-cta .section-sub { margin: 0 auto 2.5rem; color: rgba(255,255,255,0.55); }
-    .final-cta .section-label { color: rgba(255,255,255,0.5); }
+    .final-cta .section-sub { margin: 0 auto 2.5rem; color: rgba(255,255,255,0.7); }
+    .final-cta .section-label { color: rgba(255,255,255,0.55); }
     .final-cta .section-label::before { background: rgba(255,255,255,0.35); }
     .final-cta .section-label { justify-content: center; }
     .final-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .final-cta .btn-outline { color: rgba(255,255,255,0.8); border-color: rgba(255,255,255,0.25); }
-    .final-cta .btn-outline:hover { color: var(--white); border-color: var(--white); }
-    .final-trust { margin-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.35); }
+    /* Botão primário em fundo vermelho → branco com texto vermelho */
+    .final-cta .btn-primary {
+      background: #FFFFFF !important; color: #BC002D !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .final-cta .btn-primary:hover { background: rgba(255,255,255,0.92) !important; transform: translateY(-1px); }
+    .final-cta .btn-outline { color: rgba(255,255,255,0.9) !important; border-color: rgba(255,255,255,0.4) !important; }
+    .final-cta .btn-outline:hover { background: rgba(255,255,255,0.1) !important; border-color: rgba(255,255,255,0.7) !important; }
+    .final-trust { margin-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.45); }
 
     /* ─── FOOTER INSTITUCIONAL ─── */
     footer {
-      background: var(--red); position: relative; overflow: hidden;
+      background: #BC002D; position: relative; overflow: hidden;
+    }
+    /* Cubo de cristal institucional — ghost elegante no fundo */
+    footer::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 55%;
+      background: url('assets/institucional-cubo.jpg') center center / cover no-repeat;
+      opacity: 0.09;
+      pointer-events: none;
+      z-index: 0;
+    }
+    /* Linha arco — elemento gráfico do design system institucional */
+    .footer-arc {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 0; overflow: hidden;
     }
     .footer-accent-line {
-      height: 3px;
-      background: linear-gradient(90deg, transparent 0%, rgba(215,0,48,0.6) 20%, var(--red) 50%, rgba(215,0,48,0.6) 80%, transparent 100%);
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      position: relative; z-index: 2;
     }
     footer::before { content: none; }
     .footer-main {
@@ -2367,6 +2412,10 @@
 
 <!-- HOW IT WORKS -->
 <section class="how" id="como-funciona">
+  <svg class="how-arc" viewBox="0 0 1200 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <path d="M -80 60 Q 350 -30 750 140" stroke="rgba(255,255,255,0.06)" stroke-width="1" fill="none"/>
+    <path d="M 300 480 Q 750 330 1280 400" stroke="rgba(255,255,255,0.05)" stroke-width="1" fill="none"/>
+  </svg>
   <div class="container" style="text-align:center;">
     <span class="section-label">Como funciona</span>
     <h2 class="section-title">Três passos. Sua empresa instala<br>e usa imediato para faturar mais.</h2>
@@ -2681,6 +2730,11 @@
 
 <!-- FINAL CTA -->
 <section class="final-cta">
+  <svg class="final-cta-arc" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <path d="M -60 50 Q 400 -20 900 180" stroke="rgba(255,255,255,0.06)" stroke-width="1" fill="none"/>
+    <path d="M 180 400 Q 650 260 1260 320" stroke="rgba(255,255,255,0.05)" stroke-width="1" fill="none"/>
+  </svg>
+  <div class="final-cta-ghost" aria-hidden="true"></div>
   <div class="container">
     <h2 class="section-title">Sua empresa está deixando<br>resultado na mesa agora.</h2>
     <p class="section-sub">73 horas por semana. Por menos do que um funcionário. Funcionando do jeito que o seu negócio já funciona.</p>
@@ -2695,6 +2749,11 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-accent-line"></div>
+  <!-- Arco decorativo — linguagem visual das imagens institucionais -->
+  <svg class="footer-arc" viewBox="0 0 1200 520" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <path d="M -60 80 Q 300 -40 680 120" stroke="rgba(255,255,255,0.07)" stroke-width="1" fill="none"/>
+    <path d="M 200 520 Q 600 380 1260 440" stroke="rgba(255,255,255,0.06)" stroke-width="1" fill="none"/>
+  </svg>
   <div class="footer-main">
     <!-- Brand -->
     <div class="footer-brand">
