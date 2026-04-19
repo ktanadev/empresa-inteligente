@@ -1021,17 +1021,16 @@
     /* ─── INLINE CTA BLOCK ─── */
     .cta-inline {
       text-align: center; margin-top: 3rem; padding: 2.5rem;
-      background: var(--white); border-radius: 20px;
-      border: 2px solid var(--red);
-      box-shadow: 0 4px 32px rgba(215,0,48,0.12);
+      background: var(--red); border-radius: 20px;
+      border: none;
     }
-    .cta-inline p { font-size: 0.95rem; color: var(--gray-text); margin-bottom: 1.25rem; line-height: 1.6; }
-    .cta-inline strong { color: var(--red); display: block; font-family: var(--font-display); font-size: 1.2rem; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
-    .cta-inline .btn-primary { background: var(--white); color: var(--red); border: 2px solid var(--red); }
-    .cta-inline .btn-primary:hover { background: var(--red); color: var(--white); }
-    .cta-inline.dark { background: var(--white); }
-    .cta-inline.dark p { color: var(--gray-text); }
-    .cta-inline.dark strong { color: var(--red); }
+    .cta-inline p { font-size: 0.95rem; color: rgba(255,255,255,0.75); margin-bottom: 1.25rem; line-height: 1.6; }
+    .cta-inline strong { color: var(--white); display: block; font-family: var(--font-display); font-size: 1.2rem; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
+    .cta-inline .btn-primary { background: var(--white); color: var(--red); border: 2px solid var(--white); }
+    .cta-inline .btn-primary:hover { background: transparent; color: var(--white); border-color: var(--white); }
+    .cta-inline.dark { background: var(--red); }
+    .cta-inline.dark p { color: rgba(255,255,255,0.75); }
+    .cta-inline.dark strong { color: var(--white); }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
