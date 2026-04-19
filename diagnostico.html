@@ -66,9 +66,15 @@ main{flex:1;padding-top:56px;display:flex;flex-direction:column}
 @keyframes dot{0%,60%,100%{opacity:.3;transform:scale(.9)}30%{opacity:1;transform:scale(1)}}
 
 /* OPTIONS */
-.options-wrap{display:flex;flex-wrap:wrap;gap:.6rem;animation:msgIn .3s ease}
-.opt-btn{padding:.6rem 1.1rem;border-radius:99px;border:1.5px solid var(--border);background:var(--surface);color:var(--text);font-size:.875rem;font-family:var(--font);cursor:pointer;transition:all .2s;white-space:nowrap}
+.options-wrap{display:flex;flex-direction:column;gap:.5rem;animation:msgIn .3s ease;width:100%}
+.opt-btn{padding:.85rem 1.25rem;border-radius:var(--radius);border:1.5px solid var(--border);background:var(--surface);color:var(--text);font-size:.925rem;font-family:var(--font);cursor:pointer;transition:all .2s;text-align:left;min-height:48px;display:flex;align-items:center;gap:.6rem;line-height:1.3}
+.opt-btn::before{content:'';width:18px;height:18px;border-radius:50%;border:1.5px solid var(--border);flex-shrink:0;transition:all .2s}
 .opt-btn:hover{border-color:var(--red);background:var(--red-dim);color:var(--text)}
+.opt-btn:hover::before{border-color:var(--red);background:var(--red)}
+/* BACK BUTTON */
+.back-btn{display:flex;align-items:center;gap:.4rem;background:none;border:none;color:var(--muted);font-size:.825rem;font-family:var(--font);cursor:pointer;padding:.35rem 0;transition:color .2s;margin-bottom:.4rem}
+.back-btn:hover{color:var(--text)}
+.back-btn svg{width:14px;height:14px}
 
 /* TEXT INPUT */
 .text-input-wrap{display:flex;gap:.6rem;animation:msgIn .3s ease}
@@ -131,6 +137,8 @@ footer{position:fixed;bottom:0;left:0;right:0;background:rgba(9,9,11,.9);backdro
   .chat-wrap{padding:1.5rem .75rem 5rem}
   .slots-grid{grid-template-columns:1fr 1fr}
   .bubble{max-width:92%}
+  .opt-btn{font-size:.9rem;padding:.9rem 1rem}
+  .nav-back{font-size:.8rem;padding:.5rem .75rem;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border)}
 }
 </style>
 </head>
@@ -139,8 +147,8 @@ footer{position:fixed;bottom:0;left:0;right:0;background:rgba(9,9,11,.9);backdro
 <nav>
   <span class="nav-logo">Empresa<span>Inteligente</span></span>
   <a href="/" class="nav-back">
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 12L6 8l4-4"/></svg>
-    Voltar
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4L4 12M4 4l8 8"/></svg>
+    Fechar
   </a>
 </nav>
 
@@ -211,6 +219,7 @@ const QUESTIONS = [
 
 let step = 0;
 const answers = {};
+const history = []; // [{step, msgCount, inputHTML}] for back navigation
 const msgs = document.getElementById('messages');
 const inputArea = document.getElementById('input-area');
 
@@ -278,8 +287,39 @@ function showTextInput(q){
   inp.addEventListener('keydown',e=>{if(e.key==='Enter')submit()});
 }
 
-function showOptions(q){
+function makeBackBtn(onBack){
+  const btn=document.createElement('button');
+  btn.className='back-btn';
+  btn.innerHTML=`<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 12L6 8l4-4"/></svg>Voltar`;
+  btn.addEventListener('click',onBack);
+  return btn;
+}
+
+function goBack(){
+  if(!history.length)return;
+  const prev=history.pop();
+  // Remove messages added after the snapshot point
+  while(msgs.children.length>prev.msgCount)msgs.removeChild(msgs.lastChild);
+  step=prev.step+1; // step was incremented before botSay, restore to point after increment
+  const q=QUESTIONS[step-1]; // the question that was shown
+  delete answers[q.id];
+  updateProgress();
+  // Re-show this question's input
+  if(q.type==='options') showOptions(q,false);
+  else if(q.type==='text') showTextInput(q);
+  else if(q.type==='phone') showPhoneInput(q);
+  scrollBottom();
+}
+
+function showOptions(q, saveHistory=true){
+  // Save snapshot: step already incremented, msgCount before user reply gets added
+  if(saveHistory) history.push({step:step-1, msgCount:msgs.children.length});
   clearInput();
+  const container=document.createElement('div');
+  // Add back button if we have history
+  if(history.length>1){
+    container.appendChild(makeBackBtn(goBack));
+  }
   const wrap=document.createElement('div');
   wrap.className='options-wrap';
   q.opts.forEach(opt=>{
@@ -295,7 +335,8 @@ function showOptions(q){
     });
     wrap.appendChild(btn);
   });
-  inputArea.appendChild(wrap);
+  container.appendChild(wrap);
+  inputArea.appendChild(container);
   scrollBottom();
 }
 
