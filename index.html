@@ -290,7 +290,7 @@
       border: 1px solid;
     }
     .dt-card.sem { background: var(--red); border-color: var(--red); }
-    .dt-card.com { background: #111111; border-color: #1A1A1A; box-shadow: 0 4px 24px rgba(0,0,0,0.25); }
+    .dt-card.com { background: #0F2D6B; border-color: #183580; box-shadow: 0 4px 24px rgba(15,45,107,0.35); }
     .dt-card-label {
       font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
       margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;
@@ -455,6 +455,9 @@
       border: 1px solid var(--gray-border);
     }
     .what-card.highlight { background: var(--red); border-color: transparent; }
+    .what-card.highlight .what-card-icon { background: rgba(255,255,255,0.18); }
+    .what-card.highlight .what-card-icon svg { stroke: var(--white); }
+    .what-card.highlight .what-card-icon i { color: var(--white); }
     .what-card-icon {
       width: 44px; height: 44px; border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
@@ -597,11 +600,16 @@
     .testimonials .section-label { color: var(--red); }
     .testimonials .section-sub { color: var(--gray-text); }
 
-    /* Carousel de vídeo */
-    .testi-carousel { max-width: 760px; margin: 3rem auto 0; }
-    .testi-carousel-track { border-radius: 20px; overflow: hidden; border: 1px solid var(--gray-border); background: var(--white); }
-    .testi-carousel-slide { display: none; }
-    .testi-carousel-slide.active { display: block; }
+    /* Carousel de vídeo — sem setas, elegante */
+    .testi-carousel { margin: 3rem auto 0; }
+    .testi-carousel-viewport { overflow: hidden; border-radius: 20px; }
+    .testi-carousel-track {
+      display: flex; transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
+    }
+    .testi-carousel-slide {
+      min-width: 100%; border-radius: 20px; overflow: hidden;
+      border: 1px solid var(--gray-border); background: var(--white);
+    }
     .testi-thumb {
       position: relative; width: 100%; aspect-ratio: 16/9;
       background: linear-gradient(135deg, #111 0%, #1e1e1e 100%);
@@ -610,7 +618,8 @@
     .testi-thumb-gradient { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(215,0,48,0.2) 0%, rgba(0,0,0,0.65) 100%); }
     .testi-thumb-initials {
       position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-display); font-size: 5rem; font-weight: 800; color: rgba(255,255,255,0.06); letter-spacing: -0.04em;
+      font-family: var(--font-display); font-size: 5rem; font-weight: 800;
+      color: rgba(255,255,255,0.06); letter-spacing: -0.04em;
     }
     .testi-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
     .testi-play-btn {
@@ -619,7 +628,7 @@
       box-shadow: 0 6px 32px rgba(215,0,48,0.6);
       transition: transform 0.2s, background 0.2s;
     }
-    .testi-carousel-track:hover .testi-play-btn { transform: scale(1.08); background: var(--red-dark); }
+    .testi-carousel-slide:hover .testi-play-btn { transform: scale(1.1); background: var(--red-dark); }
     .testi-play-btn svg { width: 24px; height: 24px; fill: #fff; margin-left: 4px; }
     .testi-video-body { padding: 1.5rem 2rem 2rem; text-align: left; }
     .testi-video-quote {
@@ -629,22 +638,14 @@
     .testi-video-quote::before { content: '"'; color: var(--red); font-size: 1.5rem; font-style: normal; line-height: 0; vertical-align: -0.35em; margin-right: 0.1em; }
     .testi-video-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
 
-    /* Nav do carousel */
-    .testi-carousel-nav { display: flex; align-items: center; justify-content: center; gap: 1.25rem; margin-top: 1.5rem; }
-    .testi-nav-btn {
-      width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
-      background: var(--white); border: 1.5px solid var(--gray-border);
-      display: flex; align-items: center; justify-content: center;
-      transition: border-color 0.2s, color 0.2s; color: var(--black);
-    }
-    .testi-nav-btn:hover { border-color: var(--red); color: var(--red); }
-    .testi-nav-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+    /* Dots apenas — sem setas */
+    .testi-carousel-nav { display: flex; justify-content: center; margin-top: 1.25rem; }
     .testi-dots { display: flex; gap: 0.5rem; align-items: center; }
     .testi-dot {
       width: 8px; height: 8px; border-radius: 50%; background: var(--gray-border);
-      cursor: pointer; transition: all 0.25s ease;
+      cursor: pointer; transition: all 0.3s ease; border: none; padding: 0;
     }
-    .testi-dot.active { background: var(--red); width: 24px; border-radius: 4px; }
+    .testi-dot.active { background: var(--red); width: 28px; border-radius: 4px; }
 
     /* Cards texto de apoio */
     .testimonials-grid {
@@ -680,6 +681,9 @@
 
     /* ─── HOW IT WORKS ─── */
     .how { background: var(--red); }
+    .how .section-title { color: var(--white); }
+    .how .section-label { color: rgba(255,255,255,0.65); }
+    .how .section-sub { color: rgba(255,255,255,0.7); }
     .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; position: relative; }
     .steps-grid::before {
       content: '';
@@ -2185,66 +2189,62 @@
 
     <!-- Carousel de vídeo: um por vez -->
     <div class="testi-carousel">
-      <div class="testi-carousel-track">
+      <div class="testi-carousel-viewport">
+        <div class="testi-carousel-track" id="testiTrack">
 
-        <div class="testi-carousel-slide active">
-          <div class="testi-thumb">
-            <div class="testi-thumb-gradient"></div>
-            <div class="testi-thumb-initials">FR</div>
-            <div class="testi-play">
-              <div class="testi-play-btn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
-          </div>
-          <div class="testi-video-body">
-            <div class="testi-video-quote">"Em 30 dias o financeiro estava funcionando sozinho. Economizamos mais de R$8.000 por mês só nessa área."</div>
-            <div class="testi-video-footer">
-              <div class="testi-author">
-                <div class="testi-avatar">FR</div>
-                <div>
-                  <div class="testi-name">Fernanda Rocha</div>
-                  <div class="testi-role">Sócia · Distribuidora de materiais, Campinas</div>
-                </div>
+          <div class="testi-carousel-slide">
+            <div class="testi-thumb">
+              <div class="testi-thumb-gradient"></div>
+              <div class="testi-thumb-initials">FR</div>
+              <div class="testi-play">
+                <div class="testi-play-btn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div>
               </div>
-              <div class="testi-metric"><span>-R$8k</span>/mês em custos</div>
             </div>
-          </div>
-        </div>
-
-        <div class="testi-carousel-slide">
-          <div class="testi-thumb">
-            <div class="testi-thumb-gradient"></div>
-            <div class="testi-thumb-initials">RT</div>
-            <div class="testi-play">
-              <div class="testi-play-btn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div>
-            </div>
-          </div>
-          <div class="testi-video-body">
-            <div class="testi-video-quote">"Triplicamos os leads qualificados em 60 dias. Com o mesmo time. Sem contratar ninguém novo."</div>
-            <div class="testi-video-footer">
-              <div class="testi-author">
-                <div class="testi-avatar">RT</div>
-                <div>
-                  <div class="testi-name">Rodrigo Tavares</div>
-                  <div class="testi-role">CEO · Escritório contábil, Belo Horizonte</div>
+            <div class="testi-video-body">
+              <div class="testi-video-quote">"Em 30 dias o financeiro estava funcionando sozinho. Economizamos mais de R$8.000 por mês só nessa área."</div>
+              <div class="testi-video-footer">
+                <div class="testi-author">
+                  <div class="testi-avatar">FR</div>
+                  <div>
+                    <div class="testi-name">Fernanda Rocha</div>
+                    <div class="testi-role">Sócia · Distribuidora de materiais, Campinas</div>
+                  </div>
                 </div>
+                <div class="testi-metric"><span>-R$8k</span>/mês em custos</div>
               </div>
-              <div class="testi-metric"><span>3×</span> leads em 60 dias</div>
             </div>
           </div>
-        </div>
 
+          <div class="testi-carousel-slide">
+            <div class="testi-thumb">
+              <div class="testi-thumb-gradient"></div>
+              <div class="testi-thumb-initials">RT</div>
+              <div class="testi-play">
+                <div class="testi-play-btn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div>
+              </div>
+            </div>
+            <div class="testi-video-body">
+              <div class="testi-video-quote">"Triplicamos os leads qualificados em 60 dias. Com o mesmo time. Sem contratar ninguém novo."</div>
+              <div class="testi-video-footer">
+                <div class="testi-author">
+                  <div class="testi-avatar">RT</div>
+                  <div>
+                    <div class="testi-name">Rodrigo Tavares</div>
+                    <div class="testi-role">CEO · Escritório contábil, Belo Horizonte</div>
+                  </div>
+                </div>
+                <div class="testi-metric"><span>3×</span> leads em 60 dias</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
       <div class="testi-carousel-nav">
-        <button class="testi-nav-btn testi-prev" aria-label="Anterior">
-          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <div class="testi-dots">
-          <span class="testi-dot active"></span>
-          <span class="testi-dot"></span>
+        <div class="testi-dots" id="testiDots">
+          <button class="testi-dot active"></button>
+          <button class="testi-dot"></button>
         </div>
-        <button class="testi-nav-btn testi-next" aria-label="Próximo">
-          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
       </div>
     </div>
 
@@ -2753,20 +2753,23 @@
 
   // ── Carousel de depoimentos em vídeo ──────────────────────────────────
   (function() {
-    const slides = document.querySelectorAll('.testi-carousel-slide');
-    const dots   = document.querySelectorAll('.testi-dot');
-    if (!slides.length) return;
-    let cur = 0;
+    const track = document.getElementById('testiTrack');
+    const dots  = document.querySelectorAll('#testiDots .testi-dot');
+    if (!track || !dots.length) return;
+    let cur = 0, total = dots.length, timer;
     function go(n) {
-      slides[cur].classList.remove('active');
-      dots[cur].classList.remove('active');
-      cur = (n + slides.length) % slides.length;
-      slides[cur].classList.add('active');
-      dots[cur].classList.add('active');
+      cur = (n + total) % total;
+      track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+      dots.forEach((d, i) => d.classList.toggle('active', i === cur));
     }
-    document.querySelector('.testi-prev').addEventListener('click', () => go(cur - 1));
-    document.querySelector('.testi-next').addEventListener('click', () => go(cur + 1));
-    dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+    function startAuto() { timer = setInterval(() => go(cur + 1), 5500); }
+    function stopAuto()  { clearInterval(timer); }
+    dots.forEach((d, i) => d.addEventListener('click', () => { stopAuto(); go(i); startAuto(); }));
+    // swipe
+    let sx = 0;
+    track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; stopAuto(); }, {passive:true});
+    track.addEventListener('touchend',   e => { const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1)); startAuto(); }, {passive:true});
+    startAuto();
   })();
 
   // ── Reveal on scroll ──────────────────────────────────────────────────
