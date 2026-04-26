@@ -427,7 +427,9 @@
     .hero-left .hero-stats { justify-content: flex-start; }
     .hero-character {
       position: relative; display: flex; align-items: flex-end; justify-content: center;
-      height: 540px;
+      height: 560px;
+      border-radius: 24px;
+      overflow: hidden;
     }
     .hero-character::before {
       content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
@@ -437,9 +439,9 @@
     }
     .hero-character img,
     .hero-character video {
-      height: 520px; width: 480px; object-fit: cover; object-position: top center;
+      height: 560px; width: 100%; object-fit: cover; object-position: center center;
       position: relative; z-index: 1;
-      border-radius: 24px;
+      border-radius: 0;
       filter: drop-shadow(0 0 40px rgba(215,0,48,0.4));
     }
     .hero-character-badge {
@@ -455,8 +457,8 @@
       .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
       .hero-left { align-items: center; }
       .hero-left .hero-ctas, .hero-left .hero-stats { justify-content: center; }
-      .hero-character { height: 340px; }
-      .hero-character img { height: 320px; }
+      .hero-character { height: 380px; }
+      .hero-character img, .hero-character video { height: 380px; }
     }
 
     /* ─── DOIS TIPOS ─── */
@@ -1289,22 +1291,24 @@
     /* ─── TICKER TOP (fixo abaixo do nav) ─── */
     .ticker-top {
       position: fixed; top: 104px; left: 0; right: 0; z-index: 99;
-      background: rgba(240,240,240,0.97);
+      background: rgba(255,255,255,0.98);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(215,0,48,0.18);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
       overflow: hidden;
-      padding: 10px 0;
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+      padding: 8px 0;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
     }
     .ticker-top .ticker-track {
       animation-duration: 22s;
     }
     .ticker-top .ticker-item {
-      font-size: 0.76rem;
-      padding: 0 1.5rem;
-      color: rgba(0,0,0,0.45);
+      font-size: 0.73rem;
+      padding: 0 1.8rem;
+      color: rgba(0,0,0,0.35);
+      font-weight: 600;
+      letter-spacing: 0.06em;
     }
     .ticker-top .ticker-item strong {
       color: var(--red);
@@ -1313,6 +1317,7 @@
     }
     .ticker-top .ticker-sep {
       width: 3px; height: 3px;
+      background: rgba(215,0,48,0.3);
     }
 
     /* ─── SOLUTIONS TICKER ─── */
@@ -1851,21 +1856,22 @@
     /* All images responsive by default */
     img { max-width: 100%; height: auto; }
 
-    /* ── 960px — hero character image fix (bug principal) ── */
+    /* ── 960px — hero character image fix ── */
     @media (max-width: 960px) {
       .hero-character {
         width: 100%;
-        height: auto;
-        min-height: 240px;
+        height: 380px;
+        min-height: 280px;
         max-height: 420px;
+        border-radius: 20px;
+        overflow: hidden;
       }
       .hero-character img, .hero-character video {
         width: 100% !important;
-        max-width: 480px !important;
-        height: auto !important;
-        min-height: 240px;
+        height: 100% !important;
         object-fit: cover;
-        object-position: top center;
+        object-position: center center;
+        border-radius: 0 !important;
         filter: drop-shadow(0 0 24px rgba(215,0,48,0.35));
       }
       .hero-character-badge {

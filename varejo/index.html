@@ -19,7 +19,7 @@
 </head>
 <body data-nicho="varejo">
 
-<div class="ei-announce">100+ micro-soluções de IA prontas para varejo. <a href="#agendar" data-cta="announce-link">Agende uma demonstração →</a></div>
+<div class="ei-announce">100+ micro-soluções de IA prontas para varejo. <a href="https://empresainteligente.ai/diagnostico" data-cta="announce-link">Agende uma demonstração →</a></div>
 
 <nav class="ei-nav" aria-label="Navegação principal">
   <div class="ei-nav-inner">
@@ -27,8 +27,8 @@
     <div class="ei-nav-links">
       <a href="#departamentos">Departamentos</a>
       <a href="#como-funciona">Como funciona</a>
-      <a href="https://empresainteligente.ai/planos">Planos</a>
-      <a href="#agendar" class="ei-nav-cta" data-cta="nav-cta">Agendar demonstração</a>
+      <a href="#planos">Planos</a>
+      <a href="https://empresainteligente.ai/diagnostico" class="ei-nav-cta" data-cta="nav-cta">Agendar demonstração</a>
     </div>
   </div>
 </nav>
@@ -40,7 +40,7 @@
       <h1>A loja que usa IA<br><span>vende mais.</span><br>Com menos custo.</h1>
       <p class="ei-hero-sub">100+ micro-soluções de IA para varejistas. Reposição inteligente, atendimento omnichannel 24h, recuperação de carrinho abandonado e gestão de equipe de vendas sem planilha. Resultado em 30 dias.</p>
       <div class="ei-hero-btns">
-        <a href="#agendar" class="btn-red" data-cta="hero-primary">Agendar demonstração gratuita</a>
+        <a href="https://empresainteligente.ai/diagnostico" class="btn-red" data-cta="hero-primary">Agendar demonstração gratuita</a>
         <a href="#como-funciona" class="btn-outline" data-cta="hero-secondary">Ver como funciona</a>
       </div>
     </div>
@@ -103,7 +103,7 @@
 <!-- CTA Inline: tipos -->
 <div class="ei-cta-inline" data-section="cta-tipos">
   <p><strong>Qual loja você quer ter daqui a 6 meses?</strong><br>A decisão de implementar IA agora define quem lidera o mercado amanhã.</p>
-  <a href="https://empresainteligente.ai/agendar?nicho=varejo" class="btn-red" data-cta="cta-tipos">Agendar demonstração gratuita →</a>
+  <a href="https://empresainteligente.ai/diagnostico" class="btn-red" data-cta="cta-tipos">Agendar demonstração gratuita →</a>
 </div>
 
 <section class="ei-custo" data-section="custo">
@@ -157,7 +157,7 @@
 <!-- CTA Inline: custo -->
 <div class="ei-cta-inline" data-section="cta-custo">
   <p><strong>Descubra quanto sua empresa pode economizar com IA.</strong><br>Diagnóstico gratuito — sem compromisso, com números reais do seu setor.</p>
-  <a href="https://empresainteligente.ai/agendar?nicho=varejo" class="btn-red" data-cta="cta-custo">Agendar diagnóstico gratuito →</a>
+  <a href="https://empresainteligente.ai/diagnostico" class="btn-red" data-cta="cta-custo">Agendar diagnóstico gratuito →</a>
 </div>
 
 <section class="ei-depts" id="departamentos" data-section="departamentos">
@@ -265,7 +265,7 @@
 <!-- CTA Inline: depts -->
 <div class="ei-cta-inline" data-section="cta-depts">
   <p><strong>6 departamentos com IA em 30 dias.</strong><br>Com consultor dedicado e garantia de resultado. Sem precisar de equipe técnica.</p>
-  <a href="https://empresainteligente.ai/agendar?nicho=varejo" class="btn-red" data-cta="cta-depts">Agendar demonstração gratuita →</a>
+  <a href="https://empresainteligente.ai/diagnostico" class="btn-red" data-cta="cta-depts">Agendar demonstração gratuita →</a>
 </div>
 
 <section class="ei-diferenciais" id="como-funciona" data-section="diferenciais">
@@ -292,10 +292,128 @@
   </div>
 </section>
 
+
+<!-- Seção de Planos -->
+<section class="pricing" id="planos" data-section="planos">
+  <div class="container">
+    <span class="section-label center">Planos</span>
+    <h2 class="section-title" style="text-align:center;">Menos do que você paga<br>a um funcionário.</h2>
+    <p class="section-sub" style="text-align:center; margin:0 auto;">Assinatura anual com contrato de 12 meses. Pagamento mensal ou à vista com 15% de desconto.</p>
+
+    <div class="pricing-toggle">
+      <span class="toggle-label" id="lbl-monthly">Mensal</span>
+      <button class="toggle-switch annual" id="billing-toggle" onclick="toggleBilling()">
+        <div class="toggle-knob"></div>
+      </button>
+      <span class="toggle-label active" id="lbl-annual">Anual</span>
+      <span class="toggle-badge" id="annual-badge">15% OFF</span>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- ESSENCIAL -->
+      <div class="price-card">
+        <div class="price-plan">Plano</div>
+        <div class="price-name">Essencial</div>
+        <div class="price-anchor">Menos que um assistente CLT — que cobre uma função por R$4.125/mês</div>
+        <div class="price-amount-wrap">
+          <div class="price-amount"><sup>R$</sup><span id="price-ess">2.125</span></div>
+          <div class="price-period">/mês · contrato anual</div>
+          <div class="price-annual" id="annual-ess">ou R$2.500/mês mensal · R$25.500/ano à vista</div>
+        </div>
+        <ul class="price-features">
+          <li><span class="price-check">✓</span> Diagnóstico completo da empresa</li>
+          <li><span class="price-check">✓</span> Implementação em 2 departamentos</li>
+          <li><span class="price-check">✓</span> Ferramentas configuradas para seu fluxo</li>
+          <li><span class="price-check">✓</span> Treinamento do time operacional</li>
+          <li><span class="price-check">✓</span> Suporte via chat (horário comercial)</li>
+          <li><span class="price-check">✓</span> Suporte ativo por 60 dias</li>
+          <li><span class="price-check">✓</span> Relatório mensal de horas economizadas</li>
+          <li><span class="price-check">✓</span> 4 garantias contratuais</li>
+        </ul>
+        <a href="https://empresainteligente.ai/diagnostico" target="_blank" class="price-btn">Agendar diagnóstico</a>
+      </div>
+
+      <!-- PROFISSIONAL -->
+      <div class="price-card featured">
+        <div class="price-popular">Mais escolhido</div>
+        <div class="price-plan" style="color:rgba(255,255,255,0.4);">Plano</div>
+        <div class="price-name">Profissional</div>
+        <div class="price-anchor">Menos que um analista CLT — que cobre uma função por R$6.600/mês</div>
+        <div class="price-amount-wrap">
+          <div class="price-amount"><sup>R$</sup><span id="price-pro">2.975</span></div>
+          <div class="price-period">/mês · contrato anual</div>
+          <div class="price-annual" id="annual-pro">ou R$3.500/mês mensal · R$29.750/ano à vista</div>
+        </div>
+        <ul class="price-features">
+          <li><span class="price-check">✓</span> Tudo do Essencial</li>
+          <li><span class="price-check">✓</span> Implementação em 4 departamentos</li>
+          <li><span class="price-check">✓</span> Onboarding dedicado de 4 semanas</li>
+          <li><span class="price-check">✓</span> Suporte via WhatsApp direto</li>
+          <li><span class="price-check">✓</span> Suporte ativo por 90 dias</li>
+          <li><span class="price-check">✓</span> Reunião mensal de resultado</li>
+          <li><span class="price-check">✓</span> Acesso a cursos práticos do time</li>
+          <li><span class="price-check">✓</span> Dashboard de performance por área</li>
+        </ul>
+        <a href="https://empresainteligente.ai/diagnostico" target="_blank" class="price-btn">Agendar diagnóstico</a>
+      </div>
+
+      <!-- EMPRESARIAL -->
+      <div class="price-card">
+        <div class="price-plan">Plano</div>
+        <div class="price-name">Empresarial</div>
+        <div class="price-anchor">Menos que um coordenador CLT — que cobre uma função por R$9.900/mês</div>
+        <div class="price-amount-wrap">
+          <div class="price-amount"><sup>R$</sup><span id="price-emp">5.100</span></div>
+          <div class="price-period">/mês · contrato anual</div>
+          <div class="price-annual" id="annual-emp">ou R$6.000/mês mensal · R$51.000/ano à vista</div>
+        </div>
+        <ul class="price-features">
+          <li><span class="price-check">✓</span> Tudo do Profissional</li>
+          <li><span class="price-check">✓</span> Todos os 6 departamentos</li>
+          <li><span class="price-check">✓</span> Gerente de conta dedicado</li>
+          <li><span class="price-check">✓</span> Reuniões quinzenais de estratégia</li>
+          <li><span class="price-check">✓</span> Suporte prioritário 7 dias/semana</li>
+          <li><span class="price-check">✓</span> Customizações para processos únicos</li>
+          <li><span class="price-check">✓</span> Integrações com ERP e sistemas legados</li>
+          <li><span class="price-check">✓</span> SLA garantido em contrato</li>
+        </ul>
+        <a href="https://empresainteligente.ai/diagnostico" target="_blank" class="price-btn">Agendar diagnóstico</a>
+      </div>
+    </div>
+    <p class="pricing-note">Todos os planos incluem as 4 garantias contratuais. Diagnóstico sempre gratuito e sem compromisso de compra.<br>Contrato anual irrevogável de 12 meses. Rescisão antecipada sujeita a multa de 30% do saldo restante.</p>
+  </div>
+</section>
+<script>
+(function() {
+  var isAnnual = true;
+  var prices = { ess: [2125, 2500], pro: [2975, 3500], emp: [5100, 6000] };
+  window.toggleBilling = function() {
+    isAnnual = !isAnnual;
+    var btn = document.getElementById('billing-toggle');
+    if (btn) btn.classList.toggle('annual', isAnnual);
+    var lblA = document.getElementById('lbl-annual');
+    var lblM = document.getElementById('lbl-monthly');
+    var badge = document.getElementById('annual-badge');
+    if (lblA) lblA.classList.toggle('active', isAnnual);
+    if (lblM) lblM.classList.toggle('active', !isAnnual);
+    if (badge) badge.style.display = isAnnual ? 'inline' : 'none';
+    var idx = isAnnual ? 0 : 1;
+    var eE = document.getElementById('price-ess');
+    var eP = document.getElementById('price-pro');
+    var eEm = document.getElementById('price-emp');
+    if (eE) eE.textContent = prices.ess[idx].toLocaleString('pt-BR');
+    if (eP) eP.textContent = prices.pro[idx].toLocaleString('pt-BR');
+    if (eEm) eEm.textContent = prices.emp[idx].toLocaleString('pt-BR');
+    var period = isAnnual ? '/mês · contrato anual · 15% OFF' : '/mês · contrato anual';
+    document.querySelectorAll('.price-period').forEach(function(el) { el.textContent = period; });
+  };
+})();
+</script>
+
 <section class="ei-cta-section" id="agendar" data-section="cta">
   <h2>Monte sua loja<br>inteligente hoje.</h2>
   <p>Demonstração gratuita de 30 minutos. Sem compromisso. Você sai sabendo exatamente o que vai automatizar primeiro.</p>
-  <a href="https://empresainteligente.ai/agendar?nicho=varejo" class="btn-white" data-cta="cta-final">Agendar demonstração gratuita</a>
+  <a href="https://empresainteligente.ai/diagnostico" class="btn-white" data-cta="cta-final">Agendar demonstração gratuita</a>
 </section>
 
 <footer class="ei-footer">
@@ -311,15 +429,15 @@
       </nav>
     </div>
     <div class="ei-footer-links">
-      <a href="https://empresainteligente.ai/termos">Termos de uso</a>
-      <a href="https://empresainteligente.ai/privacidade">Privacidade</a>
-      <a href="https://empresainteligente.ai/lgpd">LGPD</a>
+      <a href="#">Termos de uso</a>
+      <a href="#">Privacidade</a>
+      <a href="#">LGPD</a>
     </div>
     <p class="ei-footer-copy">© 2026 Empresa Inteligente. IA que trabalha 24h pelos seus departamentos.</p>
   </div>
 </footer>
 
-<button class="ei-fab" onclick="window.location.href='https://empresainteligente.ai/agendar?nicho=varejo'" aria-label="Agendar demonstração" data-cta="fab">
+<button class="ei-fab" onclick="window.location.href='https://empresainteligente.ai/diagnostico'" aria-label="Agendar demonstração" data-cta="fab">
   <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
   <span class="ei-fab-badge"></span>
 </button>

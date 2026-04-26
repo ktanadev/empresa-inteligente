@@ -193,7 +193,7 @@
     @keyframes fadeInUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
   </style>
 </head>
-<body>
+<body data-nicho="ia-para-rh">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NG726JTZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="announce-bar"><a href="https://empresainteligente.ai/morteempresas/" target="_blank"><span class="announce-dot"></span>Existem 2 tipos de empresa no Brasil hoje: as que usam IA e as que vão fechar.<span class="announce-arrow">→</span></a></div>
 <nav>
@@ -208,7 +208,7 @@
     <a href="https://empresainteligente.ai/#garantias">Garantias</a>
     <a href="https://empresainteligente.ai/blog" target="_blank">Blog</a>
     <div class="nav-sep"></div>
-    <a href="https://empresainteligente.ai/diagnostico" target="_blank" class="nav-cta">Agendar demonstração</a>
+    <a href="https://empresainteligente.ai/diagnostico" target="_blank" class="nav-cta" data-cta="nav-cta">Agendar demonstração</a>
   </div>
 </nav>
 
@@ -217,7 +217,7 @@
   <h1>IA para o <em>RH</em><br>da sua empresa</h1>
   <p class="hero-sub">A triagem de currículos termina em minutos. O onboarding guia o novo funcionário passo a passo. E os alertas de turnover aparecem antes que o colaborador peça demissão. O RH para de apagar incêndios e começa a cuidar de pessoas.</p>
   <div class="hero-ctas">
-    <a href="https://empresainteligente.ai/diagnostico" target="_blank" class="btn-primary">Agendar demonstração gratuita</a>
+    <a href="https://empresainteligente.ai/diagnostico" target="_blank" class="btn-primary" data-cta="hero-primary">Agendar demonstração gratuita</a>
     <a href="#solucao" class="btn-outline">Ver casos de uso</a>
   </div>
   <div class="hero-stats">
@@ -331,7 +331,7 @@
     <h2 class="section-title">Seu RH merece cuidar de pessoas,<br>não de planilha.</h2>
     <p style="font-family:var(--font-editorial);font-style:italic;font-size:1.05rem;color:rgba(255,255,255,0.6);max-width:560px;margin:0 auto 2.5rem;line-height:1.7;">Em 30 dias, triagem automática, onboarding estruturado e alertas de turnover funcionando. O time de RH focado no que só gente cuida.</p>
     <div class="final-cta-btns">
-      <a href="https://empresainteligente.ai/diagnostico" target="_blank" class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem;">Agendar diagnóstico gratuito</a>
+      <a href="https://empresainteligente.ai/diagnostico" target="_blank" class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem;" data-cta="cta-inline">Agendar diagnóstico gratuito</a>
       <a href="https://empresainteligente.ai/#planos" class="btn-outline" style="font-size:1rem;padding:1rem 2.5rem;color:rgba(255,255,255,0.85)!important;border-color:rgba(255,255,255,0.35)!important;">Ver os planos</a>
     </div>
     <p class="final-trust">Diagnóstico de 30 minutos · Sem compromisso · Sem proposta genérica · Gratuito</p>
@@ -352,7 +352,7 @@
     </div>
     <div class="footer-col"><div class="footer-col-title">Produto</div><ul><li><a href="https://empresainteligente.ai/#departamentos">Departamentos</a></li><li><a href="https://empresainteligente.ai/#como-funciona">Como funciona</a></li><li><a href="https://empresainteligente.ai/#planos">Planos e preços</a></li><li><a href="https://empresainteligente.ai/#garantias">Garantias</a></li></ul></div>
     <div class="footer-col"><div class="footer-col-title">Empresa</div><ul><li><a href="https://empresainteligente.ai/morteempresas/" target="_blank">Por que PMEs fecham</a></li><li><a href="https://empresainteligente.ai/blog" target="_blank">Blog</a></li><li><a href="#">Política de Privacidade</a></li><li><a href="#">Termos de Uso</a></li></ul></div>
-    <div><div class="footer-cta-box"><div class="footer-cta-title">Pronto para transformar<br>o RH da empresa?</div><p class="footer-cta-desc">30 minutos de diagnóstico gratuito. Você saberá exatamente onde o RH está perdendo tempo no operacional.</p><a href="https://empresainteligente.ai/diagnostico" target="_blank" class="footer-cta-btn">Agendar diagnóstico gratuito</a><p class="footer-cta-note">Sem compromisso · Sem proposta genérica</p></div></div>
+    <div><div class="footer-cta-box"><div class="footer-cta-title">Pronto para transformar<br>o RH da empresa?</div><p class="footer-cta-desc">30 minutos de diagnóstico gratuito. Você saberá exatamente onde o RH está perdendo tempo no operacional.</p><a href="https://empresainteligente.ai/diagnostico" target="_blank" class="footer-cta-btn" data-cta="cta-final">Agendar diagnóstico gratuito</a><p class="footer-cta-note">Sem compromisso · Sem proposta genérica</p></div></div>
   </div>
   <div class="footer-bottom"><span class="footer-bottom-copy">© 2026 KTANA Inteligência Artificial · CNPJ 57.813.462/0001-45 · Todos os direitos reservados</span><div class="footer-bottom-links"><a href="#">Privacidade</a><a href="#">Termos</a></div></div>
 </footer>
@@ -364,5 +364,6 @@
   const nav=document.querySelector('nav');
   window.addEventListener('scroll',()=>{nav.style.boxShadow=window.scrollY>10?'0 2px 24px rgba(0,0,0,0.1)':'0 1px 16px rgba(0,0,0,0.06)';},{passive:true});
 </script>
+<script src="../niche-tracking.js"></script>
 </body>
 </html>
