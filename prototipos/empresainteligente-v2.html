@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Empresa Inteligente v2 — IA nos departamentos da sua empresa.</title>
+  <meta name="description" content="Empresa Inteligente coloca IA funcionando no seu financeiro, comercial, atendimento e marketing. Por R$2.500/mês — menos do que um funcionário CLT. 73 horas economizadas por semana.">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <link rel="canonical" href="https://empresainteligente.ai/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NG726JTZ');</script>
+  <!-- End Google Tag Manager -->
+
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #D70030;
+      --red-dark: #B0002A;
+      --black: #0A0A0A;
+      --gray-bg: #F4F4F4;
+      --gray-card: #FFFFFF;
+      --gray-border: #E5E5E5;
+      --gray-text: #6B7280;
+      --dark-bg: #111111;
+      --dark-card: #1A1A1A;
+      --dark-border: #2A2A2A;
+      --white: #FFFFFF;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--gray-bg);
+      color: var(--black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 1px 16px rgba(0,0,0,0.06);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 60px;
+    }
+    .nav-logo {
+      font-family: var(--font-display); font-weight: 800; font-size: 1.1rem;
+      color: var(--black); text-decoration: none; letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--red); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a {
+      color: rgba(0,0,0,0.5); font-size: 0.875rem; text-decoration: none;
+      font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--black); }
+    .nav-cta {
+      background: var(--red); color: var(--white) !important;
+      padding: 0.5rem 1.25rem; border-radius: 999px;
+      font-weight: 600 !important; font-size: 0.875rem !important;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--red-dark); color: var(--white) !important; }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding-top: 60px;
+      background: #FFFFFF;
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding-left: 1.5rem; padding-right: 1.5rem;
+      padding-bottom: 5rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(215,0,48,0.04) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(215,0,48,0.08); border: 1px solid rgba(215,0,48,0.2);
+      color: var(--red); padding: 0.35rem 0.85rem; border-radius: 999px;
+      font-size: 0.8rem; font-weight: 600; margin-bottom: 2rem; margin-top: 3rem;
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .hero-badge::before { content: '●'; font-size: 0.5rem; }
+    .hero h1 {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      color: var(--black); line-height: 1.05; letter-spacing: -0.03em;
+      max-width: 900px; margin-bottom: 1.5rem;
+    }
+    .hero h1 em { color: var(--red); font-style: normal; }
+    .hero-sub {
+      font-size: clamp(1rem, 1.5vw, 1.2rem); color: var(--gray-text);
+      max-width: 600px; margin-bottom: 2.5rem; line-height: 1.7;
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 3.5rem; }
+    .btn-primary {
+      background: var(--red); color: var(--white);
+      padding: 0.875rem 2rem; border-radius: 999px;
+      font-weight: 700; font-size: 0.95rem; text-decoration: none;
+      transition: background 0.2s, transform 0.1s; display: inline-block;
+    }
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent; color: var(--black);
+      padding: 0.875rem 2rem; border-radius: 999px; border: 1.5px solid rgba(0,0,0,0.18);
+      font-weight: 600; font-size: 0.95rem; text-decoration: none;
+      transition: border-color 0.2s, color 0.2s; display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--red); color: var(--red); }
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      margin-top: 0; border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--gray-border); background: var(--white);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+    .hero-stat {
+      padding: 1.5rem 1.25rem; text-align: center;
+      border-right: 1px solid var(--gray-border);
+      position: relative;
+    }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--red);
+    }
+    .hero-stat-number {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 2rem; color: var(--black); letter-spacing: -0.04em;
+      display: block; line-height: 1; margin-bottom: 0.4rem;
+    }
+    .hero-stat-number span { color: var(--red); }
+    .hero-stat-label {
+      font-size: 0.7rem; color: var(--gray-text);
+      text-transform: uppercase; letter-spacing: 0.06em;
+      display: block; line-height: 1.4;
+    }
+    .hero-stat-sep { display: none; }
+
+    /* ─── LUCIDE ICONS ─── */
+    .icon-box {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(215,0,48,0.12); border: 1px solid rgba(215,0,48,0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .icon-box svg { width: 18px; height: 18px; color: var(--red); stroke: var(--red); }
+    .icon-box.dark { background: rgba(215,0,48,0.18); border-color: rgba(215,0,48,0.3); }
+    .icon-box.sm { width: 36px; height: 36px; border-radius: 8px; }
+    .icon-box.sm svg { width: 16px; height: 16px; }
+
+    /* ─── HERO 2-COL ─── */
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 480px;
+      gap: 4rem; align-items: center;
+      max-width: 1160px; width: 100%;
+      text-align: left; padding-top: 2rem;
+    }
+    .hero-left { display: flex; flex-direction: column; align-items: flex-start; }
+    .hero-left .hero-badge { margin-top: 0; }
+    .hero-left .hero-ctas { justify-content: flex-start; }
+    .hero-left .hero-stats { justify-content: flex-start; }
+    .hero-character {
+      position: relative; display: flex; align-items: flex-end; justify-content: center;
+      height: 540px;
+    }
+    .hero-character::before {
+      content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(215,0,48,0.25) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-character img {
+      height: 520px; width: 480px; object-fit: cover; object-position: top center;
+      position: relative; z-index: 1;
+      border-radius: 24px;
+      filter: drop-shadow(0 0 40px rgba(215,0,48,0.4));
+    }
+    .hero-character-badge {
+      position: absolute; bottom: 2rem; left: -1rem; z-index: 2;
+      background: rgba(0,0,0,0.8); border: 1px solid rgba(215,0,48,0.4);
+      border-radius: 12px; padding: 0.75rem 1.1rem;
+      backdrop-filter: blur(10px);
+    }
+    .hero-character-badge-label { font-size: 0.7rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; }
+    .hero-character-badge-value { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--white); margin-top: 0.1rem; }
+    .hero-character-badge-value span { color: var(--red); }
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+      .hero-left { align-items: center; }
+      .hero-left .hero-ctas, .hero-left .hero-stats { justify-content: center; }
+      .hero-character { height: 340px; }
+      .hero-character img { height: 320px; }
+    }
+
+    /* ─── DOIS TIPOS ─── */
+    .dois-tipos {
+      background: var(--black); padding: 5rem 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .dois-tipos-inner { max-width: 1160px; margin: 0 auto; }
+    .dois-tipos-header { text-align: center; margin-bottom: 3.5rem; }
+    .dois-tipos-header h2 {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--white);
+      letter-spacing: -0.03em; line-height: 1.1;
+    }
+    .dois-tipos-header p { color: rgba(255,255,255,0.45); margin-top: 1rem; font-size: 1rem; }
+    .dois-tipos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .dt-card {
+      border-radius: 20px; padding: 2.5rem;
+      border: 1px solid;
+    }
+    .dt-card.sem { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.08); }
+    .dt-card.com { background: rgba(215,0,48,0.06); border-color: rgba(215,0,48,0.25); }
+    .dt-card-label {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+      margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .dt-card.sem .dt-card-label { color: rgba(255,255,255,0.3); }
+    .dt-card.com .dt-card-label { color: var(--red); }
+    .dt-card-title {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 1.4rem; letter-spacing: -0.02em; margin-bottom: 1.75rem;
+    }
+    .dt-card.sem .dt-card-title { color: rgba(255,255,255,0.5); }
+    .dt-card.com .dt-card-title { color: var(--white); }
+    .dt-item {
+      display: flex; align-items: flex-start; gap: 0.85rem;
+      margin-bottom: 1rem; padding-bottom: 1rem;
+      border-bottom: 1px solid;
+    }
+    .dt-card.sem .dt-item { border-color: rgba(255,255,255,0.06); }
+    .dt-card.com .dt-item { border-color: rgba(215,0,48,0.1); }
+    .dt-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .dt-icon {
+      width: 30px; height: 30px; border-radius: 7px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; margin-top: 1px;
+    }
+    .dt-card.sem .dt-icon { background: rgba(255,255,255,0.05); }
+    .dt-card.sem .dt-icon svg { width: 14px; height: 14px; color: rgba(255,255,255,0.25); stroke: rgba(255,255,255,0.25); }
+    .dt-card.com .dt-icon { background: rgba(215,0,48,0.15); }
+    .dt-card.com .dt-icon svg { width: 14px; height: 14px; color: var(--red); stroke: var(--red); }
+    .dt-text { font-size: 0.9rem; line-height: 1.5; }
+    .dt-card.sem .dt-text { color: rgba(255,255,255,0.4); }
+    .dt-card.com .dt-text { color: rgba(255,255,255,0.8); }
+    .dt-highlight {
+      margin-top: 2rem; padding: 1rem 1.25rem; border-radius: 10px;
+      font-size: 0.85rem; font-weight: 600;
+    }
+    .dt-card.sem .dt-highlight { background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.3); }
+    .dt-card.com .dt-highlight { background: rgba(215,0,48,0.12); color: var(--red); border: 1px solid rgba(215,0,48,0.2); }
+    .dois-tipos-cta {
+      text-align: center; margin-top: 3rem;
+      padding: 2.5rem; border-radius: 20px;
+      background: rgba(215,0,48,0.08); border: 1px solid rgba(215,0,48,0.2);
+    }
+    .dois-tipos-cta p { color: rgba(255,255,255,0.7); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .dois-tipos-cta strong { color: var(--white); }
+    @media (max-width: 768px) { .dois-tipos-grid { grid-template-columns: 1fr; } }
+
+    /* ─── SECTION COMMONS ─── */
+    section { padding: 5rem 1.5rem; }
+    .container { max-width: 1160px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--red); margin-bottom: 1rem;
+      display: block;
+    }
+    .section-title {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: clamp(2rem, 3.5vw, 3rem); letter-spacing: -0.03em;
+      line-height: 1.1; margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1.05rem; color: var(--gray-text);
+      max-width: 560px; line-height: 1.7;
+    }
+
+    /* ─── PROOF BAR ─── */
+    .proof-bar {
+      background: var(--black); padding: 2rem 1.5rem;
+    }
+    .proof-bar-inner {
+      max-width: 1160px; margin: 0 auto;
+      display: flex; align-items: center; gap: 3rem; flex-wrap: wrap; justify-content: center;
+    }
+    .proof-item { text-align: center; }
+    .proof-number {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 2rem; color: var(--white); letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .proof-number em { color: var(--red); font-style: normal; }
+    .proof-label { font-size: 0.75rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.25rem; }
+    .proof-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.1); }
+
+    /* ─── COST SECTION ─── */
+    .cost-section { background: var(--gray-bg); }
+    .cost-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+      margin-top: 3rem;
+    }
+    .cost-list { display: flex; flex-direction: column; gap: 1rem; margin: 2rem 0; }
+    .cost-item {
+      display: flex; align-items: center; gap: 0.85rem;
+      padding: 0.875rem 1rem; background: var(--white); border-radius: 10px;
+      border: 1px solid var(--gray-border);
+    }
+    .cost-item-icon {
+      flex-shrink: 0;
+    }
+    .cost-item-icon.icon-box.sm {
+      background: rgba(215,0,48,0.08); border: 1px solid rgba(215,0,48,0.15);
+    }
+    .cost-item-text { font-size: 0.9rem; color: var(--black); font-weight: 500; }
+    .cost-item-hours { margin-left: auto; font-size: 0.8rem; color: var(--red); font-weight: 700; white-space: nowrap; }
+    .cost-card {
+      background: var(--black); border-radius: 20px; padding: 2.5rem;
+      position: relative; overflow: hidden;
+    }
+    .cost-card::before {
+      content: '';
+      position: absolute; top: -100px; right: -100px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(215,0,48,0.2) 0%, transparent 70%);
+    }
+    .cost-card-title {
+      font-family: var(--font-display); font-weight: 800; font-size: 1.5rem;
+      color: var(--white); margin-bottom: 0.5rem; letter-spacing: -0.02em;
+    }
+    .cost-card-sub { color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-bottom: 2rem; }
+    .cost-comparison { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .cost-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.875rem 1rem; border-radius: 10px;
+    }
+    .cost-row.bad { background: rgba(255,255,255,0.05); }
+    .cost-row.good { background: rgba(215,0,48,0.15); border: 1px solid rgba(215,0,48,0.3); }
+    .cost-row-label { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+    .cost-row-value { font-family: var(--font-display); font-weight: 700; font-size: 1rem; }
+    .cost-row.bad .cost-row-value { color: rgba(255,255,255,0.4); }
+    .cost-row.good .cost-row-value { color: var(--red); }
+    .cost-row-detail { font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 0.15rem; }
+    .cost-savings {
+      background: rgba(215,0,48,0.1); border: 1px solid rgba(215,0,48,0.2);
+      border-radius: 10px; padding: 1rem; text-align: center;
+    }
+    .cost-savings-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+    .cost-savings-value { font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; color: var(--red); }
+
+    /* ─── WHAT IS ─── */
+    .what-is { background: var(--white); }
+    .what-is-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+    .what-card {
+      background: var(--gray-bg); border-radius: 16px; padding: 1.75rem;
+      border: 1px solid var(--gray-border);
+    }
+    .what-card.highlight { background: var(--black); border-color: transparent; }
+    .what-card-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem; font-size: 1.2rem;
+    }
+    .what-card-icon.red { background: rgba(215,0,48,0.15); }
+    .what-card-icon.dark { background: rgba(215,0,48,0.2); }
+    .what-card h3 {
+      font-family: var(--font-display); font-weight: 700; font-size: 1.1rem;
+      margin-bottom: 0.5rem; letter-spacing: -0.01em;
+    }
+    .what-card.highlight h3 { color: var(--white); }
+    .what-card p { font-size: 0.875rem; color: var(--gray-text); line-height: 1.6; }
+    .what-card.highlight p { color: rgba(255,255,255,0.5); }
+    .what-card-tag {
+      display: inline-block; margin-top: 1rem;
+      font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.75rem;
+      border-radius: 999px; color: var(--red);
+      background: rgba(215,0,48,0.1);
+    }
+
+    /* ─── DEPARTMENTS ─── */
+    .departments { background: var(--gray-bg); }
+    .dept-item {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+      align-items: center; padding: 4rem 0;
+      border-bottom: 1px solid var(--gray-border);
+    }
+    .dept-item:last-child { border-bottom: none; }
+    .dept-item.reverse { direction: rtl; }
+    .dept-item.reverse > * { direction: ltr; }
+    .dept-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(215,0,48,0.1); color: var(--red);
+      padding: 0.3rem 0.75rem; border-radius: 999px;
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 1rem;
+    }
+    .dept-title {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem); letter-spacing: -0.02em;
+      line-height: 1.15; margin-bottom: 1rem;
+    }
+    .dept-problem {
+      font-size: 0.9rem; color: var(--gray-text); line-height: 1.7;
+      margin-bottom: 1.5rem; border-left: 3px solid var(--gray-border);
+      padding-left: 1rem;
+    }
+    .dept-benefits { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .dept-benefit {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+    }
+    .dept-benefit-check {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(215,0,48,0.1); color: var(--red);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 0.1rem; font-size: 0.65rem; font-weight: 900;
+    }
+    .dept-benefit-text { font-size: 0.875rem; color: var(--black); line-height: 1.5; }
+    .dept-metric {
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--white); border-radius: 12px; padding: 1rem 1.25rem;
+      border: 1px solid var(--gray-border);
+    }
+    .dept-metric-number {
+      font-family: var(--font-display); font-weight: 800; font-size: 1.8rem;
+      color: var(--red); letter-spacing: -0.03em; line-height: 1;
+    }
+    .dept-metric-desc { font-size: 0.8rem; color: var(--gray-text); line-height: 1.4; }
+
+    /* Platform mockups */
+    .mockup {
+      background: var(--dark-bg); border-radius: 16px;
+      border: 1px solid var(--dark-border); overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+    }
+    .mockup-bar {
+      background: var(--dark-card); padding: 0.75rem 1rem;
+      display: flex; align-items: center; gap: 0.5rem;
+      border-bottom: 1px solid var(--dark-border);
+    }
+    .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .mockup-dot.r { background: #FF5F57; }
+    .mockup-dot.y { background: #FEBC2E; }
+    .mockup-dot.g { background: #28C840; }
+    .mockup-title { font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-left: 0.5rem; font-family: var(--font-display); }
+    .mockup-body { padding: 1.25rem; }
+
+    /* Financial mockup */
+    .mock-kpi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.75rem; margin-bottom: 1rem; }
+    .mock-kpi {
+      background: var(--dark-card); border-radius: 10px; padding: 0.875rem;
+      border: 1px solid var(--dark-border);
+    }
+    .mock-kpi-label { font-size: 0.65rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.05em; }
+    .mock-kpi-value { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--white); margin-top: 0.25rem; }
+    .mock-kpi-value.green { color: #22C55E; }
+    .mock-kpi-value.red { color: var(--red); }
+    .mock-bar-chart { background: var(--dark-card); border-radius: 10px; padding: 0.875rem; border: 1px solid var(--dark-border); }
+    .mock-bar-chart-label { font-size: 0.65rem; color: rgba(255,255,255,0.35); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .mock-bars { display: flex; align-items: flex-end; gap: 0.4rem; height: 60px; }
+    .mock-bar { flex: 1; border-radius: 4px 4px 0 0; background: var(--dark-border); }
+    .mock-bar.active { background: var(--red); }
+    .mock-row { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0; border-bottom: 1px solid var(--dark-border); }
+    .mock-row:last-child { border-bottom: none; }
+    .mock-row-label { font-size: 0.7rem; color: rgba(255,255,255,0.5); }
+    .mock-row-value { font-size: 0.7rem; font-weight: 600; }
+    .mock-row-value.g { color: #22C55E; }
+    .mock-row-value.r { color: var(--red); }
+    .mock-tag {
+      font-size: 0.6rem; padding: 0.15rem 0.5rem; border-radius: 999px;
+      font-weight: 600;
+    }
+    .mock-tag.green { background: rgba(34,197,94,0.15); color: #22C55E; }
+    .mock-tag.red { background: rgba(215,0,48,0.15); color: var(--red); }
+
+    /* ─── METRICS ─── */
+    .metrics { background: var(--black); color: var(--white); }
+    .metrics-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3rem; }
+    .metric-card {
+      background: var(--dark-card); border: 1px solid var(--dark-border);
+      border-radius: 16px; padding: 1.75rem; text-align: center;
+    }
+    .metric-value {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 2.5rem; letter-spacing: -0.04em; color: var(--white);
+      line-height: 1;
+    }
+    .metric-value em { color: var(--red); font-style: normal; }
+    .metric-label { font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-top: 0.5rem; line-height: 1.4; }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials { background: #080808; padding: 5rem 0; }
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-top: 0; text-align: left;
+    }
+    .testi-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px; padding: 1.75rem 1.75rem 1.5rem; display: flex;
+      flex-direction: column; gap: 1.25rem;
+    }
+    .testi-featured {
+      border-color: rgba(215,0,48,0.3);
+      background: rgba(215,0,48,0.06);
+    }
+    .testi-quote {
+      font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.85);
+      font-style: italic; flex: 1;
+    }
+    .testi-quote::before { content: '"'; color: var(--red); font-size: 1.4rem; font-style: normal; line-height: 0; vertical-align: -0.3em; margin-right: 0.1em; }
+    .testi-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testi-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(215,0,48,0.2); border: 1px solid rgba(215,0,48,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.75rem; color: var(--red); flex-shrink: 0;
+    }
+    .testi-name { font-weight: 600; font-size: 0.9rem; color: var(--white); }
+    .testi-role { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 0.1rem; }
+    .testi-metric {
+      font-size: 0.75rem; font-weight: 600; color: rgba(215,0,48,0.7);
+      background: rgba(215,0,48,0.08); border: 1px solid rgba(215,0,48,0.15);
+      border-radius: 6px; padding: 0.35rem 0.65rem; display: inline-block; width: fit-content;
+    }
+    .testi-metric span { color: var(--red); }
+    @media (max-width: 960px) {
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── HOW IT WORKS ─── */
+    .how { background: var(--white); }
+    .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; position: relative; }
+    .steps-grid::before {
+      content: '';
+      position: absolute; top: 40px; left: calc(16.67% + 1rem); right: calc(16.67% + 1rem);
+      height: 1px; background: var(--gray-border);
+    }
+    .step { text-align: center; position: relative; }
+    .step-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--black); color: var(--white);
+      font-family: var(--font-display); font-weight: 800; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.25rem;
+    }
+    .step.active .step-num { background: var(--red); }
+    .step-title { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; margin-bottom: 0.5rem; }
+    .step-desc { font-size: 0.875rem; color: var(--gray-text); line-height: 1.65; }
+    .step-tag {
+      display: inline-block; margin-top: 0.75rem;
+      font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem;
+      border-radius: 999px; color: var(--red); background: rgba(215,0,48,0.1);
+      text-transform: uppercase; letter-spacing: 0.05em;
+    }
+
+    /* ─── GUARANTEES ─── */
+    .guarantees { background: var(--black); }
+    .guarantees .section-title { color: var(--white); }
+    .guarantees .section-sub { color: rgba(255,255,255,0.5); }
+    .guarantees-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; margin-top: 3rem; }
+    .guarantee-card {
+      background: var(--dark-card); border: 1px solid var(--dark-border);
+      border-radius: 16px; padding: 1.75rem; position: relative; overflow: hidden;
+    }
+    .guarantee-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--red);
+    }
+    .guarantee-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: rgba(215,0,48,0.15); border: 1px solid rgba(215,0,48,0.25);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .guarantee-icon svg { width: 22px; height: 22px; color: var(--red); stroke: var(--red); }
+    .guarantee-title { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--white); margin-bottom: 0.5rem; }
+    .guarantee-desc { font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+    .guarantee-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1rem;
+      font-size: 0.75rem; font-weight: 700; color: var(--red);
+      background: rgba(215,0,48,0.1); padding: 0.3rem 0.75rem; border-radius: 999px;
+    }
+
+    /* ─── PRICING ─── */
+    .pricing { background: var(--gray-bg); }
+    .pricing-toggle {
+      display: flex; align-items: center; gap: 0.75rem; justify-content: center;
+      margin: 2rem 0; font-size: 0.875rem;
+    }
+    .toggle-label { color: var(--gray-text); font-weight: 500; }
+    .toggle-label.active { color: var(--black); font-weight: 600; }
+    .toggle-badge {
+      background: rgba(215,0,48,0.1); color: var(--red);
+      font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px;
+    }
+    .toggle-switch {
+      width: 48px; height: 26px; background: var(--black); border-radius: 999px;
+      position: relative; cursor: pointer; transition: background 0.2s;
+      border: none; padding: 0;
+    }
+    .toggle-switch.annual { background: var(--red); }
+    .toggle-knob {
+      position: absolute; top: 3px; left: 3px;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--white); transition: transform 0.2s;
+    }
+    .toggle-switch.annual .toggle-knob { transform: translateX(22px); }
+
+    .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .price-card {
+      background: var(--white); border-radius: 20px; padding: 2rem;
+      border: 1px solid var(--gray-border); position: relative; overflow: hidden;
+    }
+    .price-card.featured {
+      background: var(--black); border-color: var(--red);
+      box-shadow: 0 0 0 1px var(--red);
+    }
+    .price-popular {
+      position: absolute; top: 1rem; right: 1rem;
+      background: var(--red); color: var(--white);
+      font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.7rem; border-radius: 999px;
+      text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .price-plan { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-text); margin-bottom: 0.5rem; }
+    .price-card.featured .price-plan { color: rgba(255,255,255,0.4); }
+    .price-name { font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+    .price-card.featured .price-name { color: var(--white); }
+    .price-anchor {
+      font-size: 0.75rem; color: var(--gray-text); margin-bottom: 1.25rem;
+      padding: 0.5rem 0.75rem; background: var(--gray-bg); border-radius: 8px;
+      line-height: 1.4;
+    }
+    .price-card.featured .price-anchor { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.4); }
+    .price-amount-wrap { margin-bottom: 1.5rem; }
+    .price-amount {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 2.5rem; color: var(--black); letter-spacing: -0.04em; line-height: 1;
+    }
+    .price-card.featured .price-amount { color: var(--white); }
+    .price-amount sup { font-size: 1rem; vertical-align: super; font-weight: 700; }
+    .price-period { font-size: 0.8rem; color: var(--gray-text); }
+    .price-card.featured .price-period { color: rgba(255,255,255,0.4); }
+    .price-annual { font-size: 0.75rem; color: var(--red); font-weight: 600; margin-top: 0.25rem; }
+    .price-features { list-style: none; margin-bottom: 1.75rem; display: flex; flex-direction: column; gap: 0.625rem; }
+    .price-features li { display: flex; align-items: flex-start; gap: 0.625rem; font-size: 0.85rem; }
+    .price-check { color: var(--red); font-weight: 900; font-size: 0.7rem; margin-top: 0.1rem; flex-shrink: 0; }
+    .price-card.featured .price-features li { color: rgba(255,255,255,0.75); }
+    .price-btn {
+      display: block; text-align: center; width: 100%;
+      background: var(--black); color: var(--white);
+      padding: 0.875rem; border-radius: 999px;
+      font-weight: 700; font-size: 0.875rem; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .price-card.featured .price-btn { background: var(--red); }
+    .price-btn:hover { background: var(--red); }
+    .price-card.featured .price-btn:hover { background: var(--red-dark); }
+    .pricing-note { text-align: center; margin-top: 1.5rem; font-size: 0.8rem; color: var(--gray-text); }
+
+    /* ─── FAQ ─── */
+    .faq { background: var(--white); }
+    .faq-list { max-width: 720px; margin: 3rem auto 0; display: flex; flex-direction: column; gap: 0.75rem; }
+    .faq-item { border: 1px solid var(--gray-border); border-radius: 12px; overflow: hidden; }
+    .faq-q {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: 1.125rem 1.25rem; background: var(--white); border: none; cursor: pointer;
+      text-align: left; font-family: var(--font-body);
+    }
+    .faq-q-text { font-weight: 600; font-size: 0.9rem; color: var(--black); }
+    .faq-icon {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--gray-bg); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 0.7rem; color: var(--gray-text); transition: transform 0.2s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(180deg); background: var(--red); color: var(--white); }
+    .faq-a { display: none; padding: 0 1.25rem 1.25rem; font-size: 0.875rem; color: var(--gray-text); line-height: 1.7; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ─── FINAL CTA ─── */
+    .final-cta { background: var(--black); text-align: center; }
+    .final-cta .section-title { color: var(--white); max-width: 700px; margin: 0 auto 1rem; }
+    .final-cta .section-sub { margin: 0 auto 2.5rem; color: rgba(255,255,255,0.5); }
+    .final-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .final-trust { margin-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--black); border-top: 1px solid var(--dark-border);
+      padding: 2.5rem 1.5rem;
+    }
+    .footer-inner {
+      max-width: 1160px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo { font-family: var(--font-display); font-weight: 800; font-size: 1rem; color: var(--white); }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.7); }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .cost-grid, .dept-item, .what-is-grid, .steps-grid, .guarantees-grid, .pricing-grid, .metrics-grid { grid-template-columns: 1fr !important; }
+      .dept-item.reverse { direction: ltr; }
+      .steps-grid::before { display: none; }
+      .proof-bar-inner { gap: 1.5rem; }
+      .proof-divider { display: none; }
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.4rem; }
+      section { padding: 3.5rem 1.25rem; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .hero-stat:nth-child(2) { border-right: none; }
+      .hero-stat:nth-child(3) { border-top: 1px solid var(--gray-border); }
+      .hero-stat:nth-child(5) { border-top: 1px solid var(--gray-border); }
+    }
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NG726JTZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><span>Empresa</span> Inteligente</a>
+  <div class="nav-links">
+    <a href="#departamentos">Departamentos</a>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="#planos">Planos</a>
+    <a href="#garantias">Garantias</a>
+    <a href="https://ktana.ai/lead" target="_blank" class="nav-cta">Agendar demonstração</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <span class="hero-badge">IA nos departamentos da sua empresa</span>
+      <h1>Menos custo. Mais lucro.<br><em>IA para empresas que crescem.</em></h1>
+      <p class="hero-sub">
+        Cada área com inteligência trabalhando 24h. Financeiro, Comercial, Marketing, RH, Jurídico. Sua operação no nível que você sempre quis — sem precisar triplicar o time.<br><br>Sem ter que aprender para implementar, sem equipe técnica, resultado concreto desde o primeiro acesso.
+      </p>
+      <div class="hero-ctas">
+        <a href="https://ktana.ai/lead" target="_blank" class="btn-primary">Agendar demonstração gratuita</a>
+        <a href="#como-funciona" class="btn-outline">Ver como funciona</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-number"><span>73</span>h</span>
+          <span class="hero-stat-label">Economizadas por semana</span>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">R$<span>2.500</span></span>
+          <span class="hero-stat-label">Plano inicial/mês</span>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-number"><span>30</span>dias</span>
+          <span class="hero-stat-label">Para resultado mensurável</span>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-number"><span>6</span></span>
+          <span class="hero-stat-label">Departamentos cobertos</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-character">
+      <img src="assets/ktana-cyberpunk.jpg" alt="KTANA — IA para empresas brasileiras" />
+      <div class="hero-character-badge">
+        <div class="hero-character-badge-label">Implementação real</div>
+        <div class="hero-character-badge-value">Resultado em <span>30 dias</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-bar-inner">
+    <div class="proof-item">
+      <div class="proof-number">200<em>+</em></div>
+      <div class="proof-label">Empresas implementadas</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-item">
+      <div class="proof-number">R$<em>2M</em>+</div>
+      <div class="proof-label">Em faturamento atendido</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-item">
+      <div class="proof-number">70<em>%</em></div>
+      <div class="proof-label">Atendimentos automáticos</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-item">
+      <div class="proof-number">4<em>sem</em></div>
+      <div class="proof-label">Prazo médio de retorno</div>
+    </div>
+  </div>
+</div>
+
+<!-- DOIS TIPOS DE EMPRESA -->
+<section class="dois-tipos">
+  <div class="dois-tipos-inner">
+    <div class="dois-tipos-header">
+      <span class="section-label" style="display:block;text-align:center;margin-bottom:1rem;">O mercado se dividiu</span>
+      <h2>Existem dois tipos de empresa<br>no mercado hoje.</h2>
+      <p>A diferença entre elas — uma vai sobreviver e a outra vai morrer.</p>
+    </div>
+    <div class="dois-tipos-grid">
+      <div class="dt-card sem">
+        <div class="dt-card-label">
+          <i data-lucide="x-circle"></i>
+          A empresa que ainda não usa IA
+        </div>
+        <div class="dt-card-title">Opera no limite.<br>Cresce com custo.</div>
+        <div class="dt-item">
+          <div class="dt-icon"><i data-lucide="clock"></i></div>
+          <div class="dt-text">Time gasta horas toda semana em trabalho repetitivo que não gera resultado</div>
+        </div>
+        <div class="dt-item">
+          <div class="dt-icon"><i data-lucide="trending-down"></i></div>
+          <div class="dt-text">Para crescer, precisa contratar — e custo cresce junto com o faturamento</div>
+        </div>
+        <div class="dt-item">
+          <div class="dt-icon"><i data-lucide="eye-off"></i></div>
+          <div class="dt-text">Decisões no feeling — sem dados em tempo real sobre financeiro, vendas e atendimento</div>
+        </div>
+        <div class="dt-item">
+          <div class="dt-icon"><i data-lucide="alert-circle"></i></div>
+          <div class="dt-text">Concorrentes que já usam IA respondem mais rápido, cobram menos e fecham mais</div>
+        </div>
+        <div class="dt-highlight">Não é falta de esforço. É falta de alavancagem.</div>
+      </div>
+      <div class="dt-card com">
+        <div class="dt-card-label">
+          <i data-lucide="zap"></i>
+          A empresa que opera com IA
+        </div>
+        <div class="dt-card-title">Opera com precisão.<br>Cresce sem custo proporcional.</div>
+        <div class="dt-item">
+          <div class="dt-icon"><i data-lucide="zap"></i></div>
+          <div class="dt-text">Time foca no que gera resultado — atendimento, vendas, estratégia. O resto é automático</div>
+        </div>
+        <div class="dt-item">
+          <div class="dt-icon"><i data-lucide="trending-up"></i></div>
+          <div class="dt-text">Dobra o volume de trabalho sem dobrar o time — margem aumenta junto com o faturamento</div>
+        </div>
+        <div class="dt-item">
+          <div class="dt-icon"><i data-lucide="bar-chart-2"></i></div>
+          <div class="dt-text">Dados em tempo real — financeiro, pipeline, atendimento tudo visível sem ninguém montar relatório</div>
+        </div>
+        <div class="dt-item">
+          <div class="dt-icon"><i data-lucide="shield"></i></div>
+          <div class="dt-text">Vantagem competitiva real — não dá pra imitar sem implementação. É processo, não ferramenta</div>
+        </div>
+        <div class="dt-highlight">Isso é o que a Empresa Inteligente entrega. Nos seus departamentos. Em 30 dias.</div>
+      </div>
+    </div>
+    <div class="dois-tipos-cta">
+      <p><strong>Qual empresa você quer ser daqui a 6 meses?</strong><br>A decisão de implementar IA agora determina quem lidera o mercado amanhã.</p>
+      <a href="https://ktana.ai/lead" target="_blank" class="btn-primary">Agendar diagnóstico gratuito</a>
+    </div>
+  </div>
+</section>
+
+<!-- COST SECTION -->
+<section class="cost-section">
+  <div class="container">
+    <span class="section-label">A conta que você ainda não fez</span>
+    <h2 class="section-title">Você está pagando funcionário para fazer<br>o que a IA faria melhor.</h2>
+    <div class="cost-grid">
+      <div>
+        <p class="section-sub" style="margin-bottom:2rem;">
+          Não é culpa de ninguém. Mas pensa no que seu time faz toda semana que poderia ser automático.
+        </p>
+        <div class="cost-list">
+          <div class="cost-item"><div class="cost-item-icon icon-box sm"><i data-lucide="bar-chart-2"></i></div><span class="cost-item-text">Conciliar extrato bancário na mão</span><span class="cost-item-hours">10h/sem</span></div>
+          <div class="cost-item"><div class="cost-item-icon icon-box sm"><i data-lucide="message-square"></i></div><span class="cost-item-text">Responder sempre as mesmas perguntas no WhatsApp</span><span class="cost-item-hours">20h/sem</span></div>
+          <div class="cost-item"><div class="cost-item-icon icon-box sm"><i data-lucide="smartphone"></i></div><span class="cost-item-text">Lembrar de postar no Instagram</span><span class="cost-item-hours">15h/sem</span></div>
+          <div class="cost-item"><div class="cost-item-icon icon-box sm"><i data-lucide="file-text"></i></div><span class="cost-item-text">Ler 80 currículos para uma vaga</span><span class="cost-item-hours">8h/sem</span></div>
+          <div class="cost-item"><div class="cost-item-icon icon-box sm"><i data-lucide="trending-up"></i></div><span class="cost-item-text">Montar relatório que poderia ser automático</span><span class="cost-item-hours">8h/sem</span></div>
+          <div class="cost-item"><div class="cost-item-icon icon-box sm"><i data-lucide="phone"></i></div><span class="cost-item-text">Follow-up manual de leads</span><span class="cost-item-hours">12h/sem</span></div>
+        </div>
+        <div style="margin-top:1.5rem; padding:1rem 1.25rem; background:rgba(215,0,48,0.06); border-radius:12px; border:1px solid rgba(215,0,48,0.15);">
+          <strong style="font-family:var(--font-display); font-size:1.1rem; color:var(--red);">73 horas por semana</strong>
+          <p style="font-size:0.8rem; color:var(--gray-text); margin-top:0.25rem;">= quase 2 funcionários de tempo integral, toda semana, só para trabalho repetitivo</p>
+        </div>
+      </div>
+      <div>
+        <div class="cost-card">
+          <div class="cost-card-title">Faça a comparação.</div>
+          <div class="cost-card-sub">CLT vs. Empresa Inteligente</div>
+          <div class="cost-comparison">
+            <div class="cost-row bad">
+              <div>
+                <div class="cost-row-label">Assistente Administrativo CLT</div>
+                <div class="cost-row-detail">Salário R$2.500 + encargos 65%</div>
+              </div>
+              <div class="cost-row-value">R$4.125<br><small style="font-size:0.65rem;opacity:0.5">/mês</small></div>
+            </div>
+            <div class="cost-row bad">
+              <div>
+                <div class="cost-row-label">Analista Financeiro CLT</div>
+                <div class="cost-row-detail">Salário R$4.000 + encargos 65%</div>
+              </div>
+              <div class="cost-row-value">R$6.600<br><small style="font-size:0.65rem;opacity:0.5">/mês</small></div>
+            </div>
+            <div style="text-align:center; color:rgba(255,255,255,0.2); font-size:0.75rem; padding:0.25rem 0;">cobre apenas 1 função cada</div>
+            <div class="cost-row good">
+              <div>
+                <div class="cost-row-label" style="color:rgba(255,255,255,0.9);font-weight:600;">Empresa Inteligente — Plano Essencial</div>
+                <div class="cost-row-detail" style="color:rgba(255,255,255,0.4);">2 departamentos, 24h/dia, 7 dias/semana</div>
+              </div>
+              <div class="cost-row-value" style="color:var(--red);">R$2.500<br><small style="font-size:0.65rem;opacity:0.7">/mês</small></div>
+            </div>
+          </div>
+          <div class="cost-savings">
+            <div class="cost-savings-label" style="color:rgba(255,255,255,0.4);">Você economiza a partir de</div>
+            <div class="cost-savings-value">R$1.625/mês</div>
+            <div style="font-size:0.72rem; color:rgba(255,255,255,0.3); margin-top:0.25rem;">comparado com 1 assistente CLT — e cobre mais funções</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS -->
+<section class="what-is">
+  <div class="container">
+    <span class="section-label">O que é</span>
+    <h2 class="section-title">Não é curso. Não é plataforma.<br>É sua empresa funcionando com IA.</h2>
+    <div class="what-is-grid">
+      <div class="what-card">
+        <div class="what-card-icon icon-box"><i data-lucide="book-open"></i></div>
+        <h3>Não é curso de IA</h3>
+        <p>Você não vai assistir aula sobre como a IA poderia funcionar na sua empresa. O nosso trabalho não termina na entrega do conteúdo.</p>
+        <span class="what-card-tag">Sem teoria</span>
+      </div>
+      <div class="what-card highlight">
+        <div class="what-card-icon icon-box dark"><i data-lucide="settings"></i></div>
+        <h3>É implementação real</h3>
+        <p>A gente entra nos departamentos da sua empresa, entende como funciona hoje e configura a IA para o seu processo específico — não para uma empresa genérica.</p>
+        <span class="what-card-tag">Do zero ao funcionando</span>
+      </div>
+      <div class="what-card">
+        <div class="what-card-icon icon-box"><i data-lucide="layers"></i></div>
+        <h3>Não é plataforma</h3>
+        <p>Plataforma que o time não sabe usar é assinatura desperdiçada. Aqui você recebe o processo configurado, treinamento e suporte até rodar de verdade.</p>
+        <span class="what-card-tag">Sem acesso parado</span>
+      </div>
+    </div>
+    <div style="margin-top:2rem; padding:1.75rem 2rem; background:var(--gray-bg); border-radius:16px; border:1px solid var(--gray-border); max-width:700px; margin-left:auto; margin-right:auto;">
+      <p style="font-size:0.95rem; color:var(--black); line-height:1.75; text-align:center;">
+        <strong>"Plug & play" não existe na prática.</strong> Toda IA que funciona de verdade precisa de micro-configuração, adaptação ao processo e treinamento do time. A diferença é quem faz isso: <strong>você sozinho — ou a gente junto com você.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- DEPARTMENTS -->
+<section class="departments" id="departamentos">
+  <div class="container">
+    <span class="section-label">Por departamento</span>
+    <h2 class="section-title">Veja o que muda em cada área.</h2>
+    <p class="section-sub">Cada departamento tem trabalho repetitivo que consome seu time. Veja onde a IA gera mais resultado no seu negócio.</p>
+
+    <!-- FINANCEIRO -->
+    <div class="dept-item" style="margin-top:3rem;">
+      <div>
+        <span class="dept-tag"><i data-lucide="dollar-sign" style="width:13px;height:13px;display:inline;vertical-align:middle;"></i> Financeiro</span>
+        <h3 class="dept-title">Fecha o mês sem<br>sua equipe travar 3 dias.</h3>
+        <p class="dept-problem">Toda empresa que cresce chega no mesmo ponto: o fechamento mensal vira um projeto. Horas conciliando extrato, corrigindo planilha, esperando alguém terminar o relatório antes de ter visibilidade do caixa.</p>
+        <div class="dept-benefits">
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Conciliação bancária automática — todos os dias, não só no fechamento</span></div>
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">DRE atualizado em tempo real — sem ninguém precisar montar</span></div>
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Fluxo de caixa projetado para os próximos 30 dias</span></div>
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Cobrança disparada automaticamente antes do vencimento</span></div>
+        </div>
+        <div class="dept-metric">
+          <div class="dept-metric-number">10h</div>
+          <div class="dept-metric-desc"><strong>por semana devolvidas</strong><br>Fechamento em horas, não em dias. Números confiáveis sem esforço manual.</div>
+        </div>
+      </div>
+      <div>
+        <div class="mockup">
+          <div class="mockup-bar">
+            <div class="mockup-dot r"></div><div class="mockup-dot y"></div><div class="mockup-dot g"></div>
+            <span class="mockup-title">Financeiro — Painel ao Vivo</span>
+          </div>
+          <div class="mockup-body">
+            <div class="mock-kpi-grid">
+              <div class="mock-kpi"><div class="mock-kpi-label">Caixa Hoje</div><div class="mock-kpi-value green">R$84.2k</div></div>
+              <div class="mock-kpi"><div class="mock-kpi-label">A Receber</div><div class="mock-kpi-value">R$42.8k</div></div>
+              <div class="mock-kpi"><div class="mock-kpi-label">Inadimplência</div><div class="mock-kpi-value red">2.1%</div></div>
+            </div>
+            <div class="mock-bar-chart" style="margin-bottom:0.75rem;">
+              <div class="mock-bar-chart-label">Receita mensal — últimos 6 meses</div>
+              <div class="mock-bars">
+                <div class="mock-bar" style="height:40%"></div>
+                <div class="mock-bar" style="height:55%"></div>
+                <div class="mock-bar" style="height:50%"></div>
+                <div class="mock-bar" style="height:70%"></div>
+                <div class="mock-bar" style="height:65%"></div>
+                <div class="mock-bar active" style="height:85%"></div>
+              </div>
+            </div>
+            <div style="background:var(--dark-card); border-radius:10px; padding:0.875rem; border:1px solid var(--dark-border);">
+              <div class="mock-row"><span class="mock-row-label">Conciliação bancária</span><span class="mock-tag green">Automático</span></div>
+              <div class="mock-row"><span class="mock-row-label">Cobrança NF 1847</span><span class="mock-tag green">Enviada</span></div>
+              <div class="mock-row"><span class="mock-row-label">DRE Abril/2026</span><span class="mock-tag green">Atualizado</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMERCIAL -->
+    <div class="dept-item reverse">
+      <div>
+        <span class="dept-tag"><i data-lucide="trending-up" style="width:13px;height:13px;display:inline;vertical-align:middle;"></i> Comercial</span>
+        <h3 class="dept-title">Seu vendedor só fala<br>com quem já quer comprar.</h3>
+        <p class="dept-problem">Vendedor que passa metade do dia qualificando lead frio não está vendendo — está desperdiçando energia. O follow-up fica para quando dá, e quando dá já é tarde.</p>
+        <div class="dept-benefits">
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Qualificação automática de leads antes de chegar no vendedor</span></div>
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Primeiro contato e follow-up automático no momento certo</span></div>
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Análise de probabilidade de fechamento por oportunidade</span></div>
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Pipeline atualizado sem o vendedor precisar digitar nada</span></div>
+        </div>
+        <div class="dept-metric">
+          <div class="dept-metric-number">3×</div>
+          <div class="dept-metric-desc"><strong>mais leads qualificados</strong><br>Com o mesmo time, sem contratar. Vendedor entra na conversa quando o lead já quer comprar.</div>
+        </div>
+      </div>
+      <div>
+        <div class="mockup">
+          <div class="mockup-bar">
+            <div class="mockup-dot r"></div><div class="mockup-dot y"></div><div class="mockup-dot g"></div>
+            <span class="mockup-title">Comercial — Pipeline Inteligente</span>
+          </div>
+          <div class="mockup-body">
+            <div style="display:flex; gap:0.5rem; margin-bottom:0.75rem;">
+              <div style="flex:1; background:var(--dark-card); border-radius:10px; padding:0.75rem; border:1px solid var(--dark-border);">
+                <div class="mock-kpi-label">Qualificados hoje</div>
+                <div class="mock-kpi-value" style="color:#22C55E;">14</div>
+              </div>
+              <div style="flex:1; background:var(--dark-card); border-radius:10px; padding:0.75rem; border:1px solid var(--dark-border);">
+                <div class="mock-kpi-label">Em negociação</div>
+                <div class="mock-kpi-value">8</div>
+              </div>
+              <div style="flex:1; background:var(--dark-card); border-radius:10px; padding:0.75rem; border:1px solid var(--dark-border);">
+                <div class="mock-kpi-label">Fechados mês</div>
+                <div class="mock-kpi-value" style="color:var(--red);">R$48k</div>
+              </div>
+            </div>
+            <div style="background:var(--dark-card); border-radius:10px; padding:0.875rem; border:1px solid var(--dark-border);">
+              <div class="mock-bar-chart-label">Leads por temperatura</div>
+              <div class="mock-row"><span class="mock-row-label">🔴 Quente — pronto para fechar</span><span class="mock-row-value g">4 leads</span></div>
+              <div class="mock-row"><span class="mock-row-label">🟡 Morno — em nutrição automática</span><span class="mock-row-value" style="color:rgba(255,255,255,0.5);">10 leads</span></div>
+              <div class="mock-row"><span class="mock-row-label">⚪ Frio — qualificação ativa</span><span class="mock-row-value" style="color:rgba(255,255,255,0.3);">38 leads</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ATENDIMENTO -->
+    <div class="dept-item">
+      <div>
+        <span class="dept-tag"><i data-lucide="message-square" style="width:13px;height:13px;display:inline;vertical-align:middle;"></i> Atendimento</span>
+        <h3 class="dept-title">70% dos atendimentos<br>resolvidos sem humano.</h3>
+        <p class="dept-problem">Seu WhatsApp acumula mensagem. Sempre as mesmas perguntas: prazo, preço, status, como cancelar. Alguém do time para tudo para responder. Quando a demanda aumenta, o atendimento piora.</p>
+        <div class="dept-benefits">
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Responde perguntas repetitivas 24h/dia, 7 dias/semana</span></div>
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Triagem automática — só os casos complexos vão para o humano</span></div>
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Follow-up pós-venda automático no timing certo</span></div>
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Histórico completo de cada cliente centralizado</span></div>
+        </div>
+        <div class="dept-metric">
+          <div class="dept-metric-number">20h</div>
+          <div class="dept-metric-desc"><strong>por semana economizadas</strong><br>Seu time para de apagar incêndio repetitivo e começa a gerar resultado.</div>
+        </div>
+      </div>
+      <div>
+        <div class="mockup">
+          <div class="mockup-bar">
+            <div class="mockup-dot r"></div><div class="mockup-dot y"></div><div class="mockup-dot g"></div>
+            <span class="mockup-title">Atendimento — Central Inteligente</span>
+          </div>
+          <div class="mockup-body">
+            <div class="mock-kpi-grid" style="margin-bottom:0.75rem;">
+              <div class="mock-kpi"><div class="mock-kpi-label">Resolvidos IA</div><div class="mock-kpi-value green">71%</div></div>
+              <div class="mock-kpi"><div class="mock-kpi-label">Escalados</div><div class="mock-kpi-value">29%</div></div>
+              <div class="mock-kpi"><div class="mock-kpi-label">Tempo médio</div><div class="mock-kpi-value">1m 12s</div></div>
+            </div>
+            <div style="background:var(--dark-card); border-radius:10px; padding:0.875rem; border:1px solid var(--dark-border);">
+              <div class="mock-bar-chart-label">Tickets hoje</div>
+              <div class="mock-row"><span class="mock-row-label">💬 Pergunta sobre prazo</span><span class="mock-tag green">Auto-respondido</span></div>
+              <div class="mock-row"><span class="mock-row-label">💬 Status do pedido #4821</span><span class="mock-tag green">Auto-respondido</span></div>
+              <div class="mock-row"><span class="mock-row-label">💬 Solicita 2ª via NF</span><span class="mock-tag green">Auto-respondido</span></div>
+              <div class="mock-row"><span class="mock-row-label">⚠️ Reclamação complexa</span><span class="mock-tag red">Para humano</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MARKETING -->
+    <div class="dept-item reverse">
+      <div>
+        <span class="dept-tag"><i data-lucide="megaphone" style="width:13px;height:13px;display:inline;vertical-align:middle;"></i> Marketing</span>
+        <h3 class="dept-title">Instagram postando 3x<br>por semana sem você tocar.</h3>
+        <p class="dept-problem">Seu Instagram fica 4 dias sem postar porque ninguém teve tempo. Quando posta, é o que deu. Não tem consistência, não tem estratégia, não tem resultado — e isso custa mais do que parece.</p>
+        <div class="dept-benefits">
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Conteúdo criado e agendado para Instagram, LinkedIn e WhatsApp</span></div>
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Resposta automática de comentários e mensagens</span></div>
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Relatório de desempenho gerado automaticamente todo mês</span></div>
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Calendário editorial executado sem depender de ninguém lembrar</span></div>
+        </div>
+        <div class="dept-metric">
+          <div class="dept-metric-number">15h</div>
+          <div class="dept-metric-desc"><strong>por semana devolvidas</strong><br>Presença digital consistente sem depender de ninguém lembrar de postar.</div>
+        </div>
+      </div>
+      <div>
+        <div class="mockup">
+          <div class="mockup-bar">
+            <div class="mockup-dot r"></div><div class="mockup-dot y"></div><div class="mockup-dot g"></div>
+            <span class="mockup-title">Marketing — Calendário Automático</span>
+          </div>
+          <div class="mockup-body">
+            <div style="display:flex; gap:0.5rem; margin-bottom:0.75rem;">
+              <div style="flex:1; background:var(--dark-card); border-radius:10px; padding:0.75rem; border:1px solid var(--dark-border);">
+                <div class="mock-kpi-label">Posts agendados</div>
+                <div class="mock-kpi-value green">12</div>
+              </div>
+              <div style="flex:1; background:var(--dark-card); border-radius:10px; padding:0.75rem; border:1px solid var(--dark-border);">
+                <div class="mock-kpi-label">Alcance mês</div>
+                <div class="mock-kpi-value">+48%</div>
+              </div>
+            </div>
+            <div style="background:var(--dark-card); border-radius:10px; padding:0.875rem; border:1px solid var(--dark-border);">
+              <div class="mock-bar-chart-label">Próximos posts</div>
+              <div class="mock-row"><span class="mock-row-label">Hoje 09:00 — Instagram (Produto)</span><span class="mock-tag green">Agendado</span></div>
+              <div class="mock-row"><span class="mock-row-label">Qua 14:00 — LinkedIn (Case)</span><span class="mock-tag green">Agendado</span></div>
+              <div class="mock-row"><span class="mock-row-label">Sex 11:00 — WhatsApp (Promoção)</span><span class="mock-tag green">Agendado</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RH -->
+    <div class="dept-item">
+      <div>
+        <span class="dept-tag"><i data-lucide="users" style="width:13px;height:13px;display:inline;vertical-align:middle;"></i> RH</span>
+        <h3 class="dept-title">Processo seletivo de<br>3 semanas para 6 dias.</h3>
+        <p class="dept-problem">Abriu uma vaga. Chegaram 80 currículos. Alguém vai ter que ler os 80, filtrar, entrar em contato, agendar entrevista. Isso leva semanas e cansa quem faz. Resultado: contratação errada por pressa.</p>
+        <div class="dept-benefits">
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Triagem automática de currículos pelos critérios que você definiu</span></div>
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Primeiro contato e agendamento de entrevista automáticos</span></div>
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Onboarding estruturado — novo funcionário começa produtivo mais rápido</span></div>
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Comunicação interna fluindo sem reunião para isso</span></div>
+        </div>
+        <div class="dept-metric">
+          <div class="dept-metric-number">60%</div>
+          <div class="dept-metric-desc"><strong>menos tempo de triagem</strong><br>Você só entrevista quem já passou pelo filtro. Sem desperdício, sem contratação por pressa.</div>
+        </div>
+      </div>
+      <div>
+        <div class="mockup">
+          <div class="mockup-bar">
+            <div class="mockup-dot r"></div><div class="mockup-dot y"></div><div class="mockup-dot g"></div>
+            <span class="mockup-title">RH — Seleção Inteligente</span>
+          </div>
+          <div class="mockup-body">
+            <div class="mock-kpi-grid" style="margin-bottom:0.75rem;">
+              <div class="mock-kpi"><div class="mock-kpi-label">Currículos</div><div class="mock-kpi-value">80</div></div>
+              <div class="mock-kpi"><div class="mock-kpi-label">Triados IA</div><div class="mock-kpi-value green">80</div></div>
+              <div class="mock-kpi"><div class="mock-kpi-label">Aprovados</div><div class="mock-kpi-value" style="color:var(--red);">6</div></div>
+            </div>
+            <div style="background:var(--dark-card); border-radius:10px; padding:0.875rem; border:1px solid var(--dark-border);">
+              <div class="mock-bar-chart-label">Candidatos aprovados</div>
+              <div class="mock-row"><span class="mock-row-label">Ana Silva — Analista Vendas</span><span class="mock-tag green">Entrevista amanhã</span></div>
+              <div class="mock-row"><span class="mock-row-label">Carlos Mota — Analista Vendas</span><span class="mock-tag green">Entrevista amanhã</span></div>
+              <div class="mock-row"><span class="mock-row-label">Maria Souza — Analista Vendas</span><span class="mock-tag green">Contato feito</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPERAÇÃO -->
+    <div class="dept-item reverse">
+      <div>
+        <span class="dept-tag"><i data-lucide="cpu" style="width:13px;height:13px;display:inline;vertical-align:middle;"></i> Operação</span>
+        <h3 class="dept-title">A reunião semanal de<br>alinhamento deixa de existir.</h3>
+        <p class="dept-problem">Reunião de alinhamento toda semana porque ninguém sabe o status de cada tarefa. Aprovações travadas. Relatório que ninguém tem tempo de montar. Você no meio de tudo.</p>
+        <div class="dept-benefits">
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Relatório semanal gerado automaticamente — toda segunda antes das 8h</span></div>
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Aprovações simples resolvidas sem precisar de você</span></div>
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Visibilidade de projeto em tempo real para todo time</span></div>
+          <div class="dept-benefit"><div class="dept-benefit-check">✓</div><span class="dept-benefit-text">Alertas automáticos quando algo foge do prazo</span></div>
+        </div>
+        <div class="dept-metric">
+          <div class="dept-metric-number">8h</div>
+          <div class="dept-metric-desc"><strong>por semana economizadas</strong><br>Todo mundo já sabe o que precisa saber antes de chegar. Sem reunião para isso.</div>
+        </div>
+      </div>
+      <div>
+        <div class="mockup">
+          <div class="mockup-bar">
+            <div class="mockup-dot r"></div><div class="mockup-dot y"></div><div class="mockup-dot g"></div>
+            <span class="mockup-title">Operação — Visibilidade Total</span>
+          </div>
+          <div class="mockup-body">
+            <div style="display:flex; gap:0.5rem; margin-bottom:0.75rem;">
+              <div style="flex:1; background:var(--dark-card); border-radius:10px; padding:0.75rem; border:1px solid var(--dark-border);">
+                <div class="mock-kpi-label">Em dia</div>
+                <div class="mock-kpi-value green">18</div>
+              </div>
+              <div style="flex:1; background:var(--dark-card); border-radius:10px; padding:0.75rem; border:1px solid var(--dark-border);">
+                <div class="mock-kpi-label">Atenção</div>
+                <div class="mock-kpi-value" style="color:#FEBC2E;">3</div>
+              </div>
+              <div style="flex:1; background:var(--dark-card); border-radius:10px; padding:0.75rem; border:1px solid var(--dark-border);">
+                <div class="mock-kpi-label">Crítico</div>
+                <div class="mock-kpi-value red">1</div>
+              </div>
+            </div>
+            <div style="background:var(--dark-card); border-radius:10px; padding:0.875rem; border:1px solid var(--dark-border);">
+              <div class="mock-bar-chart-label">Relatório automático — enviado às 07:58</div>
+              <div class="mock-row"><span class="mock-row-label">Projeto Lançamento Produto</span><span class="mock-tag green">82% concluído</span></div>
+              <div class="mock-row"><span class="mock-row-label">Integração sistema ERP</span><span class="mock-tag" style="background:rgba(254,188,46,0.15);color:#FEBC2E;">Atenção</span></div>
+              <div class="mock-row"><span class="mock-row-label">Renovação contrato Fornec.</span><span class="mock-tag green">Concluído</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- METRICS -->
+<section class="metrics">
+  <div class="container" style="text-align:center;">
+    <span class="section-label" style="color:rgba(215,0,48,0.8);">Resultado consolidado</span>
+    <h2 class="section-title" style="color:var(--white); margin-bottom:0.5rem;">Os números de quem já implementou.</h2>
+    <p style="color:rgba(255,255,255,0.4); font-size:0.875rem; margin-bottom:3rem;">Média entre clientes com mais de 90 dias de implementação ativa.</p>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-value">73<em>h</em></div>
+        <div class="metric-label">Por semana economizadas em trabalho repetitivo quando todos os departamentos estão ativos</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value"><em>-</em>40<em>%</em></div>
+        <div class="metric-label">Redução média de custo operacional reportada pelos clientes nos primeiros 90 dias</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">3<em>×</em></div>
+        <div class="metric-label">Mais leads qualificados com o mesmo time de vendas após implementação do comercial</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value"><em>&lt;</em>30<em>d</em></div>
+        <div class="metric-label">Prazo médio para ter o primeiro departamento funcionando com resultado mensurável</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="depoimentos">
+  <div class="container" style="text-align:center;">
+    <span class="section-label">Quem já implementou</span>
+    <h2 class="section-title">Empresas reais.<br>Resultados reais.</h2>
+    <p class="section-sub" style="margin:0 auto 3rem;">Sem script. Sem edição. O que os donos de empresa disseram depois de implementar.</p>
+    <div class="testimonials-grid">
+      <div class="testi-card testi-featured">
+        <div class="testi-quote">"O tempo de resposta para o cliente caiu 70%. A satisfação subiu — e o time parou de reclamar do volume de chamados."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">RC</div>
+          <div>
+            <div class="testi-name">Rafael C.</div>
+            <div class="testi-role">CEO · Distribuidora, São Paulo</div>
+          </div>
+        </div>
+        <div class="testi-metric"><span>-70%</span> tempo de resposta</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"Triplicamos os leads qualificados em 60 dias. Com o mesmo time. Não contratamos ninguém."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">AM</div>
+          <div>
+            <div class="testi-name">Ana M.</div>
+            <div class="testi-role">Diretora Comercial · Construtora, Curitiba</div>
+          </div>
+        </div>
+        <div class="testi-metric"><span>3×</span> leads em 60 dias</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"O planejamento financeiro mensal que levava um dia inteiro agora leva 30 minutos. E o relatório sai sem erro."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">PL</div>
+          <div>
+            <div class="testi-name">Paulo L.</div>
+            <div class="testi-role">CFO · Indústria têxtil, Blumenau</div>
+          </div>
+        </div>
+        <div class="testi-metric"><span>-95%</span> tempo de relatório</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"Uma coisa que eu demorava uma hora para fazer, eu faço em minutos agora. Todo dia. Em todos os departamentos."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">CS</div>
+          <div>
+            <div class="testi-name">Carla S.</div>
+            <div class="testi-role">Sócia · Clínica odontológica, Porto Alegre</div>
+          </div>
+        </div>
+        <div class="testi-metric"><span>×10</span> velocidade operacional</div>
+      </div>
+      <div class="testi-card testi-featured">
+        <div class="testi-quote">"Eliminamos R$ 2.000 de custo por mês e ganhamos a liberdade de personalizar cada etapa do processo. A gente controla a IA, não o contrário."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">MA</div>
+          <div>
+            <div class="testi-name">Marcos A.</div>
+            <div class="testi-role">Fundador · Assessoria MAPA, Florianópolis</div>
+          </div>
+        </div>
+        <div class="testi-metric"><span>-R$2k</span> por mês em custos</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"Em 45 dias já via o faturamento subir. Não precisei de mais vendedores — só organizei o processo com IA."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">JB</div>
+          <div>
+            <div class="testi-name">Juliana B.</div>
+            <div class="testi-role">CEO · E-commerce de moda, Rio de Janeiro</div>
+          </div>
+        </div>
+        <div class="testi-metric"><span>+faturamento</span> em 45 dias</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="como-funciona">
+  <div class="container" style="text-align:center;">
+    <span class="section-label">Como funciona</span>
+    <h2 class="section-title">Três passos. Sem virar a mesa<br>da sua empresa.</h2>
+    <p class="section-sub" style="margin:0 auto;">Sem curso para fazer. Sem ferramenta para aprender. Sem convencer o time a mudar tudo de uma vez.</p>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3 class="step-title">Diagnóstico da sua empresa</h3>
+        <p class="step-desc">Uma conversa de 30 minutos. Você conta como cada área funciona hoje — onde estão os gargalos, o que mais toma tempo do time. A gente mapeia onde a IA gera mais resultado no seu caso.</p>
+        <span class="step-tag">Gratuito · Sem compromisso</span>
+      </div>
+      <div class="step active">
+        <div class="step-num">02</div>
+        <h3 class="step-title">Implementação nos seus departamentos</h3>
+        <p class="step-desc">A gente configura tudo para o seu fluxo específico — não genérico. Seu time participa do treinamento. Em até 30 dias, os departamentos prioritários já estão rodando.</p>
+        <span class="step-tag">30 dias para resultado</span>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3 class="step-title">Suporte até funcionar de verdade</h3>
+        <p class="step-desc">Não somimos depois de entregar. Suporte ativo por 90 dias. Ajustamos conforme o uso real aparece. Você sai operando de forma autônoma — sem depender de nós no dia a dia.</p>
+        <span class="step-tag">90 dias de suporte ativo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEES -->
+<section class="guarantees" id="garantias">
+  <div class="container">
+    <span class="section-label" style="color:rgba(215,0,48,0.8);">Garantias</span>
+    <h2 class="section-title" style="color:var(--white);">Quatro garantias escritas<br>no contrato.</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,0.5);">Não é promessa de marketing. Está no contrato — com critérios objetivos e o que acontece se não cumprirmos.</p>
+    <div class="guarantees-grid">
+      <div class="guarantee-card">
+        <div class="guarantee-icon icon-box"><i data-lucide="calendar"></i></div>
+        <div class="guarantee-title">Resultado em 30 dias</div>
+        <p class="guarantee-desc">Se em 30 dias não tiver pelo menos 1 departamento funcionando com resultado mensurável (definido em contrato antes de começar), devolvemos o valor proporcional do primeiro mês.</p>
+        <span class="guarantee-badge">✓ No contrato</span>
+      </div>
+      <div class="guarantee-card">
+        <div class="guarantee-icon icon-box"><i data-lucide="shield"></i></div>
+        <div class="guarantee-title">A gente não some</div>
+        <p class="guarantee-desc">Suporte ativo incluso no contrato com SLA definido por plano. Não abandonamos no meio. Você tem acesso direto a quem implementou — não a um help desk genérico.</p>
+        <span class="guarantee-badge">✓ SLA contratual</span>
+      </div>
+      <div class="guarantee-card">
+        <div class="guarantee-icon icon-box"><i data-lucide="refresh-cw"></i></div>
+        <div class="guarantee-title">Troca de departamento em 60 dias</div>
+        <p class="guarantee-desc">Se nos primeiros 60 dias você perceber que escolheu o departamento errado para começar, trocamos sem custo adicional. Você escolhe o que faz mais sentido para o momento da empresa.</p>
+        <span class="guarantee-badge">✓ Sem custo extra</span>
+      </div>
+      <div class="guarantee-card">
+        <div class="guarantee-icon icon-box"><i data-lucide="bar-chart-2"></i></div>
+        <div class="guarantee-title">ROI em 90 dias</div>
+        <p class="guarantee-desc">Se em 90 dias você não conseguir identificar economia equivalente a pelo menos 1 mês do plano (calculamos juntos antes de começar), adicionamos 1 mês gratuito no contrato.</p>
+        <span class="guarantee-badge">✓ Extensão automática</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="planos">
+  <div class="container">
+    <span class="section-label" style="text-align:center; display:block;">Planos</span>
+    <h2 class="section-title" style="text-align:center;">Menos do que você paga<br>a um funcionário.</h2>
+    <p class="section-sub" style="text-align:center; margin:0 auto;">Assinatura anual com contrato de 12 meses. Pagamento mensal ou à vista com 15% de desconto.</p>
+
+    <div class="pricing-toggle">
+      <span class="toggle-label" id="lbl-monthly">Mensal</span>
+      <button class="toggle-switch annual" id="billing-toggle" onclick="toggleBilling()">
+        <div class="toggle-knob"></div>
+      </button>
+      <span class="toggle-label active" id="lbl-annual">Anual</span>
+      <span class="toggle-badge" id="annual-badge">15% OFF</span>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- ESSENCIAL -->
+      <div class="price-card">
+        <div class="price-plan">Plano</div>
+        <div class="price-name">Essencial</div>
+        <div class="price-anchor">Menos que um assistente CLT — que cobre uma função por R$4.125/mês</div>
+        <div class="price-amount-wrap">
+          <div class="price-amount"><sup>R$</sup><span id="price-ess">2.125</span></div>
+          <div class="price-period">/mês · contrato anual</div>
+          <div class="price-annual" id="annual-ess">ou R$2.500/mês mensal · R$25.500/ano à vista</div>
+        </div>
+        <ul class="price-features">
+          <li><span class="price-check">✓</span> Diagnóstico completo da empresa</li>
+          <li><span class="price-check">✓</span> Implementação em 2 departamentos</li>
+          <li><span class="price-check">✓</span> Ferramentas configuradas para seu fluxo</li>
+          <li><span class="price-check">✓</span> Treinamento do time operacional</li>
+          <li><span class="price-check">✓</span> Suporte via chat (horário comercial)</li>
+          <li><span class="price-check">✓</span> Suporte ativo por 60 dias</li>
+          <li><span class="price-check">✓</span> Relatório mensal de horas economizadas</li>
+          <li><span class="price-check">✓</span> 4 garantias contratuais</li>
+        </ul>
+        <a href="https://ktana.ai/lead" target="_blank" class="price-btn">Agendar diagnóstico</a>
+      </div>
+
+      <!-- PROFISSIONAL -->
+      <div class="price-card featured">
+        <div class="price-popular">Mais escolhido</div>
+        <div class="price-plan" style="color:rgba(255,255,255,0.4);">Plano</div>
+        <div class="price-name">Profissional</div>
+        <div class="price-anchor">Menos que um analista CLT — que cobre uma função por R$6.600/mês</div>
+        <div class="price-amount-wrap">
+          <div class="price-amount"><sup>R$</sup><span id="price-pro">2.975</span></div>
+          <div class="price-period">/mês · contrato anual</div>
+          <div class="price-annual" id="annual-pro">ou R$3.500/mês mensal · R$29.750/ano à vista</div>
+        </div>
+        <ul class="price-features">
+          <li><span class="price-check">✓</span> Tudo do Essencial</li>
+          <li><span class="price-check">✓</span> Implementação em 4 departamentos</li>
+          <li><span class="price-check">✓</span> Onboarding dedicado de 4 semanas</li>
+          <li><span class="price-check">✓</span> Suporte via WhatsApp direto</li>
+          <li><span class="price-check">✓</span> Suporte ativo por 90 dias</li>
+          <li><span class="price-check">✓</span> Reunião mensal de resultado</li>
+          <li><span class="price-check">✓</span> Acesso a cursos práticos do time</li>
+          <li><span class="price-check">✓</span> Dashboard de performance por área</li>
+        </ul>
+        <a href="https://ktana.ai/lead" target="_blank" class="price-btn">Agendar diagnóstico</a>
+      </div>
+
+      <!-- EMPRESARIAL -->
+      <div class="price-card">
+        <div class="price-plan">Plano</div>
+        <div class="price-name">Empresarial</div>
+        <div class="price-anchor">Menos que um coordenador CLT — que cobre uma função por R$9.900/mês</div>
+        <div class="price-amount-wrap">
+          <div class="price-amount"><sup>R$</sup><span id="price-emp">5.100</span></div>
+          <div class="price-period">/mês · contrato anual</div>
+          <div class="price-annual" id="annual-emp">ou R$6.000/mês mensal · R$51.000/ano à vista</div>
+        </div>
+        <ul class="price-features">
+          <li><span class="price-check">✓</span> Tudo do Profissional</li>
+          <li><span class="price-check">✓</span> Todos os 6 departamentos</li>
+          <li><span class="price-check">✓</span> Gerente de conta dedicado</li>
+          <li><span class="price-check">✓</span> Reuniões quinzenais de estratégia</li>
+          <li><span class="price-check">✓</span> Suporte prioritário 7 dias/semana</li>
+          <li><span class="price-check">✓</span> Customizações para processos únicos</li>
+          <li><span class="price-check">✓</span> Integrações com ERP e sistemas legados</li>
+          <li><span class="price-check">✓</span> SLA garantido em contrato</li>
+        </ul>
+        <a href="https://ktana.ai/lead" target="_blank" class="price-btn">Agendar diagnóstico</a>
+      </div>
+    </div>
+    <p class="pricing-note">Todos os planos incluem as 4 garantias contratuais. Diagnóstico sempre gratuito e sem compromisso de compra.<br>Contrato anual irrevogável de 12 meses. Rescisão antecipada sujeita a multa de 30% do saldo restante.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <span class="section-label" style="text-align:center; display:block;">Perguntas frequentes</span>
+    <h2 class="section-title" style="text-align:center;">Você não é o primeiro<br>a ter essas dúvidas.</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">R$2.500 por mês está caro para o tamanho da minha empresa.</span>
+          <div class="faq-icon">▼</div>
+        </button>
+        <div class="faq-a">Depende de como você está vendo. Um assistente CLT com salário de R$2.500 custa R$4.125/mês com encargos — e cobre uma função em horário comercial. Por R$2.500 você tem IA em 2 departamentos, 24h/dia, 7 dias/semana, sem encargo, sem 13º, sem risco trabalhista. Se sua empresa fatura R$2M/ano e você economizar 10 horas por semana de trabalho repetitivo — isso paga o investimento no primeiro mês.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Minha empresa tem 12 funcionários. É pequena demais?</span>
+          <div class="faq-icon">▼</div>
+        </button>
+        <div class="faq-a">Não. Com 12 funcionários você já tem processo repetitivo suficiente para o ROI ser positivo no primeiro mês. O tamanho ideal para começar não é grande — é qualquer empresa onde o dono ainda está no meio da operação quando não deveria estar. Empresas de 10 a 20 pessoas geralmente têm o retorno mais rápido, porque cada automação representa uma parcela maior da operação total.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Meu time não é técnico. Vai conseguir usar?</span>
+          <div class="faq-icon">▼</div>
+        </button>
+        <div class="faq-a">Não precisa ser técnico. Quem usa a IA é a IA — seu time usa o processo que a gente entrega configurado. O treinamento é feito com os casos reais do dia a dia da empresa, no fluxo que seu time já conhece. Se eles sabem usar WhatsApp, planilha e e-mail, conseguem operar o que a gente entrega. A complexidade fica do nosso lado durante a configuração.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Já tentei IA antes e não funcionou. Por que desta vez seria diferente?</span>
+          <div class="faq-icon">▼</div>
+        </button>
+        <div class="faq-a">A diferença está em quem implementa. A maioria das experiências ruins com IA vêm de plataformas que entregam acesso e vão embora — o cliente fica sozinho para descobrir como usar no seu processo específico. Aqui a gente configura para o seu caso, treina quem vai operar, e fica de suporte por 90 dias. Quando o uso real começa e aparecem os ajustes necessários, a gente está lá. É exatamente aí que as implementações que "não funcionaram" travaram.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">E se eu quiser cancelar antes do contrato acabar?</span>
+          <div class="faq-icon">▼</div>
+        </button>
+        <div class="faq-a">O contrato é anual e irrevogável por 12 meses — igual ao modelo de mercado de qualquer SaaS de resultado (incluindo nossos concorrentes). Rescisão antecipada está sujeita a multa de 30% do saldo restante. Isso garante que a gente tenha tempo real para implementar e gerar resultado — implementação boa não acontece em 2 semanas. As 4 garantias contratuais protegem você se a gente não cumprir o combinado.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Em quanto tempo vejo resultado real?</span>
+          <div class="faq-icon">▼</div>
+        </button>
+        <div class="faq-a">O primeiro departamento entra em operação em até 30 dias — e temos garantia contratual para isso. Nos primeiros 7 dias temos a conversa de diagnóstico e definimos os indicadores de resultado. Nas semanas 2 a 4 acontece a configuração, treinamento e go-live. A partir daí você começa a ver as horas sendo devolvidas. A maioria dos clientes identifica o ROI do primeiro mês até o 45º dia de operação.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="section-title">Sua empresa está deixando<br>resultado na mesa agora.</h2>
+    <p class="section-sub">73 horas por semana. Por menos do que um funcionário. Funcionando do jeito que o seu negócio já funciona.</p>
+    <div class="final-cta-btns">
+      <a href="https://ktana.ai/lead" target="_blank" class="btn-primary" style="font-size:1rem; padding:1rem 2.5rem;">Agendar diagnóstico gratuito</a>
+      <a href="#planos" class="btn-outline" style="font-size:1rem; padding:1rem 2.5rem;">Ver os planos</a>
+    </div>
+    <p class="final-trust">Diagnóstico de 30 minutos · Sem compromisso · Sem proposta genérica · Gratuito</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Empresa Inteligente</div>
+    <div class="footer-links">
+      <a href="#departamentos">Departamentos</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#planos">Planos</a>
+      <a href="#garantias">Garantias</a>
+      <a href="#">Política de Privacidade</a>
+      <a href="#">Termos de Uso</a>
+    </div>
+    <div class="footer-copy">© 2026 KTANA · CNPJ 57.813.462/0001-45</div>
+  </div>
+</footer>
+
+<script>
+  // Billing toggle
+  let isAnnual = true;
+  const prices = { ess: [2125, 2500], pro: [2975, 3500], emp: [5100, 6000] };
+
+  function toggleBilling() {
+    isAnnual = !isAnnual;
+    const btn = document.getElementById('billing-toggle');
+    btn.classList.toggle('annual', isAnnual);
+    document.getElementById('lbl-annual').classList.toggle('active', isAnnual);
+    document.getElementById('lbl-monthly').classList.toggle('active', !isAnnual);
+    document.getElementById('annual-badge').style.display = isAnnual ? 'inline' : 'none';
+    const idx = isAnnual ? 0 : 1;
+    document.getElementById('price-ess').textContent = prices.ess[idx].toLocaleString('pt-BR');
+    document.getElementById('price-pro').textContent = prices.pro[idx].toLocaleString('pt-BR');
+    document.getElementById('price-emp').textContent = prices.emp[idx].toLocaleString('pt-BR');
+    const period = isAnnual ? '/mês · contrato anual · 15% OFF' : '/mês · contrato anual';
+    document.querySelectorAll('.price-period').forEach(el => el.textContent = period);
+  }
+
+  // FAQ
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    item.classList.toggle('open');
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+
+  // Inicializar ícones Lucide
+  if (typeof lucide !== 'undefined') lucide.createIcons();
+
+  // Google Ads — Conversão em todos os CTAs de lead
+  function dispararConversao() {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17974237978/DfQ2CKrLip8cEJq25PpC'
+      });
+    }
+  }
+  document.querySelectorAll('a[href*="ktana.ai/lead"]').forEach(function(link) {
+    link.addEventListener('click', dispararConversao);
+  });
+</script>
+</body>
+</html>
