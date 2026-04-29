@@ -3,1098 +3,821 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Empresa Inteligente OS — Apresentação</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Dots&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Empresa Inteligente OS — Apresentação Comercial</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Dots&family=Space+Grotesk:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --red:#D70030;
-  --red-light:rgba(215,0,48,0.07);
-  --red-border:rgba(215,0,48,0.22);
-  --bg:#FFFFFF;
-  --bg2:#F8F8F6;
-  --bg3:#F0F0EE;
-  --text:#0A0A0A;
-  --text2:#4A4A4A;
-  --text3:#8A8A8A;
-  --border:rgba(0,0,0,0.08);
-  --shadow:0 8px 40px rgba(0,0,0,0.10);
-  --shadow-sm:0 2px 12px rgba(0,0,0,0.07);
-}
-html,body{width:100%;height:100%;overflow:hidden;background:#111;font-family:'Space Grotesk',sans-serif}
-.deck{position:relative;width:100vw;height:100vh}
-.slide{
-  position:absolute;inset:0;width:100%;height:100%;
-  display:flex;flex-direction:column;justify-content:center;align-items:center;
-  opacity:0;pointer-events:none;
-  transition:opacity 380ms ease-in-out;
-  overflow:hidden;
-}
+:root{--red:#D70030;--r2:rgba(215,0,48,0.08);--r3:rgba(215,0,48,0.04);--bg:#FFFFFF;--bg2:#F7F6F4;--bg3:#EEECEA;--text:#0A0A0A;--text2:#444;--text3:#888;--bord:rgba(0,0,0,0.07)}
+html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:'Space Grotesk',sans-serif}
+.wrapper{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+.deck{width:1440px;height:810px;position:relative;transform-origin:center center;overflow:hidden}
+.slide{position:absolute;inset:0;width:1440px;height:810px;opacity:0;pointer-events:none;transition:opacity 380ms ease;overflow:hidden}
 .slide.active{opacity:1;pointer-events:all}
-h1,h2{font-family:'Zen Dots',sans-serif;line-height:1.12}
-h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.2}
+/* NAV */
+.nb{position:fixed;top:50%;transform:translateY(-50%);z-index:300;background:rgba(255,255,255,0.85);border:1px solid rgba(0,0,0,0.1);width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 200ms;backdrop-filter:blur(8px)}
+.nb:hover{background:var(--red);border-color:var(--red)}
+.nb:hover svg{stroke:#fff}
+.nb svg{width:18px;height:18px;stroke:#333;fill:none;stroke-width:2;stroke-linecap:round}
+#bp{left:14px}#bn{right:14px}
+#ct{position:fixed;bottom:18px;right:18px;z-index:300;font-family:'Inter',sans-serif;font-size:11px;color:rgba(0,0,0,0.3);letter-spacing:0.08em}
+/* SHARED */
+.bc{position:absolute;top:26px;left:48px;z-index:20;font-family:'Inter',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(0,0,0,0.28);display:flex;align-items:center;gap:7px}
+.bc .sep{color:rgba(0,0,0,0.15)}.bc .cur{color:rgba(0,0,0,0.5)}
+.lg{position:absolute;top:22px;right:44px;z-index:20;display:flex;align-items:center;gap:7px}
+.lg-d{width:6px;height:6px;border-radius:50%;background:var(--red)}
+.lg-t{font-family:'Zen Dots',sans-serif;font-size:12px;color:rgba(0,0,0,0.55);letter-spacing:0.04em}
+.lbl{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:12px}
+.lbl::before{content:'';width:24px;height:1px;background:var(--red)}
 
-/* LABEL */
-.label{
-  font-family:'Inter',sans-serif;font-size:11px;font-weight:600;
-  letter-spacing:0.15em;text-transform:uppercase;color:var(--red);
-  display:inline-flex;align-items:center;gap:10px;margin-bottom:22px;
-}
-.label::before{content:'';display:block;width:24px;height:2px;background:var(--red);border-radius:2px;flex-shrink:0}
+/* ═══════════════════════════════════════════════
+   S1 — CAPA (SPLIT white/photo)
+   ═══════════════════════════════════════════════ */
+.s1{background:var(--bg)}
+.s1-r{position:absolute;right:0;top:0;width:52%;height:100%;background:url('../img/ktana-cyberpunk-hr.jpg') center top/cover no-repeat}
+.s1-fade{position:absolute;right:0;top:0;width:56%;height:100%;background:linear-gradient(to right,#fff 0%,rgba(255,255,255,0) 45%)}
+.s1-fade2{position:absolute;right:0;top:0;width:56%;height:100%;background:linear-gradient(to bottom,rgba(255,255,255,0.5) 0%,transparent 20%,transparent 78%,rgba(255,255,255,0.7) 100%)}
+.s1-accent{position:absolute;left:44%;top:0;width:2px;height:100%;background:linear-gradient(to bottom,transparent,var(--red) 25%,var(--red) 75%,transparent);opacity:0.4}
+.s1-l{position:absolute;left:0;top:0;width:50%;height:100%;display:flex;flex-direction:column;justify-content:center;padding:76px 80px}
+.s1-tag{display:inline-flex;align-items:center;gap:8px;background:var(--r2);border:1px solid rgba(215,0,48,0.2);border-radius:3px;padding:6px 14px;font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--red);margin-bottom:36px;width:fit-content}
+.s1-tag::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--red)}
+.s1 h1{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:68px;line-height:0.97;color:var(--text);margin-bottom:26px;letter-spacing:-0.03em;max-width:540px}
+.s1 h1 em{font-style:normal;color:var(--red)}
+.s1-sub{font-size:17px;color:var(--text3);line-height:1.65;max-width:430px;margin-bottom:52px}
+.s1-div{width:48px;height:2px;background:var(--red);margin-bottom:36px}
+.s1-cta{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;padding:15px 28px;border-radius:4px;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none}
+.s1-cta svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round}
+.s1-ft{position:absolute;bottom:26px;left:48px;right:44px;display:flex;justify-content:space-between;z-index:10;font-family:'Inter',sans-serif;font-size:11px;color:rgba(0,0,0,0.2);letter-spacing:0.06em}
+.s1-mark{position:absolute;right:5%;top:50%;transform:translateY(-52%);z-index:5;opacity:0.06;pointer-events:none}
 
-/* INNER */
-.slide-inner{width:100%;max-width:1160px;padding:0 52px}
+/* ═══════════════════════════════════════════════
+   S2 — SUMÁRIO
+   ═══════════════════════════════════════════════ */
+.s2{background:var(--bg)}
+.s2-in{position:absolute;inset:0;padding:80px 72px;display:flex;flex-direction:column;justify-content:center}
+.s2 .lbl{margin-bottom:52px}
+.s2 h2{font-weight:800;font-size:54px;color:var(--text);line-height:1.0;letter-spacing:-0.025em;margin-bottom:64px}
+.s2-list{display:flex;flex-direction:column}
+.s2-it{display:flex;align-items:center;gap:36px;padding:22px 0;border-bottom:1px solid var(--bord);cursor:default}
+.s2-it:last-child{border-bottom:none}
+.s2-n{font-family:'Zen Dots',sans-serif;font-size:13px;color:var(--red);min-width:30px}
+.s2-tx{font-size:22px;font-weight:700;color:rgba(0,0,0,0.6);letter-spacing:-0.01em;flex:1}
+.s2-arr{opacity:0;transition:opacity 180ms}.s2-arr svg{width:16px;height:16px;stroke:var(--red);fill:none;stroke-width:2;stroke-linecap:round}
+.s2-it:hover .s2-tx{color:var(--text)}.s2-it:hover .s2-arr{opacity:1}
 
-/* COUNTER */
-#counter{
-  position:fixed;top:18px;right:20px;z-index:200;
-  font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.06em;
-  color:var(--text3);background:rgba(255,255,255,0.90);
-  padding:5px 14px;border-radius:999px;border:1px solid var(--border);
-  backdrop-filter:blur(10px);
-}
-#counter.dark{color:rgba(255,255,255,0.55);background:rgba(0,0,0,0.45);border-color:rgba(255,255,255,0.12)}
-#counter.red{color:rgba(255,255,255,0.80);background:rgba(215,0,48,0.55);border-color:rgba(255,255,255,0.20)}
+/* ═══════════════════════════════════════════════
+   S3 — STAT MASSIVO
+   ═══════════════════════════════════════════════ */
+.s3{background:var(--bg2);display:flex;align-items:center;justify-content:center;flex-direction:column}
+.s3-bg{position:absolute;font-family:'Space Grotesk',sans-serif;font-weight:900;font-size:420px;color:rgba(0,0,0,0.025);line-height:1;white-space:nowrap;letter-spacing:-0.06em;top:50%;transform:translateY(-48%);pointer-events:none;z-index:0;user-select:none}
+.s3-c{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center}
+.s3-pre{font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.s3-num{font-family:'Space Grotesk',sans-serif;font-weight:900;font-size:250px;line-height:0.82;letter-spacing:-0.055em;color:var(--red)}
+.s3-u{font-size:80px;vertical-align:super;color:rgba(0,0,0,0.25);font-weight:800}
+.s3-ctx{font-size:22px;color:var(--text2);max-width:560px;margin-top:28px;line-height:1.5}
+.s3-ctx strong{color:var(--text)}
+.s3-src{font-family:'Inter',sans-serif;font-size:11px;color:var(--text3);margin-top:18px;letter-spacing:0.07em}
 
-/* DOTS */
-#dots{
-  position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:200;
-  display:flex;gap:5px;align-items:center;
-}
-.dot{
-  width:6px;height:6px;border-radius:50%;
-  background:rgba(0,0,0,0.18);border:none;cursor:pointer;
-  transition:all 240ms ease;padding:0;
-}
-.dot.active{width:18px;border-radius:3px;background:var(--red)}
-.dot.d-dark{background:rgba(255,255,255,0.22)}
-.dot.d-dark.active{background:var(--red)}
-.dot.d-red{background:rgba(255,255,255,0.30)}
-.dot.d-red.active{background:#fff}
+/* ═══════════════════════════════════════════════
+   S4 / S7 / S13 — SECTION INTRO
+   ═══════════════════════════════════════════════ */
+.si{position:relative;display:flex;align-items:flex-end;overflow:hidden}
+.si-ph{position:absolute;inset:0;background:center/cover no-repeat}
+.si-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.55) 40%,rgba(0,0,0,0.12) 100%)}
+.si-ov2{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.7) 0%,transparent 65%)}
+.si-ct{position:relative;z-index:10;padding:60px 72px}
+.si-n{font-family:'Zen Dots',sans-serif;font-size:11px;color:var(--red);letter-spacing:0.2em;display:block;margin-bottom:16px}
+.si-t{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:90px;color:#fff;line-height:0.93;letter-spacing:-0.038em;max-width:820px}
+.si-s{font-size:18px;color:rgba(255,255,255,0.5);margin-top:20px;max-width:520px;line-height:1.6}
+.si-line{width:60px;height:3px;background:var(--red);margin-top:26px}
 
-/* BUTTONS */
-.btn{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:15px 30px;border-radius:10px;border:none;cursor:pointer;
-  font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;
-  text-decoration:none;transition:all 200ms ease;letter-spacing:0.01em;
-}
-.btn-red{background:var(--red);color:#fff;box-shadow:0 4px 20px rgba(215,0,48,0.30)}
-.btn-red:hover{background:#b8002a;transform:translateY(-2px);box-shadow:0 8px 28px rgba(215,0,48,0.40)}
-.btn-white{background:#fff;color:var(--text);box-shadow:0 4px 20px rgba(0,0,0,0.12)}
-.btn-white:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,0,0,0.18)}
+/* ═══════════════════════════════════════════════
+   S5 — DOR DO EMPRESÁRIO
+   ═══════════════════════════════════════════════ */
+.s5{background:var(--bg)}
+.s5-in{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+.s5-l{padding:64px 60px 64px 72px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--bord)}
+.s5-r{padding:64px 72px 64px 60px;display:flex;flex-direction:column;justify-content:center;background:var(--bg2)}
+.s5 .lbl{margin-bottom:28px}
+.s5 h2{font-weight:800;font-size:40px;color:var(--text);line-height:1.05;margin-bottom:32px;letter-spacing:-0.02em}
+.p-list{display:flex;flex-direction:column}
+.p-it{display:flex;align-items:flex-start;gap:16px;padding:13px 0;border-bottom:1px solid var(--bord)}
+.p-it:last-child{border-bottom:none;padding-bottom:0}
+.p-n{font-family:'Zen Dots',sans-serif;font-size:11px;color:var(--red);min-width:22px;padding-top:3px}
+.p-t{font-size:15px;color:var(--text2);line-height:1.5}
+.p-t strong{color:var(--text);font-weight:700}
+.qm{font-family:'Space Grotesk',sans-serif;font-weight:900;font-size:88px;line-height:0.52;color:var(--red);opacity:0.2;display:block;margin-bottom:2px}
+.qt{font-size:26px;font-weight:700;color:var(--text);line-height:1.35;margin-bottom:28px;letter-spacing:-0.01em}
+.qt em{color:var(--red);font-style:normal}
+.qby{display:flex;align-items:center;gap:14px}
+.qav{width:44px;height:44px;border-radius:50%;background:var(--r2);border:2px solid rgba(215,0,48,0.2);display:flex;align-items:center;justify-content:center}
+.qwho{display:flex;flex-direction:column;gap:2px}
+.qname{font-size:14px;font-weight:700;color:var(--text)}
+.qrole{font-size:12px;color:var(--text3);font-family:'Inter',sans-serif}
+.qst{display:flex;gap:28px;margin-top:32px;padding-top:28px;border-top:1px solid var(--bord)}
+.qsv{font-weight:800;font-size:28px;color:var(--red);line-height:1;display:block;margin-bottom:4px}
+.qsl{font-size:12px;color:var(--text3);font-family:'Inter',sans-serif;line-height:1.35}
 
-/* BADGE */
-.badge-red{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:6px 14px;border-radius:999px;font-size:11px;font-weight:700;
-  font-family:'Inter',sans-serif;letter-spacing:0.09em;text-transform:uppercase;
-  background:var(--red-light);color:var(--red);border:1px solid var(--red-border);
-}
+/* ═══════════════════════════════════════════════
+   S6 — AUTHORITY (Jensen Huang style)
+   ═══════════════════════════════════════════════ */
+.s6{background:var(--bg)}
+.s6-in{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+.s6-ph{position:relative;overflow:hidden;background:url('../img/authority.jpg') center/cover no-repeat}
+.s6-ov{position:absolute;inset:0;background:linear-gradient(to right,transparent 40%,rgba(255,255,255,0.9) 100%)}
+.s6-ovb{position:absolute;inset:0;background:linear-gradient(to top,rgba(255,255,255,0.65) 0%,transparent 40%)}
+.s6-ra{position:absolute;right:0;top:0;width:3px;height:100%;background:linear-gradient(to bottom,transparent,var(--red) 30%,var(--red) 70%,transparent);opacity:0.5}
+.s6-cap{position:absolute;bottom:28px;left:32px;z-index:10}
+.s6-cap-name{font-size:22px;font-weight:800;color:#fff;margin-bottom:4px;text-shadow:0 2px 8px rgba(0,0,0,0.4)}
+.s6-cap-role{font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.7);letter-spacing:0.05em;text-shadow:0 1px 4px rgba(0,0,0,0.4)}
+.s6-tx{padding:80px 80px 80px 64px;display:flex;flex-direction:column;justify-content:center;background:var(--bg2)}
+.s6-src{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3);margin-bottom:32px}
+.s6-bq{font-family:'Space Grotesk',sans-serif;font-weight:900;font-size:80px;line-height:0.62;color:var(--red);opacity:0.18;display:block;margin-bottom:0}
+.s6-q{font-size:30px;font-weight:700;color:var(--text);line-height:1.35;margin-bottom:36px;letter-spacing:-0.015em}
+.s6-q em{color:var(--red);font-style:normal}
+.s6-by{padding-top:22px;border-top:1px solid var(--bord)}
+.s6-bname{font-size:18px;font-weight:700;color:var(--text);margin-bottom:4px}
+.s6-brole{font-size:13px;color:var(--text3);font-family:'Inter',sans-serif}
 
-/* CHECKLIST */
-.check-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:13px}
-.check-icon{
-  width:20px;height:20px;border-radius:50%;background:var(--red);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;
-}
-.check-icon svg{width:10px;height:10px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.x-icon{
-  width:20px;height:20px;border-radius:50%;background:rgba(215,0,48,0.10);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;
-}
-.x-icon svg{width:10px;height:10px;stroke:var(--red);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+/* ═══════════════════════════════════════════════
+   S8 — O QUE É EI OS
+   ═══════════════════════════════════════════════ */
+.s8{background:var(--bg2);display:flex;align-items:center;justify-content:center}
+.s8-in{max-width:980px;width:100%;padding:0 72px;text-align:center}
+.s8-lbl{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);margin-bottom:36px;display:flex;align-items:center;justify-content:center;gap:20px}
+.s8-lbl::before,.s8-lbl::after{content:'';width:48px;height:1px;background:var(--red);opacity:0.4}
+.s8 h2{font-weight:800;font-size:52px;color:var(--text);line-height:1.08;margin-bottom:28px;letter-spacing:-0.025em}
+.s8 h2 em{color:var(--red);font-style:normal}
+.s8-sub{font-size:19px;color:var(--text2);line-height:1.62;max-width:740px;margin:0 auto 44px}
+.pills{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.pill{padding:9px 18px;border:1px solid var(--bord);border-radius:3px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3)}
+.pill-r{background:var(--r2);border-color:rgba(215,0,48,0.2);color:var(--red)}
 
-/* ==========================================================
-   SLIDE 1 — COVER
-   ========================================================== */
-.s-cover{background:var(--bg);position:relative}
-.s-cover .cover-bg{
-  position:absolute;inset:0;
-  background:url('../img/leadership-team.jpg') center/cover no-repeat;
-}
-.s-cover .cover-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(105deg,rgba(255,255,255,0.97) 52%,rgba(255,255,255,0.72) 100%);
-}
-.s-cover .logo-bar{
-  position:absolute;top:28px;left:48px;z-index:10;
-  display:flex;align-items:center;gap:10px;
-}
-.s-cover .logo-name{font-family:'Zen Dots',sans-serif;font-size:15px;color:var(--text)}
-.s-cover .logo-tag{
-  background:var(--red);color:#fff;padding:3px 10px;border-radius:5px;
-  font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.12em;
-}
-.s-cover .cover-content{position:relative;z-index:2;width:100%;max-width:1160px;padding:0 52px}
-.s-cover h1{
-  font-size:clamp(2.6rem,4.8vw,4.2rem);color:var(--text);
-  max-width:680px;margin-bottom:18px;line-height:1.08;
-}
-.s-cover .sub{
-  font-size:clamp(1rem,1.7vw,1.18rem);color:var(--text2);
-  max-width:520px;margin-bottom:36px;line-height:1.65;
-}
-.s-cover .cover-badge{margin-bottom:28px}
-.s-cover .stats-row{
-  display:flex;gap:0;margin-top:52px;padding-top:32px;
-  border-top:1px solid var(--border);
-}
-.s-cover .stat-item{
-  display:flex;flex-direction:column;gap:5px;
-  padding-right:40px;margin-right:40px;
-  border-right:1px solid var(--border);
-}
-.s-cover .stat-item:last-child{border-right:none;padding-right:0;margin-right:0}
-.s-cover .stat-val{
-  font-family:'Zen Dots',sans-serif;font-size:clamp(1.4rem,2.2vw,1.9rem);
-  color:var(--red);line-height:1;
-}
-.s-cover .stat-desc{font-size:12px;color:var(--text3);font-family:'Inter',sans-serif;margin-top:2px}
-.s-cover .url-footer{
-  position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:10;
-  font-family:'Inter',sans-serif;font-size:11px;color:var(--text3);letter-spacing:0.08em;
-}
+/* ═══════════════════════════════════════════════
+   S9 — COMO FUNCIONA
+   ═══════════════════════════════════════════════ */
+.s9{background:var(--bg)}
+.s9-in{position:absolute;inset:0;padding:56px 72px;display:flex;flex-direction:column;justify-content:center}
+.s9 .lbl{margin-bottom:14px}
+.s9 h2{font-weight:800;font-size:44px;color:var(--text);line-height:1.0;margin-bottom:52px;letter-spacing:-0.025em}
+.steps{display:grid;grid-template-columns:1fr 48px 1fr 48px 1fr;align-items:center}
+.step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 20px}
+.sn{width:60px;height:60px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-family:'Zen Dots',sans-serif;font-size:18px;color:#fff;margin-bottom:20px;box-shadow:0 4px 20px rgba(215,0,48,0.3)}
+.st{font-weight:700;font-size:20px;color:var(--text);margin-bottom:10px;line-height:1.2}
+.sd{font-size:14px;color:var(--text2);line-height:1.55}
+.stags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:14px}
+.stag{padding:3px 10px;background:var(--bg3);border:1px solid var(--bord);border-radius:3px;font-size:11px;color:var(--text3);font-family:'Inter',sans-serif}
+.sarr{display:flex;justify-content:center;align-items:center;padding-bottom:48px}
+.sarr svg{width:28px;height:28px;stroke:var(--red);fill:none;stroke-width:1.5;opacity:0.5}
 
-/* ==========================================================
-   SLIDE 2 — MOMENTO
-   ========================================================== */
-.s-moment{background:var(--bg);position:relative;overflow:hidden}
-.s-moment::before{
-  content:'';position:absolute;top:-80px;right:-80px;
-  width:320px;height:320px;border-radius:50%;
-  border:1.5px solid var(--red-border);opacity:0.25;pointer-events:none;
-}
-.s-moment::after{
-  content:'';position:absolute;bottom:-50px;left:-50px;
-  width:180px;height:180px;transform:rotate(45deg);
-  border:1.5px solid var(--red-border);opacity:0.15;pointer-events:none;
-}
-.s-moment h2{font-size:clamp(1.5rem,2.6vw,2.2rem);color:var(--text);max-width:760px;margin-bottom:6px;line-height:1.18}
-.s-moment .moment-sub{font-size:15px;color:var(--text3);margin-bottom:36px;font-family:'Inter',sans-serif}
-.s-moment .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:28px}
-.s-moment .stat-card{
-  background:var(--bg2);border:1px solid var(--border);border-radius:18px;
-  padding:30px 26px;border-top:3px solid var(--red);
-}
-.s-moment .stat-card .stat-big{
-  font-family:'Zen Dots',sans-serif;color:var(--red);
-  font-size:clamp(2.2rem,4vw,3.2rem);line-height:1;margin-bottom:12px;display:block;
-}
-.s-moment .stat-card .stat-text{font-size:14px;color:var(--text2);line-height:1.55;margin-bottom:8px}
-.s-moment .stat-card .stat-src{font-size:11px;color:var(--text3);font-family:'Inter',sans-serif;letter-spacing:0.04em}
-.s-moment .closing{
-  padding:18px 24px;background:var(--red-light);
-  border-left:3px solid var(--red);border-radius:0 12px 12px 0;
-  font-size:15px;color:var(--text2);line-height:1.65;font-style:italic;
-}
+/* ═══════════════════════════════════════════════
+   S10 — SEGMENTOS
+   ═══════════════════════════════════════════════ */
+.s10{background:var(--bg2)}
+.s10-in{position:absolute;inset:0;padding:44px 72px;display:flex;flex-direction:column}
+.s10-hd{margin-bottom:24px;flex-shrink:0}
+.s10 .lbl{margin-bottom:10px}
+.s10 h2{font-weight:800;font-size:36px;color:var(--text);line-height:1.0;letter-spacing:-0.025em}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;flex:1}
+.si2{background:var(--bg);border:1px solid var(--bord);padding:22px 22px 18px;display:flex;flex-direction:column;transition:background 180ms}
+.si2:hover{background:var(--bg3)}
+.si2-ic{width:56px;height:56px;margin-bottom:14px;flex-shrink:0}
+.si2-ic svg{width:56px;height:56px}
+.si2-nm{font-family:'Zen Dots',sans-serif;font-size:12.5px;color:var(--text);margin-bottom:7px;line-height:1.3}
+.si2-d{font-size:12px;color:var(--text3);line-height:1.45;margin-bottom:11px;flex:1}
+.si2-r{font-size:12px;font-weight:700;color:var(--red);line-height:1.35;display:flex;align-items:flex-start;gap:6px}
+.si2-r::before{content:'→';flex-shrink:0}
 
-/* ==========================================================
-   SLIDE 3 — DOIS TIPOS
-   ========================================================== */
-.s-two{background:var(--bg);position:relative}
-.s-two .two-wrap{display:flex;width:100%;height:100%;align-items:stretch;max-width:1400px;margin:0 auto}
-.s-two .panel{flex:1;padding:64px 52px;display:flex;flex-direction:column;justify-content:center}
-.s-two .panel-left{background:var(--bg2);border-right:3px solid var(--red)}
-.s-two .panel-right{background:#0A0A0A}
-.s-two .panel-label-light{
-  font-family:'Inter',sans-serif;font-size:11px;font-weight:600;
-  letter-spacing:0.14em;text-transform:uppercase;color:var(--text3);
-  display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;
-}
-.s-two .panel-label-light::before{content:'';display:block;width:20px;height:2px;background:var(--text3);border-radius:2px}
-.s-two .panel-label-red{
-  font-family:'Inter',sans-serif;font-size:11px;font-weight:600;
-  letter-spacing:0.14em;text-transform:uppercase;color:var(--red);
-  display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;
-}
-.s-two .panel-label-red::before{content:'';display:block;width:20px;height:2px;background:var(--red);border-radius:2px}
-.s-two .panel-left h3{font-size:clamp(1.3rem,2vw,1.75rem);color:var(--text);margin-bottom:30px}
-.s-two .panel-right h3{font-size:clamp(1.3rem,2vw,1.75rem);color:#fff;margin-bottom:30px}
-.s-two .list-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:15px;font-size:15px;line-height:1.5}
-.s-two .panel-left .list-item{color:var(--text2)}
-.s-two .panel-right .list-item{color:rgba(255,255,255,0.72)}
-.s-two .panel-icon{margin-bottom:20px}
+/* ═══════════════════════════════════════════════
+   S11 — TRIPLE STAT
+   ═══════════════════════════════════════════════ */
+.s11{background:var(--text)}
+.s11-hd{position:absolute;top:44px;left:72px;z-index:10}
+.s11-hd .lbl{color:var(--red)}
+.s11-hd .lbl::before{background:var(--red)}
+.s11-in{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr 1fr}
+.ri{padding:56px 48px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,0.07)}
+.ri:last-child{border-right:none}
+.rn{font-family:'Space Grotesk',sans-serif;font-weight:900;font-size:110px;line-height:0.88;color:var(--red);margin-bottom:20px;letter-spacing:-0.04em}
+.ru{font-size:58px}
+.rl{font-weight:700;font-size:20px;color:#fff;margin-bottom:12px;line-height:1.3;max-width:280px}
+.rs{font-size:14px;color:rgba(255,255,255,0.35);line-height:1.5;max-width:260px;font-family:'Inter',sans-serif}
+.rsrc{font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,0.22);margin-top:18px;letter-spacing:0.06em}
 
-/* ==========================================================
-   SLIDE 4 — NICHOS (PREMIUM)
-   ========================================================== */
-.s-nichos{background:var(--bg)}
-.s-nichos h2{font-size:clamp(1.5rem,2.6vw,2.2rem);color:var(--text);margin-bottom:6px;max-width:720px}
-.s-nichos .nichos-sub{font-size:13px;color:var(--text3);margin-bottom:28px;font-family:'Inter',sans-serif;letter-spacing:0.04em}
-.s-nichos .nichos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:100%}
-.s-nichos .nicho-card{
-  background:var(--bg2);border:1px solid var(--border);border-radius:18px;
-  padding:26px 24px;transition:all 260ms ease;cursor:default;position:relative;overflow:hidden;
-}
-.s-nichos .nicho-card::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
-  background:var(--red);transform:scaleX(0);transform-origin:left;
-  transition:transform 260ms ease;border-radius:0 0 18px 18px;
-}
-.s-nichos .nicho-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--red-border)}
-.s-nichos .nicho-card:hover::after{transform:scaleX(1)}
-.s-nichos .nicho-icon{
-  width:44px;height:44px;border-radius:12px;
-  background:var(--red-light);border:1px solid var(--red-border);
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:14px;
-}
-.s-nichos .nicho-icon svg{width:22px;height:22px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.s-nichos .nicho-name{font-family:'Zen Dots',sans-serif;font-size:12.5px;color:var(--text);margin-bottom:10px;line-height:1.3}
-.s-nichos .nicho-dor-label{font-family:'Inter',sans-serif;font-size:10px;font-weight:600;color:var(--text3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:3px}
-.s-nichos .nicho-dor{font-size:13px;color:var(--text3);margin-bottom:12px;line-height:1.45}
-.s-nichos .nicho-sep{width:100%;height:1px;background:var(--border);margin-bottom:12px}
-.s-nichos .nicho-result-label{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;color:var(--red);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:3px}
-.s-nichos .nicho-result{font-size:13px;font-weight:700;color:var(--red);line-height:1.4}
+/* ═══════════════════════════════════════════════
+   S12 — SPRINT DE IMPLEMENTAÇÃO
+   ═══════════════════════════════════════════════ */
+.s12{background:var(--bg)}
+.s12-in{position:absolute;inset:0;padding:44px 72px;display:flex;flex-direction:column}
+.s12-hd{margin-bottom:26px;flex-shrink:0}
+.s12 .lbl{margin-bottom:10px}
+.s12 h2{font-weight:800;font-size:40px;color:var(--text);letter-spacing:-0.025em;line-height:1.05}
+.s12-sub{font-size:15px;color:var(--text3);margin-top:8px;font-family:'Inter',sans-serif}
+.sprint-track{flex:1;display:flex;align-items:stretch;gap:0;position:relative}
+.sprint-connector{display:flex;align-items:center;justify-content:center;padding:0 8px;flex-shrink:0;padding-bottom:50px}
+.sprint-connector svg{width:22px;height:22px;stroke:var(--red);fill:none;stroke-width:2;opacity:0.4}
+.sp{flex:1;background:var(--bg);border:1px solid var(--bord);border-top:3px solid var(--bord);padding:24px 20px;display:flex;flex-direction:column;position:relative}
+.sp.sp-last{border-top-color:var(--red);background:var(--r2)}
+.sp-days{font-family:'Zen Dots',sans-serif;font-size:10px;color:var(--text3);letter-spacing:0.15em;margin-bottom:11px;display:flex;align-items:center;gap:8px}
+.sp-days::before{content:'';width:14px;height:1px;background:var(--bord)}
+.sp.sp-last .sp-days{color:var(--red)}
+.sp.sp-last .sp-days::before{background:var(--red)}
+.sp-bg-n{font-family:'Space Grotesk',sans-serif;font-weight:900;font-size:52px;line-height:1;color:rgba(0,0,0,0.04);position:absolute;top:12px;right:14px;letter-spacing:-0.04em}
+.sp-title{font-weight:800;font-size:19px;color:var(--text);margin-bottom:13px;letter-spacing:-0.01em}
+.sp-items{display:flex;flex-direction:column;gap:9px;flex:1}
+.sp-item{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;color:var(--text2);line-height:1.45}
+.sp-item::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;opacity:0.7}
+.sp.sp-last .sp-item{color:var(--text)}
+.sp.sp-last .sp-item::before{opacity:1}
+.sprint-ft{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:13px;border-top:1px solid var(--bord);flex-shrink:0}
+.sprint-badges{display:flex;gap:10px}
+.sprint-badge{display:inline-flex;align-items:center;gap:7px;background:var(--r2);border:1px solid rgba(215,0,48,0.15);border-radius:3px;padding:7px 13px}
+.sprint-badge svg{width:14px;height:14px;stroke:var(--red);fill:none;stroke-width:2;flex-shrink:0}
+.sprint-badge span{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:var(--red);letter-spacing:0.08em;white-space:nowrap}
+.sprint-ft-r{font-family:'Inter',sans-serif;font-size:12px;color:var(--text3);letter-spacing:0.04em;white-space:nowrap}
 
-/* ==========================================================
-   SLIDE 5 — DORES vs RESULTADOS (TRANSFORMAÇÃO)
-   ========================================================== */
-.s-dores{background:var(--bg)}
-.s-dores h2{font-size:clamp(1.5rem,2.6vw,2.2rem);color:var(--text);margin-bottom:6px}
-.s-dores .dores-sub{font-size:13px;color:var(--text3);margin-bottom:24px;font-family:'Inter',sans-serif}
-.s-dores .transform-table{width:100%;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--border)}
-.s-dores .transform-header{
-  display:grid;grid-template-columns:160px 1fr 48px 1fr;
-  background:var(--bg3);padding:12px 24px;border-bottom:2px solid var(--border);
-}
-.s-dores .transform-header span{
-  font-family:'Inter',sans-serif;font-size:10px;font-weight:700;
-  letter-spacing:0.12em;text-transform:uppercase;
-}
-.s-dores .col-before{color:var(--text3)}
-.s-dores .col-arrow{text-align:center}
-.s-dores .col-after{color:var(--red)}
-.s-dores .col-sector{color:var(--text3)}
-.s-dores .transform-row{
-  display:grid;grid-template-columns:160px 1fr 48px 1fr;
-  padding:14px 24px;align-items:center;border-bottom:1px solid var(--border);
-  transition:background 160ms ease;
-}
-.s-dores .transform-row:last-child{border-bottom:none}
-.s-dores .transform-row:nth-child(even){background:var(--bg2)}
-.s-dores .transform-row:nth-child(odd){background:#fff}
-.s-dores .transform-row:hover{background:var(--red-light)}
-.s-dores .sector-cell{display:flex;align-items:center;gap:10px}
-.s-dores .sector-icon{
-  width:28px;height:28px;border-radius:8px;
-  background:var(--red-light);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
-.s-dores .sector-icon svg{width:13px;height:13px;stroke:var(--red);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.s-dores .sector-name{font-size:13px;font-weight:600;color:var(--text);line-height:1.2}
-.s-dores .dor-cell{font-size:13px;color:var(--text3);line-height:1.4;padding-right:16px}
-.s-dores .arrow-cell{text-align:center}
-.s-dores .arrow-cell svg{width:16px;height:16px;stroke:var(--red);fill:none;stroke-width:2;opacity:0.6}
-.s-dores .result-cell{font-size:13px;font-weight:700;color:var(--red);line-height:1.4}
+/* ═══════════════════════════════════════════════
+   S14 — CTA (vermelho = mesmo que dark)
+   ═══════════════════════════════════════════════ */
+.s14{background:var(--red);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.s14-bg{position:absolute;font-family:'Space Grotesk',sans-serif;font-weight:900;font-size:280px;color:rgba(0,0,0,0.1);line-height:1;white-space:nowrap;letter-spacing:-0.05em;top:50%;transform:translateY(-40%);left:-20px;text-transform:uppercase;pointer-events:none;user-select:none}
+.s14-c{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding:60px}
+.s14-p{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.52);margin-bottom:22px}
+.s14 h2{font-weight:900;font-size:74px;color:#fff;line-height:0.97;letter-spacing:-0.03em;margin-bottom:20px;max-width:860px}
+.s14-sub{font-size:20px;color:rgba(255,255,255,0.62);margin-bottom:44px;max-width:540px;line-height:1.55}
+.s14-btn{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--red);padding:18px 38px;border-radius:4px;font-family:'Inter',sans-serif;font-size:14px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none}
+.s14-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round}
+.s14-url{margin-top:18px;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.42);letter-spacing:0.06em}
 
-/* ==========================================================
-   SLIDE 6 — QUOTE (DARK UNICO)
-   ========================================================== */
-.s-quote{background:#0A0A0A;position:relative;overflow:hidden}
-.s-quote .quote-bg-mark{
-  position:absolute;top:20px;left:32px;
-  font-family:'Georgia',serif;font-size:300px;line-height:0.8;
-  color:var(--red);opacity:0.06;pointer-events:none;user-select:none;
-}
-.s-quote blockquote{
-  font-size:clamp(1.15rem,2.1vw,1.6rem);color:#fff;
-  line-height:1.72;max-width:820px;
-  font-family:'Space Grotesk',sans-serif;font-weight:400;
-  margin-bottom:36px;position:relative;z-index:2;
-}
-.s-quote blockquote em{font-style:italic;color:rgba(255,255,255,0.72)}
-.s-quote .attribution{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
-.s-quote .attribution-sub{font-size:13px;color:rgba(255,255,255,0.36);margin-bottom:28px}
-.s-quote .anth-badge{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:10px 20px;border-radius:10px;
-  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.10);
-}
-.s-quote .anth-badge span{
-  font-family:'Inter',sans-serif;font-size:12px;font-weight:600;
-  color:rgba(255,255,255,0.42);letter-spacing:0.08em;
-}
+/* ═══════════════════════════════════════════════
+   S15 — CONTRACAPA
+   ═══════════════════════════════════════════════ */
+.s15{background:var(--bg2);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.s15-ph{position:absolute;inset:0;background:url('../img/ai-future.jpg') center/cover no-repeat;opacity:0.06}
+.s15-c{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center}
+.s15-lg{font-family:'Zen Dots',sans-serif;font-size:28px;color:var(--text);letter-spacing:0.04em;margin-bottom:14px}
+.s15-lg span{color:var(--red)}
+.s15-st{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text3);margin-bottom:44px}
+.s15-ln{width:60px;height:2px;background:var(--red);margin:0 auto 36px}
+.s15-url{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:var(--text2);margin-bottom:6px}
+.s15-url span{color:var(--red)}
+.s15-co{font-family:'Inter',sans-serif;font-size:12px;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;margin-top:12px}
 
-/* ==========================================================
-   SLIDE 7 — PRODUTO
-   ========================================================== */
-.s-product{background:var(--bg)}
-.s-product h2{font-size:clamp(1.5rem,2.6vw,2.2rem);color:var(--text);margin-bottom:10px}
-.s-product .prod-sub{font-size:15px;color:var(--text2);max-width:680px;margin-bottom:34px;line-height:1.65}
-.s-product .pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.s-product .pillar{
-  background:var(--bg2);border:1px solid var(--border);border-radius:18px;
-  padding:30px;border-top:3px solid var(--red);
-}
-.s-product .pillar-num{
-  font-family:'Inter',sans-serif;font-size:10px;font-weight:700;
-  color:var(--red);margin-bottom:12px;letter-spacing:0.14em;text-transform:uppercase;
-  display:flex;align-items:center;gap:8px;
-}
-.s-product .pillar-num::before{content:'';width:16px;height:2px;background:var(--red);border-radius:2px;display:block}
-.s-product .pillar h4{font-size:17px;color:var(--text);margin-bottom:9px}
-.s-product .pillar p{font-size:14px;color:var(--text2);line-height:1.58}
+/* ═══════════════════════════════════════════════
+   KTANA IDENTITY — Grafismos watermark
+   ═══════════════════════════════════════════════ */
+.ktana-wm{position:absolute;pointer-events:none;z-index:0;user-select:none}
+.ktana-wm-br{bottom:-40px;right:-40px;width:520px;height:520px;opacity:0.03;transform:rotate(12deg)}
+.ktana-wm-tr{top:-60px;right:-30px;width:460px;height:460px;opacity:0.025;transform:rotate(-8deg)}
+/* Samurai watermark no CTA */
+.s14-samurai{position:absolute;right:0;bottom:0;height:100%;width:auto;pointer-events:none;z-index:1;opacity:0.1;object-fit:contain;object-position:bottom right}
+/* S6 authority — grafismo decorativo */
+.s6-grafismo{position:absolute;left:-80px;bottom:-80px;width:480px;height:480px;opacity:0.03;pointer-events:none;z-index:0;transform:rotate(-15deg)}
 
-/* ==========================================================
-   SLIDE 8 — METODOLOGIA
-   ========================================================== */
-.s-steps{background:var(--bg)}
-.s-steps h2{font-size:clamp(1.5rem,2.6vw,2.2rem);color:var(--text);margin-bottom:34px}
-.s-steps .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.s-steps .step{
-  background:var(--bg2);border:1px solid var(--border);border-radius:18px;
-  padding:24px;position:relative;overflow:hidden;
-}
-.s-steps .step::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--red) 0%,transparent 100%);
-}
-.s-steps .step-num{
-  width:32px;height:32px;border-radius:50%;background:var(--red);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:#fff;
-  margin-bottom:12px;
-}
-.s-steps .step-period{font-family:'Inter',sans-serif;font-size:10px;font-weight:600;color:var(--text3);letter-spacing:0.10em;text-transform:uppercase;margin-bottom:6px}
-.s-steps .step h4{font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px}
-.s-steps .step p{font-size:13px;color:var(--text2);line-height:1.52}
+/* ═══════════════════════════════════════════════
+   SF — FOUNDER / TIME (white variant)
+   ═══════════════════════════════════════════════ */
+.sf{background:var(--bg)}
+.sf-in{position:absolute;inset:0;display:grid;grid-template-columns:55% 45%}
+.sf-ph{position:relative;overflow:hidden;background:url('../img/leadership-team.jpg') center top/cover no-repeat}
+.sf-ov{position:absolute;inset:0;background:linear-gradient(to right,transparent 30%,rgba(247,246,244,0.95) 100%)}
+.sf-ovb{position:absolute;inset:0;background:linear-gradient(to top,rgba(247,246,244,0.5) 0%,transparent 40%)}
+.sf-ra{position:absolute;right:0;top:0;width:3px;height:100%;background:linear-gradient(to bottom,transparent,var(--red) 30%,var(--red) 70%,transparent);opacity:0.5}
+.sf-cap{position:absolute;bottom:32px;left:32px;z-index:10}
+.sf-cap-tag{display:inline-flex;align-items:center;gap:8px;background:var(--r2);border:1px solid rgba(215,0,48,0.2);border-radius:3px;padding:6px 14px;font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--red)}
+.sf-tx{padding:60px 64px 60px 52px;display:flex;flex-direction:column;justify-content:center;background:var(--bg2)}
+.sf-pre{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3);margin-bottom:24px}
+.sf h2{font-weight:800;font-size:34px;color:var(--text);line-height:1.2;margin-bottom:28px;letter-spacing:-0.02em}
+.sf h2 em{color:var(--red);font-style:normal}
+.sf-creds{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
+.sf-cred{display:flex;align-items:flex-start;gap:14px}
+.sf-cd{width:32px;height:32px;border-radius:4px;background:var(--r2);border:1px solid rgba(215,0,48,0.15);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.sf-cd svg{width:15px;height:15px;stroke:var(--red);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sf-ct{font-size:13px;color:var(--text2);line-height:1.55;padding-top:5px}
+.sf-ct strong{color:var(--text);font-weight:700}
+.sf-stats{display:flex;gap:28px;padding-top:22px;border-top:1px solid var(--bord)}
+.sf-sv{display:flex;flex-direction:column;gap:3px}
+.sf-sn{font-family:'Space Grotesk',sans-serif;font-weight:900;font-size:28px;color:var(--red);line-height:1;letter-spacing:-0.03em}
+.sf-sl{font-family:'Inter',sans-serif;font-size:10px;color:var(--text3);line-height:1.4}
 
-/* ==========================================================
-   SLIDE 9 — TIME
-   ========================================================== */
-.s-team{background:var(--bg)}
-.s-team h2{font-size:clamp(1.5rem,2.6vw,2.2rem);color:var(--text);margin-bottom:34px}
-.s-team .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:24px}
-.s-team .team-card{background:var(--bg2);border:1px solid var(--border);border-radius:18px;padding:36px 28px;text-align:center}
-.s-team .team-avatar{
-  width:72px;height:72px;border-radius:50%;background:var(--red-light);
-  border:2px solid var(--red-border);margin:0 auto 16px;
-  display:flex;align-items:center;justify-content:center;
-}
-.s-team .team-avatar svg{width:32px;height:32px;stroke:var(--red);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.s-team .team-name{font-family:'Zen Dots',sans-serif;font-size:18px;color:var(--text);margin-bottom:4px}
-.s-team .team-role{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:0.10em;margin-bottom:14px}
-.s-team .team-desc{font-size:14px;color:var(--text2);line-height:1.58}
-.s-team .team-note{text-align:center;font-size:14px;color:var(--text2);padding:18px 28px;background:var(--bg2);border-radius:12px;border:1px solid var(--border);font-style:italic}
+/* ═══════════════════════════════════════════════
+   SUI — PLATAFORMA UI / DASHBOARD (white variant)
+   ═══════════════════════════════════════════════ */
+.sui{background:var(--bg2)}
+.sui-in{position:absolute;inset:0;padding:44px 64px 40px;display:flex;flex-direction:column}
+.sui-hd{flex-shrink:0;margin-bottom:20px}
+.sui .lbl{margin-bottom:8px}
+.sui h2{font-weight:800;font-size:38px;color:var(--text);line-height:1.05;letter-spacing:-0.025em}
+.sui-mock{flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto 1fr;gap:10px;min-height:0}
+.sui-stat{background:var(--bg);border:1px solid var(--bord);border-radius:6px;padding:16px 20px;display:flex;flex-direction:column;gap:4px;position:relative}
+.sui-stat-v{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:32px;color:var(--red);letter-spacing:-0.03em;line-height:1}
+.sui-stat-l{font-family:'Inter',sans-serif;font-size:11px;color:var(--text3);letter-spacing:0.04em}
+.sui-stat-badge{position:absolute;top:14px;right:16px;display:flex;align-items:center;gap:5px;font-family:'Inter',sans-serif;font-size:10px;font-weight:700;color:#16a34a;letter-spacing:0.06em}
+.sui-stat-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:#16a34a}
+.sui-panel{background:var(--bg);border:1px solid var(--bord);border-radius:6px;grid-column:1/3;padding:18px;display:flex;flex-direction:column;gap:10px;overflow:hidden;min-height:0}
+.sui-panel-hd{display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--bord);flex-shrink:0}
+.sui-phd-dot{width:7px;height:7px;border-radius:50%;background:#16a34a}
+.sui-phd-nm{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:var(--text2);letter-spacing:0.08em;text-transform:uppercase}
+.sui-phd-ag{margin-left:auto;font-family:'Zen Dots',sans-serif;font-size:9px;color:var(--red);opacity:0.7}
+.sui-msg{display:flex;gap:8px;flex-shrink:0}
+.sui-av{width:24px;height:24px;border-radius:50%;background:var(--bg3);border:1px solid var(--bord);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.sui-av svg{width:12px;height:12px;stroke:var(--text3);fill:none;stroke-width:2}
+.sui-av.ai{background:var(--r2);border-color:rgba(215,0,48,0.2)}
+.sui-av.ai svg{stroke:var(--red)}
+.sui-bub{background:var(--bg3);border:1px solid var(--bord);border-radius:4px;padding:7px 11px;font-size:11.5px;color:var(--text2);line-height:1.5;max-width:400px}
+.sui-bub.user{background:var(--r2);border-color:rgba(215,0,48,0.15);color:var(--text);margin-left:auto;max-width:260px}
+.sui-agents{background:var(--bg);border:1px solid var(--bord);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:8px;overflow:hidden;min-height:0}
+.sui-ag-hd{font-family:'Inter',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3);margin-bottom:2px;flex-shrink:0}
+.sui-ag-item{display:flex;align-items:center;gap:9px;padding:7px 10px;background:var(--bg2);border:1px solid var(--bord);border-radius:4px;flex-shrink:0}
+.sui-ag-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.sui-ag-dot.on{background:#16a34a}
+.sui-ag-dot.busy{background:#d97706}
+.sui-ag-name{font-size:11px;font-weight:600;color:var(--text2);flex:1}
+.sui-ag-cnt{font-family:'Zen Dots',sans-serif;font-size:9px;color:var(--red);opacity:0.8}
 
-/* ==========================================================
-   SLIDE 10 — PLATAFORMA
-   ========================================================== */
-.s-platform{background:var(--bg)}
-.s-platform h2{font-size:clamp(1.5rem,2.6vw,2.2rem);color:var(--text);margin-bottom:8px}
-.s-platform .plat-sub{font-size:15px;color:var(--text2);max-width:620px;margin-bottom:28px;line-height:1.65}
-.s-platform .modules{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:26px}
-.s-platform .module{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:12px;transition:all 200ms ease}
-.s-platform .module:hover{border-color:var(--red-border);box-shadow:var(--shadow-sm)}
-.s-platform .module-dot{width:8px;height:8px;border-radius:50%;background:var(--red);flex-shrink:0}
-.s-platform .module-name{font-size:14px;font-weight:600;color:var(--text)}
-.s-platform .plat-value{
-  display:inline-flex;align-items:center;gap:10px;
-  background:var(--red);color:#fff;padding:13px 26px;border-radius:10px;
-  font-family:'Zen Dots',sans-serif;font-size:12px;margin-bottom:12px;
-  box-shadow:0 4px 18px rgba(215,0,48,0.28);
-}
-.s-platform .plat-note{font-size:13px;color:var(--text3);font-style:italic}
-
-/* ==========================================================
-   SLIDE 11 — RESULTADOS
-   ========================================================== */
-.s-results{background:var(--bg)}
-.s-results h2{font-size:clamp(1.5rem,2.6vw,2.2rem);color:var(--text);margin-bottom:34px}
-.s-results .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.s-results .metric{background:var(--bg2);border:1px solid var(--border);border-radius:18px;padding:28px;text-align:center}
-.s-results .metric .metric-num{font-family:'Zen Dots',sans-serif;color:var(--red);font-size:clamp(2rem,3.5vw,2.8rem);line-height:1;margin-bottom:10px;display:block}
-.s-results .metric p{font-size:14px;color:var(--text2);line-height:1.45}
-.s-results .note{margin-top:24px;font-size:12px;color:var(--text3);text-align:center;font-family:'Inter',sans-serif;font-style:italic}
-
-/* ==========================================================
-   SLIDE 12 — INVESTIMENTO (PREMIUM)
-   ========================================================== */
-.s-invest{background:var(--bg)}
-.s-invest .invest-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:52px;align-items:start}
-.s-invest .price-block{padding:40px;background:var(--bg2);border-radius:22px;border:1px solid var(--border)}
-.s-invest .price-main{
-  font-family:'Zen Dots',sans-serif;
-  font-size:clamp(3.2rem,7vw,6rem);
-  color:var(--red);line-height:1;margin-bottom:10px;
-  letter-spacing:-0.02em;
-}
-.s-invest .price-parcela{font-family:'Space Grotesk',sans-serif;font-size:clamp(1rem,1.8vw,1.4rem);font-weight:600;color:var(--text2);margin-bottom:6px}
-.s-invest .price-cond{font-size:13px;color:var(--text3);font-family:'Inter',sans-serif;margin-bottom:26px}
-.s-invest .roi-box{padding:20px 22px;background:var(--red-light);border:1px solid var(--red-border);border-radius:14px}
-.s-invest .roi-box p{font-size:14px;color:var(--text2);line-height:1.65;margin-bottom:8px}
-.s-invest .roi-box strong{color:var(--red)}
-.s-invest .roi-final{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--text);font-size:16px;padding-top:10px;border-top:1px solid var(--red-border);margin-top:4px;display:block}
-.s-invest .right-block{padding-top:44px}
-.s-invest .right-block h3{font-size:16px;margin-bottom:20px;color:var(--text);font-weight:700}
-.s-invest .check-label{font-size:15px;color:var(--text2)}
-
-/* ==========================================================
-   SLIDE 13 — INCLUIDO
-   ========================================================== */
-.s-included{background:var(--bg)}
-.s-included h2{font-size:clamp(1.5rem,2.6vw,2.2rem);color:var(--text);margin-bottom:30px}
-.s-included .checks-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 52px}
-.s-included .check-label{font-size:15px;color:var(--text2)}
-.s-included .check-price{font-size:12px;color:var(--text3);font-family:'Inter',sans-serif;margin-left:5px}
-.s-included .total-box{margin-top:28px;padding:22px 32px;background:var(--red);border-radius:14px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.s-included .total-box .total-label{color:rgba(255,255,255,0.70);font-size:14px;font-family:'Inter',sans-serif}
-.s-included .total-box .total-val{font-family:'Zen Dots',sans-serif;font-size:clamp(1rem,2vw,1.5rem);color:#fff;white-space:nowrap}
-
-/* ==========================================================
-   SLIDE 14 — URGENCIA
-   ========================================================== */
-.s-urgency{background:var(--red);position:relative;overflow:hidden}
-.s-urgency::before{content:'';position:absolute;top:-120px;right:-120px;width:420px;height:420px;border-radius:50%;border:2px solid rgba(255,255,255,0.10);pointer-events:none}
-.s-urgency::after{content:'';position:absolute;bottom:-80px;left:-80px;width:260px;height:260px;transform:rotate(30deg);border:2px solid rgba(255,255,255,0.06);pointer-events:none}
-.s-urgency h2{font-size:clamp(1.8rem,3.5vw,2.9rem);color:#fff;max-width:720px;text-align:center;margin-bottom:14px}
-.s-urgency .urg-sub{font-size:16px;color:rgba(255,255,255,0.82);text-align:center;max-width:560px;margin-bottom:36px;line-height:1.65}
-.s-urgency .vagas-pill{background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.30);padding:7px 20px;border-radius:999px;margin-bottom:34px;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:#fff;letter-spacing:0.10em;text-transform:uppercase}
-.s-urgency .reasons{display:flex;gap:32px;margin-bottom:40px;flex-wrap:wrap;justify-content:center}
-.s-urgency .reason{display:flex;align-items:center;gap:8px;font-size:15px;color:rgba(255,255,255,0.88);font-weight:500}
-.s-urgency .reason::before{content:'';width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.50);flex-shrink:0}
-
-/* ==========================================================
-   SLIDE 15 — CTA FINAL
-   ========================================================== */
-.s-cta{background:var(--bg);position:relative;overflow:hidden}
-.s-cta::before{content:'';position:absolute;bottom:-90px;right:-90px;width:340px;height:340px;border-radius:50%;border:2px solid var(--red-border);opacity:0.22;pointer-events:none}
-.s-cta::after{content:'';position:absolute;top:-50px;left:-50px;width:200px;height:200px;transform:rotate(45deg);border:2px solid var(--red-border);opacity:0.15;pointer-events:none}
-.s-cta .cta-logo{font-family:'Zen Dots',sans-serif;font-size:24px;color:var(--text);margin-bottom:6px}
-.s-cta .cta-logo span{color:var(--red)}
-.s-cta .cta-tagline{font-size:11px;color:var(--text3);margin-bottom:38px;font-family:'Inter',sans-serif;letter-spacing:0.10em;text-transform:uppercase}
-.s-cta h2{font-size:clamp(1.7rem,3.2vw,2.7rem);color:var(--text);max-width:640px;text-align:center;margin-bottom:14px}
-.s-cta .cta-sub{font-size:16px;color:var(--text2);text-align:center;margin-bottom:38px;line-height:1.65}
-.s-cta .cta-stack{display:flex;flex-direction:column;align-items:center;gap:16px}
-.s-cta .whatsapp{font-size:14px;color:var(--text3);font-family:'Inter',sans-serif}
-.s-cta .whatsapp a{color:var(--red);font-weight:600;text-decoration:none}
-.s-cta .url-note{margin-top:48px;font-size:11px;color:var(--text3);font-family:'Inter',sans-serif;letter-spacing:0.06em}
-
-/* FOCUS-VISIBLE DOTS */
-.dot{outline:none}
-.dot:focus-visible{outline:2px solid var(--red);outline-offset:2px}
-
-@media print {
-  html, body { overflow: visible; height: auto; }
-  #counter, #dots { display: none; }
-  .deck { position: static; height: auto; }
-  .slide {
-    position: relative !important;
-    opacity: 1 !important;
-    pointer-events: all !important;
-    page-break-after: always;
-    break-after: page;
-    width: 100vw;
-    height: 100vh;
-    min-height: 100vh;
-    display: flex !important;
-  }
-  .slide:last-child { page-break-after: avoid; break-after: avoid; }
+/* PRINT */
+@page{size:1440px 810px landscape;margin:0}
+@media print{
+html,body{overflow:visible!important;background:#fff!important;height:auto!important;width:1440px!important}
+.wrapper{position:static!important;display:block!important}
+.deck{width:1440px!important;height:810px!important;transform:none!important;position:static!important}
+.slide{position:relative!important;width:1440px!important;height:810px!important;opacity:1!important;pointer-events:all!important;page-break-after:always!important}
+.nb,#ct{display:none!important}
 }
 </style>
 </head>
 <body>
-
-<div id="counter">1 / 15</div>
-<div id="dots"></div>
-
+<div class="wrapper">
 <div class="deck" id="deck">
 
-<!-- SLIDE 1 — COVER -->
-<section class="slide s-cover active" data-theme="light">
-  <div class="cover-bg"></div>
-  <div class="cover-overlay"></div>
-  <div class="logo-bar">
-    <span class="logo-name">Empresa Inteligente</span>
-    <span class="logo-tag">OS</span>
+<!-- ═══ S1: CAPA ═══ -->
+<div class="slide s1 active" id="s1">
+  <div class="s1-r"></div>
+  <div class="s1-fade"></div>
+  <div class="s1-fade2"></div>
+  <div class="s1-accent"></div>
+  <svg class="s1-mark" width="480" height="480" viewBox="0 0 480 480" fill="none">
+    <circle cx="240" cy="240" r="220" stroke="#D70030" stroke-width="0.8"/>
+    <circle cx="240" cy="240" r="165" stroke="#D70030" stroke-width="0.5"/>
+    <circle cx="240" cy="240" r="110" stroke="#D70030" stroke-width="0.5"/>
+    <circle cx="240" cy="240" r="55" stroke="#D70030" stroke-width="1.2" fill="rgba(215,0,48,0.05)"/>
+    <line x1="240" y1="20" x2="240" y2="460" stroke="#D70030" stroke-width="0.5"/>
+    <line x1="20" y1="240" x2="460" y2="240" stroke="#D70030" stroke-width="0.5"/>
+    <line x1="84" y1="84" x2="396" y2="396" stroke="#D70030" stroke-width="0.5"/>
+    <line x1="396" y1="84" x2="84" y2="396" stroke="#D70030" stroke-width="0.5"/>
+    <circle cx="240" cy="20" r="4" fill="#D70030"/><circle cx="240" cy="460" r="4" fill="#D70030"/>
+    <circle cx="20" cy="240" r="4" fill="#D70030"/><circle cx="460" cy="240" r="4" fill="#D70030"/>
+    <circle cx="84" cy="84" r="3" fill="#D70030"/><circle cx="396" cy="396" r="3" fill="#D70030"/>
+    <circle cx="396" cy="84" r="3" fill="#D70030"/><circle cx="84" cy="396" r="3" fill="#D70030"/>
+    <line x1="100" y1="380" x2="380" y2="100" stroke="#D70030" stroke-width="2" opacity="0.7" stroke-linecap="round"/>
+    <polygon points="380,100 368,122 360,108" fill="#D70030" opacity="0.7"/>
+    <rect x="220" y="220" width="40" height="40" rx="4" stroke="#D70030" stroke-width="0.8" fill="rgba(215,0,48,0.04)"/>
+  </svg>
+  <img src="../img/grafismo-4.svg" style="position:absolute;right:2%;bottom:-8%;width:620px;height:620px;opacity:0.04;pointer-events:none;z-index:1" alt="">
+  <div class="s1-l">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px">
+      <img src="../img/ktana-symbol.svg" style="width:30px;height:30px;opacity:0.5" alt="KTANA">
+      <span style="font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(10,10,10,0.35)">POWERED BY KTANA AI</span>
+    </div>
+    <div class="s1-tag"><span>Apresentação Comercial 2025</span></div>
+    <h1>A IA que <em>trabalha</em><br>enquanto você<br>dorme.</h1>
+    <p class="s1-sub">Funcionários digitais sob medida para empresas brasileiras que faturam acima de R$2 milhões/ano.</p>
+    <div class="s1-div"></div>
+    <a href="https://empresainteligente.ai/diagnostico" class="s1-cta">
+      Diagnóstico gratuito
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
   </div>
-  <div class="cover-content">
-    <div class="cover-badge"><span class="badge-red">Empresa Inteligente OS</span></div>
-    <h1>A sua empresa ainda opera no modo manual?</h1>
-    <p class="sub">Enquanto você resolve o mesmo problema todo dia, a concorrência já automatizou. IA implementada por nós, para você, área por área, em 12 semanas.</p>
-    <a href="https://empresainteligente.ai/diagnostico" class="btn btn-red">Descubra o Empresa Inteligente OS →</a>
-    <div class="stats-row">
-      <div class="stat-item">
-        <span class="stat-val">R$2M+</span>
-        <span class="stat-desc">Faturamento mínimo</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-val">6 Áreas</span>
-        <span class="stat-desc">Implementação completa</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-val">12 Semanas</span>
-        <span class="stat-desc">Do diagnóstico ao resultado</span>
-      </div>
-    </div>
-  </div>
-  <div class="url-footer">empresainteligente.ai · KTANA Inteligência Artificial</div>
-</section>
-
-<!-- SLIDE 2 — MOMENTO -->
-<section class="slide s-moment" data-theme="light">
-  <div class="slide-inner">
-    <div class="label">Por que agora</div>
-    <h2>O Brasil entrou na era da IA — e a maioria das empresas ficou para trás</h2>
-    <p class="moment-sub">Os dados são claros. A janela de vantagem está aberta. Por quanto tempo?</p>
-    <div class="stats-grid">
-      <div class="stat-card">
-        <span class="stat-big">73%</span>
-        <p class="stat-text">das empresas ainda operam sem inteligência de dados em tempo real</p>
-        <span class="stat-src">McKinsey, State of AI 2024</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-big">4×</span>
-        <p class="stat-text">mais crescimento em empresas que adotaram IA nas operações</p>
-        <span class="stat-src">McKinsey Global Institute, 2023</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-big">67%</span>
-        <p class="stat-text">de redução em custos operacionais em empresas IA como prioridade</p>
-        <span class="stat-src">Gartner AI in Business, 2024</span>
-      </div>
-    </div>
-    <div class="closing">
-      "Cada mês que passa sem IA implementada é um mês de custo que seus concorrentes já cortaram."
-    </div>
-  </div>
-</section>
-
-<!-- SLIDE 3 — DOIS TIPOS -->
-<section class="slide s-two" data-theme="half">
-  <div class="two-wrap">
-    <div class="panel panel-left">
-      <div class="panel-icon">
-        <svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#C0C0C0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
-          <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-        </svg>
-      </div>
-      <div class="panel-label-light">Modo Manual</div>
-      <h3>Empresa Presa no Passado</h3>
-      <div class="list-item"><div class="x-icon"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><span>Decisões baseadas em achismo</span></div>
-      <div class="list-item"><div class="x-icon"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><span>Equipe sobrecarregada com tarefas repetitivas</span></div>
-      <div class="list-item"><div class="x-icon"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><span>Clientes esperando horas por resposta</span></div>
-      <div class="list-item"><div class="x-icon"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><span>Gestão no Excel e no WhatsApp</span></div>
-      <div class="list-item"><div class="x-icon"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div><span>Cresce contratando, nunca escalando</span></div>
-    </div>
-    <div class="panel panel-right">
-      <div class="panel-icon">
-        <svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#D70030" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-        </svg>
-      </div>
-      <div class="panel-label-red">Empresa Inteligente OS</div>
-      <h3 style="color:#fff">Empresa com IA como prioridade</h3>
-      <div class="list-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><span>Decisões em tempo real com dados</span></div>
-      <div class="list-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><span>Equipe focada em estratégia e crescimento</span></div>
-      <div class="list-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><span>Clientes atendidos em segundos 24h/7d</span></div>
-      <div class="list-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><span>Processos automatizados e rastreáveis</span></div>
-      <div class="list-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><span>Escala sem precisar contratar</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- SLIDE 4 — NICHOS (PREMIUM) -->
-<section class="slide s-nichos" data-theme="light">
-  <div class="slide-inner">
-    <div class="label">Para quem é</div>
-    <h2>Empresas de médio porte que cresceram e precisam escalar com inteligência</h2>
-    <p class="nichos-sub">R$2 milhões a R$50 milhões de faturamento anual</p>
-    <div class="nichos-grid">
-
-      <div class="nicho-card">
-        <div class="nicho-icon">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <div class="nicho-name">Escritório Contábil</div>
-        <div class="nicho-dor-label">Dor atual</div>
-        <div class="nicho-dor">Cresce contratando pessoas, nunca escalando processos</div>
-        <div class="nicho-sep"></div>
-        <div class="nicho-result-label">→ Resultado</div>
-        <div class="nicho-result">3× mais clientes com a mesma equipe</div>
-      </div>
-
-      <div class="nicho-card">
-        <div class="nicho-icon">
-          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        </div>
-        <div class="nicho-name">Transportadora</div>
-        <div class="nicho-dor-label">Dor atual</div>
-        <div class="nicho-dor">Cotações manuais e rastreamento via ligação</div>
-        <div class="nicho-sep"></div>
-        <div class="nicho-result-label">→ Resultado</div>
-        <div class="nicho-result">Cotação em 3 min, 60% menos ligações</div>
-      </div>
-
-      <div class="nicho-card">
-        <div class="nicho-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 21h18M3 7l9-4 9 4M4 7v14M20 7v14M8 10v4m4-4v4m4-4v4"/></svg>
-        </div>
-        <div class="nicho-name">Construtora</div>
-        <div class="nicho-dor-label">Dor atual</div>
-        <div class="nicho-dor">Compradores ligando 10× por dia sobre o imóvel</div>
-        <div class="nicho-sep"></div>
-        <div class="nicho-result-label">→ Resultado</div>
-        <div class="nicho-result">70% menos chamadas, pós-venda automático</div>
-      </div>
-
-      <div class="nicho-card">
-        <div class="nicho-icon">
-          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-        </div>
-        <div class="nicho-name">Varejo / Atacado</div>
-        <div class="nicho-dor-label">Dor atual</div>
-        <div class="nicho-dor">Pedidos manuais, ruptura de estoque constante</div>
-        <div class="nicho-sep"></div>
-        <div class="nicho-result-label">→ Resultado</div>
-        <div class="nicho-result">Pedidos 24h/7d, previsão de demanda</div>
-      </div>
-
-      <div class="nicho-card">
-        <div class="nicho-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="14" width="20" height="8" rx="2"/><rect x="5" y="8" width="14" height="6" rx="2"/><rect x="8" y="2" width="8" height="6" rx="2"/></svg>
-        </div>
-        <div class="nicho-name">Franquia</div>
-        <div class="nicho-dor-label">Dor atual</div>
-        <div class="nicho-dor">Inconsistência entre unidades, gestão no WhatsApp</div>
-        <div class="nicho-sep"></div>
-        <div class="nicho-result-label">→ Resultado</div>
-        <div class="nicho-result">Padrão único, relatórios em tempo real</div>
-      </div>
-
-      <div class="nicho-card">
-        <div class="nicho-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14M15.54 8.46a5 5 0 010 7.07M8.46 8.46a5 5 0 000 7.07"/></svg>
-        </div>
-        <div class="nicho-name">Indústria / Distribuidora</div>
-        <div class="nicho-dor-label">Dor atual</div>
-        <div class="nicho-dor">Retrabalho constante e qualidade inconsistente</div>
-        <div class="nicho-sep"></div>
-        <div class="nicho-result-label">→ Resultado</div>
-        <div class="nicho-result">-40% retrabalho, controle automatizado</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- SLIDE 5 — DORES vs RESULTADOS (TRANSFORMACAO) -->
-<section class="slide s-dores" data-theme="light">
-  <div class="slide-inner">
-    <div class="label">Reconhece alguma dessas situações?</div>
-    <h2>O que trava — e o que a IA entrega</h2>
-    <p class="dores-sub">Antes da IA → Com Empresa Inteligente OS</p>
-    <div class="transform-table">
-      <div class="transform-header">
-        <span class="col-sector">Setor</span>
-        <span class="col-before">Antes da IA</span>
-        <span class="col-arrow"></span>
-        <span class="col-after">Com EI OS</span>
-      </div>
-      <div class="transform-row">
-        <div class="sector-cell">
-          <div class="sector-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg></div>
-          <span class="sector-name">Contabilidade</span>
-        </div>
-        <div class="dor-cell">Cresce contratando, sem escalar processos</div>
-        <div class="arrow-cell"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        <div class="result-cell">3× mais clientes com a mesma equipe</div>
-      </div>
-      <div class="transform-row">
-        <div class="sector-cell">
-          <div class="sector-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-          <span class="sector-name">Transportadora</span>
-        </div>
-        <div class="dor-cell">Cotações manuais e rastreamento via ligação</div>
-        <div class="arrow-cell"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        <div class="result-cell">Cotação em 3 min, 60% menos ligações</div>
-      </div>
-      <div class="transform-row">
-        <div class="sector-cell">
-          <div class="sector-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18M3 7l9-4 9 4M4 7v14M20 7v14"/></svg></div>
-          <span class="sector-name">Construtora</span>
-        </div>
-        <div class="dor-cell">Equipe sobrecarregada com dúvidas pós-venda</div>
-        <div class="arrow-cell"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        <div class="result-cell">70% menos chamadas, pós-venda automático</div>
-      </div>
-      <div class="transform-row">
-        <div class="sector-cell">
-          <div class="sector-icon"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg></div>
-          <span class="sector-name">Varejo / Atacado</span>
-        </div>
-        <div class="dor-cell">Pedidos manuais, ruptura de estoque constante</div>
-        <div class="arrow-cell"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        <div class="result-cell">Pedidos 24h/7d, previsão de demanda inteligente</div>
-      </div>
-      <div class="transform-row">
-        <div class="sector-cell">
-          <div class="sector-icon"><svg viewBox="0 0 24 24"><rect x="2" y="14" width="20" height="8" rx="2"/><rect x="5" y="8" width="14" height="6" rx="2"/><rect x="8" y="2" width="8" height="6" rx="2"/></svg></div>
-          <span class="sector-name">Franquia</span>
-        </div>
-        <div class="dor-cell">Inconsistência entre unidades, gestão no WhatsApp</div>
-        <div class="arrow-cell"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        <div class="result-cell">Padrão único em todas as unidades</div>
-      </div>
-      <div class="transform-row">
-        <div class="sector-cell">
-          <div class="sector-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg></div>
-          <span class="sector-name">Indústria</span>
-        </div>
-        <div class="dor-cell">Retrabalho constante e qualidade inconsistente</div>
-        <div class="arrow-cell"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        <div class="result-cell">Controle automatizado, -40% retrabalho</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SLIDE 6 — QUOTE (DARK) -->
-<section class="slide s-quote" data-theme="dark">
-  <div class="slide-inner" style="position:relative;z-index:2">
-    <div class="quote-bg-mark">"</div>
-    <div class="label" style="color:rgba(255,255,255,0.32)">
-      <span style="display:block;width:24px;height:2px;background:rgba(255,255,255,0.20);border-radius:2px"></span>
-      Perspectiva global
-    </div>
-    <blockquote>
-      A IA vai transformar cada setor da economia. Empresas que implementarem primeiro terão uma vantagem estrutural que levará <em>décadas para ser igualada.</em>
-    </blockquote>
-    <p class="attribution">Dario Amodei — CEO da Anthropic, criador do Claude</p>
-    <p class="attribution-sub">O modelo de IA mais adotado por empresas em 2024 — segundo a Accenture</p>
-    <div class="anth-badge">
-      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="rgba(255,255,255,0.38)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-      </svg>
-      <span>Anthropic</span>
-    </div>
-  </div>
-</section>
-
-<!-- SLIDE 7 — PRODUTO -->
-<section class="slide s-product" data-theme="light">
-  <div class="slide-inner">
-    <div class="label">Empresa Inteligente OS</div>
-    <h2>Não é um curso. Não é uma consultoria. É implementação.</h2>
-    <p class="prod-sub">Chegamos na sua empresa, mapeamos tudo e implementamos IA em cada área estratégica — do comercial ao financeiro. Feito por nós, para você.</p>
-    <div class="pillars">
-      <div class="pillar">
-        <div class="pillar-num">01 — Levantamento</div>
-        <h4>Levantamento de Impacto</h4>
-        <p>Mapeamos onde a IA gera mais resultado em custo, receita e tempo — antes de tocar em qualquer sistema.</p>
-      </div>
-      <div class="pillar">
-        <div class="pillar-num">02 — Implementação</div>
-        <h4>Implementação por Área</h4>
-        <p>Comercial, operações, financeiro, RH, atendimento e gestão. Cobrimos toda a empresa, área por área.</p>
-      </div>
-      <div class="pillar">
-        <div class="pillar-num">03 — Plataforma</div>
-        <h4>Plataforma EI (Bônus)</h4>
-        <p>Micro-soluções por área, atualizadas continuamente. Disponível no dia 1 da implementação.</p>
-      </div>
-      <div class="pillar">
-        <div class="pillar-num">04 — ROI</div>
-        <h4>Prova de ROI</h4>
-        <p>Comprovamos com números que o investimento se paga e gera lucro mensurável antes de encerrar.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SLIDE 8 — METODOLOGIA -->
-<section class="slide s-steps" data-theme="light">
-  <div class="slide-inner">
-    <div class="label">Metodologia</div>
-    <h2>6 fases. Do diagnóstico ao resultado.</h2>
-    <div class="timeline">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-period">Semana 1–2</div>
-        <h4>Diagnóstico Estratégico</h4>
-        <p>Mapeamento completo das operações, sistemas e gargalos de cada área.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-period">Semana 3</div>
-        <h4>Identificação de Impacto</h4>
-        <p>Onde a IA gera mais retorno — priorização por ROI e facilidade de implementação.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-period">Semana 4–6</div>
-        <h4>Implementação Comercial</h4>
-        <p>Atendimento automático, qualificação de leads e follow-up sem intervenção humana.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-period">Semana 7–9</div>
-        <h4>Implementação Operacional</h4>
-        <p>Processos, documentos, relatórios e fluxos internos automatizados.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">05</div>
-        <div class="step-period">Semana 10–11</div>
-        <h4>Financeiro e RH</h4>
-        <p>Análise de dados financeiros, automação de folha e gestão de pessoas com IA.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">06</div>
-        <div class="step-period">Semana 12</div>
-        <h4>Entrega e Treinamento</h4>
-        <p>Handover completo, treinamento da equipe e ativação da Plataforma EI.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SLIDE 9 — TIME -->
-<section class="slide s-team" data-theme="light">
-  <div class="slide-inner">
-    <div class="label">Quem implementa</div>
-    <h2>Especialistas em negócio e tecnologia</h2>
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="team-avatar">
-          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </div>
-        <div class="team-name">Matheus</div>
-        <div class="team-role">Especialista em Negócios</div>
-        <p class="team-desc">12 anos de experiência em transformação de empresas brasileiras de médio porte. Do diagnóstico à mudança cultural.</p>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">
-          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        </div>
-        <div class="team-name">Leandro</div>
-        <div class="team-role">CTO</div>
-        <p class="team-desc">Arquiteto das soluções de IA. Especialista em integração com ERPs e sistemas legados de qualquer setor.</p>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
-        <div class="team-name">Time de Devs</div>
-        <div class="team-role">Squad Especializado</div>
-        <p class="team-desc">Squad dedicado em automações, agentes de IA e integrações personalizadas para cada empresa.</p>
-      </div>
-    </div>
-    <div class="team-note">Não terceirizamos. Não usamos freelancers. A mesma equipe do diagnóstico à entrega.</div>
-  </div>
-</section>
-
-<!-- SLIDE 10 — PLATAFORMA -->
-<section class="slide s-platform" data-theme="light">
-  <div class="slide-inner">
-    <div class="label">Bônus exclusivo</div>
-    <h2>Plataforma Empresa Inteligente — incluída no OS</h2>
-    <p class="plat-sub">Micro-soluções de IA por área, disponíveis no dia 1 da sua implementação. Atualizada continuamente sem custo adicional.</p>
-    <div class="modules">
-      <div class="module"><div class="module-dot"></div><div class="module-name">Atendimento IA</div></div>
-      <div class="module"><div class="module-dot"></div><div class="module-name">Comercial IA</div></div>
-      <div class="module"><div class="module-dot"></div><div class="module-name">Financeiro IA</div></div>
-      <div class="module"><div class="module-dot"></div><div class="module-name">RH IA</div></div>
-      <div class="module"><div class="module-dot"></div><div class="module-name">Operações IA</div></div>
-      <div class="module"><div class="module-dot"></div><div class="module-name">Relatórios IA</div></div>
-    </div>
-    <div class="plat-value">VALOR: R$24.000/ano — INCLUSO NO OS</div>
-    <p class="plat-note">Você recebe todas as atualizações futuras sem custo adicional.</p>
-  </div>
-</section>
-
-<!-- SLIDE 11 — RESULTADOS -->
-<section class="slide s-results" data-theme="light">
-  <div class="slide-inner">
-    <div class="label">Resultados reais</div>
-    <h2>O que empresas entregam após a implementação</h2>
-    <div class="metrics">
-      <div class="metric">
-        <span class="metric-num">-67%</span>
-        <p>custo operacional com automação de processos repetitivos</p>
-      </div>
-      <div class="metric">
-        <span class="metric-num">+4×</span>
-        <p>crescimento de receita em empresas com IA em operações</p>
-      </div>
-      <div class="metric">
-        <span class="metric-num">-80%</span>
-        <p>tempo gasto em tarefas manuais repetitivas pela equipe</p>
-      </div>
-      <div class="metric">
-        <span class="metric-num">-60%</span>
-        <p>erros de processo com automação e controle digital</p>
-      </div>
-      <div class="metric">
-        <span class="metric-num">+3×</span>
-        <p>capacidade produtiva sem precisar contratar mais</p>
-      </div>
-      <div class="metric">
-        <span class="metric-num">12 sem</span>
-        <p>do diagnóstico ao resultado comprovado e auditável</p>
-      </div>
-    </div>
-    <p class="note">Baseado em dados de empresas que implementaram IA em operações — McKinsey Global Institute, 2023 · Accenture, Future of Work 2024</p>
-  </div>
-</section>
-
-<!-- SLIDE 12 — INVESTIMENTO (PREMIUM) -->
-<section class="slide s-invest" data-theme="light">
-  <div class="slide-inner">
-    <div class="label">Investimento</div>
-    <div class="invest-grid">
-      <div>
-        <div class="price-block">
-          <div class="price-main">R$ 100.000</div>
-          <p class="price-parcela">12× no cartão de crédito</p>
-          <p class="price-cond">Sem entrada. Sem juros abusivos.</p>
-          <div class="roi-box">
-            <p>Redução média de <strong>3–8% em custo operacional</strong>. Em uma empresa de R$5M/ano = <strong>R$150k–R$400k</strong> de economia no 1° ano.</p>
-            <span class="roi-final">O investimento se paga. O lucro fica.</span>
-          </div>
-          <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--red);font-size:1.1rem;margin-top:18px">O investimento se paga antes de você terminar de pagar.</p>
-        </div>
-      </div>
-      <div class="right-block">
-        <h3>O que você recebe</h3>
-        <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><span class="check-label">Diagnóstico completo de operações</span></div>
-        <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><span class="check-label">Implementação em 6 áreas estratégicas</span></div>
-        <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><span class="check-label">Agentes de IA configurados</span></div>
-        <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><span class="check-label">Integração com seus sistemas atuais</span></div>
-        <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><span class="check-label">Plataforma EI — 12 meses inclusa</span></div>
-        <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><span class="check-label">Treinamento completo da equipe</span></div>
-        <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><span class="check-label">Suporte pós-implementação 90 dias</span></div>
-        <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><span class="check-label">Relatório de ROI comprovado</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SLIDE 13 — INCLUIDO -->
-<section class="slide s-included" data-theme="light">
-  <div class="slide-inner">
-    <div class="label">Tudo incluído</div>
-    <h2>O que você recebe com o Empresa Inteligente OS</h2>
-    <div class="checks-grid">
-      <div>
-        <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><span class="check-label">Diagnóstico completo de operações</span><span class="check-price">(R$15.000)</span></div></div>
-        <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><span class="check-label">Implementação em 6 áreas estratégicas</span><span class="check-price">(R$48.000)</span></div></div>
-        <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><span class="check-label">Agentes de IA configurados</span><span class="check-price">(R$12.000)</span></div></div>
-        <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><span class="check-label">Integração com seus sistemas atuais</span><span class="check-price">(R$8.000)</span></div></div>
-      </div>
-      <div>
-        <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><span class="check-label">Plataforma EI — 12 meses</span><span class="check-price">(R$24.000)</span></div></div>
-        <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><span class="check-label">Treinamento da equipe</span><span class="check-price">(R$6.000)</span></div></div>
-        <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><span class="check-label">Suporte pós-implementação 90 dias</span><span class="check-price">(R$9.000)</span></div></div>
-        <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><span class="check-label">Relatório de ROI comprovado</span><span class="check-price">(incluso)</span></div></div>
-      </div>
-    </div>
-    <div class="total-box">
-      <div class="total-label">Valor total avulso: R$122.000</div>
-      <div class="total-val">Investimento OS: R$100.000 — 12× no cartão</div>
-    </div>
-  </div>
-</section>
-
-<!-- SLIDE 14 — URGENCIA -->
-<section class="slide s-urgency" data-theme="red">
-  <div style="display:flex;flex-direction:column;align-items:center;padding:0 52px;max-width:860px;width:100%;position:relative;z-index:2">
-    <div class="vagas-pill">Vagas Limitadas — Apenas 4 por Trimestre</div>
-    <h2>Apenas 4 vagas disponíveis neste trimestre</h2>
-    <p class="urg-sub">Cada implementação exige dedicação exclusiva do time. Não abrimos mais de 4 empresas por ciclo.</p>
-    <div class="reasons">
-      <div class="reason">Diagnóstico presencial</div>
-      <div class="reason">Acompanhamento semanal</div>
-      <div class="reason">Integração personalizada</div>
-    </div>
-    <a href="https://empresainteligente.ai/diagnostico" class="btn btn-white" style="font-size:16px;padding:17px 38px">Quero garantir minha vaga →</a>
-  </div>
-</section>
-
-<!-- SLIDE 15 — CTA FINAL -->
-<section class="slide s-cta" data-theme="light">
-  <div style="display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:2;padding:0 52px;width:100%;max-width:780px">
-    <div class="cta-logo">Empresa <span>Inteligente</span></div>
-    <div class="cta-tagline">KTANA Inteligência Artificial</div>
-    <h2>Pronto para tornar sua empresa IA como prioridade?</h2>
-    <p class="cta-sub">Comece com um diagnóstico gratuito de 30 minutos.<br>Sem compromisso. Sem enrolação.</p>
-    <div class="cta-stack">
-      <a href="https://empresainteligente.ai/diagnostico" class="btn btn-red" style="font-size:17px;padding:19px 42px">Agendar Diagnóstico Gratuito →</a>
-      <a href="https://empresainteligente.ai/diagnostico" class="btn btn-red">WhatsApp →</a>
-    </div>
-    <p class="url-note">empresainteligente.ai · KTANA Inteligência Artificial</p>
-  </div>
-</section>
-
+  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="s1-ft"><span>empresainteligente.ai</span><span>© 2025 · Powered by KTANA AI</span></div>
 </div>
 
-<div id="footer-brand" style="position:fixed;bottom:8px;left:50%;transform:translateX(-50%);font-family:'Inter',sans-serif;font-size:10px;color:rgba(0,0,0,0.25);z-index:50;white-space:nowrap;">
-  empresainteligente.ai · CNPJ 57.813.462/0001-45
+<!-- ═══ S2: SUMÁRIO ═══ -->
+<div class="slide s2" id="s2">
+  <img class="ktana-wm ktana-wm-tr" src="../img/grafismo-2.svg" alt="">
+  <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">Sumário</span></div>
+  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="s2-in">
+    <div class="lbl">Agenda desta apresentação</div>
+    <h2>O que você vai<br>ver a seguir</h2>
+    <div class="s2-list">
+      <div class="s2-it"><span class="s2-n">01</span><span class="s2-tx">O Problema — Por que seu negócio perde dinheiro hoje</span><span class="s2-arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+      <div class="s2-it"><span class="s2-n">02</span><span class="s2-tx">A Solução — O que é Empresa Inteligente OS</span><span class="s2-arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+      <div class="s2-it"><span class="s2-n">03</span><span class="s2-tx">Os Resultados — Dados reais de empresas com IA</span><span class="s2-arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+      <div class="s2-it"><span class="s2-n">04</span><span class="s2-tx">O Próximo Passo — Diagnóstico gratuito em 30 dias</span><span class="s2-arr"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+    </div>
+  </div>
 </div>
+
+<!-- ═══ S3: DADO MASSIVO ═══ -->
+<div class="slide s3" id="s3">
+  <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">O Cenário</span></div>
+  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="s3-bg">40%</div>
+  <div class="s3-c">
+    <div class="s3-pre">Do tempo dos seus funcionários</div>
+    <div class="s3-num">40<span class="s3-u">%</span></div>
+    <div class="s3-ctx">é desperdiçado em tarefas repetitivas que<br><strong>a IA já pode fazer</strong> — hoje, em qualquer empresa.</div>
+    <div class="s3-src">McKinsey Global Institute, 2023 · The Economic Potential of Generative AI</div>
+  </div>
+</div>
+
+<!-- ═══ S4: SECTION INTRO — O PROBLEMA ═══ -->
+<div class="slide si" id="s4">
+  <div class="si-ph" style="background-image:url('../img/problem.jpg')"></div>
+  <div class="si-ov"></div><div class="si-ov2"></div>
+  <img class="ktana-wm ktana-wm-br" src="../img/grafismo-6.svg" alt="" style="opacity:0.05">
+  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="si-ct">
+    <span class="si-n">01 — O PROBLEMA</span>
+    <h2 class="si-t">Seu negócio<br>sangra por<br>ineficiência.</h2>
+    <p class="si-s">Enquanto concorrentes automatizam, você paga salário para alguém copiar dados de planilha em planilha.</p>
+    <div class="si-line"></div>
+  </div>
+</div>
+
+<!-- ═══ S5: DOR ═══ -->
+<div class="slide s5" id="s5">
+  <img class="ktana-wm ktana-wm-br" src="../img/grafismo-4.svg" alt="">
+  <div class="bc">01 — O PROBLEMA <span class="sep">›</span><span class="cur">As dores</span></div>
+  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="s5-in">
+    <div class="s5-l">
+      <div class="lbl">O dia a dia do empresário</div>
+      <h2>O que está<br>te custando<br>mais caro.</h2>
+      <div class="p-list">
+        <div class="p-it"><span class="p-n">01</span><span class="p-t"><strong>Funcionários fazendo trabalho de robô</strong> — digitação, relatórios manuais, e-mails padronizados todos os dias</span></div>
+        <div class="p-it"><span class="p-n">02</span><span class="p-t"><strong>Você preso no operacional</strong> — gestor que responde WhatsApp às 23h por falta de processo automatizado</span></div>
+        <div class="p-it"><span class="p-n">03</span><span class="p-t"><strong>Decisões no escuro</strong> — sem dados consolidados em tempo real para agir antes da concorrência</span></div>
+        <div class="p-it"><span class="p-n">04</span><span class="p-t"><strong>Turnover alto</strong> — equipe desmotivada com trabalho mecânico sem propósito estratégico</span></div>
+      </div>
+    </div>
+    <div class="s5-r">
+      <span class="qm">"</span>
+      <p class="qt">Empresas que não integrarem IA nos seus processos nos próximos <em>2 anos</em> não serão mais competitivas.</p>
+      <div class="qby">
+        <div class="qav"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(215,0,48,0.8)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg></div>
+        <div class="qwho"><span class="qname">Jensen Huang</span><span class="qrole">CEO, NVIDIA — Davos World Economic Forum 2024</span></div>
+      </div>
+      <div class="qst">
+        <div><span class="qsv">73%</span><span class="qsl">dos gestores relatam<br>burnout operacional</span></div>
+        <div><span class="qsv">R$2,3B</span><span class="qsl">perdidos/ano em<br>retrabalho no Brasil</span></div>
+        <div><span class="qsv">68%</span><span class="qsl">das PMEs sem<br>processo automatizado</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ S6: AUTHORITY ═══ -->
+<div class="slide s6" id="s6">
+  <img class="ktana-wm s6-grafismo" src="../img/grafismo-2.svg" alt="">
+  <div class="bc">01 — O PROBLEMA <span class="sep">›</span><span class="cur">Referência global</span></div>
+  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="s6-in">
+    <div class="s6-ph">
+      <div class="s6-ov"></div><div class="s6-ovb"></div><div class="s6-ra"></div>
+      <div class="s6-cap"><div class="s6-cap-name">Jensen Huang</div><div class="s6-cap-role">CEO · NVIDIA Corporation</div></div>
+    </div>
+    <div class="s6-tx">
+      <div class="s6-src">World Economic Forum · Davos, Janeiro 2024</div>
+      <span class="s6-bq">"</span>
+      <p class="s6-q">A IA não vai tirar o seu emprego. Mas um <em>concorrente</em> que usa IA vai tirar o seu <em>cliente</em> antes que você perceba.</p>
+      <div class="s6-by">
+        <div class="s6-bname">Jensen Huang</div>
+        <div class="s6-brole">Chairman &amp; CEO · NVIDIA Corporation</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SF: FOUNDER / TIME ═══ -->
+<div class="slide sf" id="sf">
+  <div class="bc">01 — O PROBLEMA <span class="sep">›</span><span class="cur">Quem está por trás</span></div>
+  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="sf-in">
+    <div class="sf-ph">
+      <div class="sf-ov"></div><div class="sf-ovb"></div><div class="sf-ra"></div>
+      <div class="sf-cap"><div class="sf-cap-tag">Equipe EI</div></div>
+    </div>
+    <div class="sf-tx">
+      <div class="sf-pre">Quem constrói</div>
+      <h2>Especialistas em IA aplicada ao <em>negócio brasileiro.</em></h2>
+      <div class="sf-creds">
+        <div class="sf-cred">
+          <div class="sf-cd"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="sf-ct"><strong>Referência nacional em implementação de IA</strong> — reconhecidos como autoridade em transformação digital para PMEs brasileiras</div>
+        </div>
+        <div class="sf-cred">
+          <div class="sf-cd"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div class="sf-ct"><strong>Método exclusivo de implementação em 30 dias</strong> desenvolvido e validado em dezenas de empresas brasileiras de todos os setores</div>
+        </div>
+        <div class="sf-cred">
+          <div class="sf-cd"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="sf-ct"><strong>Parceiros das maiores plataformas de IA do mundo</strong> — OpenAI, Anthropic e Google DeepMind integrados na sua operação</div>
+        </div>
+      </div>
+      <div class="sf-stats">
+        <div class="sf-sv"><span class="sf-sn">50+</span><span class="sf-sl">Empresas<br>atendidas</span></div>
+        <div class="sf-sv"><span class="sf-sn">200+</span><span class="sf-sl">Processos<br>automatizados</span></div>
+        <div class="sf-sv"><span class="sf-sn">R$12M+</span><span class="sf-sl">Em economias<br>geradas</span></div>
+        <div class="sf-sv"><span class="sf-sn">30d</span><span class="sf-sl">Prazo<br>garantido</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ S7: SECTION INTRO — A SOLUÇÃO ═══ -->
+<div class="slide si" id="s7">
+  <div class="si-ph" style="background-image:url('../img/solution.jpg')"></div>
+  <div class="si-ov"></div><div class="si-ov2"></div>
+  <img class="ktana-wm ktana-wm-br" src="../img/grafismo-2.svg" alt="" style="opacity:0.05">
+  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="si-ct">
+    <span class="si-n">02 — A SOLUÇÃO</span>
+    <h2 class="si-t">Funcionários<br>digitais que<br>nunca faltam.</h2>
+    <p class="si-s">Agentes de IA configurados para o seu negócio, integrados ao WhatsApp, ERP e CRM que você já usa.</p>
+    <div class="si-line"></div>
+  </div>
+</div>
+
+<!-- ═══ S8: O QUE É EI OS ═══ -->
+<div class="slide s8" id="s8">
+  <img class="ktana-wm ktana-wm-tr" src="../img/grafismo-6.svg" alt="">
+  <div class="bc">02 — A SOLUÇÃO <span class="sep">›</span><span class="cur">O produto</span></div>
+  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="s8-in">
+    <div class="s8-lbl">O que é</div>
+    <h2>Empresa Inteligente OS é o<br><em>sistema operacional de IA</em><br>do seu negócio.</h2>
+    <p class="s8-sub">Não é um software genérico. É um time de agentes inteligentes que aprende como você trabalha, executa tarefas e reporta resultados — enquanto você foca no estratégico.</p>
+    <div class="pills">
+      <span class="pill pill-r">Atendimento 24h</span>
+      <span class="pill pill-r">Prospecção automática</span>
+      <span class="pill pill-r">Relatórios em tempo real</span>
+      <span class="pill">WhatsApp + ERP</span>
+      <span class="pill">Sem código</span>
+      <span class="pill">Ativo em 30 dias</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SUI: PLATAFORMA — DASHBOARD UI ═══ -->
+<div class="slide sui" id="sui">
+  <div class="bc">02 — A SOLUÇÃO <span class="sep">›</span><span class="cur">A Plataforma</span></div>
+  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="sui-in">
+    <div class="sui-hd">
+      <div class="lbl">O produto em operação</div>
+      <h2>Seu painel de controle de IA.</h2>
+    </div>
+    <div class="sui-mock">
+      <div class="sui-stat">
+        <div class="sui-stat-v">1.247</div>
+        <div class="sui-stat-l">ATENDIMENTOS HOJE</div>
+        <div class="sui-stat-badge">+18%</div>
+      </div>
+      <div class="sui-stat">
+        <div class="sui-stat-v">R$84k</div>
+        <div class="sui-stat-l">LEADS QUALIFICADOS / MÊS</div>
+        <div class="sui-stat-badge">LIVE</div>
+      </div>
+      <div class="sui-stat">
+        <div class="sui-stat-v">99,8%</div>
+        <div class="sui-stat-l">UPTIME DOS AGENTES</div>
+        <div class="sui-stat-badge">OK</div>
+      </div>
+      <div class="sui-panel">
+        <div class="sui-panel-hd">
+          <div class="sui-phd-dot"></div>
+          <div class="sui-phd-nm">Agente Comercial — WhatsApp</div>
+          <div class="sui-phd-ag">EI OS v2</div>
+        </div>
+        <div class="sui-msg">
+          <div class="sui-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+          <div class="sui-bub">Olá! Quero saber mais sobre o plano para minha loja de 8 funcionários.</div>
+        </div>
+        <div class="sui-msg" style="flex-direction:row-reverse">
+          <div class="sui-av ai"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div class="sui-bub user">Perfeito! Com 8 funcionários, o Plano Profissional atende totalmente. Posso agendar seu diagnóstico gratuito para amanhã?</div>
+        </div>
+        <div class="sui-msg">
+          <div class="sui-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+          <div class="sui-bub">Sim! Me manda o link.</div>
+        </div>
+      </div>
+      <div class="sui-agents">
+        <div class="sui-ag-hd">Agentes ativos</div>
+        <div class="sui-ag-item">
+          <div class="sui-ag-dot on"></div>
+          <div class="sui-ag-name">Atendente WhatsApp</div>
+          <div class="sui-ag-cnt">342 msgs</div>
+        </div>
+        <div class="sui-ag-item">
+          <div class="sui-ag-dot on"></div>
+          <div class="sui-ag-name">SDR Comercial</div>
+          <div class="sui-ag-cnt">89 leads</div>
+        </div>
+        <div class="sui-ag-item">
+          <div class="sui-ag-dot busy"></div>
+          <div class="sui-ag-name">Analista Financeiro</div>
+          <div class="sui-ag-cnt">Processando</div>
+        </div>
+        <div class="sui-ag-item">
+          <div class="sui-ag-dot on"></div>
+          <div class="sui-ag-name">Recrutador RH</div>
+          <div class="sui-ag-cnt">14 triagens</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ S9: COMO FUNCIONA ═══ -->
+<div class="slide s9" id="s9">
+  <img class="ktana-wm ktana-wm-br" src="../img/grafismo-2.svg" alt="">
+  <div class="bc">02 — A SOLUÇÃO <span class="sep">›</span><span class="cur">Como funciona</span></div>
+  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="s9-in">
+    <div class="lbl" style="margin-bottom:12px">O processo</div>
+    <h2>De zero a ativo em 30 dias.</h2>
+    <div class="steps">
+      <div class="step"><div class="sn">01</div><div class="st">Diagnóstico</div><div class="sd">Mapeamos os processos que mais consomem tempo e identificamos onde a IA gera mais retorno.</div><div class="stags"><span class="stag">Entrevista</span><span class="stag">Mapa de processos</span><span class="stag">ROI estimado</span></div></div>
+      <div class="sarr"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="step"><div class="sn">02</div><div class="st">Configuração</div><div class="sd">Construímos e treinamos seus agentes com o conhecimento do seu negócio, integrados às suas ferramentas.</div><div class="stags"><span class="stag">Treinamento</span><span class="stag">Integração</span><span class="stag">Testes</span></div></div>
+      <div class="sarr"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="step"><div class="sn">03</div><div class="st">Resultado</div><div class="sd">Seus funcionários digitais começam a trabalhar. Você acompanha resultados em tempo real pelo dashboard.</div><div class="stags"><span class="stag">Dashboard</span><span class="stag">Relatórios</span><span class="stag">Suporte 24h</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ S10: SEGMENTOS ═══ -->
+<div class="slide s10" id="s10">
+  <img class="ktana-wm ktana-wm-tr" src="../img/grafismo-4.svg" alt="">
+  <div class="bc">02 — A SOLUÇÃO <span class="sep">›</span><span class="cur">Segmentos</span></div>
+  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="s10-in">
+    <div class="s10-hd"><div class="lbl">Quem atendemos</div><h2>Soluções específicas para cada setor.</h2></div>
+    <div class="sg">
+      <div class="si2"><div class="si2-ic"><svg viewBox="0 0 56 56" fill="none"><rect x="8" y="6" width="40" height="44" rx="3" stroke="#D70030" stroke-width="1.5"/><line x1="16" y1="19" x2="40" y2="19" stroke="#D70030" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="26" x2="34" y2="26" stroke="rgba(215,0,48,0.4)" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="32" x2="36" y2="32" stroke="rgba(215,0,48,0.4)" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="38" x2="30" y2="38" stroke="rgba(215,0,48,0.4)" stroke-width="1.5" stroke-linecap="round"/><circle cx="42" cy="42" r="9" fill="rgba(215,0,48,0.1)"/><path d="M38 42h8M42 38v8" stroke="#D70030" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="si2-nm">Escritórios Contábeis</div><div class="si2-d">Horas fechando balancetes, emitindo notas, respondendo clientes sobre certidões</div><div class="si2-r">IA fecha balancete, emite guias e atende clientes em tempo real</div></div>
+      <div class="si2"><div class="si2-ic"><svg viewBox="0 0 56 56" fill="none"><rect x="4" y="24" width="32" height="20" rx="2" stroke="#D70030" stroke-width="1.5"/><path d="M36 30h12l5 8v6H36V30z" stroke="#D70030" stroke-width="1.5" stroke-linejoin="round"/><circle cx="14" cy="46" r="5" stroke="#D70030" stroke-width="1.5"/><circle cx="42" cy="46" r="5" stroke="#D70030" stroke-width="1.5"/><path d="M6 18h22M6 12h16" stroke="rgba(215,0,48,0.5)" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="si2-nm">Transportadoras</div><div class="si2-d">Rastreamento manual, comunicação descentralizada, atrasos sem aviso ao cliente</div><div class="si2-r">Central de rastreio automática e comunicação 24h com toda a frota</div></div>
+      <div class="si2"><div class="si2-ic"><svg viewBox="0 0 56 56" fill="none"><path d="M8 50V30L20 14l12 16v20H8z" stroke="#D70030" stroke-width="1.5" stroke-linejoin="round"/><path d="M32 50V36h12v14" stroke="#D70030" stroke-width="1.5" stroke-linejoin="round"/><path d="M44 36l6-10" stroke="#D70030" stroke-width="1.5" stroke-linecap="round"/><rect x="14" y="36" width="12" height="14" rx="1" stroke="rgba(215,0,48,0.5)" stroke-width="1.5"/><line x1="8" y1="50" x2="50" y2="50" stroke="#D70030" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="si2-nm">Construtoras</div><div class="si2-d">Controle de obra manual, briefing de fornecedores lento, aprovação de etapas atrasada</div><div class="si2-r">Gestor de obra digital que monitora prazos e alerta desvios em tempo real</div></div>
+      <div class="si2"><div class="si2-ic"><svg viewBox="0 0 56 56" fill="none"><path d="M10 10h36l-5 24H15L10 10z" stroke="#D70030" stroke-width="1.5" stroke-linejoin="round"/><path d="M6 10h4M15 34l-2 10h28l-2-10" stroke="#D70030" stroke-width="1.5" stroke-linecap="round"/><circle cx="22" cy="48" r="3" stroke="#D70030" stroke-width="1.5"/><circle cx="34" cy="48" r="3" stroke="#D70030" stroke-width="1.5"/><line x1="24" y1="20" x2="32" y2="20" stroke="rgba(215,0,48,0.5)" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="si2-nm">Varejo e E-commerce</div><div class="si2-d">Carrinho abandonado, dúvidas sem resposta, recompra sem campanha automática</div><div class="si2-r">Recuperação automática de vendas e nutrição de clientes no WhatsApp</div></div>
+      <div class="si2"><div class="si2-ic"><svg viewBox="0 0 56 56" fill="none"><path d="M10 48c0-14 10-24 18-34 8 10 18 20 18 34" stroke="#D70030" stroke-width="1.5" stroke-linecap="round"/><path d="M28 14v34" stroke="rgba(215,0,48,0.5)" stroke-width="1.5" stroke-linecap="round"/><path d="M18 28c4-2 8-2 10-8" stroke="rgba(215,0,48,0.45)" stroke-width="1.5" stroke-linecap="round"/><path d="M38 24c-4-2-8-2-10-8" stroke="rgba(215,0,48,0.45)" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="48" x2="48" y2="48" stroke="#D70030" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="si2-nm">Agronegócio</div><div class="si2-d">Controle de safra manual, relatórios de campo atrasados, gestão de insumos caótica</div><div class="si2-r">Dashboard de safra com alertas automáticos e relatórios diários ao gestor</div></div>
+      <div class="si2"><div class="si2-ic"><svg viewBox="0 0 56 56" fill="none"><circle cx="24" cy="18" r="9" stroke="#D70030" stroke-width="1.5"/><path d="M6 50c0-10 8-16 18-16s18 6 18 16" stroke="#D70030" stroke-width="1.5" stroke-linecap="round"/><circle cx="42" cy="22" r="7" stroke="rgba(215,0,48,0.6)" stroke-width="1.5"/><path d="M42 30c7 0 12 5 12 14" stroke="rgba(215,0,48,0.4)" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="si2-nm">RH e Serviços</div><div class="si2-d">Triagem manual de currículos, onboarding sem padrão, perguntas repetitivas de candidatos</div><div class="si2-r">Triagem automática de talentos e onboarding digital com IA em dias</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ S11: TRIPLE STAT (dark mesmo na versão white — impacto visual) ═══ -->
+<div class="slide s11" id="s11">
+  <img class="ktana-wm ktana-wm-br" src="../img/grafismo-6.svg" alt="" style="opacity:0.04">
+  <div class="bc" style="color:rgba(255,255,255,0.28)">03 — OS RESULTADOS <span class="sep" style="color:rgba(255,255,255,0.15)">›</span><span class="cur" style="color:rgba(255,255,255,0.5)">Dados</span></div>
+  <div class="lg"><div class="lg-d" style="background:#fff;box-shadow:none"></div><span class="lg-t" style="color:rgba(255,255,255,0.55)">EMPRESA INTELIGENTE</span></div>
+  <div class="s11-hd"><div class="lbl">O que a IA entrega</div></div>
+  <div class="s11-in">
+    <div class="ri"><div class="rn">3<span class="ru">×</span></div><div class="rl">Mais produtividade por colaborador com IA integrada</div><div class="rs">Empresas que adotam IA generativa reportam ganho médio de 300% em processos administrativos</div><div class="rsrc">McKinsey Global Institute, 2023</div></div>
+    <div class="ri"><div class="rn">67<span class="ru">%</span></div><div class="rl">Redução no tempo de atendimento ao cliente</div><div class="rs">Agentes de IA resolvem a maioria das solicitações sem intervenção humana, 24h por dia</div><div class="rsrc">Accenture, Future of Work 2024</div></div>
+    <div class="ri"><div class="rn">30<span class="ru">d</span></div><div class="rl">Para seu primeiro funcionário digital estar ativo</div><div class="rs">Da primeira conversa ao primeiro agente funcionando no seu negócio, garantido por contrato</div><div class="rsrc">Empresa Inteligente OS · Garantia de prazo</div></div>
+  </div>
+</div>
+
+<!-- ═══ S12: SPRINT DE IMPLEMENTAÇÃO ═══ -->
+<div class="slide s12" id="s12">
+  <img class="ktana-wm ktana-wm-tr" src="../img/grafismo-2.svg" alt="">
+  <div class="bc">04 — PRÓXIMO PASSO <span class="sep">›</span><span class="cur">Sprint de Implementação</span></div>
+  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="s12-in">
+    <div class="s12-hd">
+      <div class="lbl">Como acontece</div>
+      <h2>Sprint de Implementação Inicial</h2>
+      <p class="s12-sub">De zero a funcionário digital ativo em 30 dias, garantido por contrato.</p>
+    </div>
+    <div class="sprint-track">
+      <div class="sp">
+        <div class="sp-bg-n">01</div>
+        <div class="sp-days">DIAS 1 – 2</div>
+        <div class="sp-title">Diagnóstico</div>
+        <div class="sp-items">
+          <div class="sp-item">Entrevista de mapeamento dos processos críticos</div>
+          <div class="sp-item">Identificação das maiores oportunidades de automação</div>
+          <div class="sp-item">Cálculo do ROI estimado para aprovação interna</div>
+          <div class="sp-item">Definição do escopo do primeiro agente</div>
+        </div>
+      </div>
+      <div class="sprint-connector"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="sp">
+        <div class="sp-bg-n">02</div>
+        <div class="sp-days">DIAS 3 – 10</div>
+        <div class="sp-title">Configuração</div>
+        <div class="sp-items">
+          <div class="sp-item">Treinamento do agente com sua base de conhecimento</div>
+          <div class="sp-item">Integração com WhatsApp Business</div>
+          <div class="sp-item">Conexão com ERP, CRM e sistemas internos</div>
+          <div class="sp-item">Testes em ambiente controlado</div>
+        </div>
+      </div>
+      <div class="sprint-connector"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="sp">
+        <div class="sp-bg-n">03</div>
+        <div class="sp-days">DIAS 11 – 22</div>
+        <div class="sp-title">Integração</div>
+        <div class="sp-items">
+          <div class="sp-item">Deploy em produção com supervisão total da equipe</div>
+          <div class="sp-item">Treinamento dos colaboradores para operar o agente</div>
+          <div class="sp-item">Ajustes finos baseados nos primeiros atendimentos reais</div>
+          <div class="sp-item">Validação dos fluxos com dados da sua operação</div>
+        </div>
+      </div>
+      <div class="sprint-connector"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="sp sp-last">
+        <div class="sp-bg-n">04</div>
+        <div class="sp-days">DIAS 23 – 30</div>
+        <div class="sp-title">Resultado</div>
+        <div class="sp-items">
+          <div class="sp-item">Funcionário digital operando 24h por dia, 7 dias</div>
+          <div class="sp-item">Dashboard de resultados em tempo real</div>
+          <div class="sp-item">Relatório de ROI do primeiro mês completo</div>
+          <div class="sp-item">Planejamento do próximo agente</div>
+        </div>
+      </div>
+    </div>
+    <div class="sprint-ft">
+      <div class="sprint-badges">
+        <div class="sprint-badge">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span>30 DIAS GARANTIDO</span>
+        </div>
+        <div class="sprint-badge">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          <span>SEM CÓDIGO · PLUG &amp; PLAY</span>
+        </div>
+      </div>
+      <div class="sprint-ft-r">Ativo no prazo ou devolvemos o investimento</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ S13: SECTION INTRO — POR QUE AGORA ═══ -->
+<div class="slide si" id="s13">
+  <div class="si-ph" style="background-image:url('../img/ai-future.jpg')"></div>
+  <div class="si-ov"></div><div class="si-ov2"></div>
+  <img class="ktana-wm ktana-wm-br" src="../img/grafismo-4.svg" alt="" style="opacity:0.05">
+  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="si-ct">
+    <span class="si-n">04 — O PRÓXIMO PASSO</span>
+    <h2 class="si-t">A janela de<br>vantagem está<br>fechando.</h2>
+    <p class="si-s">Os primeiros a adotar saem na frente. Os últimos pagam o dobro para recuperar terreno — ou fecham.</p>
+    <div class="si-line"></div>
+  </div>
+</div>
+
+<!-- ═══ S14: CTA ═══ -->
+<div class="slide s14" id="s14">
+  <div class="lg" style="position:absolute;top:22px;right:44px"><div class="lg-d" style="background:#fff;box-shadow:none"></div><span class="lg-t" style="color:rgba(255,255,255,0.55)">EMPRESA INTELIGENTE</span></div>
+  <div class="s14-bg">AGORA</div>
+  <img class="s14-samurai" src="../img/ktana-samurai-attack.png" alt="">
+  <img class="ktana-wm" src="../img/grafismo-6.svg" alt="" style="position:absolute;left:-80px;bottom:-80px;width:500px;height:500px;opacity:0.08;pointer-events:none;z-index:1;transform:rotate(-10deg)">
+  <div class="s14-c">
+    <div class="s14-p">Próximo passo</div>
+    <h2>Faça o diagnóstico<br>gratuito hoje.</h2>
+    <p class="s14-sub">Em 30 minutos identificamos quanto sua empresa perde por mês sem IA — e quanto pode ganhar nos próximos 90 dias.</p>
+    <a href="https://empresainteligente.ai/diagnostico" class="s14-btn">Agendar diagnóstico<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <div class="s14-url">empresainteligente.ai/diagnostico</div>
+  </div>
+</div>
+
+<!-- ═══ S15: CONTRACAPA ═══ -->
+<div class="slide s15" id="s15">
+  <div class="s15-ph"></div>
+  <div class="s15-c">
+    <div class="s15-lg">EMPRESA<span>.</span>INTELIGENTE</div>
+    <div class="s15-st">OS · Powered by KTANA AI</div>
+    <div class="s15-ln"></div>
+    <div class="s15-url">empresainteligente<span>.ai</span></div>
+    <div style="margin-top:6px;margin-bottom:28px;font-family:'Inter',sans-serif;font-size:14px;color:var(--text3)">/diagnostico</div>
+    <div class="s15-co">© 2025 · Todos os direitos reservados</div>
+  </div>
+</div>
+
+</div></div>
+
+<button class="nb" id="bp" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+<button class="nb" id="bn" aria-label="Próximo"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+<div id="ct">1 / 17</div>
 
 <script>
-(function(){
-  var slides = document.querySelectorAll('.slide');
-  var counter = document.getElementById('counter');
-  var dotsEl = document.getElementById('dots');
-  var total = slides.length;
-  var cur = 0;
-  var transitioning = false;
-
-  slides.forEach(function(_, i) {
-    var d = document.createElement('button');
-    d.className = 'dot' + (i === 0 ? ' active' : '');
-    d.setAttribute('aria-label', 'Slide ' + (i + 1));
-    d.addEventListener('click', function() { go(i); });
-    dotsEl.appendChild(d);
-  });
-
-  function theme(idx) { return slides[idx].dataset.theme || 'light'; }
-
-  function updateUI() {
-    var t = theme(cur);
-    counter.textContent = (cur + 1) + ' / ' + total;
-    counter.className = t === 'dark' ? 'dark' : t === 'red' ? 'red' : '';
-    var dots = dotsEl.querySelectorAll('.dot');
-    dots.forEach(function(d, i) {
-      d.className = 'dot'
-        + (t === 'dark' ? ' d-dark' : t === 'red' ? ' d-red' : '')
-        + (i === cur ? ' active' : '');
-    });
-  }
-
-  function go(n) {
-    if (n < 0 || n >= total) return;
-    if (transitioning) return;
-    transitioning = true;
-    slides[cur].classList.remove('active');
-    cur = n;
-    slides[cur].classList.add('active');
-    updateUI();
-    setTimeout(function() { transitioning = false; }, 350);
-  }
-
-  updateUI();
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); go(cur + 1); }
-    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(cur - 1); }
-    else if (e.key === 'Home') go(0);
-    else if (e.key === 'End') go(total - 1);
-  });
-
-  var tx = 0;
-  document.addEventListener('touchstart', function(e) { tx = e.touches[0].clientX; }, { passive: true });
-  document.addEventListener('touchend', function(e) {
-    var dx = e.changedTouches[0].clientX - tx;
-    if (Math.abs(dx) > 50) { dx < 0 ? go(cur + 1) : go(cur - 1); }
-  }, { passive: true });
-
-})();
+const sl=document.querySelectorAll('.slide'),T=sl.length;
+let c=0;const ct=document.getElementById('ct');
+function go(n){sl[c].classList.remove('active');c=(n+T)%T;sl[c].classList.add('active');ct.textContent=(c+1)+' / '+T}
+document.getElementById('bp').onclick=()=>go(c-1);
+document.getElementById('bn').onclick=()=>go(c+1);
+document.addEventListener('keydown',e=>{
+  if(['ArrowRight','ArrowDown',' '].includes(e.key)){e.preventDefault();go(c+1)}
+  if(['ArrowLeft','ArrowUp'].includes(e.key)){e.preventDefault();go(c-1)}
+});
+let tx=0;
+document.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+document.addEventListener('touchend',e=>{const d=tx-e.changedTouches[0].clientX;if(Math.abs(d)>50)d>0?go(c+1):go(c-1)},{passive:true});
+function scale(){const s=Math.min(window.innerWidth/1440,window.innerHeight/810);document.getElementById('deck').style.transform='scale('+s+')'}
+window.addEventListener('resize',scale);scale();
 </script>
 </body>
 </html>
