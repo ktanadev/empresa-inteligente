@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -16,15 +17,29 @@
   --r-bg-1:rgba(215,0,48,0.08);
   --r-bg-2:rgba(215,0,48,0.04);
   --r-line:rgba(215,0,48,0.22);
+  --ktana-glow:#FF1A4B;
   --bg:#FFFFFF;
+  --bg-primary:#FFFFFF;
+  --bg-secondary:#F5F5F7;
+  --bg-tertiary:#E8E8ED;
   --bg2:#F5F5F7;
   --bg3:#EEECEA;
   --text:#1D1D1F;
+  --text-primary:#1D1D1F;
+  --text-secondary:#6E6E73;
+  --text-tertiary:#86868B;
   --text-mid:#86868B;
   --text-light:#AEAEB2;
-  --bord:rgba(0,0,0,0.08)
+  --border:#D2D2D7;
+  --border-light:#E5E5EA;
+  --bord:rgba(0,0,0,0.08);
+  --glass-bg:rgba(245,245,247,0.72);
+  --glass-blur:saturate(180%) blur(20px);
+  --font-display:'Zen Dots', cursive;
+  --font-sans:'Satoshi', 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-ui:'Inter', -apple-system, system-ui, sans-serif
 }
-html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:'Inter',sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
+html,body{width:100%;height:100%;overflow:hidden;background:#F5F5F7;font-family:var(--font-sans);color:var(--text);-webkit-font-smoothing:antialiased}
 
 .wrapper{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
 .deck{width:1440px;height:810px;position:relative;transform-origin:center center;overflow:hidden}
