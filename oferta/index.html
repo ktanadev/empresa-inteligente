@@ -82,10 +82,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:#F5F5F7;font-family:
    LIQUID GLASS — paleta monotonal KTANA
    #D70030 (primário) · #9B0A2A (médio) · #73071F (deep)
    ═══════════════════════════════════════════════ */
-.kg-white{position:relative;background:rgba(255,255,255,0.62);backdrop-filter:blur(18px) saturate(120%);-webkit-backdrop-filter:blur(18px) saturate(120%);border:1px solid var(--r-line);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.85),0 0 28px rgba(215,0,48,0.14),0 16px 36px rgba(0,0,0,0.06);transition:all 400ms cubic-bezier(.32,.72,0,1);overflow:hidden}
-.kg-white::before{content:'';position:absolute;top:0;left:0;right:0;height:35%;background:linear-gradient(180deg,rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.2) 50%,transparent 100%);pointer-events:none;border-radius:20px 20px 0 0}
-.kg-white::after{content:'';position:absolute;inset:0;border-radius:20px;padding:1px;background:linear-gradient(135deg,rgba(215,0,48,0.55) 0%,rgba(155,10,42,0.30) 50%,rgba(0,0,0,0.06) 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-.kg-white:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,0.9),0 0 40px rgba(215,0,48,0.28),0 24px 48px rgba(0,0,0,0.10)}
+.kg-white{position:relative;background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);border:1px solid rgba(255,255,255,0.5);border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,0.04),0 4px 16px rgba(0,0,0,0.06);transition:transform 200ms cubic-bezier(0.25,0.1,0.25,1),box-shadow 200ms cubic-bezier(0.25,0.1,0.25,1);overflow:hidden}
+.kg-white::before{content:'';position:absolute;top:0;left:0;right:0;height:30%;background:linear-gradient(180deg,rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.1) 60%,transparent 100%);pointer-events:none;border-radius:16px 16px 0 0}
+.kg-white:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,0.08),0 8px 32px rgba(0,0,0,0.12)}
+@supports not (backdrop-filter:blur(1px)){.kg-white{background:rgba(255,255,255,0.92)}}
 
 .kg-dark{position:relative;background:linear-gradient(135deg,rgba(20,8,12,0.72) 0%,rgba(35,12,18,0.64) 100%);backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);border:1px solid rgba(215,0,48,0.32);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.10),inset 0 -16px 32px rgba(0,0,0,0.30),0 0 32px rgba(215,0,48,0.30),0 24px 48px rgba(0,0,0,0.45);transition:all 400ms cubic-bezier(.32,.72,0,1);overflow:hidden}
 .kg-dark::before{content:'';position:absolute;top:0;left:0;right:0;height:35%;background:linear-gradient(180deg,rgba(255,255,255,0.14) 0%,rgba(255,255,255,0.04) 50%,transparent 100%);pointer-events:none;border-radius:20px 20px 0 0}
@@ -100,13 +100,13 @@ html,body{width:100%;height:100%;overflow:hidden;background:#F5F5F7;font-family:
 .kg-glow-behind::after{content:'';position:absolute;inset:-30px;z-index:-1;background:radial-gradient(ellipse at center,rgba(215,0,48,0.30) 0%,rgba(215,0,48,0.08) 45%,transparent 70%);filter:blur(28px);pointer-events:none;border-radius:50%}
 
 /* ═══════════════════════════════════════════════
-   S1 — CAPA DARK (kanji 刀 + tipografia gigante)
+   S1 — CAPA DARK (traço de katana + tipografia gigante)
    ═══════════════════════════════════════════════ */
 .s1{background:#0A0A0A;color:#fff;overflow:hidden}
-.s1-bg{position:absolute;inset:0;background:url('../img/ktana-samurai-neon.png') center/cover no-repeat;opacity:0.55;filter:contrast(1.05) saturate(1.1)}
+.s1-bg{position:absolute;top:0;right:0;width:48%;height:100%;background:url('../img/ktana-cyberpunk-hr.jpg') center/cover no-repeat;opacity:0.92;filter:contrast(1.05) saturate(1.08);-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 22%,#000 100%);mask-image:linear-gradient(to right,transparent 0%,#000 22%,#000 100%)}
 .s1-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,10,0.92) 0%,rgba(10,10,10,0.78) 50%,rgba(115,7,31,0.55) 100%)}
 .s1-glow{position:absolute;right:-200px;top:-200px;width:900px;height:900px;background:radial-gradient(circle,rgba(215,0,48,0.35) 0%,rgba(215,0,48,0.10) 35%,transparent 70%);filter:blur(60px);pointer-events:none}
-.s1-kanji{position:absolute;right:8%;top:50%;transform:translateY(-50%);font-family:'Zen Dots',sans-serif;font-size:540px;line-height:0.9;color:rgba(215,0,48,0.18);text-shadow:0 0 80px rgba(215,0,48,0.6);pointer-events:none;user-select:none;letter-spacing:-0.05em}
+.s1-katana-cut{position:absolute;top:-12%;right:18%;width:2px;height:135%;background:linear-gradient(to bottom,transparent 0%,var(--ktana-glow) 15%,#D70030 50%,var(--ktana-glow) 85%,transparent 100%);box-shadow:0 0 12px var(--ktana-glow),0 0 28px rgba(255,26,75,0.55),0 0 48px rgba(215,0,48,0.35);transform:rotate(16deg);pointer-events:none;user-select:none;z-index:3}
 .s1-c{position:relative;z-index:5;padding:96px 80px;display:flex;flex-direction:column;justify-content:center;height:100%;max-width:920px}
 .s1-mark{display:flex;align-items:center;gap:10px;margin-bottom:48px;font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.55)}
 .s1-mark img{width:30px;height:30px;opacity:0.9}
@@ -311,10 +311,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:#F5F5F7;font-family:
    S12 — CTA DARK (contracapa fundida)
    ═══════════════════════════════════════════════ */
 .s12{background:#0A0A0A;color:#fff;overflow:hidden}
-.s12-bg{position:absolute;inset:0;background:url('../img/ktana-samurai-kasa.png') center/cover no-repeat;opacity:0.45;filter:contrast(1.05)}
+.s12-bg{position:absolute;top:0;left:0;width:42%;height:100%;background:url('../img/ktana-cyberpunk-hr.jpg') center/cover no-repeat;opacity:0.88;filter:contrast(1.05) saturate(1.05);-webkit-mask-image:linear-gradient(to left,transparent 0%,#000 22%,#000 100%);mask-image:linear-gradient(to left,transparent 0%,#000 22%,#000 100%)}
 .s12-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,10,0.95) 0%,rgba(115,7,31,0.65) 100%)}
 .s12-glow{position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);width:1000px;height:1000px;background:radial-gradient(circle,rgba(215,0,48,0.30) 0%,rgba(215,0,48,0.08) 30%,transparent 60%);filter:blur(80px);pointer-events:none}
-.s12-kanji{position:absolute;left:6%;bottom:-160px;font-family:'Zen Dots',sans-serif;font-size:560px;line-height:0.85;color:rgba(215,0,48,0.10);pointer-events:none;user-select:none}
+.s12-katana-cut{position:absolute;top:-15%;left:10%;width:2px;height:140%;background:linear-gradient(to bottom,transparent 0%,var(--ktana-glow) 15%,#D70030 50%,var(--ktana-glow) 85%,transparent 100%);box-shadow:0 0 12px var(--ktana-glow),0 0 28px rgba(255,26,75,0.55),0 0 48px rgba(215,0,48,0.35);transform:rotate(-16deg);pointer-events:none;user-select:none;z-index:3}
 .s12-c{position:relative;z-index:5;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;height:100%;padding:60px 80px 240px}
 .s12-pre{display:inline-flex;align-items:center;gap:10px;background:rgba(215,0,48,0.18);border:1px solid rgba(215,0,48,0.5);padding:7px 16px;border-radius:3px;font-size:10px;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;color:#fff;margin-bottom:24px}
 .s12-pre::before{content:'';width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 12px #fff}
@@ -341,7 +341,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#F5F5F7;font-family:
    ═══════════════════════════════════════════════ */
 .s2-new{background:#0A0606;color:#fff;overflow:hidden}
 .s2-new::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 70% at 50% 0%, rgba(115,7,31,0.55) 0%, rgba(10,6,6,0) 60%),linear-gradient(180deg,#0A0606 0%,#15090C 100%);pointer-events:none}
-.s2-new::after{content:'刀';position:absolute;right:-80px;bottom:-180px;font-family:'Zen Dots',sans-serif;font-size:520px;color:rgba(215,0,48,0.06);line-height:0.85;pointer-events:none;user-select:none}
+.s2-new::after{content:'';position:absolute;top:-10%;right:15%;width:2px;height:130%;background:linear-gradient(to bottom,transparent 0%,rgba(255,26,75,0.4) 30%,rgba(215,0,48,0.5) 50%,rgba(255,26,75,0.4) 70%,transparent 100%);box-shadow:0 0 18px rgba(255,26,75,0.35);transform:rotate(14deg);pointer-events:none;user-select:none}
 .s2n-in{position:absolute;inset:0;padding:88px 80px 72px;display:flex;flex-direction:column;z-index:5}
 .s2n-head{margin-bottom:30px;max-width:1180px}
 .s2n-h1{font-family:'Zen Dots',sans-serif;font-size:54px;line-height:1.02;letter-spacing:-0.02em;color:#fff;margin-bottom:14px}
@@ -396,7 +396,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#F5F5F7;font-family:
   <div class="s1-bg"></div>
   <div class="s1-overlay"></div>
   <div class="s1-glow"></div>
-  <div class="s1-kanji">刀</div>
+  <div class="s1-katana-cut"></div>
   <div class="s1-c">
     <div class="s1-mark">
       <img src="../img/ktana-symbol.svg" alt="KTANA">
@@ -536,7 +536,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#F5F5F7;font-family:
      ═══════════════════════════════════════════════ -->
 <div class="slide" id="s5b" style="background:#0A0A0A;display:flex;align-items:center;justify-content:center;position:absolute;inset:0">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 50%, rgba(215,0,48,0.22) 0%, rgba(215,0,48,0.04) 50%, transparent 80%);pointer-events:none"></div>
-  <div style="position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);font-family:'Zen Dots',sans-serif;font-size:240px;color:rgba(215,0,48,0.06);line-height:1;pointer-events:none;user-select:none">刀</div>
+  <div style="position:absolute;top:0;left:50%;width:1px;height:100%;background:linear-gradient(to bottom,transparent 10%,rgba(215,0,48,0.18) 35%,rgba(215,0,48,0.32) 50%,rgba(215,0,48,0.18) 65%,transparent 90%);box-shadow:0 0 16px rgba(255,26,75,0.18);pointer-events:none;user-select:none"></div>
   <div style="position:relative;z-index:2;text-align:center;padding:0 8vw">
     <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:rgba(215,0,48,0.85);margin-bottom:32px">Como funciona</div>
     <h2 style="font-family:'Zen Dots',sans-serif;font-size:72px;line-height:1.1;color:#fff;letter-spacing:-0.02em;max-width:1100px;margin:0 auto">Em 60 dias,<br>sua empresa <em style="color:var(--red);font-style:normal">opera sozinha</em><br>com IA.</h2>
@@ -786,7 +786,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#F5F5F7;font-family:
      ═══════════════════════════════════════════════ -->
 <div class="slide" id="s10b" style="background:#0A0A0A;display:flex;align-items:center;justify-content:center;position:absolute;inset:0">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 50%, rgba(215,0,48,0.22) 0%, rgba(215,0,48,0.04) 50%, transparent 80%);pointer-events:none"></div>
-  <div style="position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);font-family:'Zen Dots',sans-serif;font-size:240px;color:rgba(215,0,48,0.06);line-height:1;pointer-events:none;user-select:none">刀</div>
+  <div style="position:absolute;top:0;left:50%;width:1px;height:100%;background:linear-gradient(to bottom,transparent 10%,rgba(215,0,48,0.18) 35%,rgba(215,0,48,0.32) 50%,rgba(215,0,48,0.18) 65%,transparent 90%);box-shadow:0 0 16px rgba(255,26,75,0.18);pointer-events:none;user-select:none"></div>
   <div style="position:relative;z-index:2;text-align:center;padding:0 8vw">
     <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:rgba(215,0,48,0.85);margin-bottom:32px">Próximo bloco</div>
     <h2 style="font-family:'Zen Dots',sans-serif;font-size:96px;line-height:1.05;color:#fff;letter-spacing:-0.02em;margin:0">O <em style="color:var(--red);font-style:normal">investimento</em>.</h2>
@@ -856,7 +856,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#F5F5F7;font-family:
   <div class="s12-bg"></div>
   <div class="s12-overlay"></div>
   <div class="s12-glow"></div>
-  <div class="s12-kanji">刀</div>
+  <div class="s12-katana-cut"></div>
   <div class="bc dark" style="z-index:6">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">Próximo passo</span></div>
   <div class="lg dark" style="z-index:6"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
   <div class="s12-c">
