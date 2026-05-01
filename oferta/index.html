@@ -187,7 +187,8 @@ a{text-decoration:none;color:inherit}
 .s6-not-x{font-family:var(--font-display);font-size:13px;color:var(--text-4);margin-bottom:10px;font-weight:400}
 .s6-not-t{font-family:var(--font-sans);font-size:15px;font-weight:500;color:var(--text-3);text-decoration:line-through;text-decoration-color:rgba(215,0,48,0.45);text-decoration-thickness:1.5px;margin-bottom:8px}
 .s6-not-d{font-family:var(--font-sans);font-size:12.5px;color:var(--text-4);line-height:1.5;font-weight:400}
-.s6-yes{background:var(--bg-card);border:1px solid rgba(215,0,48,0.14);border-radius:20px;padding:30px;box-shadow:0 4px 24px rgba(215,0,48,0.05)}
+.s6-yes{background:linear-gradient(180deg,var(--bg-card) 0%,#FAFAFA 100%);border:1px solid rgba(215,0,48,0.16);border-radius:20px;padding:32px;box-shadow:0 1px 0 rgba(255,255,255,0.6) inset,0 12px 40px -8px rgba(215,0,48,0.10),0 24px 64px -16px rgba(0,0,0,0.08);position:relative}
+.s6-yes::after{content:'';position:absolute;top:0;left:32px;right:32px;height:1px;background:linear-gradient(90deg,transparent,rgba(215,0,48,0.45),transparent)}
 .s6-yes-tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-ui);font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);margin-bottom:14px;padding:5px 12px;background:rgba(215,0,48,0.06);border-radius:980px}
 .s6-yes-h{font-family:var(--font-display);font-size:24px;line-height:1.18;color:var(--text);margin-bottom:12px;letter-spacing:-0.012em;font-weight:400}
 .s6-yes-h em{font-style:normal;color:var(--red)}
@@ -280,7 +281,7 @@ a{text-decoration:none;color:inherit}
 .s11-installments strong{color:#fff;font-weight:600}
 .s11-roi{background:rgba(215,0,48,0.12);border:1px solid rgba(215,0,48,0.28);border-radius:12px;padding:14px 18px;font-family:var(--font-sans);font-size:13.5px;color:#fff;line-height:1.5;font-weight:400}
 .s11-roi strong{color:var(--red-glow);font-weight:600}
-.s11-right{background:rgba(255,255,255,0.04);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:10px}
+.s11-right{background:linear-gradient(180deg,rgba(255,255,255,0.06) 0%,rgba(255,255,255,0.02) 100%);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);border:1px solid rgba(255,255,255,0.10);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:10px;box-shadow:0 1px 0 rgba(255,255,255,0.10) inset,0 24px 48px rgba(0,0,0,0.4),0 0 0 1px rgba(215,0,48,0.10)}
 .s11-right h4{font-family:var(--font-display);font-size:14px;color:#fff;margin-bottom:6px;font-weight:400;letter-spacing:0.01em}
 .s11-incl{display:flex;align-items:flex-start;gap:10px;font-family:var(--font-sans);font-size:13px;color:rgba(255,255,255,0.85);line-height:1.5;font-weight:400}
 .s11-incl::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--red);box-shadow:0 0 6px var(--red);flex-shrink:0;margin-top:8px}
@@ -918,6 +919,7 @@ document.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true}
 document.addEventListener('touchend',e=>{const d=tx-e.changedTouches[0].clientX;if(Math.abs(d)>50)d>0?go(c+1):go(c-1)},{passive:true});
 function scale(){const s=Math.min(window.innerWidth/1440,window.innerHeight/810);document.getElementById('deck').style.transform='scale('+s+')'}
 window.addEventListener('resize',scale);scale();
+const u=new URLSearchParams(location.search);const ns=parseInt(u.get('slide'));if(!isNaN(ns)&&ns>=1&&ns<=T)go(ns-1);
 </script>
 </body>
 </html>
