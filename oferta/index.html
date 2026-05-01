@@ -6,7 +6,7 @@
 <title>Empresa Inteligente OS — Apresentação Comercial</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Zen+Dots&family=Lora:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -19,6 +19,7 @@
   --font-display:'Zen Dots',cursive;
   --font-sans:'Satoshi','Inter',-apple-system,system-ui,sans-serif;
   --font-ui:'Inter',-apple-system,system-ui,sans-serif;
+  --font-editorial:'Lora',Georgia,serif;
   --glass-bg:rgba(245,245,247,0.72);
   --glass-blur:saturate(180%) blur(20px);
   --ease:cubic-bezier(0.25,0.1,0.25,1);
@@ -116,7 +117,7 @@ a{text-decoration:none;color:inherit}
 .s2{background:var(--bg);color:var(--text)}
 .s2 .in{justify-content:center;align-items:flex-start;padding:120px 80px}
 .s2-quote{font-family:var(--font-display);font-size:54px;line-height:1.1;letter-spacing:-0.022em;color:var(--text);margin-bottom:32px;max-width:1080px;font-weight:400}
-.s2-quote em{font-style:normal;color:var(--red)}
+.s2-quote em{font-family:var(--font-editorial);font-style:italic;color:var(--red);font-weight:500}
 .s2-foot{display:flex;flex-direction:column;gap:10px;max-width:780px}
 .s2-foot p{font-family:var(--font-sans);font-size:18px;color:var(--text-3);line-height:1.5;font-weight:400}
 .s2-foot p strong{color:var(--text);font-weight:600}
@@ -168,8 +169,8 @@ a{text-decoration:none;color:inherit}
 .s5-role{font-family:var(--font-sans);font-size:14px;color:var(--red-glow);font-weight:500;margin-bottom:28px;letter-spacing:0.01em}
 .s5-body{font-family:var(--font-sans);font-size:15.5px;color:rgba(255,255,255,0.78);line-height:1.6;margin-bottom:24px;font-weight:400;max-width:580px}
 .s5-body strong{color:#fff;font-weight:600}
-.s5-quote{font-family:var(--font-sans);font-size:21px;font-weight:400;color:#fff;line-height:1.45;font-style:italic;border-left:2px solid var(--red);padding-left:20px;margin-bottom:14px;max-width:580px}
-.s5-quote em{font-style:italic;color:var(--red-glow)}
+.s5-quote{font-family:var(--font-editorial);font-size:26px;font-weight:400;color:#fff;line-height:1.35;font-style:italic;border-left:2px solid var(--red);padding-left:24px;margin-bottom:14px;max-width:580px;letter-spacing:-0.005em}
+.s5-quote em{font-style:italic;color:var(--red-glow);font-weight:500}
 .s5-quote-by{font-family:var(--font-ui);font-size:11px;color:rgba(255,255,255,0.55);letter-spacing:0.08em;font-weight:500;margin-bottom:24px}
 .s5-final{font-family:var(--font-sans);font-size:14.5px;color:rgba(255,255,255,0.78);line-height:1.6;font-weight:400;max-width:580px}
 .s5-final strong{color:#fff;font-weight:600}
@@ -241,10 +242,10 @@ a{text-decoration:none;color:inherit}
 .s9-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:14px;flex:1}
 .s9-dep{background:var(--bg-card);border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,0.04);transition:all 300ms var(--ease)}
 .s9-dep:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.06)}
-.s9-dep-h{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.s9-dep-ic{width:36px;height:36px;border-radius:10px;background:rgba(215,0,48,0.06);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.s9-dep-ic svg{width:18px;height:18px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.s9-dep-name{font-family:var(--font-display);font-size:14px;color:var(--text);font-weight:400;letter-spacing:-0.005em}
+.s9-dep-h{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
+.s9-dep-num{font-family:var(--font-display);font-size:34px;color:var(--text-4);line-height:0.95;letter-spacing:-0.025em;font-weight:400;display:flex;align-items:flex-start;gap:6px}
+.s9-dep-num::after{content:'';width:5px;height:5px;border-radius:50%;background:var(--red);box-shadow:0 0 8px var(--red);margin-top:6px;flex-shrink:0}
+.s9-dep-name{font-family:var(--font-display);font-size:15px;color:var(--text);font-weight:400;letter-spacing:-0.005em;align-self:flex-end;margin-bottom:2px}
 .s9-dep-d{font-family:var(--font-sans);font-size:12.5px;color:var(--text-2);line-height:1.55;font-weight:400}
 
 /* ═══ S10 — RESULTADOS (DARK PIVOT, KPIs GRANDES) ═══ */
@@ -261,8 +262,8 @@ a{text-decoration:none;color:inherit}
 .s10-num{font-family:var(--font-display);font-size:48px;color:#fff;line-height:1.0;letter-spacing:-0.028em;margin-bottom:10px;font-weight:400}
 .s10-num span{font-size:26px;color:var(--red-glow)}
 .s10-lbl{font-family:var(--font-sans);font-size:13px;color:rgba(255,255,255,0.7);line-height:1.5;font-weight:400}
-.s10-quote{background:rgba(255,255,255,0.04);border-left:2px solid var(--red);border-radius:0 14px 14px 0;padding:22px 28px;font-family:var(--font-sans);font-size:15px;color:rgba(255,255,255,0.85);line-height:1.6;font-weight:400;font-style:italic;max-width:1180px;backdrop-filter:blur(10px)}
-.s10-quote strong{color:var(--red-glow);font-weight:600;font-style:normal}
+.s10-quote{background:rgba(255,255,255,0.04);border-left:2px solid var(--red);border-radius:0 14px 14px 0;padding:22px 28px;font-family:var(--font-editorial);font-size:18px;color:rgba(255,255,255,0.92);line-height:1.5;font-weight:400;font-style:italic;max-width:1180px;backdrop-filter:blur(10px);letter-spacing:-0.003em}
+.s10-quote strong{color:var(--red-glow);font-weight:500;font-style:normal;font-family:var(--font-display)}
 
 /* ═══ S11 — INVESTIMENTO (DARK SÓLIDO) ═══ */
 .s11{background:var(--bg-dark);color:#fff}
@@ -311,8 +312,16 @@ a{text-decoration:none;color:inherit}
 .s13-list{display:flex;flex-direction:column;gap:14px;margin-bottom:36px;max-width:680px;text-align:left;align-items:flex-start}
 .s13-list li{display:flex;align-items:flex-start;gap:14px;font-family:var(--font-sans);font-size:16px;color:rgba(255,255,255,0.78);line-height:1.5;font-weight:400}
 .s13-list li::before{content:'';flex-shrink:0;width:6px;height:6px;border-radius:50%;background:var(--red);box-shadow:0 0 8px var(--red);margin-top:9px}
-.s13-final{font-family:var(--font-display);font-size:24px;color:#fff;font-weight:400;letter-spacing:-0.012em;line-height:1.3;text-align:center;max-width:720px}
-.s13-final em{font-style:normal;color:var(--red-glow)}
+.s13-final{font-family:var(--font-editorial);font-size:28px;color:#fff;font-weight:400;font-style:italic;letter-spacing:-0.008em;line-height:1.35;text-align:center;max-width:780px}
+.s13-final em{font-style:italic;color:var(--red-glow);font-weight:500}
+
+/* ═══ S4b — BUMPER EDITORIAL (PIVOT G4-style) ═══ */
+.s4b{background:var(--bg-dark);color:#fff}
+.s4b-glow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:900px;height:520px;background:radial-gradient(ellipse,rgba(215,0,48,0.12) 0%,transparent 70%);filter:blur(90px);pointer-events:none}
+.s4b .in-c{padding:120px 80px}
+.bumper-quote{font-family:var(--font-editorial);font-style:italic;font-size:42px;line-height:1.32;color:rgba(255,255,255,0.95);max-width:980px;text-align:center;font-weight:400;letter-spacing:-0.012em}
+.bumper-quote em{font-style:italic;color:var(--red-glow);font-weight:500}
+.s4b-rule{width:48px;height:1px;background:linear-gradient(90deg,transparent,var(--red),transparent);margin:36px auto 0;box-shadow:0 0 12px rgba(215,0,48,0.6)}
 
 /* ═══ S14 — CTA (LIGHT, FECHAMENTO LIMPO) ═══ */
 .s14{background:var(--bg)}
@@ -393,7 +402,7 @@ a{text-decoration:none;color:inherit}
       <span>− <strong>HEADCOUNT</strong></span>
     </div>
   </div>
-  <div class="ft dark"><span class="powered">empresainteligente.ai</span><span>01 / 15</span></div>
+  <div class="ft dark"><span class="powered">empresainteligente.ai</span><span>01 / 16</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -411,7 +420,7 @@ a{text-decoration:none;color:inherit}
       <p><strong>A diferença entre crescer e fechar não é mais capital. É inteligência aplicada à operação.</strong></p>
     </div>
   </div>
-  <div class="ft"><span class="powered">empresainteligente.ai</span><span>02 / 15</span></div>
+  <div class="ft"><span class="powered">empresainteligente.ai</span><span>02 / 16</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -448,7 +457,7 @@ a{text-decoration:none;color:inherit}
       </div>
     </div>
   </div>
-  <div class="ft"><span class="powered">empresainteligente.ai</span><span>03 / 15</span></div>
+  <div class="ft"><span class="powered">empresainteligente.ai</span><span>03 / 16</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -490,7 +499,20 @@ a{text-decoration:none;color:inherit}
     </div>
     <div class="s4-foot">A escolha de não implementar é uma escolha — e já tem custo.</div>
   </div>
-  <div class="ft"><span class="powered">empresainteligente.ai</span><span>04 / 15</span></div>
+  <div class="ft"><span class="powered">empresainteligente.ai</span><span>04 / 16</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     S4b — BUMPER EDITORIAL (PIVOT)
+     ═══════════════════════════════════════════════ -->
+<div class="slide s4b" id="s4b">
+  <div class="s4b-glow"></div>
+  <div class="lg dark"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="in-c">
+    <p class="bumper-quote">A pergunta não é <em>se</em> sua empresa será<br>operada por IA. É <em>quando</em> — e quem chegar primeiro.</p>
+    <div class="s4b-rule"></div>
+  </div>
+  <div class="ft dark"><span class="powered">empresainteligente.ai</span><span>05 / 16</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -511,7 +533,7 @@ a{text-decoration:none;color:inherit}
     <div class="s5-quote-by">— DARIO AMODEI · CEO ANTHROPIC</div>
     <div class="s5-final">Dario não ensinou empresas a usar IA. Ele construiu o sistema que faz a IA trabalhar por elas. <strong>Esse é o nosso princípio também</strong> — usamos o Claude para colocar isso em prática na sua empresa.</div>
   </div>
-  <div class="ft dark" style="z-index:6"><span class="powered">empresainteligente.ai</span><span>05 / 15</span></div>
+  <div class="ft dark" style="z-index:6"><span class="powered">empresainteligente.ai</span><span>06 / 16</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -547,7 +569,7 @@ a{text-decoration:none;color:inherit}
       <p class="s6-yes-d">Nossa equipe entra na sua operação, mapeia cada área, implementa IA onde gera mais resultado e instrui seu time a continuar expandindo sozinho. <strong>Você sai autossuficiente. Não dependente de ninguém.</strong></p>
     </div>
   </div>
-  <div class="ft"><span class="powered">empresainteligente.ai</span><span>06 / 15</span></div>
+  <div class="ft"><span class="powered">empresainteligente.ai</span><span>07 / 16</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -599,7 +621,7 @@ a{text-decoration:none;color:inherit}
       </div>
     </div>
   </div>
-  <div class="ft"><span class="powered">empresainteligente.ai</span><span>07 / 15</span></div>
+  <div class="ft"><span class="powered">empresainteligente.ai</span><span>08 / 16</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -636,7 +658,7 @@ a{text-decoration:none;color:inherit}
       </div>
     </div>
   </div>
-  <div class="ft"><span class="powered">empresainteligente.ai</span><span>08 / 15</span></div>
+  <div class="ft"><span class="powered">empresainteligente.ai</span><span>09 / 16</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -651,50 +673,32 @@ a{text-decoration:none;color:inherit}
     <p class="s9-sub">Não são cursos. <strong>São soluções rodando.</strong> Quem contrata a implementação ganha acesso à plataforma como legado permanente.</p>
     <div class="s9-grid">
       <div class="s9-dep">
-        <div class="s9-dep-h">
-          <div class="s9-dep-ic"><svg viewBox="0 0 24 24"><path d="M3 12l4-7 4 4 4-2 4 5"/><path d="M3 18h18"/></svg></div>
-          <div class="s9-dep-name">Comercial</div>
-        </div>
+        <div class="s9-dep-h"><div class="s9-dep-num">01</div><div class="s9-dep-name">Comercial</div></div>
         <div class="s9-dep-d">Follow-up automático, qualificação de leads, previsão de fechamento.</div>
       </div>
       <div class="s9-dep">
-        <div class="s9-dep-h">
-          <div class="s9-dep-ic"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/></svg></div>
-          <div class="s9-dep-name">Financeiro</div>
-        </div>
+        <div class="s9-dep-h"><div class="s9-dep-num">02</div><div class="s9-dep-name">Financeiro</div></div>
         <div class="s9-dep-d">Relatórios automáticos, alertas de inadimplência, conciliação.</div>
       </div>
       <div class="s9-dep">
-        <div class="s9-dep-h">
-          <div class="s9-dep-ic"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></div>
-          <div class="s9-dep-name">Marketing</div>
-        </div>
+        <div class="s9-dep-h"><div class="s9-dep-num">03</div><div class="s9-dep-name">Marketing</div></div>
         <div class="s9-dep-d">Geração de conteúdo, análise de campanha, relatório de mídia.</div>
       </div>
       <div class="s9-dep">
-        <div class="s9-dep-h">
-          <div class="s9-dep-ic"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
-          <div class="s9-dep-name">Atendimento</div>
-        </div>
+        <div class="s9-dep-h"><div class="s9-dep-num">04</div><div class="s9-dep-name">Atendimento</div></div>
         <div class="s9-dep-d">IA de primeiro nível, triagem, resposta automática 24h.</div>
       </div>
       <div class="s9-dep">
-        <div class="s9-dep-h">
-          <div class="s9-dep-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
-          <div class="s9-dep-name">RH</div>
-        </div>
+        <div class="s9-dep-h"><div class="s9-dep-num">05</div><div class="s9-dep-name">RH</div></div>
         <div class="s9-dep-d">Triagem de currículos, onboarding, pesquisa de clima automática.</div>
       </div>
       <div class="s9-dep">
-        <div class="s9-dep-h">
-          <div class="s9-dep-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
-          <div class="s9-dep-name">Operações</div>
-        </div>
+        <div class="s9-dep-h"><div class="s9-dep-num">06</div><div class="s9-dep-name">Operações</div></div>
         <div class="s9-dep-d">Monitoramento de processos, alertas, relatórios operacionais.</div>
       </div>
     </div>
   </div>
-  <div class="ft"><span class="powered">empresainteligente.ai</span><span>09 / 15</span></div>
+  <div class="ft"><span class="powered">empresainteligente.ai</span><span>10 / 16</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -729,7 +733,7 @@ a{text-decoration:none;color:inherit}
     </div>
     <div class="s10-quote">Em 30 dias tínhamos IA rodando no atendimento e no comercial. Em 60 dias, o custo operacional tinha caído. Em 90 dias, <strong>meu time parou de fazer trabalho repetitivo.</strong></div>
   </div>
-  <div class="ft dark"><span class="powered">empresainteligente.ai</span><span>10 / 15</span></div>
+  <div class="ft dark"><span class="powered">empresainteligente.ai</span><span>11 / 16</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -758,7 +762,7 @@ a{text-decoration:none;color:inherit}
       <div class="s11-incl">Suporte da equipe KTANA durante todo o processo</div>
     </div>
   </div>
-  <div class="ft dark"><span class="powered">empresainteligente.ai</span><span>11 / 15</span></div>
+  <div class="ft dark"><span class="powered">empresainteligente.ai</span><span>12 / 16</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -794,7 +798,7 @@ a{text-decoration:none;color:inherit}
       </div>
     </div>
   </div>
-  <div class="ft dark"><span class="powered">empresainteligente.ai</span><span>12 / 15</span></div>
+  <div class="ft dark"><span class="powered">empresainteligente.ai</span><span>13 / 16</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -815,7 +819,7 @@ a{text-decoration:none;color:inherit}
     </ul>
     <p class="s13-final">O custo de não fazer é maior do que o investimento de fazer.<br>E o custo de não fazer <em>agora</em> é irreversível.</p>
   </div>
-  <div class="ft dark"><span class="powered">empresainteligente.ai</span><span>13 / 15</span></div>
+  <div class="ft dark"><span class="powered">empresainteligente.ai</span><span>14 / 16</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -839,7 +843,7 @@ a{text-decoration:none;color:inherit}
     </a>
     <div class="s14-url">empresainteligente.ai/sessao-estrategica</div>
   </div>
-  <div class="ft"><span class="powered">empresainteligente.ai</span><span>14 / 15</span></div>
+  <div class="ft"><span class="powered">empresainteligente.ai</span><span>15 / 16</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -889,7 +893,7 @@ a{text-decoration:none;color:inherit}
       </a>
     </div>
   </div>
-  <div class="ft dark" style="z-index:6"><span class="powered">© 2026 KTANA · powered by <strong>KTANA</strong></span><span>15 / 15</span></div>
+  <div class="ft dark" style="z-index:6"><span class="powered">© 2026 KTANA · powered by <strong>KTANA</strong></span><span>16 / 16</span></div>
 </div>
 
 </div></div>
