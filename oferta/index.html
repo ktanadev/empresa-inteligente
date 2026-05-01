@@ -160,7 +160,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
    S5 — LÍDER DE REFERÊNCIA (Dario Amodei)
    ═══════════════════════════════════════════════ */
 .s5-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:0;flex:1;align-items:stretch}
-.s5-photo{position:relative;background:url('../img/authority.jpg') center/cover no-repeat;border-radius:20px;overflow:hidden;min-height:540px}
+.s5-photo{position:relative;background:url('../img/dario-amodei.jpg') center 18%/cover no-repeat;border-radius:20px;overflow:hidden;min-height:540px}
 .s5-photo-ov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.85) 100%)}
 .s5-photo-ov2{position:absolute;inset:0;background:linear-gradient(135deg,rgba(215,0,48,0.18) 0%,transparent 50%)}
 .s5-photo-cap{position:absolute;bottom:30px;left:32px;right:32px;color:#fff;z-index:5}
@@ -247,26 +247,26 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
 /* ═══════════════════════════════════════════════
    S10 — RESULTADOS
    ═══════════════════════════════════════════════ */
-.s10-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px;margin-bottom:32px}
-.s10-card{padding:34px 28px;background:#fff;border:1px solid var(--bord);border-radius:18px;text-align:left;transition:all 300ms;position:relative;overflow:hidden}
+.s10-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px;margin-bottom:18px}
+.s10-card{padding:24px 22px;background:#fff;border:1px solid var(--bord);border-radius:16px;text-align:left;transition:all 300ms;position:relative;overflow:hidden}
 .s10-card:hover{border-color:var(--r-line);box-shadow:0 12px 32px rgba(215,0,48,0.12);transform:translateY(-3px)}
-.s10-num{font-family:'Zen Dots',sans-serif;font-size:64px;color:var(--red);line-height:0.92;letter-spacing:-0.04em;margin-bottom:12px}
-.s10-num span{font-size:36px;color:rgba(215,0,48,0.7)}
+.s10-num{font-family:'Zen Dots',sans-serif;font-size:54px;color:var(--red);line-height:0.92;letter-spacing:-0.04em;margin-bottom:8px}
+.s10-num span{font-size:30px;color:rgba(215,0,48,0.7)}
 .s10-lbl{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.06em;color:var(--text);line-height:1.45;text-transform:none}
-.s10-quote{padding:30px 36px;background:linear-gradient(135deg,rgba(215,0,48,0.06) 0%,rgba(255,255,255,1) 100%);border:1px solid var(--r-line);border-left:4px solid var(--red);border-radius:14px;font-size:18px;color:var(--text);line-height:1.5;font-weight:500;font-style:italic;max-width:1180px;position:relative}
-.s10-quote::before{content:'"';font-family:'Zen Dots',sans-serif;font-size:64px;color:rgba(215,0,48,0.18);position:absolute;top:14px;left:18px;line-height:0.5}
-.s10-quote-txt{padding-left:46px}
+.s10-quote{padding:18px 28px 18px 56px;background:linear-gradient(135deg,rgba(215,0,48,0.06) 0%,rgba(255,255,255,1) 100%);border:1px solid var(--r-line);border-left:4px solid var(--red);border-radius:14px;font-size:14.5px;color:var(--text);line-height:1.5;font-weight:500;font-style:italic;max-width:1180px;position:relative}
+.s10-quote::before{content:'"';font-family:'Zen Dots',sans-serif;font-size:54px;color:rgba(215,0,48,0.18);position:absolute;top:10px;left:18px;line-height:0.5}
+.s10-quote-txt{padding-left:0}
 .s10-quote-txt strong{color:var(--red);font-weight:700;font-style:normal}
 
 /* ═══════════════════════════════════════════════
    S11 — INVESTIMENTO + KTANA-ME BÔNUS
    ═══════════════════════════════════════════════ */
-.s11-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:22px;flex:1;margin-top:18px}
-.s11-inv{padding:32px 34px;border-radius:20px;background:linear-gradient(135deg,#0A0A0A 0%,#1A0A10 100%);color:#fff;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 0 40px rgba(215,0,48,0.20),0 24px 56px rgba(0,0,0,0.30)}
+.s11-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:22px;flex:1;margin-top:14px;min-height:0}
+.s11-inv{padding:26px 30px;border-radius:20px;background:linear-gradient(135deg,#0A0A0A 0%,#1A0A10 100%);color:#fff;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 0 40px rgba(215,0,48,0.20),0 24px 56px rgba(0,0,0,0.30)}
 .s11-inv::before{content:'';position:absolute;right:-100px;top:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(215,0,48,0.30) 0%,transparent 70%);filter:blur(40px);pointer-events:none}
 .s11-inv-tag{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:10px;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;color:var(--red);margin-bottom:14px;position:relative;z-index:2}
 .s11-inv-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red)}
-.s11-inv-num{font-family:'Zen Dots',sans-serif;font-size:84px;line-height:0.9;letter-spacing:-0.04em;color:#fff;margin-bottom:8px;position:relative;z-index:2}
+.s11-inv-num{font-family:'Zen Dots',sans-serif;font-size:64px;line-height:0.9;letter-spacing:-0.04em;color:#fff;margin-bottom:8px;position:relative;z-index:2}
 .s11-inv-sub{font-size:18px;color:rgba(255,255,255,0.7);margin-bottom:22px;font-weight:500;position:relative;z-index:2}
 .s11-inv-sub strong{color:#fff;font-weight:800}
 .s11-roi{padding:14px 18px;background:rgba(215,0,48,0.18);border:1px solid rgba(215,0,48,0.5);border-radius:8px;font-size:13.5px;line-height:1.5;color:#fff;margin-bottom:20px;position:relative;z-index:2}
@@ -277,7 +277,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
 .s11-foot{margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.12);font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;font-style:italic;position:relative;z-index:2}
 .s11-foot strong{color:#fff;font-weight:700;font-style:normal}
 
-.s11-bonus{padding:32px 34px;border-radius:20px;background:linear-gradient(135deg,#D70030 0%,#9B0A2A 60%,#73071F 100%);color:#fff;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,0.20),0 0 40px rgba(215,0,48,0.45),0 20px 48px rgba(115,7,31,0.40)}
+.s11-bonus{padding:26px 30px;border-radius:20px;background:linear-gradient(135deg,#D70030 0%,#9B0A2A 60%,#73071F 100%);color:#fff;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,0.20),0 0 40px rgba(215,0,48,0.45),0 20px 48px rgba(115,7,31,0.40)}
 .s11-bonus::before{content:'';position:absolute;top:0;left:0;right:0;height:50%;background:linear-gradient(180deg,rgba(255,255,255,0.18) 0%,transparent 100%);pointer-events:none}
 .s11-bonus-star{position:absolute;right:-30px;top:-30px;font-family:'Zen Dots',sans-serif;font-size:200px;color:rgba(255,255,255,0.08);line-height:1;letter-spacing:-0.05em;pointer-events:none}
 .s11-bonus-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.3);border-radius:3px;padding:6px 14px;font-family:'Inter',sans-serif;font-size:10px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:#fff;margin-bottom:18px;width:fit-content;position:relative;z-index:2}
@@ -300,23 +300,62 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
 .s12-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,10,0.95) 0%,rgba(115,7,31,0.65) 100%)}
 .s12-glow{position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);width:1000px;height:1000px;background:radial-gradient(circle,rgba(215,0,48,0.30) 0%,rgba(215,0,48,0.08) 30%,transparent 60%);filter:blur(80px);pointer-events:none}
 .s12-kanji{position:absolute;left:6%;bottom:-160px;font-family:'Zen Dots',sans-serif;font-size:560px;line-height:0.85;color:rgba(215,0,48,0.10);pointer-events:none;user-select:none}
-.s12-c{position:relative;z-index:5;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;height:100%;padding:90px 80px}
-.s12-pre{display:inline-flex;align-items:center;gap:10px;background:rgba(215,0,48,0.18);border:1px solid rgba(215,0,48,0.5);padding:8px 18px;border-radius:3px;font-size:10px;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;color:#fff;margin-bottom:38px}
+.s12-c{position:relative;z-index:5;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;height:100%;padding:60px 80px 240px}
+.s12-pre{display:inline-flex;align-items:center;gap:10px;background:rgba(215,0,48,0.18);border:1px solid rgba(215,0,48,0.5);padding:7px 16px;border-radius:3px;font-size:10px;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;color:#fff;margin-bottom:24px}
 .s12-pre::before{content:'';width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 12px #fff}
-.s12 h2{font-family:'Zen Dots',sans-serif;font-size:84px;line-height:1.0;letter-spacing:-0.02em;color:#fff;margin-bottom:26px;max-width:1080px}
+.s12 h2{font-family:'Zen Dots',sans-serif;font-size:64px;line-height:1.05;letter-spacing:-0.02em;color:#fff;margin-bottom:20px;max-width:1080px}
 .s12 h2 em{font-style:normal;color:var(--red);text-shadow:0 0 32px rgba(215,0,48,0.6)}
-.s12-sub{font-size:21px;color:rgba(255,255,255,0.72);line-height:1.55;max-width:720px;margin-bottom:48px;font-weight:500}
+.s12-sub{font-size:17px;color:rgba(255,255,255,0.72);line-height:1.55;max-width:720px;margin-bottom:30px;font-weight:500}
 .s12-sub strong{color:#fff;font-weight:700}
 .s12-btn{display:inline-flex;align-items:center;gap:14px;background:var(--red);color:#fff;padding:22px 44px;border-radius:6px;font-family:'Inter',sans-serif;font-size:14px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:all 300ms;box-shadow:0 0 40px rgba(215,0,48,0.45),0 20px 48px rgba(115,7,31,0.55);position:relative;overflow:hidden}
 .s12-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);transition:left 600ms}
 .s12-btn:hover{transform:translateY(-2px);box-shadow:0 0 56px rgba(215,0,48,0.65),0 24px 56px rgba(115,7,31,0.65)}
 .s12-btn:hover::before{left:100%}
 .s12-btn svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round}
-.s12-url{margin-top:28px;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.42);letter-spacing:0.06em}
-.s12-brand{position:absolute;bottom:42px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;z-index:6}
-.s12-brand-line{width:30px;height:1px;background:rgba(255,255,255,0.25)}
-.s12-brand-name{font-family:'Zen Dots',sans-serif;font-size:13px;color:rgba(255,255,255,0.55);letter-spacing:0.04em}
-.s12-brand-name span{color:var(--red)}
+.s12-url{margin-top:18px;font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.42);letter-spacing:0.06em}
+.s12-endbrand{position:absolute;bottom:74px;left:50%;transform:translateX(-50%);z-index:6;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;width:fit-content}
+.s12-endbrand-line{width:48px;height:2px;background:linear-gradient(90deg,transparent 0%,var(--red) 50%,transparent 100%);box-shadow:0 0 12px rgba(215,0,48,0.6);margin-bottom:8px}
+.s12-endbrand-name{font-family:'Zen Dots',sans-serif;font-size:34px;color:#fff;letter-spacing:0.02em;line-height:1;text-shadow:0 0 24px rgba(215,0,48,0.45)}
+.s12-endbrand-name span{color:var(--red);text-shadow:0 0 32px rgba(215,0,48,0.8)}
+.s12-endbrand-pwd{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.32em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-top:4px}
+.s12-endbrand-pwd strong{color:var(--red);font-weight:800;letter-spacing:0.34em}
+.s12-endbrand-meta{font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:0.14em;color:rgba(255,255,255,0.42);margin-top:6px}
+
+/* ═══════════════════════════════════════════════
+   S2 NEW — DOIS TIPOS: MORRER vs DOMINAR (DARK AGGRESSIVE)
+   ═══════════════════════════════════════════════ */
+.s2-new{background:#0A0606;color:#fff;overflow:hidden}
+.s2-new::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 70% at 50% 0%, rgba(115,7,31,0.55) 0%, rgba(10,6,6,0) 60%),linear-gradient(180deg,#0A0606 0%,#15090C 100%);pointer-events:none}
+.s2-new::after{content:'刀';position:absolute;right:-80px;bottom:-180px;font-family:'Zen Dots',sans-serif;font-size:520px;color:rgba(215,0,48,0.06);line-height:0.85;pointer-events:none;user-select:none}
+.s2n-in{position:absolute;inset:0;padding:88px 80px 72px;display:flex;flex-direction:column;z-index:5}
+.s2n-head{margin-bottom:30px;max-width:1180px}
+.s2n-h1{font-family:'Zen Dots',sans-serif;font-size:54px;line-height:1.02;letter-spacing:-0.02em;color:#fff;margin-bottom:14px}
+.s2n-h1 em{font-style:normal;color:var(--red);text-shadow:0 0 32px rgba(215,0,48,0.55)}
+.s2n-sub{font-size:18px;color:rgba(255,255,255,0.7);line-height:1.5;font-weight:500;max-width:920px}
+.s2n-sub strong{color:#fff;font-weight:800}
+.s2n-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;flex:1;align-items:stretch;min-height:0}
+.s2n-card{padding:30px 32px 26px;border-radius:18px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.s2n-die{background:linear-gradient(160deg,#1A0A0F 0%,#2A0710 60%,#3D0815 100%);border:1px solid rgba(115,7,31,0.55);box-shadow:inset 0 1px 0 rgba(255,255,255,0.06),0 0 24px rgba(115,7,31,0.25),0 16px 36px rgba(0,0,0,0.5)}
+.s2n-die::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#73071F 0%,#3D0815 100%)}
+.s2n-rule{background:linear-gradient(160deg,#1A0A0F 0%,#2A0710 50%,#73071F 100%);border:1px solid rgba(215,0,48,0.65);box-shadow:inset 0 1px 0 rgba(255,255,255,0.10),0 0 40px rgba(215,0,48,0.45),0 16px 36px rgba(115,7,31,0.45);animation:s2n-glow 3.2s ease-in-out infinite}
+.s2n-rule::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#D70030 0%,#9B0A2A 100%);box-shadow:0 0 16px rgba(215,0,48,0.7)}
+@keyframes s2n-glow{0%,100%{box-shadow:inset 0 1px 0 rgba(255,255,255,0.10),0 0 40px rgba(215,0,48,0.40),0 16px 36px rgba(115,7,31,0.40)}50%{box-shadow:inset 0 1px 0 rgba(255,255,255,0.14),0 0 64px rgba(215,0,48,0.65),0 16px 40px rgba(115,7,31,0.55)}}
+.s2n-card-tag{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:10px;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;padding:5px 12px;border-radius:3px;width:fit-content}
+.s2n-die .s2n-card-tag{color:rgba(255,255,255,0.55);background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12)}
+.s2n-rule .s2n-card-tag{color:#fff;background:rgba(0,0,0,0.30);border:1px solid rgba(255,255,255,0.30)}
+.s2n-rule .s2n-card-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 10px #fff}
+.s2n-card-h{font-family:'Zen Dots',sans-serif;font-size:34px;line-height:1.05;letter-spacing:-0.02em;margin-bottom:12px;color:#fff}
+.s2n-die .s2n-card-h span{color:rgba(255,90,110,0.85);font-style:normal}
+.s2n-rule .s2n-card-h span{color:var(--red);text-shadow:0 0 24px rgba(215,0,48,0.7)}
+.s2n-card-sub{font-size:14px;color:rgba(255,255,255,0.72);line-height:1.55;font-weight:500;margin-bottom:18px;max-width:520px}
+.s2n-list{list-style:none;display:flex;flex-direction:column;gap:11px;flex:1;margin-bottom:18px}
+.s2n-list li{position:relative;padding-left:22px;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,0.85);font-weight:500}
+.s2n-list li strong{color:#fff;font-weight:800}
+.s2n-die .s2n-list li::before{content:'×';position:absolute;left:0;top:-1px;color:rgba(255,90,110,0.7);font-family:'Zen Dots',sans-serif;font-size:14px;font-weight:700;line-height:1.4}
+.s2n-rule .s2n-list li::before{content:'';position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 10px rgba(215,0,48,0.7)}
+.s2n-card-foot{padding-top:14px;border-top:1px solid rgba(255,255,255,0.10);font-size:12.5px;font-weight:700;letter-spacing:0.02em;line-height:1.5}
+.s2n-die .s2n-card-foot{color:rgba(255,255,255,0.55);font-style:italic}
+.s2n-rule .s2n-card-foot{color:#fff}
 
 /* ═══════════════════════════════════════════════
    PRINT
@@ -348,80 +387,60 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
       <img src="../img/ktana-symbol.svg" alt="KTANA">
       <span>POWERED BY KTANA AI</span>
     </div>
-    <div class="s1-tag"><span>Apresentação Comercial · 2026</span></div>
-    <h1>Empresa<br>Inteligente <em>OS</em>.</h1>
-    <p class="s1-sub">Transformação <strong>IA-first</strong> para a sua empresa. Implementação, instrução interna e prova de ROI — em números, não em promessa.</p>
+    <div class="s1-tag"><span>● Apresentação Comercial · 2026</span></div>
+    <h1>Crescer.<br>Lucrar.<br><em>Inevitável.</em></h1>
+    <p class="s1-sub">A sua empresa <strong>multiplicada</strong> — sem dobrar o time, sem dobrar custo, sem depender de você. <strong>O concorrente que não opera com IA já perdeu</strong> — só ainda não sabe.</p>
     <div class="s1-line"></div>
     <div class="s1-meta">
-      <span>R$100.000 · <strong>12× R$8.333</strong></span>
-      <span>ROI <strong>4–6 meses</strong></span>
-      <span>100% <strong>online</strong></span>
+      <span>+ <strong>FATURAMENTO</strong></span>
+      <span>+ <strong>MARGEM</strong></span>
+      <span>− <strong>HEADCOUNT</strong></span>
     </div>
   </div>
   <div class="lg dark"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
-  <div class="ft dark"><span>empresainteligente.ai</span><span>1 / 14</span></div>
+  <div class="ft dark"><span>empresainteligente.ai</span><span>1 / 13</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     S2 — O MOMENTO
+     S2 — DOIS TIPOS DE EMPRESA: MORRER vs DOMINAR
      ═══════════════════════════════════════════════ -->
-<div class="slide sw" id="s2" style="background:var(--bg)">
-  <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">O Momento</span></div>
-  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
-  <div style="position:absolute;inset:0;display:grid;grid-template-columns:42% 58%;align-items:stretch">
-    <div style="position:relative;background:url('../img/v19_ia-para-pequenas-empresas.jpg') center center/cover no-repeat;overflow:hidden">
-      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,10,0.55) 0%,rgba(115,7,31,0.35) 100%)"></div>
-      <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 30% 70%, rgba(215,0,48,0.18) 0%, transparent 60%)"></div>
+<div class="slide s2-new" id="s2">
+  <div class="bc dark">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">Dois tipos de empresa</span></div>
+  <div class="lg dark"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="s2n-in">
+    <div class="s2n-head">
+      <div class="lbl" style="color:#fff;margin-bottom:14px">02 · Dois tipos de empresa</div>
+      <h2 class="s2n-h1">Hoje existem<br><em>dois tipos</em> de empresa.</h2>
+      <p class="s2n-sub">Uma vai <strong>morrer</strong>. A outra vai <strong>dominar</strong>. Não há terceiro caminho.</p>
     </div>
-    <div style="position:relative;background:var(--bg);padding:96px 80px 90px;display:flex;flex-direction:column;justify-content:center">
-      <div class="lbl" style="margin-bottom:28px">02 · O Momento</div>
-      <span style="font-family:'Zen Dots',sans-serif;font-size:120px;line-height:0.6;color:var(--red);opacity:0.18;margin-bottom:8px">"</span>
-      <p style="font-family:'Zen Dots',sans-serif;font-weight:400;font-size:38px;line-height:1.18;color:var(--text);letter-spacing:-0.02em;margin-bottom:36px;max-width:680px">O mercado <em style="color:var(--red);font-style:normal">não está esperando</em> você estar pronto.<br>Ele já está <em style="color:var(--red);font-style:normal">selecionando</em>.</p>
-      <div style="border-left:3px solid var(--red);padding-left:18px;max-width:620px">
-        <p style="font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:var(--text);line-height:1.6;margin-bottom:6px">Não é tendência. Não é futuro.</p>
-        <p style="font-family:'Inter',sans-serif;font-size:14px;color:var(--text-mid);line-height:1.6;margin-bottom:6px">É o critério de sobrevivência do mercado de hoje.</p>
-        <p style="font-family:'Inter',sans-serif;font-size:14px;font-weight:700;color:var(--red);line-height:1.6">A diferença entre crescer e fechar não é mais capital. É inteligência aplicada à operação.</p>
+    <div class="s2n-grid">
+      <div class="s2n-card s2n-die">
+        <div class="s2n-card-tag">A — Sem IA</div>
+        <h3 class="s2n-card-h">A que vai <span>MORRER.</span></h3>
+        <p class="s2n-card-sub">A que ainda não opera com IA. Cresce com custo, decide no escuro, perde para o concorrente que automatiza.</p>
+        <ul class="s2n-list">
+          <li>Para dobrar resultado, precisa <strong>dobrar time</strong> (e dobrar custo).</li>
+          <li>Decide no feeling — <strong>sem dados em tempo real</strong>.</li>
+          <li>Time queima horas em trabalho repetitivo que <strong>não gera receita</strong>.</li>
+          <li>Concorrente IA-first responde mais rápido, fecha mais, <strong>cobra menos</strong>.</li>
+        </ul>
+        <div class="s2n-card-foot">Não é falta de esforço. É falta de alavancagem.</div>
+      </div>
+      <div class="s2n-card s2n-rule">
+        <div class="s2n-card-tag">B — IA-first</div>
+        <h3 class="s2n-card-h">A que vai <span>DOMINAR.</span></h3>
+        <p class="s2n-card-sub">A que aplica IA em cada departamento. Multiplica margem, decide em tempo real, fecha mais rápido, escala sem CLT extra.</p>
+        <ul class="s2n-list">
+          <li>Dobra volume <strong>sem dobrar estrutura</strong>. Margem composta, mês a mês.</li>
+          <li>Dashboard em tempo real — financeiro, pipeline, atendimento <strong>visíveis sem relatório</strong>.</li>
+          <li>Time foca no que gera receita. <strong>O resto é automático</strong>.</li>
+          <li>Vantagem que o concorrente <strong>não consegue imitar</strong> sem implementação.</li>
+        </ul>
+        <div class="s2n-card-foot">Vantagem composta. Cresce todo dia.</div>
       </div>
     </div>
   </div>
-  <div class="ft"><span>empresainteligente.ai</span><span>2 / 14</span></div>
-</div>
-
-<!-- ═══════════════════════════════════════════════
-     S3 — DOIS TIPOS DE EMPRESA
-     ═══════════════════════════════════════════════ -->
-<div class="slide sw sw-alt" id="s3">
-  <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">Dois tipos de empresa</span></div>
-  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
-  <div class="sw-in" style="padding-top:96px;padding-bottom:88px;justify-content:flex-start">
-    <div class="lbl" style="margin-bottom:18px">03 · Dois tipos de empresa</div>
-    <h2 class="h1" style="font-size:48px;line-height:1.05;color:var(--text);margin-bottom:42px;max-width:1180px">Hoje existem <em style="color:var(--red);font-style:normal">dois tipos</em> de empresa.</h2>
-    <div class="s3-grid">
-      <div class="s3-card s3-card-a">
-        <div class="s3-card-tag">A — sem IA</div>
-        <h3>A empresa que ainda<br>não opera com IA.</h3>
-        <div class="s3-card-list">
-          <div class="s3-card-item">Cresce com custo: para dobrar resultado, precisa dobrar time</div>
-          <div class="s3-card-item">Decisões no feeling — sem dados em tempo real</div>
-          <div class="s3-card-item">Time gasta horas em trabalho repetitivo que não gera resultado</div>
-          <div class="s3-card-item">Concorrentes que já usam IA respondem mais rápido, fecham mais, cobram menos</div>
-        </div>
-        <div class="s3-card-foot">Não é falta de esforço. É falta de alavancagem.</div>
-      </div>
-      <div class="s3-card s3-card-b">
-        <div class="s3-card-tag">B — IA-first</div>
-        <h3>A empresa que <em style="color:var(--red);font-style:normal">opera com IA.</em></h3>
-        <div class="s3-card-list">
-          <div class="s3-card-item">Cresce com margem: dobra volume sem dobrar estrutura</div>
-          <div class="s3-card-item">Dados em tempo real — financeiro, pipeline, atendimento visíveis sem relatório manual</div>
-          <div class="s3-card-item">Time foca no que gera resultado — o resto é automático</div>
-          <div class="s3-card-item">Vantagem competitiva real — não dá pra imitar sem implementação</div>
-        </div>
-        <div class="s3-card-foot">Vantagem composta. Cresce todo dia.</div>
-      </div>
-    </div>
-  </div>
-  <div class="ft"><span>empresainteligente.ai</span><span>3 / 14</span></div>
+  <div class="ft dark"><span>empresainteligente.ai</span><span>2 / 13</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -431,7 +450,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
   <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">Dados</span></div>
   <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
   <div class="sw-in" style="justify-content:flex-start;padding-top:104px">
-    <div class="lbl" style="margin-bottom:18px">04 · Os números</div>
+    <div class="lbl" style="margin-bottom:18px">03 · Os números</div>
     <h2 class="h1" style="font-size:46px;line-height:1.06;color:var(--text);margin-bottom:14px;max-width:1080px">Os números <em style="color:var(--red);font-style:normal">não são opinião.</em><br>São pesquisa.</h2>
     <p style="font-size:17px;color:var(--text-mid);max-width:920px;font-weight:500;line-height:1.55">O gap entre quem implementou e quem não implementou só cresce. <strong style="color:var(--text);font-weight:700">E cresce rápido.</strong></p>
     <div class="s4-grid">
@@ -462,7 +481,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
       </div>
     </div>
   </div>
-  <div class="ft"><span>empresainteligente.ai</span><span>4 / 14</span></div>
+  <div class="ft"><span>empresainteligente.ai</span><span>3 / 13</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -472,7 +491,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
   <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">Líder de referência</span></div>
   <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
   <div class="sw-in" style="padding:80px 80px 70px;justify-content:center">
-    <div class="lbl" style="margin-bottom:18px">05 · Exemplo de líder</div>
+    <div class="lbl" style="margin-bottom:18px">04 · Exemplo de líder</div>
     <div class="s5-grid">
       <div class="s5-photo">
         <div class="s5-photo-ov2"></div>
@@ -494,7 +513,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
       </div>
     </div>
   </div>
-  <div class="ft"><span>empresainteligente.ai</span><span>5 / 14</span></div>
+  <div class="ft"><span>empresainteligente.ai</span><span>4 / 13</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -508,7 +527,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
     <h2 style="font-family:'Zen Dots',sans-serif;font-size:72px;line-height:1.1;color:#fff;letter-spacing:-0.02em;max-width:1100px;margin:0 auto">Em 60 dias,<br>sua empresa <em style="color:var(--red);font-style:normal">opera sozinha</em><br>com IA.</h2>
     <div style="width:60px;height:3px;background:var(--red);margin:36px auto 0;box-shadow:0 0 16px rgba(215,0,48,0.6)"></div>
   </div>
-  <div class="ft" style="color:rgba(255,255,255,0.4)"><span>empresainteligente.ai</span><span>6 / 14</span></div>
+  <div class="ft" style="color:rgba(255,255,255,0.4)"><span>empresainteligente.ai</span><span>5 / 13</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -517,10 +536,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
 <div class="slide sw" id="s6">
   <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">O Produto</span></div>
   <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
-  <div class="sw-in" style="padding-top:100px;justify-content:flex-start">
-    <div class="lbl" style="margin-bottom:18px">06 · O que é o produto</div>
-    <h2 class="s6-h2">A Empresa Inteligente OS<br><em>não é</em> um curso.</h2>
-    <p class="s6-sub">Não é uma imersão de 3 dias. Não é uma assinatura de plataforma. <strong>É a transformação IA-first da sua empresa</strong>, feita com você e para você — de forma permanente.</p>
+  <div class="sw-in" style="padding:80px 80px 76px;justify-content:flex-start">
+    <div class="lbl" style="margin-bottom:14px">05 · O que é o produto</div>
+    <h2 class="s6-h2" style="font-size:50px;margin-bottom:18px">A Empresa Inteligente OS<br><em>não é</em> um curso.</h2>
+    <p class="s6-sub" style="font-size:17px;margin-bottom:30px">Não é uma imersão de 3 dias. Não é uma assinatura de plataforma. <strong>É a transformação IA-first da sua empresa</strong>, feita com você e para você — de forma permanente.</p>
     <div class="s6-grid">
       <div class="s6-not">
         <div class="s6-not-x"></div>
@@ -537,19 +556,14 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
         <div class="s6-not-t">Assinatura de plataforma</div>
         <div class="s6-not-d">Ferramenta solta sem implementação. Você paga, ninguém usa.</div>
       </div>
-      <div class="s6-yes">
+      <div class="s6-yes" style="padding:24px 28px;margin-top:10px">
         <div class="s6-yes-tag">É isso aqui</div>
-        <h3 class="s6-yes-h">Implementação completa <em>com você e para você</em>, de forma permanente.</h3>
-        <p class="s6-yes-d">Nossa equipe entra na sua operação, mapeia cada área, implementa IA onde gera mais resultado e instrui seu time a continuar expandindo sozinho. <strong>Você sai autossuficiente. Não dependente de ninguém.</strong></p>
+        <h3 class="s6-yes-h" style="font-size:24px;margin-bottom:10px">Implementação completa <em>com você e para você</em>, de forma permanente.</h3>
+        <p class="s6-yes-d" style="font-size:14.5px">Nossa equipe entra na sua operação, mapeia cada área, implementa IA onde gera mais resultado e instrui seu time a continuar expandindo sozinho. <strong>Você sai autossuficiente. Não dependente de ninguém.</strong></p>
       </div>
     </div>
-    <div style="display:flex;gap:10px;margin-top:24px;flex-wrap:wrap">
-      <span style="display:inline-flex;align-items:center;gap:7px;padding:7px 14px;background:rgba(255,255,255,0.62);backdrop-filter:blur(12px);border:1px solid rgba(215,0,48,0.28);border-radius:999px;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--red)">Implementação Permanente</span>
-      <span style="display:inline-flex;align-items:center;gap:7px;padding:7px 14px;background:rgba(255,255,255,0.62);backdrop-filter:blur(12px);border:1px solid rgba(215,0,48,0.28);border-radius:999px;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--red)">Time Capacitado</span>
-      <span style="display:inline-flex;align-items:center;gap:7px;padding:7px 14px;background:rgba(255,255,255,0.62);backdrop-filter:blur(12px);border:1px solid rgba(215,0,48,0.28);border-radius:999px;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--red)">Prova de ROI</span>
-    </div>
   </div>
-  <div class="ft"><span>empresainteligente.ai</span><span>7 / 14</span></div>
+  <div class="ft"><span>empresainteligente.ai</span><span>6 / 13</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -559,7 +573,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
   <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">Método · 6 fases</span></div>
   <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
   <div class="sw-in" style="padding-top:88px;justify-content:flex-start">
-    <div class="lbl" style="margin-bottom:18px">07 · Como funciona</div>
+    <div class="lbl" style="margin-bottom:18px">06 · Como funciona</div>
     <h2 class="h1" style="font-size:48px;line-height:1.05;color:var(--text);margin-bottom:14px;max-width:1180px">A metodologia <em style="color:var(--red);font-style:normal">de 6 fases.</em></h2>
     <p style="font-size:16px;color:var(--text-mid);max-width:980px;font-weight:500;line-height:1.55">Do diagnóstico ao resultado comprovado — sua empresa rodando com IA de forma permanente.</p>
     <div class="s7-grid">
@@ -601,7 +615,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
       </div>
     </div>
   </div>
-  <div class="ft"><span>empresainteligente.ai</span><span>9 / 14</span></div>
+  <div class="ft"><span>empresainteligente.ai</span><span>7 / 13</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -611,7 +625,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
   <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">O Time</span></div>
   <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
   <div class="sw-in" style="padding-top:104px;justify-content:flex-start">
-    <div class="lbl" style="margin-bottom:18px">08 · Quem está por trás</div>
+    <div class="lbl" style="margin-bottom:18px">07 · Quem está por trás</div>
     <h2 class="h1" style="font-size:48px;line-height:1.05;color:var(--text);margin-bottom:14px;max-width:1180px">Especialistas em IA aplicada<br>ao <em style="color:var(--red);font-style:normal">negócio brasileiro.</em></h2>
     <p style="font-size:16px;color:var(--text-mid);max-width:980px;font-weight:500;line-height:1.55">Não é uma agência. É um time enxuto, sênior, com método autoral e responsabilidade direta sobre o resultado.</p>
     <div class="s8-grid">
@@ -638,7 +652,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
       </div>
     </div>
   </div>
-  <div class="ft"><span>empresainteligente.ai</span><span>10 / 14</span></div>
+  <div class="ft"><span>empresainteligente.ai</span><span>8 / 13</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -648,7 +662,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
   <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">Plataforma EI OS</span></div>
   <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
   <div class="sw-in" style="padding-top:88px;padding-bottom:90px;justify-content:flex-start">
-    <div class="lbl" style="margin-bottom:18px">09 · A plataforma · Bônus incluso</div>
+    <div class="lbl" style="margin-bottom:18px">08 · A plataforma · Bônus incluso</div>
     <h2 class="s9-h2">Sua plataforma <em>já implementada</em><br>e funcionando.</h2>
     <p class="s9-sub">Não são cursos. <strong>São soluções rodando.</strong> Quem contrata a implementação ganha acesso à plataforma como legado permanente. Você sai com tecnologia rodando — não com slides sobre tecnologia.</p>
     <div class="s9-grid">
@@ -696,7 +710,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
       </div>
     </div>
   </div>
-  <div class="ft"><span>empresainteligente.ai</span><span>11 / 14</span></div>
+  <div class="ft"><span>empresainteligente.ai</span><span>9 / 13</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -705,11 +719,11 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
 <div class="slide sw" id="s10">
   <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">Resultados</span></div>
   <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
-  <div class="sw-in" style="padding-top:104px;justify-content:flex-start">
-    <div class="lbl" style="margin-bottom:18px">10 · Resultados</div>
-    <h2 class="h1" style="font-size:48px;line-height:1.05;color:var(--text);margin-bottom:14px;max-width:1180px">Os números que importam <em style="color:var(--red);font-style:normal">depois da implementação.</em></h2>
-    <p style="font-size:16px;color:var(--text-mid);max-width:980px;font-weight:500;line-height:1.55;margin-bottom:32px">Resultado médio das empresas que passaram pela transformação IA-first.</p>
-    <div style="position:relative;display:flex;align-items:center;gap:0;padding:0 16px 36px;max-width:1280px;margin:0 auto 18px">
+  <div class="sw-in" style="padding:80px 80px 76px;justify-content:flex-start">
+    <div class="lbl" style="margin-bottom:14px">09 · Resultados</div>
+    <h2 class="h1" style="font-size:42px;line-height:1.05;color:var(--text);margin-bottom:10px;max-width:1180px">Os números que importam <em style="color:var(--red);font-style:normal">depois da implementação.</em></h2>
+    <p style="font-size:15px;color:var(--text-mid);max-width:980px;font-weight:500;line-height:1.5;margin-bottom:18px">Resultado médio das empresas que passaram pela transformação IA-first.</p>
+    <div style="position:relative;display:flex;align-items:center;gap:0;padding:0 16px 22px;max-width:1280px;margin:0 auto 14px">
       <div style="position:absolute;top:50%;left:24px;right:24px;height:2px;background:linear-gradient(90deg,rgba(215,0,48,0.18) 0%,rgba(215,0,48,0.6) 50%,rgba(215,0,48,0.18) 100%);transform:translateY(-50%);z-index:0"></div>
       <div style="position:relative;flex:1;display:flex;flex-direction:column;align-items:center;z-index:1">
         <div style="width:14px;height:14px;border-radius:50%;background:var(--red);box-shadow:0 0 14px rgba(215,0,48,0.7);margin-bottom:10px"></div>
@@ -749,7 +763,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
       <div class="s10-quote-txt">Em 30 dias tínhamos IA rodando no atendimento e no comercial. Em 60 dias, o custo operacional tinha caído. Em 90 dias, <strong>meu time parou de fazer trabalho repetitivo.</strong></div>
     </div>
   </div>
-  <div class="ft"><span>empresainteligente.ai</span><span>12 / 14</span></div>
+  <div class="ft"><span>empresainteligente.ai</span><span>10 / 13</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -764,7 +778,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
     <p style="font-family:'Inter',sans-serif;font-size:16px;color:rgba(255,255,255,0.55);margin-top:24px;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.55">Não é gasto. É redirecionamento do dinheiro que já está saindo da sua empresa pela porta — agora vira lucro.</p>
     <div style="width:60px;height:3px;background:var(--red);margin:36px auto 0;box-shadow:0 0 16px rgba(215,0,48,0.6)"></div>
   </div>
-  <div class="ft" style="color:rgba(255,255,255,0.4)"><span>empresainteligente.ai</span><span>12 / 14</span></div>
+  <div class="ft" style="color:rgba(255,255,255,0.4)"><span>empresainteligente.ai</span><span>11 / 13</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -773,8 +787,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
 <div class="slide sw sw-alt" id="s11">
   <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">Investimento + Bônus</span></div>
   <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
-  <div class="sw-in" style="padding:80px 80px 70px;justify-content:flex-start">
-    <div class="lbl" style="margin-bottom:14px">11 · Investimento</div>
+  <div class="sw-in" style="padding:76px 80px 80px;justify-content:flex-start">
+    <div class="lbl" style="margin-bottom:14px">10 · Investimento</div>
     <h2 class="h1" style="font-size:38px;line-height:1.06;color:var(--text);margin-bottom:6px;max-width:1180px">A transformação completa <em style="color:var(--red);font-style:normal">+ KTANA-me como bônus.</em></h2>
     <p style="font-size:14.5px;color:var(--text-mid);max-width:1080px;font-weight:500;line-height:1.55">ROI comprovado em 4 a 6 meses. Equivale a menos de 2 salários de um gerente de TI sênior por mês — com entrega de transformação completa, não de uma função.</p>
     <div class="s11-grid">
@@ -817,7 +831,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
 
     </div>
   </div>
-  <div class="ft"><span>empresainteligente.ai</span><span>13 / 14</span></div>
+  <div class="ft"><span>empresainteligente.ai</span><span>12 / 13</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -839,29 +853,25 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
       <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
     <div class="s12-url">empresainteligente.ai/sessao-estrategica</div>
-    <div style="margin-top:36px;padding-top:24px;border-top:1px solid rgba(215,0,48,0.25);max-width:560px;margin-left:auto;margin-right:auto;text-align:center">
-      <div style="font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(215,0,48,0.85);margin-bottom:8px">EMPRESA INTELIGENTE OS · POWERED BY KTANA AI</div>
-      <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;color:rgba(255,255,255,0.55)">Método autoral · 200+ empresas · ROI comprovado em 4-6 meses</div>
-    </div>
   </div>
-  <div class="s12-brand">
-    <span class="s12-brand-line"></span>
-    <span class="s12-brand-name">EMPRESA<span>.</span>INTELIGENTE · POWERED BY KTANA AI</span>
-    <span class="s12-brand-line"></span>
+  <div class="s12-endbrand">
+    <div class="s12-endbrand-line"></div>
+    <div class="s12-endbrand-name">EMPRESA INTELIGENTE <span>OS</span></div>
+    <div class="s12-endbrand-pwd">POWERED BY <strong>KTANA AI</strong></div>
+    <div class="s12-endbrand-meta">Método autoral · 200+ empresas · ROI comprovado em 4-6 meses</div>
   </div>
-  <div class="ft dark" style="z-index:6"><span>© 2026 · Todos os direitos reservados</span><span>14 / 14</span></div>
+  <div class="ft dark" style="z-index:6"><span>© 2026 · Todos os direitos reservados</span><span>13 / 13</span></div>
 </div>
 
 </div></div>
 
 <button class="nb" id="bp" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
 <button class="nb" id="bn" aria-label="Próximo"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-<div id="ct">1 / 14</div>
 
 <script>
 const sl=document.querySelectorAll('.slide'),T=sl.length;
-let c=0;const ct=document.getElementById('ct');
-function go(n){sl[c].classList.remove('active');c=(n+T)%T;sl[c].classList.add('active');ct.textContent=(c+1)+' / '+T}
+let c=0;
+function go(n){sl[c].classList.remove('active');c=(n+T)%T;sl[c].classList.add('active')}
 document.getElementById('bp').onclick=()=>go(c-1);
 document.getElementById('bn').onclick=()=>go(c+1);
 document.addEventListener('keydown',e=>{
