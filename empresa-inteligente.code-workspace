@@ -1,0 +1,13 @@
+{
+  "folders": [{ "path": "." }],
+  "settings": {
+    "window.title": "empresa-inteligente",
+    "explorer.confirmDelete": false,
+    "files.exclude": {
+      "**/.git": true,
+      "**/node_modules": true,
+      "**/.next": true,
+      "**/dist": true
+    }
+  }
+}

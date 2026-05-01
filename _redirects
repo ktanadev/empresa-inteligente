@@ -1,0 +1,2 @@
+/diagnostico    https://ktana.ai/lead    200
+/diagnostico/*  https://ktana.ai/lead/:splat  200
