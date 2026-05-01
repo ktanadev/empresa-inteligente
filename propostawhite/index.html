@@ -334,6 +334,33 @@ html,body{width:100%;height:100%;overflow:hidden;background:#e8e6e2;font-family:
 .sui-ag-name{font-size:11px;font-weight:600;color:var(--text2);flex:1}
 .sui-ag-cnt{font-family:'Zen Dots',sans-serif;font-size:9px;color:var(--red);opacity:0.8}
 
+/* ═══════════════════════════════════════════════
+   KTANA LIQUID GLASS — paleta monotonal (preto/branco/vermelho 3 tons)
+   Variação por tonalidade: #D70030 (primário) · #9B0A2A (médio) · #73071F (deep)
+   ═══════════════════════════════════════════════ */
+
+/* Variante WHITE — para deck claro */
+.kg-white{position:relative;background:rgba(255,255,255,0.62);backdrop-filter:blur(18px) saturate(120%);-webkit-backdrop-filter:blur(18px) saturate(120%);border:1px solid rgba(215,0,48,0.22);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.85),0 0 28px rgba(215,0,48,0.14),0 16px 36px rgba(0,0,0,0.06);transition:all 400ms cubic-bezier(.32,.72,0,1);overflow:hidden}
+.kg-white::before{content:'';position:absolute;top:0;left:0;right:0;height:35%;background:linear-gradient(180deg,rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.2) 50%,transparent 100%);pointer-events:none;border-radius:20px 20px 0 0}
+.kg-white::after{content:'';position:absolute;inset:0;border-radius:20px;padding:1px;background:linear-gradient(135deg,rgba(215,0,48,0.55) 0%,rgba(155,10,42,0.30) 50%,rgba(0,0,0,0.06) 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.kg-white:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,0.9),0 0 40px rgba(215,0,48,0.28),0 24px 48px rgba(0,0,0,0.10)}
+
+/* Variante DARK — para slides pretos (S-BONUS, S11) */
+.kg-dark{position:relative;background:linear-gradient(135deg,rgba(20,8,12,0.72) 0%,rgba(35,12,18,0.64) 100%);backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);border:1px solid rgba(215,0,48,0.32);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.10),inset 0 -16px 32px rgba(0,0,0,0.30),0 0 32px rgba(215,0,48,0.30),0 24px 48px rgba(0,0,0,0.45);transition:all 400ms cubic-bezier(.32,.72,0,1);overflow:hidden}
+.kg-dark::before{content:'';position:absolute;top:0;left:0;right:0;height:35%;background:linear-gradient(180deg,rgba(255,255,255,0.14) 0%,rgba(255,255,255,0.04) 50%,transparent 100%);pointer-events:none;border-radius:20px 20px 0 0}
+
+/* Variante DESTAQUE/BÔNUS — gradiente vermelho 3 tons */
+.kg-accent{position:relative;background:linear-gradient(135deg,#D70030 0%,#9B0A2A 50%,#73071F 100%);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.20),inset 0 -16px 32px rgba(0,0,0,0.25),0 0 36px rgba(215,0,48,0.55),0 20px 40px rgba(115,7,31,0.45);transition:all 400ms cubic-bezier(.32,.72,0,1);overflow:hidden}
+.kg-accent::before{content:'';position:absolute;top:0;left:0;right:0;height:50%;background:linear-gradient(180deg,rgba(255,255,255,0.18) 0%,transparent 100%);pointer-events:none;border-radius:20px 20px 0 0}
+
+/* Pulse glow para CTA / Bônus */
+@keyframes kg-pulse{0%,100%{box-shadow:inset 0 1px 0 rgba(255,255,255,0.20),inset 0 -16px 32px rgba(0,0,0,0.25),0 0 36px rgba(215,0,48,0.45),0 20px 40px rgba(115,7,31,0.40)}50%{box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),inset 0 -16px 32px rgba(0,0,0,0.25),0 0 60px rgba(215,0,48,0.75),0 20px 40px rgba(115,7,31,0.55)}}
+.kg-accent.kg-pulse{animation:kg-pulse 2.6s ease-in-out infinite}
+
+/* Halo radial vermelho (pseudo behind para .kg-radial) */
+.kg-glow-behind{position:relative}
+.kg-glow-behind::after{content:'';position:absolute;inset:-30px;z-index:-1;background:radial-gradient(ellipse at center,rgba(215,0,48,0.30) 0%,rgba(215,0,48,0.08) 45%,transparent 70%);filter:blur(28px);pointer-events:none;border-radius:50%}
+
 /* PRINT */
 @page{size:1440px 810px landscape;margin:0}
 @media print{
@@ -696,8 +723,8 @@ html,body{overflow:visible!important;background:#fff!important;height:auto!impor
   <div style="position:absolute;inset:0;padding:48px 64px;display:flex;flex-direction:column;justify-content:center">
     <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:32px;align-items:stretch">
 
-      <!-- Lado A: Dinheiro escondido na empresa -->
-      <div style="background:var(--bg2);border:1px solid var(--bord);border-left:3px solid #888;border-radius:8px;padding:24px 28px">
+      <!-- Lado A: Dinheiro escondido na empresa (Liquid Glass white) -->
+      <div class="kg-white" style="padding:24px 28px;position:relative"><div style="position:relative;z-index:2">
         <div style="font-family:'Inter',sans-serif;font-size:10px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3);margin-bottom:8px">Dinheiro escondido na sua empresa de R$5M/ano · por mês</div>
         <div style="font-family:'Space Grotesk',sans-serif;font-weight:900;font-size:54px;line-height:0.95;letter-spacing:-0.035em;color:var(--text);margin-bottom:2px">R$164.000</div>
         <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;color:var(--text3);margin-bottom:16px">por mês fora do seu lucro · <strong style="color:var(--text)">R$1,97 milhão/ano</strong></div>
@@ -718,12 +745,10 @@ html,body{overflow:visible!important;background:#fff!important;height:auto!impor
         </div>
 
         <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--bord);font-family:'Inter',sans-serif;font-size:9.5px;font-weight:600;letter-spacing:0.06em;color:var(--text3)">Fontes: Sebrae · CNI · McKinsey 2024 · benchmarks por porte</div>
-      </div>
+      </div></div>
 
-      <!-- Lado B: Quanto custa eliminar isso -->
-      <div style="background:var(--text);border-radius:8px;padding:28px 30px;color:#fff;position:relative;overflow:hidden">
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse 100% 80% at 80% 0%, rgba(215,0,48,0.25) 0%, transparent 65%);pointer-events:none"></div>
-        <div style="position:relative;z-index:1">
+      <!-- Lado B: Investimento KTANA (Liquid Glass dark + glow vermelho) -->
+      <div class="kg-dark" style="padding:28px 30px;color:#fff"><div style="position:relative;z-index:2">
           <div style="font-family:'Inter',sans-serif;font-size:10px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:10px">Investimento KTANA · transformação completa</div>
           <div style="font-family:'Space Grotesk',sans-serif;font-weight:900;font-size:78px;line-height:0.92;letter-spacing:-0.04em;color:#fff;margin-bottom:4px">R$100.000</div>
           <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:18px;color:rgba(255,255,255,0.7);margin-bottom:18px">12× de <strong style="color:#fff">R$8.333</strong> no cartão</div>
@@ -736,20 +761,19 @@ html,body{overflow:visible!important;background:#fff!important;height:auto!impor
             <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:3px;font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.9)">30 dias garantidos</span>
             <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:3px;font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.9)">Mentoria inclusa</span>
           </div>
-        </div>
-      </div>
+        </div></div>
 
     </div>
 
     <!-- Linha do que está incluso, embaixo -->
     <div style="margin-top:24px;padding-top:18px;border-top:1px solid var(--bord)">
       <div style="font-family:'Inter',sans-serif;font-size:10px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:12px">O que entra na transformação</div>
-      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px">
-        <div style="background:var(--bg2);border:1px solid var(--bord);border-top:2px solid var(--red);border-radius:5px;padding:10px 12px"><div style="font-family:'Zen Dots',sans-serif;font-size:10px;color:var(--red);margin-bottom:4px">01</div><div style="font-size:12px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:3px">Sprint da Empresa</div><div style="font-size:10.5px;color:var(--text3);line-height:1.4">Levantamento de demandas com resultado econômico imediato</div></div>
-        <div style="background:var(--bg2);border:1px solid var(--bord);border-top:2px solid var(--red);border-radius:5px;padding:10px 12px"><div style="font-family:'Zen Dots',sans-serif;font-size:10px;color:var(--red);margin-bottom:4px">02</div><div style="font-size:12px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:3px">Micro-soluções por departamento</div><div style="font-size:10.5px;color:var(--text3);line-height:1.4">Plataforma EI OS · cada área mapeada com IA aplicada</div></div>
-        <div style="background:var(--bg2);border:1px solid var(--bord);border-top:2px solid var(--red);border-radius:5px;padding:10px 12px"><div style="font-family:'Zen Dots',sans-serif;font-size:10px;color:var(--red);margin-bottom:4px">03</div><div style="font-size:12px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:3px">Mentor de Suporte</div><div style="font-size:10.5px;color:var(--text3);line-height:1.4">Acompanhamento dedicado durante toda a jornada</div></div>
-        <div style="background:var(--bg2);border:1px solid var(--bord);border-top:2px solid var(--red);border-radius:5px;padding:10px 12px"><div style="font-family:'Zen Dots',sans-serif;font-size:10px;color:var(--red);margin-bottom:4px">04</div><div style="font-size:12px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:3px">Imersão Presencial · 3 dias</div><div style="font-size:10.5px;color:var(--text3);line-height:1.4">Você + time + KTANA mapeando e configurando ao vivo</div></div>
-        <div style="background:var(--text);color:#fff;border-radius:5px;padding:10px 12px;border-top:2px solid var(--red)"><div style="font-family:'Inter',sans-serif;font-size:9px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:4px">★ Bônus</div><div style="font-size:12px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:3px">KTANA-me · clone no WhatsApp</div><div style="font-size:10.5px;color:rgba(255,255,255,0.7);line-height:1.4">Sua mente operando a empresa após o Sprint</div></div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;position:relative;z-index:1">
+        <div class="kg-white" style="padding:16px 18px"><div style="position:relative;z-index:2"><div style="font-family:'Zen Dots',sans-serif;font-size:11px;color:var(--red);margin-bottom:6px">01</div><div style="font-size:13px;font-weight:800;color:var(--text);line-height:1.3;margin-bottom:5px;letter-spacing:-0.01em">Sprint da Empresa</div><div style="font-size:11px;color:var(--text2);line-height:1.45">Levantamento de demandas com resultado econômico imediato</div></div></div>
+        <div class="kg-white" style="padding:16px 18px"><div style="position:relative;z-index:2"><div style="font-family:'Zen Dots',sans-serif;font-size:11px;color:var(--red);margin-bottom:6px">02</div><div style="font-size:13px;font-weight:800;color:var(--text);line-height:1.3;margin-bottom:5px;letter-spacing:-0.01em">Micro-soluções por departamento</div><div style="font-size:11px;color:var(--text2);line-height:1.45">Plataforma EI OS · cada área mapeada com IA aplicada</div></div></div>
+        <div class="kg-white" style="padding:16px 18px"><div style="position:relative;z-index:2"><div style="font-family:'Zen Dots',sans-serif;font-size:11px;color:var(--red);margin-bottom:6px">03</div><div style="font-size:13px;font-weight:800;color:var(--text);line-height:1.3;margin-bottom:5px;letter-spacing:-0.01em">Mentor de Suporte</div><div style="font-size:11px;color:var(--text2);line-height:1.45">Acompanhamento dedicado durante toda a jornada</div></div></div>
+        <div class="kg-white" style="padding:16px 18px"><div style="position:relative;z-index:2"><div style="font-family:'Zen Dots',sans-serif;font-size:11px;color:var(--red);margin-bottom:6px">04</div><div style="font-size:13px;font-weight:800;color:var(--text);line-height:1.3;margin-bottom:5px;letter-spacing:-0.01em">Imersão Presencial · 3 dias</div><div style="font-size:11px;color:var(--text2);line-height:1.45">Você + time + KTANA mapeando e configurando ao vivo</div></div></div>
+        <div class="kg-accent kg-pulse" style="padding:16px 18px"><div style="position:relative;z-index:2"><div style="font-family:'Inter',sans-serif;font-size:9.5px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.95);margin-bottom:6px">★ Bônus exclusivo</div><div style="font-size:13px;font-weight:800;color:#fff;line-height:1.3;margin-bottom:5px;letter-spacing:-0.01em">KTANA-me · clone no WhatsApp</div><div style="font-size:11px;color:rgba(255,255,255,0.85);line-height:1.45">Sua mente operando a empresa após o Sprint</div></div></div>
       </div>
     </div>
   </div>
