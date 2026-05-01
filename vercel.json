@@ -1,7 +1,0 @@
-{
-  "cleanUrls": true,
-  "rewrites": [
-    {"source": "/oferta", "destination": "/empresainteligente/oferta/apresentacaoinstitucional/v1/index.html"},
-    {"source": "/oferta/v1", "destination": "/empresainteligente/oferta/apresentacaoinstitucional/v1/index.html"}
-  ]
-}
