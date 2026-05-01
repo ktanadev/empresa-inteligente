@@ -2,441 +2,369 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Empresa Inteligente OS — Apresentação Comercial</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Dots&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --red:#D70030;
-  --red-mid:#9B0A2A;
-  --red-deep:#73071F;
-  --r-bg-1:rgba(215,0,48,0.08);
-  --r-bg-2:rgba(215,0,48,0.04);
-  --r-line:rgba(215,0,48,0.22);
-  --ktana-glow:#FF1A4B;
-  --bg:#FFFFFF;
-  --bg-primary:#FFFFFF;
-  --bg-secondary:#F5F5F7;
-  --bg-tertiary:#E8E8ED;
-  --bg2:#F5F5F7;
-  --bg3:#EEECEA;
-  --text:#1D1D1F;
-  --text-primary:#1D1D1F;
-  --text-secondary:#6E6E73;
-  --text-tertiary:#86868B;
-  --text-mid:#86868B;
-  --text-light:#AEAEB2;
-  --border:#D2D2D7;
-  --border-light:#E5E5EA;
-  --bord:rgba(0,0,0,0.08);
+  --red:#D70030; --red-deep:#9B0A2A; --red-glow:#FF1A4B;
+  --bg:#F5F5F7; --bg-card:#FFFFFF; --bg-tertiary:#E8E8ED;
+  --bg-dark:#0A0A0A; --bg-dark-2:#141414;
+  --text:#1D1D1F; --text-2:#6E6E73; --text-3:#86868B; --text-4:#AEAEB2;
+  --border:#D2D2D7; --border-light:#E5E5EA;
+  --font-display:'Zen Dots',cursive;
+  --font-sans:'Satoshi','Inter',-apple-system,system-ui,sans-serif;
+  --font-ui:'Inter',-apple-system,system-ui,sans-serif;
   --glass-bg:rgba(245,245,247,0.72);
   --glass-blur:saturate(180%) blur(20px);
-  --font-display:'Zen Dots', cursive;
-  --font-sans:'Satoshi', 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --font-ui:'Inter', -apple-system, system-ui, sans-serif
+  --ease:cubic-bezier(0.25,0.1,0.25,1);
+  --ease-spring:cubic-bezier(0.34,1.56,0.64,1)
 }
-html,body{width:100%;height:100%;overflow:hidden;background:#F5F5F7;font-family:var(--font-sans);color:var(--text);-webkit-font-smoothing:antialiased}
+html,body{width:100%;height:100%;overflow:hidden;background:#E8E6E2;font-family:var(--font-sans);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+a{text-decoration:none;color:inherit}
 
+/* ═══ DECK + SCALING ═══ */
 .wrapper{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
-.deck{width:1440px;height:810px;position:relative;transform-origin:center center;overflow:hidden}
-.slide{position:absolute;inset:0;width:1440px;height:810px;opacity:0;pointer-events:none;transition:opacity 380ms ease;overflow:hidden}
+.deck{width:1440px;height:810px;position:relative;transform-origin:center center;overflow:hidden;background:var(--bg);border-radius:8px;box-shadow:0 8px 60px rgba(0,0,0,0.15)}
+.slide{position:absolute;inset:0;width:1440px;height:810px;opacity:0;pointer-events:none;transition:opacity 420ms var(--ease);overflow:hidden}
 .slide.active{opacity:1;pointer-events:all}
 
-/* NAV */
-.nb{position:fixed;top:50%;transform:translateY(-50%);z-index:300;background:rgba(255,255,255,0.85);border:1px solid rgba(0,0,0,0.1);width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 200ms;backdrop-filter:blur(8px)}
-.nb:hover{background:var(--red);border-color:var(--red)}
+/* ═══ NAVIGATION (controles fora do deck) ═══ */
+.nb{position:fixed;top:50%;transform:translateY(-50%);z-index:300;background:rgba(255,255,255,0.92);border:1px solid rgba(0,0,0,0.06);width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 200ms var(--ease);backdrop-filter:blur(8px);box-shadow:0 2px 12px rgba(0,0,0,0.08)}
+.nb:hover{background:var(--red);border-color:var(--red);transform:translateY(-50%) scale(1.06)}
 .nb:hover svg{stroke:#fff}
-.nb svg{width:18px;height:18px;stroke:#333;fill:none;stroke-width:2;stroke-linecap:round}
-#bp{left:14px}#bn{right:14px}
-#ct{position:fixed;bottom:18px;right:18px;z-index:300;font-family:'Inter',sans-serif;font-size:11px;color:rgba(0,0,0,0.35);letter-spacing:0.08em;font-weight:600}
+.nb svg{width:18px;height:18px;stroke:#1D1D1F;fill:none;stroke-width:2;stroke-linecap:round}
+#bp{left:18px}#bn{right:18px}
+#ct{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:300;font-family:var(--font-ui);font-size:11px;color:rgba(0,0,0,0.42);letter-spacing:0.08em;font-weight:600}
 
-/* SHARED — header/footer */
-.bc{position:absolute;top:28px;left:56px;z-index:20;font-family:'Inter',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(0,0,0,0.32);display:flex;align-items:center;gap:8px}
-.bc.dark{color:rgba(255,255,255,0.42)}
+/* ═══ ELEMENTOS PERSISTENTES (4 fixos por slide) ═══ */
+.bc{position:absolute;top:32px;left:64px;z-index:20;font-family:var(--font-ui);font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(0,0,0,0.32);display:flex;align-items:center;gap:8px}
 .bc .sep{color:rgba(0,0,0,0.18)}
-.bc.dark .sep{color:rgba(255,255,255,0.22)}
 .bc .cur{color:rgba(0,0,0,0.55)}
+.bc.dark{color:rgba(255,255,255,0.42)}
+.bc.dark .sep{color:rgba(255,255,255,0.22)}
 .bc.dark .cur{color:rgba(255,255,255,0.7)}
 
-.lg{position:absolute;top:24px;right:56px;z-index:20;display:flex;align-items:center;gap:8px}
-.lg-d{width:6px;height:6px;border-radius:50%;background:var(--red)}
-.lg-t{font-family:'Zen Dots',sans-serif;font-size:11px;color:rgba(0,0,0,0.55);letter-spacing:0.04em}
-.lg.dark .lg-d{background:#fff;box-shadow:0 0 8px rgba(255,255,255,0.5)}
-.lg.dark .lg-t{color:rgba(255,255,255,0.65)}
+.lg{position:absolute;top:28px;right:64px;z-index:20;display:flex;align-items:center;gap:8px}
+.lg-d{width:5px;height:5px;border-radius:50%;background:var(--red);box-shadow:0 0 8px var(--red)}
+.lg-t{font-family:var(--font-display);font-size:11px;color:#1D1D1F;letter-spacing:0.04em}
+.lg.dark .lg-t{color:rgba(255,255,255,0.78)}
+.lg.dark .lg-d{background:#FFF;box-shadow:0 0 8px rgba(255,255,255,0.45)}
 
-.ft{position:absolute;bottom:26px;left:56px;right:56px;z-index:20;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;font-size:10px;letter-spacing:0.1em;font-weight:500;color:rgba(0,0,0,0.32)}
-.ft.dark{color:rgba(255,255,255,0.42)}
+.ft{position:absolute;bottom:28px;left:64px;right:64px;z-index:20;display:flex;justify-content:space-between;align-items:center;font-family:var(--font-ui);font-size:10px;letter-spacing:0.06em;font-weight:500;color:rgba(0,0,0,0.42)}
+.ft.dark{color:rgba(255,255,255,0.38)}
+.ft .powered{font-family:var(--font-ui);font-size:10px;color:rgba(0,0,0,0.32);letter-spacing:0.04em}
+.ft.dark .powered{color:rgba(255,255,255,0.32)}
+.ft .powered strong{font-family:var(--font-display);color:rgba(0,0,0,0.62);font-weight:400;letter-spacing:0.02em}
+.ft.dark .powered strong{color:rgba(255,255,255,0.6)}
 
-.lbl{display:inline-flex;align-items:center;gap:12px;font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--red)}
-.lbl::before{content:'';width:28px;height:1px;background:var(--red)}
+/* ═══ TIPOGRAFIA REUSÁVEL ═══ */
+.label{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-ui);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px}
+.label::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--red);box-shadow:0 0 6px var(--red)}
+.label.dark{color:rgba(255,255,255,0.62)}
 
-/* Display headlines: Zen Dots */
-.h1{font-family:'Zen Dots',sans-serif;letter-spacing:-0.01em;line-height:1}
-.kpi-num{font-family:'Zen Dots',sans-serif;letter-spacing:-0.04em;line-height:0.88}
+.h-display{font-family:var(--font-display);font-weight:400;letter-spacing:-0.018em;line-height:1.05;color:var(--text)}
+.h-display.dark{color:#fff}
+.h-display em{font-style:normal;color:var(--red)}
 
-/* ═══════════════════════════════════════════════
-   LIQUID GLASS — paleta monotonal KTANA
-   #D70030 (primário) · #9B0A2A (médio) · #73071F (deep)
-   ═══════════════════════════════════════════════ */
-.kg-white{position:relative;background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);border:1px solid rgba(255,255,255,0.5);border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,0.04),0 4px 16px rgba(0,0,0,0.06);transition:transform 200ms cubic-bezier(0.25,0.1,0.25,1),box-shadow 200ms cubic-bezier(0.25,0.1,0.25,1);overflow:hidden}
-.kg-white::before{content:'';position:absolute;top:0;left:0;right:0;height:30%;background:linear-gradient(180deg,rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.1) 60%,transparent 100%);pointer-events:none;border-radius:16px 16px 0 0}
-.kg-white:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,0.08),0 8px 32px rgba(0,0,0,0.12)}
-@supports not (backdrop-filter:blur(1px)){.kg-white{background:rgba(255,255,255,0.92)}}
+.body-text{font-family:var(--font-sans);font-weight:400;line-height:1.6;color:var(--text-3)}
+.body-text strong{color:var(--text);font-weight:600}
+.body-text.dark{color:rgba(255,255,255,0.65)}
+.body-text.dark strong{color:#fff}
 
-.kg-dark{position:relative;background:linear-gradient(135deg,rgba(20,8,12,0.72) 0%,rgba(35,12,18,0.64) 100%);backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);border:1px solid rgba(215,0,48,0.32);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.10),inset 0 -16px 32px rgba(0,0,0,0.30),0 0 32px rgba(215,0,48,0.30),0 24px 48px rgba(0,0,0,0.45);transition:all 400ms cubic-bezier(.32,.72,0,1);overflow:hidden}
-.kg-dark::before{content:'';position:absolute;top:0;left:0;right:0;height:35%;background:linear-gradient(180deg,rgba(255,255,255,0.14) 0%,rgba(255,255,255,0.04) 50%,transparent 100%);pointer-events:none;border-radius:20px 20px 0 0}
+/* ═══ INNER CONTENT ═══ */
+.in{position:absolute;inset:0;padding:96px 80px 96px;display:flex;flex-direction:column}
+.in-c{position:absolute;inset:0;padding:96px 80px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
 
-.kg-accent{position:relative;background:linear-gradient(135deg,#D70030 0%,#9B0A2A 50%,#73071F 100%);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.20),inset 0 -16px 32px rgba(0,0,0,0.25),0 0 36px rgba(215,0,48,0.55),0 20px 40px rgba(115,7,31,0.45);transition:all 400ms cubic-bezier(.32,.72,0,1);overflow:hidden}
-.kg-accent::before{content:'';position:absolute;top:0;left:0;right:0;height:50%;background:linear-gradient(180deg,rgba(255,255,255,0.18) 0%,transparent 100%);pointer-events:none;border-radius:20px 20px 0 0}
+/* ═══ CARDS (light) ═══ */
+.card{background:var(--bg-card);border-radius:20px;padding:28px 24px;border:none;box-shadow:0 1px 3px rgba(0,0,0,0.04);transition:transform 300ms var(--ease),box-shadow 300ms var(--ease);position:relative}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.06)}
+.card.accent{border-top:none}
+.card.accent::before{content:'';position:absolute;top:0;left:24px;width:32px;height:2px;background:var(--red);border-radius:2px}
 
-@keyframes kg-pulse{0%,100%{box-shadow:inset 0 1px 0 rgba(255,255,255,0.20),inset 0 -16px 32px rgba(0,0,0,0.25),0 0 36px rgba(215,0,48,0.45),0 20px 40px rgba(115,7,31,0.40)}50%{box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),inset 0 -16px 32px rgba(0,0,0,0.25),0 0 60px rgba(215,0,48,0.75),0 20px 40px rgba(115,7,31,0.55)}}
-.kg-accent.kg-pulse{animation:kg-pulse 2.6s ease-in-out infinite}
+/* CTAs */
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;padding:14px 30px;border-radius:980px;font-family:var(--font-ui);font-size:14px;font-weight:600;transition:all 300ms var(--ease);box-shadow:0 4px 16px rgba(215,0,48,0.25);border:none;cursor:pointer}
+.btn-primary:hover{box-shadow:0 8px 28px rgba(215,0,48,0.4);transform:translateY(-1px)}
+.btn-primary svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round}
+.btn-secondary{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--text);padding:14px 28px;border-radius:980px;font-family:var(--font-ui);font-size:14px;font-weight:500;border:1.5px solid var(--border);transition:border 200ms,background 200ms}
+.btn-secondary:hover{border-color:var(--text);background:rgba(0,0,0,0.02)}
 
-.kg-glow-behind{position:relative}
-.kg-glow-behind::after{content:'';position:absolute;inset:-30px;z-index:-1;background:radial-gradient(ellipse at center,rgba(215,0,48,0.30) 0%,rgba(215,0,48,0.08) 45%,transparent 70%);filter:blur(28px);pointer-events:none;border-radius:50%}
+/* ═══ AMBIENT GLOW (S1 + dark slides) ═══ */
+.glow-orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
 
-/* ═══════════════════════════════════════════════
-   S1 — CAPA DARK (traço de katana + tipografia gigante)
-   ═══════════════════════════════════════════════ */
-.s1{background:#0A0A0A;color:#fff;overflow:hidden}
-.s1-bg{position:absolute;top:0;right:0;width:48%;height:100%;background:url('../img/ktana-cyberpunk-hr.jpg') center/cover no-repeat;opacity:0.92;filter:contrast(1.05) saturate(1.08);-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 22%,#000 100%);mask-image:linear-gradient(to right,transparent 0%,#000 22%,#000 100%)}
-.s1-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,10,0.92) 0%,rgba(10,10,10,0.78) 50%,rgba(115,7,31,0.55) 100%)}
-.s1-glow{position:absolute;right:-200px;top:-200px;width:900px;height:900px;background:radial-gradient(circle,rgba(215,0,48,0.35) 0%,rgba(215,0,48,0.10) 35%,transparent 70%);filter:blur(60px);pointer-events:none}
-.s1-katana-cut{position:absolute;top:-12%;right:18%;width:2px;height:135%;background:linear-gradient(to bottom,transparent 0%,var(--ktana-glow) 15%,#D70030 50%,var(--ktana-glow) 85%,transparent 100%);box-shadow:0 0 12px var(--ktana-glow),0 0 28px rgba(255,26,75,0.55),0 0 48px rgba(215,0,48,0.35);transform:rotate(16deg);pointer-events:none;user-select:none;z-index:3}
-.s1-c{position:relative;z-index:5;padding:96px 80px;display:flex;flex-direction:column;justify-content:center;height:100%;max-width:920px}
-.s1-mark{display:flex;align-items:center;gap:10px;margin-bottom:48px;font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.55)}
-.s1-mark img{width:30px;height:30px;opacity:0.9}
-.s1-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(215,0,48,0.18);border:1px solid rgba(215,0,48,0.5);border-radius:3px;padding:7px 16px;font-size:10px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:#fff;margin-bottom:38px;width:fit-content}
-.s1-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red)}
-.s1 h1{font-family:'Zen Dots',sans-serif;font-size:96px;line-height:0.96;letter-spacing:-0.02em;color:#fff;margin-bottom:30px;max-width:880px}
-.s1 h1 em{font-style:normal;color:var(--red);text-shadow:0 0 40px rgba(215,0,48,0.6)}
-.s1-sub{font-size:21px;color:rgba(255,255,255,0.72);line-height:1.55;max-width:640px;margin-bottom:44px;font-weight:400}
-.s1-sub strong{color:#fff;font-weight:700}
-.s1-line{width:60px;height:3px;background:var(--red);margin-bottom:32px;box-shadow:0 0 16px rgba(215,0,48,0.6)}
-.s1-meta{display:flex;align-items:center;gap:36px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;color:rgba(255,255,255,0.45);text-transform:uppercase;font-weight:600}
-.s1-meta span strong{color:#fff;font-weight:800}
+/* ═══ S1 — CAPA (DARK + AVATAR CYBERPUNK) ═══ */
+.s1{background:var(--bg-dark);color:#fff}
+.s1-bg{position:absolute;top:0;right:0;width:52%;height:100%;background:url('../img/ktana-cyberpunk-hr.jpg') center/cover no-repeat;opacity:0.95;-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 22%,#000 100%);mask-image:linear-gradient(to right,transparent 0%,#000 22%,#000 100%)}
+.s1-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,10,0.95) 0%,rgba(10,10,10,0.55) 50%,rgba(10,10,10,0.18) 100%)}
+.s1-glow{position:absolute;right:-180px;top:-150px;width:720px;height:720px;background:radial-gradient(circle,rgba(215,0,48,0.18) 0%,rgba(215,0,48,0.04) 45%,transparent 75%);filter:blur(70px);pointer-events:none}
+.s1-katana{position:absolute;top:-12%;right:22%;width:1.5px;height:135%;background:linear-gradient(to bottom,transparent 0%,var(--red-glow) 18%,var(--red) 50%,var(--red-glow) 82%,transparent 100%);box-shadow:0 0 12px var(--red-glow),0 0 24px rgba(255,26,75,0.55);transform:rotate(16deg);pointer-events:none}
+.s1-c{position:relative;z-index:5;padding:120px 80px 100px;display:flex;flex-direction:column;justify-content:center;height:100%;max-width:680px}
+.s1-mark{display:flex;align-items:center;gap:10px;margin-bottom:80px;font-family:var(--font-ui);font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.55)}
+.s1-mark .dot{width:5px;height:5px;border-radius:50%;background:var(--red);box-shadow:0 0 8px var(--red);margin:0 4px}
+.s1 h1{font-family:var(--font-display);font-size:56px;line-height:1.06;letter-spacing:-0.02em;color:#fff;margin-bottom:24px;font-weight:400}
+.s1 h1 em{font-style:normal;color:var(--red)}
+.s1-sub{font-family:var(--font-sans);font-size:18px;color:rgba(255,255,255,0.78);line-height:1.5;font-weight:400;max-width:500px;margin-bottom:36px}
+.s1-tagline{font-family:var(--font-sans);font-size:13px;font-weight:500;letter-spacing:0.04em;color:var(--red-glow);margin-bottom:48px;text-transform:none}
+.s1-meta{display:flex;align-items:center;gap:24px;font-family:var(--font-ui);font-size:10px;letter-spacing:0.14em;color:rgba(255,255,255,0.42);text-transform:uppercase;font-weight:500}
+.s1-meta strong{color:#fff;font-weight:600}
 
-/* ═══════════════════════════════════════════════
-   GENERIC WHITE SLIDE
-   ═══════════════════════════════════════════════ */
-.sw{background:var(--bg);color:var(--text)}
-.sw-alt{background:var(--bg2)}
-.sw-in{position:absolute;inset:0;padding:100px 80px 80px;display:flex;flex-direction:column;justify-content:center}
-
-/* ═══════════════════════════════════════════════
-   S2 — O MOMENTO
-   ═══════════════════════════════════════════════ */
-.s2-quote{font-family:'Zen Dots',sans-serif;font-size:62px;line-height:1.05;color:var(--text);letter-spacing:-0.025em;max-width:1180px;margin-bottom:46px}
+/* ═══ S2 — O MOMENTO (LIGHT, EDITORIAL) ═══ */
+.s2{background:var(--bg);color:var(--text)}
+.s2 .in{justify-content:center;align-items:flex-start;padding:120px 80px}
+.s2-quote{font-family:var(--font-display);font-size:54px;line-height:1.1;letter-spacing:-0.022em;color:var(--text);margin-bottom:32px;max-width:1080px;font-weight:400}
 .s2-quote em{font-style:normal;color:var(--red)}
-.s2-q-mark{font-family:'Zen Dots',sans-serif;font-size:140px;line-height:0.6;color:rgba(215,0,48,0.18);display:block;margin-bottom:8px;letter-spacing:-0.05em}
-.s2-foot{display:flex;flex-direction:column;gap:14px;max-width:920px;margin-top:24px}
-.s2-foot-line{font-size:19px;font-weight:600;color:var(--text-mid);line-height:1.5}
-.s2-foot-line strong{color:var(--text);font-weight:800}
-.s2-foot-line.red{color:var(--red);font-weight:700}
+.s2-foot{display:flex;flex-direction:column;gap:10px;max-width:780px}
+.s2-foot p{font-family:var(--font-sans);font-size:18px;color:var(--text-3);line-height:1.5;font-weight:400}
+.s2-foot p strong{color:var(--text);font-weight:600}
 
-/* ═══════════════════════════════════════════════
-   S3 — DOIS TIPOS DE EMPRESA
-   ═══════════════════════════════════════════════ */
-.s3-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;flex:1;align-items:stretch}
-.s3-card{padding:38px 36px;border-radius:20px;display:flex;flex-direction:column;position:relative}
-.s3-card-a{background:#fff;border:1px solid var(--bord);border-top:4px solid var(--text-mid)}
-.s3-card-b{background:linear-gradient(135deg,rgba(215,0,48,0.06) 0%,rgba(255,255,255,1) 100%);border:1px solid var(--r-line);border-top:4px solid var(--red);box-shadow:0 0 32px rgba(215,0,48,0.10)}
-.s3-card-tag{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:10px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:16px}
-.s3-card-a .s3-card-tag{color:var(--text-mid)}
-.s3-card-b .s3-card-tag{color:var(--red)}
-.s3-card h3{font-family:'Zen Dots',sans-serif;font-size:24px;line-height:1.15;letter-spacing:-0.015em;margin-bottom:24px;color:var(--text)}
-.s3-card-list{display:flex;flex-direction:column;gap:14px;flex:1;margin-bottom:22px}
-.s3-card-item{display:flex;align-items:flex-start;gap:12px;font-size:14.5px;color:var(--text);line-height:1.55;font-weight:500}
-.s3-card-item::before{content:'';flex-shrink:0;width:6px;height:6px;border-radius:50%;margin-top:8px;background:var(--text-mid)}
-.s3-card-b .s3-card-item::before{background:var(--red);box-shadow:0 0 8px rgba(215,0,48,0.5)}
-.s3-card-foot{font-style:italic;font-size:14px;color:var(--text-mid);padding-top:18px;border-top:1px solid var(--bord);font-weight:500}
-.s3-card-b .s3-card-foot{color:var(--red);font-weight:700;font-style:normal}
+/* ═══ S3 — DOIS TIPOS (LIGHT, 2 COLUNAS) ═══ */
+.s3{background:var(--bg)}
+.s3 .in{padding:100px 80px}
+.s3-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;flex:1;align-items:stretch;margin-top:36px}
+.s3-card{background:var(--bg-card);border-radius:24px;padding:36px 32px;display:flex;flex-direction:column;position:relative;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.s3-card.dim{background:#FAFAFA}
+.s3-card.dim::before{content:'';position:absolute;top:0;left:36px;width:32px;height:2px;background:var(--text-4);border-radius:2px}
+.s3-card.win::before{content:'';position:absolute;top:0;left:36px;width:32px;height:2px;background:var(--red);border-radius:2px}
+.s3-card-tag{font-family:var(--font-ui);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px}
+.s3-card.dim .s3-card-tag{color:var(--text-4)}
+.s3-card.win .s3-card-tag{color:var(--red)}
+.s3-card h3{font-family:var(--font-display);font-size:24px;line-height:1.18;letter-spacing:-0.012em;color:var(--text);margin-bottom:24px;font-weight:400}
+.s3-list{list-style:none;display:flex;flex-direction:column;gap:14px;flex:1}
+.s3-list li{display:flex;align-items:flex-start;gap:12px;font-family:var(--font-sans);font-size:14.5px;color:var(--text);line-height:1.5;font-weight:400}
+.s3-list li::before{content:'';flex-shrink:0;width:5px;height:5px;border-radius:50%;margin-top:9px}
+.s3-card.dim .s3-list li::before{background:var(--text-4)}
+.s3-card.win .s3-list li::before{background:var(--red)}
+.s3-card-foot{margin-top:22px;padding-top:18px;border-top:1px solid var(--border-light);font-family:var(--font-sans);font-size:13px;font-weight:500;font-style:italic;color:var(--text-3)}
+.s3-card.win .s3-card-foot{color:var(--red);font-style:normal;font-weight:600}
 
-/* ═══════════════════════════════════════════════
-   S4 — DADOS (5 stats)
-   ═══════════════════════════════════════════════ */
-.s4-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:44px}
-.s4-card{padding:26px 22px;border-radius:16px;background:#fff;border:1px solid var(--bord);display:flex;flex-direction:column;transition:all 300ms cubic-bezier(.32,.72,0,1);position:relative;overflow:hidden}
-.s4-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0.4);transform-origin:left;transition:transform 300ms}
-.s4-card:hover{border-color:var(--r-line);box-shadow:0 12px 32px rgba(215,0,48,0.10);transform:translateY(-4px)}
-.s4-card:hover::before{transform:scaleX(1)}
-.s4-num{font-family:'Zen Dots',sans-serif;font-size:54px;color:var(--red);line-height:0.92;letter-spacing:-0.04em;margin-bottom:12px}
-.s4-num span{font-size:30px;color:rgba(215,0,48,0.7)}
-.s4-txt{font-size:13px;color:var(--text);line-height:1.45;font-weight:600;flex:1;margin-bottom:16px}
-.s4-src{font-family:'Inter',sans-serif;font-size:10px;color:var(--text-light);font-weight:500;letter-spacing:0.04em;padding-top:12px;border-top:1px solid var(--bord)}
-.s4-foot{margin-top:36px;padding-top:24px;border-top:1px solid var(--bord);font-size:17px;color:var(--text);font-weight:500;font-style:italic;line-height:1.5;max-width:920px}
-.s4-foot strong{color:var(--red);font-style:normal;font-weight:800}
+/* ═══ S4 — DADOS (LIGHT, 5 STATS) ═══ */
+.s4{background:var(--bg)}
+.s4 .in{padding:100px 80px;justify-content:flex-start}
+.s4-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:48px}
+.s4-card{background:var(--bg-card);border-radius:18px;padding:28px 22px;position:relative;box-shadow:0 1px 3px rgba(0,0,0,0.04);transition:all 300ms var(--ease)}
+.s4-card::before{content:'';position:absolute;top:0;left:22px;width:28px;height:2px;background:var(--red);border-radius:2px}
+.s4-card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.06)}
+.s4-num{font-family:var(--font-display);font-size:42px;color:var(--text);line-height:1.0;letter-spacing:-0.025em;margin-bottom:14px;font-weight:400}
+.s4-num span{font-size:24px;color:var(--text-3)}
+.s4-txt{font-family:var(--font-sans);font-size:13px;color:var(--text-2);line-height:1.5;font-weight:400;flex:1;margin-bottom:14px;min-height:54px}
+.s4-txt strong{color:var(--text);font-weight:600}
+.s4-src{font-family:var(--font-ui);font-size:10px;color:var(--text-4);font-weight:500;letter-spacing:0.02em;padding-top:12px;border-top:1px solid var(--border-light)}
+.s4-foot{margin-top:36px;font-family:var(--font-sans);font-size:15px;color:var(--text-2);font-weight:400;font-style:italic;line-height:1.55;max-width:780px}
+.s4-foot strong{color:var(--text);font-style:normal;font-weight:600}
 
-/* ═══════════════════════════════════════════════
-   S5 — LÍDER DE REFERÊNCIA (Dario Amodei)
-   ═══════════════════════════════════════════════ */
-.s5-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:0;flex:1;align-items:stretch}
-.s5-photo{position:relative;background:url('../img/dario-amodei.jpg') center 18%/cover no-repeat;border-radius:20px;overflow:hidden;min-height:540px}
-.s5-photo-ov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.85) 100%)}
-.s5-photo-ov2{position:absolute;inset:0;background:linear-gradient(135deg,rgba(215,0,48,0.18) 0%,transparent 50%)}
-.s5-photo-cap{position:absolute;bottom:30px;left:32px;right:32px;color:#fff;z-index:5}
-.s5-photo-cap-name{font-family:'Zen Dots',sans-serif;font-size:24px;color:#fff;letter-spacing:-0.01em;margin-bottom:6px;text-shadow:0 2px 16px rgba(0,0,0,0.6)}
-.s5-photo-cap-role{font-size:13px;color:rgba(255,255,255,0.85);letter-spacing:0.04em;font-weight:500}
-.s5-photo-line{position:absolute;right:0;top:0;width:3px;height:100%;background:linear-gradient(to bottom,transparent,var(--red) 30%,var(--red) 70%,transparent);opacity:0.6;box-shadow:0 0 16px rgba(215,0,48,0.4)}
-.s5-text{padding:0 0 0 56px;display:flex;flex-direction:column;justify-content:center}
-.s5-text-pre{font-family:'Inter',sans-serif;font-size:10px;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;color:var(--red);margin-bottom:18px}
-.s5-h2{font-family:'Zen Dots',sans-serif;font-size:34px;line-height:1.18;letter-spacing:-0.015em;color:var(--text);margin-bottom:24px}
-.s5-body{font-size:15.5px;color:var(--text-mid);line-height:1.65;margin-bottom:24px;font-weight:500}
-.s5-body strong{color:var(--text);font-weight:700}
-.s5-q-mark{font-family:'Zen Dots',sans-serif;font-size:80px;line-height:0.5;color:rgba(215,0,48,0.22);display:block;margin-bottom:8px}
-.s5-quote{font-size:21px;font-weight:700;color:var(--text);line-height:1.4;letter-spacing:-0.01em;margin-bottom:18px;font-style:italic;max-width:640px}
-.s5-quote em{font-style:italic;color:var(--red)}
-.s5-quote-by{font-family:'Inter',sans-serif;font-size:12px;color:var(--text-mid);letter-spacing:0.08em;font-weight:600;margin-bottom:24px}
-.s5-final{padding:18px 22px;background:var(--r-bg-1);border-left:3px solid var(--red);border-radius:6px;font-size:15px;color:var(--text);font-weight:600;line-height:1.5}
-.s5-final strong{color:var(--red);font-weight:800}
+/* ═══ S5 — DARIO AMODEI (DARK, AUTHORITY) ═══ */
+.s5{background:var(--bg-dark);color:#fff}
+.s5-bg{position:absolute;top:0;right:0;width:42%;height:100%;background:url('../img/dario-amodei.jpg') center 18%/cover no-repeat;opacity:0.86;-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 22%,#000 100%);mask-image:linear-gradient(to right,transparent 0%,#000 22%,#000 100%)}
+.s5-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,10,0.96) 0%,rgba(10,10,10,0.62) 50%,rgba(10,10,10,0.18) 100%)}
+.s5-glow{position:absolute;left:30%;bottom:-120px;width:600px;height:600px;background:radial-gradient(circle,rgba(215,0,48,0.14) 0%,transparent 60%);filter:blur(80px);pointer-events:none}
+.s5-c{position:relative;z-index:5;padding:96px 80px;height:100%;display:flex;flex-direction:column;justify-content:center;max-width:780px}
+.s5-tag{font-family:var(--font-ui);font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--red-glow);margin-bottom:24px;display:inline-flex;align-items:center;gap:8px}
+.s5-tag::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--red);box-shadow:0 0 8px var(--red)}
+.s5-name{font-family:var(--font-display);font-size:34px;line-height:1.08;letter-spacing:-0.018em;color:#fff;margin-bottom:6px;font-weight:400}
+.s5-role{font-family:var(--font-sans);font-size:14px;color:var(--red-glow);font-weight:500;margin-bottom:28px;letter-spacing:0.01em}
+.s5-body{font-family:var(--font-sans);font-size:15.5px;color:rgba(255,255,255,0.78);line-height:1.6;margin-bottom:24px;font-weight:400;max-width:580px}
+.s5-body strong{color:#fff;font-weight:600}
+.s5-quote{font-family:var(--font-sans);font-size:21px;font-weight:400;color:#fff;line-height:1.45;font-style:italic;border-left:2px solid var(--red);padding-left:20px;margin-bottom:14px;max-width:580px}
+.s5-quote em{font-style:italic;color:var(--red-glow)}
+.s5-quote-by{font-family:var(--font-ui);font-size:11px;color:rgba(255,255,255,0.55);letter-spacing:0.08em;font-weight:500;margin-bottom:24px}
+.s5-final{font-family:var(--font-sans);font-size:14.5px;color:rgba(255,255,255,0.78);line-height:1.6;font-weight:400;max-width:580px}
+.s5-final strong{color:#fff;font-weight:600}
 
-/* ═══════════════════════════════════════════════
-   S6 — O PRODUTO
-   ═══════════════════════════════════════════════ */
-.s6-h2{font-family:'Zen Dots',sans-serif;font-size:64px;line-height:1.0;letter-spacing:-0.025em;color:var(--text);margin-bottom:34px;max-width:1180px}
-.s6-h2 em{font-style:normal;color:var(--red)}
-.s6-sub{font-size:20px;color:var(--text-mid);line-height:1.6;max-width:1080px;margin-bottom:54px;font-weight:500}
-.s6-sub strong{color:var(--text);font-weight:700}
-.s6-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.s6-not{padding:30px 28px;border-radius:16px;background:#fff;border:1px solid var(--bord);position:relative;overflow:hidden}
-.s6-not-x{font-family:'Zen Dots',sans-serif;font-size:18px;color:var(--text-light);margin-bottom:14px;display:flex;align-items:center;gap:10px}
-.s6-not-x::before{content:'×';color:var(--text-light);font-size:24px;line-height:1}
-.s6-not-t{font-size:18px;font-weight:700;color:var(--text-mid);text-decoration:line-through;text-decoration-color:rgba(215,0,48,0.4);text-decoration-thickness:2px}
-.s6-not-d{font-size:13px;color:var(--text-light);line-height:1.5;margin-top:10px;font-weight:500}
-.s6-yes{padding:30px 28px;border-radius:16px;background:linear-gradient(135deg,rgba(215,0,48,0.08) 0%,rgba(255,255,255,1) 100%);border:1px solid var(--r-line);box-shadow:0 0 24px rgba(215,0,48,0.10);grid-column:span 3;margin-top:14px}
-.s6-yes-tag{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:10px;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
-.s6-yes-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red)}
-.s6-yes-h{font-family:'Zen Dots',sans-serif;font-size:28px;line-height:1.2;color:var(--text);margin-bottom:14px;letter-spacing:-0.015em}
+/* ═══ S6 — O PRODUTO (LIGHT, EDITORIAL DECLARATIVO) ═══ */
+.s6{background:var(--bg)}
+.s6 .in{padding:100px 80px;justify-content:center}
+.s6 h2{font-family:var(--font-display);font-size:56px;line-height:1.08;letter-spacing:-0.02em;color:var(--text);margin-bottom:26px;max-width:1080px;font-weight:400}
+.s6 h2 em{font-style:normal;color:var(--red)}
+.s6-sub{font-family:var(--font-sans);font-size:18px;color:var(--text-3);line-height:1.55;max-width:780px;margin-bottom:48px;font-weight:400}
+.s6-sub strong{color:var(--text);font-weight:600}
+.s6-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+.s6-not{background:#FAFAFA;border-radius:18px;padding:24px 22px;position:relative}
+.s6-not-x{font-family:var(--font-display);font-size:13px;color:var(--text-4);margin-bottom:10px;font-weight:400}
+.s6-not-t{font-family:var(--font-sans);font-size:15px;font-weight:500;color:var(--text-3);text-decoration:line-through;text-decoration-color:rgba(215,0,48,0.45);text-decoration-thickness:1.5px;margin-bottom:8px}
+.s6-not-d{font-family:var(--font-sans);font-size:12.5px;color:var(--text-4);line-height:1.5;font-weight:400}
+.s6-yes{background:var(--bg-card);border:1px solid rgba(215,0,48,0.14);border-radius:20px;padding:30px;box-shadow:0 4px 24px rgba(215,0,48,0.05)}
+.s6-yes-tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-ui);font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);margin-bottom:14px;padding:5px 12px;background:rgba(215,0,48,0.06);border-radius:980px}
+.s6-yes-h{font-family:var(--font-display);font-size:24px;line-height:1.18;color:var(--text);margin-bottom:12px;letter-spacing:-0.012em;font-weight:400}
 .s6-yes-h em{font-style:normal;color:var(--red)}
-.s6-yes-d{font-size:15.5px;color:var(--text);line-height:1.6;font-weight:500;max-width:1080px}
-.s6-yes-d strong{color:var(--text);font-weight:700}
+.s6-yes-d{font-family:var(--font-sans);font-size:15px;color:var(--text-2);line-height:1.6;font-weight:400;max-width:980px}
+.s6-yes-d strong{color:var(--text);font-weight:600}
 
-/* ═══════════════════════════════════════════════
-   S7 — MÉTODO 6 FASES
-   ═══════════════════════════════════════════════ */
-.s7-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
-.s7-card{padding:24px 22px;background:#fff;border:1px solid var(--bord);border-radius:16px;display:flex;flex-direction:column;position:relative;transition:all 300ms;min-height:230px}
-.s7-card:hover{border-color:var(--r-line);box-shadow:0 12px 32px rgba(215,0,48,0.10);transform:translateY(-3px)}
-.s7-card-n{font-family:'Zen Dots',sans-serif;font-size:13px;color:var(--red);letter-spacing:0.06em;margin-bottom:8px;display:flex;align-items:center;gap:10px}
-.s7-card-n::before{content:'';width:24px;height:1px;background:var(--red)}
-.s7-card-t{font-family:'Zen Dots',sans-serif;font-size:18px;line-height:1.2;color:var(--text);margin-bottom:10px;letter-spacing:-0.01em}
-.s7-card-w{font-family:'Inter',sans-serif;font-size:11px;color:var(--text-light);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px}
-.s7-card-d{font-size:13px;color:var(--text-mid);line-height:1.55;font-weight:500;flex:1}
-.s7-card.last{background:linear-gradient(135deg,rgba(215,0,48,0.10) 0%,rgba(255,255,255,1) 100%);border-color:var(--r-line);box-shadow:0 0 32px rgba(215,0,48,0.12)}
-.s7-card.last .s7-card-t{color:var(--red)}
+/* ═══ S7 — METODOLOGIA 6 FASES (LIGHT, GRID 3x2) ═══ */
+.s7{background:var(--bg)}
+.s7 .in{padding:90px 80px;justify-content:flex-start}
+.s7 h2{font-family:var(--font-display);font-size:42px;line-height:1.06;color:var(--text);margin-bottom:14px;max-width:980px;font-weight:400;letter-spacing:-0.018em}
+.s7 h2 em{font-style:normal;color:var(--red)}
+.s7-sub{font-family:var(--font-sans);font-size:16px;color:var(--text-3);line-height:1.5;max-width:780px;font-weight:400}
+.s7-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
+.s7-card{background:var(--bg-card);border-radius:18px;padding:24px 22px;display:flex;flex-direction:column;min-height:220px;box-shadow:0 1px 3px rgba(0,0,0,0.04);transition:all 300ms var(--ease);position:relative}
+.s7-card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.06)}
+.s7-card-n{font-family:var(--font-ui);font-size:11px;font-weight:600;letter-spacing:0.08em;color:var(--red);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.s7-card-n::before{content:'';width:18px;height:1px;background:var(--red)}
+.s7-card-t{font-family:var(--font-display);font-size:17px;line-height:1.2;color:var(--text);margin-bottom:8px;font-weight:400;letter-spacing:-0.01em}
+.s7-card-w{font-family:var(--font-ui);font-size:10px;color:var(--text-4);font-weight:500;letter-spacing:0.06em;margin-bottom:14px;text-transform:uppercase}
+.s7-card-d{font-family:var(--font-sans);font-size:13px;color:var(--text-2);line-height:1.55;font-weight:400;flex:1}
+.s7-card.last{background:linear-gradient(135deg,var(--red) 0%,var(--red-deep) 100%);color:#fff;box-shadow:0 8px 32px rgba(215,0,48,0.25)}
+.s7-card.last .s7-card-n{color:rgba(255,255,255,0.85)}
+.s7-card.last .s7-card-n::before{background:rgba(255,255,255,0.7)}
+.s7-card.last .s7-card-t{color:#fff}
+.s7-card.last .s7-card-w{color:rgba(255,255,255,0.7)}
+.s7-card.last .s7-card-d{color:rgba(255,255,255,0.85)}
 
-/* ═══════════════════════════════════════════════
-   S8 — O TIME
-   ═══════════════════════════════════════════════ */
-.s8-grid{display:grid;grid-template-columns:1fr 1fr 0.85fr;gap:18px;margin-top:42px}
-.s8-card{padding:32px 28px;background:#fff;border:1px solid var(--bord);border-radius:18px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:all 300ms}
-.s8-card-photo{height:180px;border-radius:12px;background:#1D1D1F;margin:-32px -28px 22px;background-size:cover;background-position:center top;position:relative;overflow:hidden}
-.s8-card-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,0.5) 100%)}
-.s8-card-tag{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:10px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
-.s8-card-tag::before{content:'';width:24px;height:1px;background:var(--red)}
-.s8-card-name{font-family:'Zen Dots',sans-serif;font-size:22px;color:var(--text);margin-bottom:6px;letter-spacing:-0.01em}
-.s8-card-role{font-size:13px;color:var(--red);font-weight:700;margin-bottom:16px;letter-spacing:0.02em}
-.s8-card-d{font-size:13.5px;color:var(--text-mid);line-height:1.55;font-weight:500;flex:1}
-.s8-card-d strong{color:var(--text);font-weight:700}
+/* ═══ S8 — TIME (LIGHT, 3 CARDS) ═══ */
+.s8{background:var(--bg)}
+.s8 .in{padding:96px 80px}
+.s8 h2{font-family:var(--font-display);font-size:42px;line-height:1.06;color:var(--text);margin-bottom:14px;max-width:980px;font-weight:400;letter-spacing:-0.018em}
+.s8 h2 em{font-style:normal;color:var(--red)}
+.s8-sub{font-family:var(--font-sans);font-size:16px;color:var(--text-3);line-height:1.5;max-width:780px;font-weight:400}
+.s8-grid{display:grid;grid-template-columns:1fr 1fr 0.85fr;gap:18px;margin-top:48px}
+.s8-card{background:var(--bg-card);border-radius:20px;padding:28px;display:flex;flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,0.04);transition:all 300ms var(--ease)}
+.s8-card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.06)}
+.s8-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#1D1D1F 0%,#3A3A3C 100%);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:24px;color:#fff;margin-bottom:18px;font-weight:400;letter-spacing:-0.01em}
+.s8-card.win .s8-avatar{background:linear-gradient(135deg,var(--red) 0%,var(--red-deep) 100%)}
+.s8-tag{font-family:var(--font-ui);font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.s8-name{font-family:var(--font-display);font-size:20px;color:var(--text);margin-bottom:4px;font-weight:400;letter-spacing:-0.01em}
+.s8-role{font-family:var(--font-sans);font-size:13px;color:var(--text-3);font-weight:500;margin-bottom:16px}
+.s8-d{font-family:var(--font-sans);font-size:13.5px;color:var(--text-2);line-height:1.55;font-weight:400}
+.s8-d strong{color:var(--text);font-weight:600}
 
-/* ═══════════════════════════════════════════════
-   S9 — PLATAFORMA EI OS (6 departamentos)
-   ═══════════════════════════════════════════════ */
-.s9-h2{font-family:'Zen Dots',sans-serif;font-size:48px;line-height:1.06;letter-spacing:-0.02em;color:var(--text);margin-bottom:18px;max-width:1100px}
-.s9-h2 em{font-style:normal;color:var(--red)}
-.s9-sub{font-size:17px;color:var(--text-mid);line-height:1.55;margin-bottom:42px;max-width:920px;font-weight:500}
-.s9-sub strong{color:var(--text);font-weight:700}
+/* ═══ S9 — PLATAFORMA (LIGHT, 6 DEPARTAMENTOS) ═══ */
+.s9{background:var(--bg)}
+.s9 .in{padding:90px 80px}
+.s9 h2{font-family:var(--font-display);font-size:42px;line-height:1.06;color:var(--text);margin-bottom:14px;max-width:1080px;font-weight:400;letter-spacing:-0.018em}
+.s9 h2 em{font-style:normal;color:var(--red)}
+.s9-sub{font-family:var(--font-sans);font-size:15.5px;color:var(--text-3);line-height:1.55;max-width:920px;margin-bottom:36px;font-weight:400}
+.s9-sub strong{color:var(--text);font-weight:600}
 .s9-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:14px;flex:1}
-.s9-dep{padding:22px 24px;background:#fff;border:1px solid var(--bord);border-radius:14px;display:flex;flex-direction:column;transition:all 300ms;position:relative}
-.s9-dep:hover{border-color:var(--r-line);box-shadow:0 8px 24px rgba(215,0,48,0.08);transform:translateY(-2px)}
-.s9-dep-h{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.s9-dep-ic{width:42px;height:42px;border-radius:10px;background:var(--r-bg-1);border:1px solid var(--r-line);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.s9-dep-ic svg{width:20px;height:20px;stroke:var(--red);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.s9-dep-name{font-family:'Zen Dots',sans-serif;font-size:14px;color:var(--text);letter-spacing:-0.005em;line-height:1.2}
-.s9-dep-d{font-size:12.5px;color:var(--text-mid);line-height:1.55;font-weight:500}
+.s9-dep{background:var(--bg-card);border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,0.04);transition:all 300ms var(--ease)}
+.s9-dep:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.06)}
+.s9-dep-h{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.s9-dep-ic{width:36px;height:36px;border-radius:10px;background:rgba(215,0,48,0.06);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.s9-dep-ic svg{width:18px;height:18px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.s9-dep-name{font-family:var(--font-display);font-size:14px;color:var(--text);font-weight:400;letter-spacing:-0.005em}
+.s9-dep-d{font-family:var(--font-sans);font-size:12.5px;color:var(--text-2);line-height:1.55;font-weight:400}
 
-/* ═══════════════════════════════════════════════
-   S10 — RESULTADOS
-   ═══════════════════════════════════════════════ */
-.s10-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px;margin-bottom:18px}
-.s10-card{padding:24px 22px;background:#fff;border:1px solid var(--bord);border-radius:16px;text-align:left;transition:all 300ms;position:relative;overflow:hidden}
-.s10-card:hover{border-color:var(--r-line);box-shadow:0 12px 32px rgba(215,0,48,0.12);transform:translateY(-3px)}
-.s10-num{font-family:'Zen Dots',sans-serif;font-size:54px;color:var(--red);line-height:0.92;letter-spacing:-0.04em;margin-bottom:8px}
-.s10-num span{font-size:30px;color:rgba(215,0,48,0.7)}
-.s10-lbl{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.06em;color:var(--text);line-height:1.45;text-transform:none}
-.s10-quote{padding:18px 28px 18px 56px;background:linear-gradient(135deg,rgba(215,0,48,0.06) 0%,rgba(255,255,255,1) 100%);border:1px solid var(--r-line);border-left:4px solid var(--red);border-radius:14px;font-size:14.5px;color:var(--text);line-height:1.5;font-weight:500;font-style:italic;max-width:1180px;position:relative}
-.s10-quote::before{content:'"';font-family:'Zen Dots',sans-serif;font-size:54px;color:rgba(215,0,48,0.18);position:absolute;top:10px;left:18px;line-height:0.5}
-.s10-quote-txt{padding-left:0}
-.s10-quote-txt strong{color:var(--red);font-weight:700;font-style:normal}
+/* ═══ S10 — RESULTADOS (DARK PIVOT, KPIs GRANDES) ═══ */
+.s10{background:var(--bg-dark);color:#fff}
+.s10-glow-1{position:absolute;left:-150px;top:-100px;width:600px;height:500px;background:radial-gradient(circle,rgba(215,0,48,0.16) 0%,transparent 60%);filter:blur(70px);pointer-events:none}
+.s10-glow-2{position:absolute;right:-100px;bottom:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(155,10,42,0.14) 0%,transparent 60%);filter:blur(70px);pointer-events:none}
+.s10 .in{position:relative;z-index:5;padding:90px 80px}
+.s10 h2{font-family:var(--font-display);font-size:42px;line-height:1.06;color:#fff;margin-bottom:14px;max-width:1080px;font-weight:400;letter-spacing:-0.018em}
+.s10 h2 em{font-style:normal;color:var(--red-glow)}
+.s10-sub{font-family:var(--font-sans);font-size:15px;color:rgba(255,255,255,0.62);line-height:1.5;max-width:780px;margin-bottom:40px;font-weight:400}
+.s10-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:32px}
+.s10-card{background:rgba(255,255,255,0.04);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:26px 24px;transition:all 300ms var(--ease)}
+.s10-card:hover{background:rgba(255,255,255,0.06);border-color:rgba(215,0,48,0.3)}
+.s10-num{font-family:var(--font-display);font-size:48px;color:#fff;line-height:1.0;letter-spacing:-0.028em;margin-bottom:10px;font-weight:400}
+.s10-num span{font-size:26px;color:var(--red-glow)}
+.s10-lbl{font-family:var(--font-sans);font-size:13px;color:rgba(255,255,255,0.7);line-height:1.5;font-weight:400}
+.s10-quote{background:rgba(255,255,255,0.04);border-left:2px solid var(--red);border-radius:0 14px 14px 0;padding:22px 28px;font-family:var(--font-sans);font-size:15px;color:rgba(255,255,255,0.85);line-height:1.6;font-weight:400;font-style:italic;max-width:1180px;backdrop-filter:blur(10px)}
+.s10-quote strong{color:var(--red-glow);font-weight:600;font-style:normal}
 
-/* ═══════════════════════════════════════════════
-   S11 — INVESTIMENTO + KTANA-ME BÔNUS
-   ═══════════════════════════════════════════════ */
-.s11-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:22px;flex:1;margin-top:14px;min-height:0}
-.s11-inv{padding:26px 30px;border-radius:20px;background:linear-gradient(135deg,#0A0A0A 0%,#1A0A10 100%);color:#fff;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 0 40px rgba(215,0,48,0.20),0 24px 56px rgba(0,0,0,0.30)}
-.s11-inv::before{content:'';position:absolute;right:-100px;top:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(215,0,48,0.30) 0%,transparent 70%);filter:blur(40px);pointer-events:none}
-.s11-inv-tag{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:10px;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;color:var(--red);margin-bottom:14px;position:relative;z-index:2}
-.s11-inv-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red)}
-.s11-inv-num{font-family:'Zen Dots',sans-serif;font-size:64px;line-height:0.9;letter-spacing:-0.04em;color:#fff;margin-bottom:8px;position:relative;z-index:2}
-.s11-inv-sub{font-size:18px;color:rgba(255,255,255,0.7);margin-bottom:22px;font-weight:500;position:relative;z-index:2}
-.s11-inv-sub strong{color:#fff;font-weight:800}
-.s11-roi{padding:14px 18px;background:rgba(215,0,48,0.18);border:1px solid rgba(215,0,48,0.5);border-radius:8px;font-size:13.5px;line-height:1.5;color:#fff;margin-bottom:20px;position:relative;z-index:2}
-.s11-roi strong{color:var(--red);font-weight:800}
-.s11-incl{display:flex;flex-direction:column;gap:9px;flex:1;position:relative;z-index:2}
-.s11-incl-it{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.85);line-height:1.45;font-weight:500}
-.s11-incl-it::before{content:'';width:14px;height:14px;border-radius:50%;background:rgba(215,0,48,0.25);border:1px solid var(--red);flex-shrink:0;margin-top:2px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D70030' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M5 13l4 4L19 7'/%3E%3C/svg%3E");background-position:center;background-size:9px;background-repeat:no-repeat}
-.s11-foot{margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.12);font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;font-style:italic;position:relative;z-index:2}
-.s11-foot strong{color:#fff;font-weight:700;font-style:normal}
+/* ═══ S11 — INVESTIMENTO (DARK SÓLIDO) ═══ */
+.s11{background:var(--bg-dark);color:#fff}
+.s11-glow{position:absolute;left:50%;top:-100px;transform:translateX(-50%);width:800px;height:500px;background:radial-gradient(ellipse,rgba(215,0,48,0.16) 0%,transparent 70%);filter:blur(80px);pointer-events:none}
+.s11 .in{position:relative;z-index:5;padding:90px 80px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.s11-left{display:flex;flex-direction:column}
+.s11-tag{font-family:var(--font-ui);font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--red-glow);margin-bottom:24px;display:inline-flex;align-items:center;gap:8px;width:fit-content}
+.s11-tag::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--red);box-shadow:0 0 8px var(--red)}
+.s11 h2{font-family:var(--font-display);font-size:38px;line-height:1.05;color:#fff;margin-bottom:18px;font-weight:400;letter-spacing:-0.02em}
+.s11 h2 em{font-style:normal;color:var(--red-glow)}
+.s11-num{font-family:var(--font-display);font-size:64px;color:#fff;line-height:0.95;letter-spacing:-0.03em;margin-bottom:8px;font-weight:400}
+.s11-num span{color:var(--red-glow)}
+.s11-installments{font-family:var(--font-sans);font-size:17px;color:rgba(255,255,255,0.78);font-weight:400;margin-bottom:24px}
+.s11-installments strong{color:#fff;font-weight:600}
+.s11-roi{background:rgba(215,0,48,0.12);border:1px solid rgba(215,0,48,0.28);border-radius:12px;padding:14px 18px;font-family:var(--font-sans);font-size:13.5px;color:#fff;line-height:1.5;font-weight:400}
+.s11-roi strong{color:var(--red-glow);font-weight:600}
+.s11-right{background:rgba(255,255,255,0.04);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:10px}
+.s11-right h4{font-family:var(--font-display);font-size:14px;color:#fff;margin-bottom:6px;font-weight:400;letter-spacing:0.01em}
+.s11-incl{display:flex;align-items:flex-start;gap:10px;font-family:var(--font-sans);font-size:13px;color:rgba(255,255,255,0.85);line-height:1.5;font-weight:400}
+.s11-incl::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--red);box-shadow:0 0 6px var(--red);flex-shrink:0;margin-top:8px}
 
-.s11-bonus{padding:26px 30px;border-radius:20px;background:linear-gradient(135deg,#D70030 0%,#9B0A2A 60%,#73071F 100%);color:#fff;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,0.20),0 0 40px rgba(215,0,48,0.45),0 20px 48px rgba(115,7,31,0.40)}
-.s11-bonus::before{content:'';position:absolute;top:0;left:0;right:0;height:50%;background:linear-gradient(180deg,rgba(255,255,255,0.18) 0%,transparent 100%);pointer-events:none}
-.s11-bonus-star{position:absolute;right:-30px;top:-30px;font-family:'Zen Dots',sans-serif;font-size:200px;color:rgba(255,255,255,0.08);line-height:1;letter-spacing:-0.05em;pointer-events:none}
-.s11-bonus-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.3);border-radius:3px;padding:6px 14px;font-family:'Inter',sans-serif;font-size:10px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:#fff;margin-bottom:18px;width:fit-content;position:relative;z-index:2}
-.s11-bonus-tag::before{content:'★';font-size:12px;color:#fff}
-.s11-bonus-h{font-family:'Zen Dots',sans-serif;font-size:32px;line-height:1.12;letter-spacing:-0.018em;color:#fff;margin-bottom:14px;position:relative;z-index:2}
-.s11-bonus-d{font-size:14px;color:rgba(255,255,255,0.92);line-height:1.6;font-weight:500;margin-bottom:18px;position:relative;z-index:2}
-.s11-bonus-d strong{color:#fff;font-weight:800}
-.s11-bonus-trio{display:flex;flex-direction:column;gap:10px;position:relative;z-index:2;flex:1}
-.s11-bonus-row{display:flex;align-items:flex-start;gap:12px;padding:11px 14px;background:rgba(0,0,0,0.18);border-radius:8px;font-size:13px;color:#fff;line-height:1.45;font-weight:600}
-.s11-bonus-row strong{color:#fff;font-weight:800}
-.s11-bonus-row span{display:inline-block;font-family:'Zen Dots',sans-serif;font-size:11px;color:rgba(255,255,255,0.85);min-width:62px;letter-spacing:-0.005em}
-.s11-bonus-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;position:relative;z-index:2}
-.s11-bonus-meta span{padding:6px 12px;background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.25);border-radius:3px;font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#fff}
+/* ═══ S12 — KTANA-ME BÔNUS (DARK COM GRADIENT VERMELHO) ═══ */
+.s12{background:linear-gradient(135deg,var(--bg-dark) 0%,#1A0A10 100%);color:#fff}
+.s12-glow{position:absolute;right:-200px;top:-100px;width:700px;height:700px;background:radial-gradient(circle,rgba(215,0,48,0.22) 0%,transparent 60%);filter:blur(80px);pointer-events:none}
+.s12 .in{position:relative;z-index:5;padding:90px 80px;display:grid;grid-template-columns:1.05fr 0.95fr;gap:48px;align-items:center}
+.s12-tag{font-family:var(--font-ui);font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#fff;background:rgba(215,0,48,0.18);border:1px solid rgba(215,0,48,0.45);padding:6px 14px;border-radius:980px;display:inline-flex;align-items:center;gap:8px;margin-bottom:24px;width:fit-content}
+.s12-tag::before{content:'★';color:var(--red-glow);font-size:11px}
+.s12 h2{font-family:var(--font-display);font-size:40px;line-height:1.08;color:#fff;margin-bottom:18px;font-weight:400;letter-spacing:-0.02em}
+.s12 h2 em{font-style:normal;color:var(--red-glow)}
+.s12-d{font-family:var(--font-sans);font-size:16px;color:rgba(255,255,255,0.78);line-height:1.6;font-weight:400;margin-bottom:28px;max-width:520px}
+.s12-d strong{color:#fff;font-weight:600}
+.s12-trio{display:flex;flex-direction:column;gap:10px}
+.s12-row{display:flex;align-items:center;gap:14px;padding:14px 18px;background:rgba(255,255,255,0.04);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.06);border-radius:14px;font-family:var(--font-sans);font-size:14px;color:rgba(255,255,255,0.92);line-height:1.5;font-weight:400}
+.s12-row .verb{font-family:var(--font-display);font-size:11px;color:var(--red-glow);min-width:64px;letter-spacing:0.01em;font-weight:400}
+.s12-row .desc{font-weight:500;color:#fff}
+.s12-row .desc-sub{color:rgba(255,255,255,0.65);font-weight:400}
+.s12-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.s12-meta span{padding:5px 12px;background:rgba(0,0,0,0.32);border:1px solid rgba(255,255,255,0.14);border-radius:980px;font-family:var(--font-ui);font-size:10px;font-weight:500;letter-spacing:0.06em;color:rgba(255,255,255,0.72)}
 
-/* ═══════════════════════════════════════════════
-   S12 — CTA DARK (contracapa fundida)
-   ═══════════════════════════════════════════════ */
-.s12{background:#0A0A0A;color:#fff;overflow:hidden}
-.s12-bg{position:absolute;top:0;left:0;width:42%;height:100%;background:url('../img/ktana-cyberpunk-hr.jpg') center/cover no-repeat;opacity:0.88;filter:contrast(1.05) saturate(1.05);-webkit-mask-image:linear-gradient(to left,transparent 0%,#000 22%,#000 100%);mask-image:linear-gradient(to left,transparent 0%,#000 22%,#000 100%)}
-.s12-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,10,0.95) 0%,rgba(115,7,31,0.65) 100%)}
-.s12-glow{position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);width:1000px;height:1000px;background:radial-gradient(circle,rgba(215,0,48,0.30) 0%,rgba(215,0,48,0.08) 30%,transparent 60%);filter:blur(80px);pointer-events:none}
-.s12-katana-cut{position:absolute;top:-15%;left:10%;width:2px;height:140%;background:linear-gradient(to bottom,transparent 0%,var(--ktana-glow) 15%,#D70030 50%,var(--ktana-glow) 85%,transparent 100%);box-shadow:0 0 12px var(--ktana-glow),0 0 28px rgba(255,26,75,0.55),0 0 48px rgba(215,0,48,0.35);transform:rotate(-16deg);pointer-events:none;user-select:none;z-index:3}
-.s12-c{position:relative;z-index:5;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;height:100%;padding:80px 80px 80px 50%;max-width:100%}
-.s12-contact{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;margin-top:28px;width:100%;max-width:580px}
-.s12-contact-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.10);font-family:var(--font-ui);font-size:13px;color:rgba(255,255,255,0.92)}
-.s12-contact-row svg{width:16px;height:16px;stroke:rgba(215,0,48,0.95);fill:none;stroke-width:1.8;flex-shrink:0}
-.s12-contact-row .lbl-mini{font-size:9.5px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.45);min-width:62px}
-.s12-contact-row .val-mini{font-weight:500;color:#fff;letter-spacing:0.01em}
-.s12-pre{display:inline-flex;align-items:center;gap:10px;background:rgba(215,0,48,0.18);border:1px solid rgba(215,0,48,0.5);padding:7px 16px;border-radius:3px;font-size:10px;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;color:#fff;margin-bottom:24px}
-.s12-pre::before{content:'';width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 12px #fff}
-.s12 h2{font-family:'Zen Dots',sans-serif;font-size:48px;line-height:1.05;letter-spacing:-0.02em;color:#fff;margin-bottom:18px;max-width:560px}
-.s12 h2 em{font-style:normal;color:var(--red);text-shadow:0 0 32px rgba(215,0,48,0.6)}
-.s12-sub{font-size:15px;color:rgba(255,255,255,0.72);line-height:1.55;max-width:560px;margin-bottom:24px;font-weight:500}
-.s12-sub strong{color:#fff;font-weight:700}
-.s12-btn{display:inline-flex;align-items:center;gap:12px;background:var(--red);color:#fff;padding:18px 36px;border-radius:980px;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;text-decoration:none;transition:all 300ms;box-shadow:0 8px 28px rgba(215,0,48,0.45);position:relative;overflow:hidden}
-.s12-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);transition:left 600ms}
-.s12-btn:hover{transform:translateY(-2px);box-shadow:0 0 56px rgba(215,0,48,0.65),0 24px 56px rgba(115,7,31,0.65)}
-.s12-btn:hover::before{left:100%}
-.s12-btn svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round}
-.s12-url{margin-top:18px;font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.42);letter-spacing:0.06em}
-.s12-endbrand{position:absolute;bottom:74px;right:80px;z-index:6;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:6px;width:fit-content}
-.s12-endbrand-line{width:48px;height:2px;background:linear-gradient(90deg,transparent 0%,var(--red) 50%,transparent 100%);box-shadow:0 0 12px rgba(215,0,48,0.6);margin-bottom:8px;align-self:flex-end}
-.s12-endbrand-name{font-family:'Zen Dots',sans-serif;font-size:24px;color:#fff;letter-spacing:0.02em;line-height:1;text-shadow:0 0 24px rgba(215,0,48,0.45)}
-.s12-endbrand-name span{color:var(--red);text-shadow:0 0 32px rgba(215,0,48,0.8)}
-.s12-endbrand-pwd{font-family:'Inter',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.14em;color:rgba(255,255,255,0.55);margin-top:4px;text-transform:none}
-.s12-endbrand-pwd strong{color:#fff;font-weight:700;letter-spacing:0.04em;font-family:'Zen Dots',sans-serif}
-.s12-endbrand-meta{font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:0.14em;color:rgba(255,255,255,0.42);margin-top:6px}
+/* ═══ S13 — POR QUE AGORA (DARK, URGÊNCIA) ═══ */
+.s13{background:var(--bg-dark);color:#fff}
+.s13-glow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(215,0,48,0.18) 0%,transparent 70%);filter:blur(80px);pointer-events:none}
+.s13 .in-c{padding:120px 80px}
+.s13 h2{font-family:var(--font-display);font-size:54px;line-height:1.06;color:#fff;margin-bottom:24px;max-width:980px;font-weight:400;letter-spacing:-0.022em;text-align:center}
+.s13 h2 em{font-style:normal;color:var(--red-glow)}
+.s13-list{display:flex;flex-direction:column;gap:14px;margin-bottom:36px;max-width:680px;text-align:left;align-items:flex-start}
+.s13-list li{display:flex;align-items:flex-start;gap:14px;font-family:var(--font-sans);font-size:16px;color:rgba(255,255,255,0.78);line-height:1.5;font-weight:400}
+.s13-list li::before{content:'';flex-shrink:0;width:6px;height:6px;border-radius:50%;background:var(--red);box-shadow:0 0 8px var(--red);margin-top:9px}
+.s13-final{font-family:var(--font-display);font-size:24px;color:#fff;font-weight:400;letter-spacing:-0.012em;line-height:1.3;text-align:center;max-width:720px}
+.s13-final em{font-style:normal;color:var(--red-glow)}
 
-/* ═══════════════════════════════════════════════
-   S2 NEW — DOIS TIPOS: MORRER vs DOMINAR (DARK AGGRESSIVE)
-   ═══════════════════════════════════════════════ */
-.s2-new{background:#0A0606;color:#fff;overflow:hidden}
-.s2-new::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 70% at 50% 0%, rgba(115,7,31,0.55) 0%, rgba(10,6,6,0) 60%),linear-gradient(180deg,#0A0606 0%,#15090C 100%);pointer-events:none}
-.s2-new::after{content:'';position:absolute;top:-10%;right:15%;width:2px;height:130%;background:linear-gradient(to bottom,transparent 0%,rgba(255,26,75,0.4) 30%,rgba(215,0,48,0.5) 50%,rgba(255,26,75,0.4) 70%,transparent 100%);box-shadow:0 0 18px rgba(255,26,75,0.35);transform:rotate(14deg);pointer-events:none;user-select:none}
-.s2n-in{position:absolute;inset:0;padding:88px 80px 72px;display:flex;flex-direction:column;z-index:5}
-.s2n-head{margin-bottom:30px;max-width:1180px}
-.s2n-h1{font-family:'Zen Dots',sans-serif;font-size:54px;line-height:1.02;letter-spacing:-0.02em;color:#fff;margin-bottom:14px}
-.s2n-h1 em{font-style:normal;color:var(--red);text-shadow:0 0 32px rgba(215,0,48,0.55)}
-.s2n-sub{font-size:18px;color:rgba(255,255,255,0.7);line-height:1.5;font-weight:500;max-width:920px}
-.s2n-sub strong{color:#fff;font-weight:800}
-.s2n-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;flex:1;align-items:stretch;min-height:0}
-.s2n-card{padding:30px 32px 26px;border-radius:18px;display:flex;flex-direction:column;position:relative;overflow:hidden}
-.s2n-die{background:linear-gradient(160deg,#1A0A0F 0%,#2A0710 60%,#3D0815 100%);border:1px solid rgba(115,7,31,0.55);box-shadow:inset 0 1px 0 rgba(255,255,255,0.06),0 0 24px rgba(115,7,31,0.25),0 16px 36px rgba(0,0,0,0.5)}
-.s2n-die::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#73071F 0%,#3D0815 100%)}
-.s2n-rule{background:linear-gradient(160deg,#1A0A0F 0%,#2A0710 50%,#73071F 100%);border:1px solid rgba(215,0,48,0.65);box-shadow:inset 0 1px 0 rgba(255,255,255,0.10),0 0 40px rgba(215,0,48,0.45),0 16px 36px rgba(115,7,31,0.45);animation:s2n-glow 3.2s ease-in-out infinite}
-.s2n-rule::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#D70030 0%,#9B0A2A 100%);box-shadow:0 0 16px rgba(215,0,48,0.7)}
-@keyframes s2n-glow{0%,100%{box-shadow:inset 0 1px 0 rgba(255,255,255,0.10),0 0 40px rgba(215,0,48,0.40),0 16px 36px rgba(115,7,31,0.40)}50%{box-shadow:inset 0 1px 0 rgba(255,255,255,0.14),0 0 64px rgba(215,0,48,0.65),0 16px 40px rgba(115,7,31,0.55)}}
-.s2n-card-tag{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:10px;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:14px;padding:5px 12px;border-radius:3px;width:fit-content}
-.s2n-die .s2n-card-tag{color:rgba(255,255,255,0.55);background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12)}
-.s2n-rule .s2n-card-tag{color:#fff;background:rgba(0,0,0,0.30);border:1px solid rgba(255,255,255,0.30)}
-.s2n-rule .s2n-card-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 10px #fff}
-.s2n-card-h{font-family:'Zen Dots',sans-serif;font-size:34px;line-height:1.05;letter-spacing:-0.02em;margin-bottom:12px;color:#fff}
-.s2n-die .s2n-card-h span{color:rgba(255,90,110,0.85);font-style:normal}
-.s2n-rule .s2n-card-h span{color:var(--red);text-shadow:0 0 24px rgba(215,0,48,0.7)}
-.s2n-card-sub{font-size:14px;color:rgba(255,255,255,0.72);line-height:1.55;font-weight:500;margin-bottom:18px;max-width:520px}
-.s2n-list{list-style:none;display:flex;flex-direction:column;gap:11px;flex:1;margin-bottom:18px}
-.s2n-list li{position:relative;padding-left:22px;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,0.85);font-weight:500}
-.s2n-list li strong{color:#fff;font-weight:800}
-.s2n-die .s2n-list li::before{content:'×';position:absolute;left:0;top:-1px;color:rgba(255,90,110,0.7);font-family:'Zen Dots',sans-serif;font-size:14px;font-weight:700;line-height:1.4}
-.s2n-rule .s2n-list li::before{content:'';position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 10px rgba(215,0,48,0.7)}
-.s2n-card-foot{padding-top:14px;border-top:1px solid rgba(255,255,255,0.10);font-size:12.5px;font-weight:700;letter-spacing:0.02em;line-height:1.5}
-.s2n-die .s2n-card-foot{color:rgba(255,255,255,0.55);font-style:italic}
-.s2n-rule .s2n-card-foot{color:#fff}
+/* ═══ S14 — CTA (LIGHT, FECHAMENTO LIMPO) ═══ */
+.s14{background:var(--bg)}
+.s14 .in-c{padding:120px 80px}
+.s14-tag{font-family:var(--font-ui);font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--red);margin-bottom:24px;display:inline-flex;align-items:center;gap:8px}
+.s14-tag::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--red);box-shadow:0 0 8px var(--red)}
+.s14 h2{font-family:var(--font-display);font-size:56px;line-height:1.06;color:var(--text);margin-bottom:20px;max-width:1080px;font-weight:400;letter-spacing:-0.022em;text-align:center}
+.s14 h2 em{font-style:normal;color:var(--red)}
+.s14-sub{font-family:var(--font-sans);font-size:17px;color:var(--text-3);line-height:1.55;max-width:580px;margin:0 auto 36px;font-weight:400;text-align:center}
+.s14-list{display:flex;flex-direction:column;gap:10px;margin-bottom:40px;max-width:480px;align-items:flex-start;text-align:left}
+.s14-list li{display:flex;align-items:flex-start;gap:12px;font-family:var(--font-sans);font-size:15px;color:var(--text-2);line-height:1.5;font-weight:400}
+.s14-list li::before{content:'';flex-shrink:0;width:18px;height:18px;border-radius:50%;background:rgba(215,0,48,0.06);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D70030' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E");background-position:center;background-size:11px;background-repeat:no-repeat;margin-top:1px}
+.s14-cta{display:inline-flex;align-items:center;gap:12px;background:var(--red);color:#fff;padding:18px 36px;border-radius:980px;font-family:var(--font-ui);font-size:14px;font-weight:600;letter-spacing:0.04em;box-shadow:0 8px 28px rgba(215,0,48,0.3);transition:all 300ms var(--ease)}
+.s14-cta:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(215,0,48,0.45)}
+.s14-cta svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round}
+.s14-url{margin-top:16px;font-family:var(--font-ui);font-size:12px;color:var(--text-3);letter-spacing:0.04em;font-weight:500}
 
-/* ═══════════════════════════════════════════════
-   IVE EDITION OVERRIDES — Liquid Glass + acento vermelho contido
-   Aplicado em camada de override no fim para minimizar diff por slide
-   ═══════════════════════════════════════════════ */
+/* ═══ S15 — CONTRACAPA (DARK + AVATAR + DADOS COMPLETOS) ═══ */
+.s15{background:var(--bg-dark);color:#fff}
+.s15-bg{position:absolute;top:0;left:0;width:42%;height:100%;background:url('../img/ktana-cyberpunk-hr.jpg') center/cover no-repeat;opacity:0.85;-webkit-mask-image:linear-gradient(to left,transparent 0%,#000 22%,#000 100%);mask-image:linear-gradient(to left,transparent 0%,#000 22%,#000 100%)}
+.s15-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,10,0.92) 0%,rgba(10,10,10,0.55) 50%,rgba(10,10,10,0.2) 100%)}
+.s15-glow{position:absolute;left:25%;top:30%;width:600px;height:600px;background:radial-gradient(circle,rgba(215,0,48,0.18) 0%,transparent 60%);filter:blur(80px);pointer-events:none}
+.s15-katana{position:absolute;top:-15%;left:14%;width:1.5px;height:140%;background:linear-gradient(to bottom,transparent 0%,var(--red-glow) 18%,var(--red) 50%,var(--red-glow) 82%,transparent 100%);box-shadow:0 0 12px var(--red-glow),0 0 24px rgba(255,26,75,0.55);transform:rotate(-16deg);pointer-events:none}
+.s15 .in{position:relative;z-index:5;padding:96px 80px 96px 50%;justify-content:center}
+.s15-brand{font-family:var(--font-display);font-size:32px;color:#fff;letter-spacing:-0.01em;line-height:1;margin-bottom:6px;font-weight:400}
+.s15-brand em{font-style:normal;color:var(--red-glow)}
+.s15-tagline{font-family:var(--font-sans);font-size:14px;color:rgba(255,255,255,0.62);font-weight:500;letter-spacing:0.02em;margin-bottom:32px}
+.s15-divider{width:48px;height:2px;background:var(--red);margin-bottom:32px;box-shadow:0 0 12px rgba(215,0,48,0.6)}
+.s15-contact{display:grid;grid-template-columns:1fr 1fr;gap:8px 28px;max-width:580px}
+.s15-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);font-family:var(--font-ui);font-size:13px;color:rgba(255,255,255,0.92)}
+.s15-row svg{width:16px;height:16px;stroke:var(--red);fill:none;stroke-width:1.7;flex-shrink:0}
+.s15-row-info{display:flex;flex-direction:column;gap:2px}
+.s15-row-lbl{font-size:9.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.42)}
+.s15-row-val{font-size:13px;font-weight:500;color:#fff;letter-spacing:0.005em}
+.s15-cta-section{margin-top:40px}
+.s15-cta{display:inline-flex;align-items:center;gap:12px;background:var(--red);color:#fff;padding:16px 30px;border-radius:980px;font-family:var(--font-ui);font-size:13px;font-weight:600;letter-spacing:0.04em;box-shadow:0 8px 28px rgba(215,0,48,0.4);transition:all 300ms var(--ease)}
+.s15-cta:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(215,0,48,0.55)}
+.s15-cta svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round}
 
-/* Liquid glass nos cards principais — backdrop-filter seletivo (1 por slide) */
-.s4-card,.s7-card,.s8-card,.s9-dep,.s10-card,.s6-not,.s6-yes,.s11-inv{
-  background:var(--glass-bg)!important;
-  backdrop-filter:var(--glass-blur);
-  -webkit-backdrop-filter:var(--glass-blur);
-  border:1px solid rgba(0,0,0,0.06)!important;
-  box-shadow:0 1px 2px rgba(0,0,0,0.04),0 4px 16px rgba(0,0,0,0.06)!important
-}
-@supports not (backdrop-filter:blur(1px)){
-  .s4-card,.s7-card,.s8-card,.s9-dep,.s10-card,.s6-not,.s6-yes,.s11-inv{background:rgba(255,255,255,0.94)!important}
-}
-
-/* Vermelho como acento (max 8% por slide) — KPIs em texto preto, accent só no top */
-.s4-num{color:var(--text-primary)!important}
-.s4-num span{color:var(--text-secondary)!important}
-.s4-card::before{transform:scaleX(0)!important}
-.s4-card{border-top:3px solid var(--red)!important}
-.s10-num{color:var(--text-primary)!important}
-.s10-num span{color:var(--text-secondary)!important}
-.s10-card{border-top:3px solid var(--red)!important}
-
-/* Hover suaves — sombra apenas, sem glow vermelho gritando */
-.s4-card:hover,.s7-card:hover,.s8-card:hover,.s9-dep:hover,.s10-card:hover{
-  border-color:rgba(0,0,0,0.10)!important;
-  box-shadow:0 4px 16px rgba(0,0,0,0.08),0 8px 32px rgba(0,0,0,0.12)!important;
-  transform:translateY(-2px)!important
-}
-
-/* Tipografia — body em Satoshi quando disponível */
-.s2-foot-line,.s5-body,.s5-final,.s4-txt,.s7-card-d,.s8-card-d,.s9-dep-d,.s10-lbl,.s10-quote-txt,.s11-inv-sub,.s11-bonus-d,.s11-foot,.s11-roi,.s12-sub,.s11-incl-it,.s11-bonus-row{
-  font-family:var(--font-sans)!important
-}
-.lbl,.bc,.lg-t,.s1-mark,.s1-tag,.s1-meta,.s4-src,.s7-card-w,.s8-card-tag,.s10-quote-txt strong,.ft,#ct{font-family:var(--font-ui)!important}
-
-/* Spacing mais respirado nos grids — Ive principle */
-.s4-grid{gap:18px!important}
-.s9-grid{gap:18px!important}
-.s10-grid{gap:18px!important}
-.s7-grid{gap:18px!important}
-
-/* ═══════════════════════════════════════════════
-   PRINT
-   ═══════════════════════════════════════════════ */
+/* ═══ PRINT (PDF) ═══ */
 @page{size:1440px 810px landscape;margin:0}
 @media print{
   html,body{overflow:visible!important;background:#fff!important;height:auto!important;width:1440px!important}
   .wrapper{position:static!important;display:block!important}
-  .deck{width:1440px!important;height:810px!important;transform:none!important;position:static!important}
+  .deck{width:1440px!important;height:810px!important;transform:none!important;position:static!important;border-radius:0!important;box-shadow:none!important}
   .slide{position:relative!important;width:1440px!important;height:810px!important;opacity:1!important;pointer-events:all!important;page-break-after:always!important;display:flex!important}
   .nb,#ct{display:none!important}
-  /* Override liquid glass em print — Chrome/Safari renderizam mal backdrop-filter */
-  .s4-card,.s7-card,.s8-card,.s9-dep,.s10-card,.s6-not,.s6-yes,.s11-inv{
+  /* Override liquid glass em print */
+  .s10-card,.s11-right,.s12-row{
     backdrop-filter:none!important;
     -webkit-backdrop-filter:none!important;
-    background:rgba(255,255,255,0.95)!important
+    background:rgba(255,255,255,0.06)!important
   }
 }
 </style>
@@ -446,84 +374,93 @@ html,body{width:100%;height:100%;overflow:hidden;background:#F5F5F7;font-family:
 <div class="deck" id="deck">
 
 <!-- ═══════════════════════════════════════════════
-     S1 — CAPA DARK
+     S1 — CAPA (Avatar cyberpunk + tagline Saraiva)
      ═══════════════════════════════════════════════ -->
 <div class="slide s1 active" id="s1">
   <div class="s1-bg"></div>
   <div class="s1-overlay"></div>
   <div class="s1-glow"></div>
-  <div class="s1-katana-cut"></div>
+  <div class="s1-katana"></div>
+  <div class="lg dark"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
   <div class="s1-c">
-    <div class="s1-mark">
-      <img src="../img/ktana-symbol.svg" alt="KTANA">
-      <span>POWERED BY KTANA AI</span>
-    </div>
-    <div class="s1-tag"><span>● Apresentação Comercial · 2026</span></div>
+    <div class="s1-mark">POWERED BY <span class="dot"></span> KTANA</div>
     <h1>Crescer.<br>Lucrar.<br><em>Inevitável.</em></h1>
     <p class="s1-sub">A sua empresa <strong>multiplicada</strong> — sem dobrar o time, sem dobrar custo, sem depender de você. <strong>O concorrente que não opera com IA já perdeu</strong> — só ainda não sabe.</p>
-    <div class="s1-line"></div>
+    <div class="s1-tagline">Menos caos. Mais clareza. Mais caixa.</div>
     <div class="s1-meta">
       <span>+ <strong>FATURAMENTO</strong></span>
       <span>+ <strong>MARGEM</strong></span>
       <span>− <strong>HEADCOUNT</strong></span>
     </div>
   </div>
-  <div class="lg dark"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
-  <div class="ft dark"><span>empresainteligente.ai</span><span>1 / 13</span></div>
+  <div class="ft dark"><span class="powered">empresainteligente.ai</span><span>01 / 15</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     S2 — DOIS TIPOS DE EMPRESA: MORRER vs DOMINAR
+     S2 — O MOMENTO
      ═══════════════════════════════════════════════ -->
-<div class="slide s2-new" id="s2">
-  <div class="bc dark">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">Dois tipos de empresa</span></div>
-  <div class="lg dark"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
-  <div class="s2n-in">
-    <div class="s2n-head">
-      <div class="lbl" style="color:#fff;margin-bottom:14px">02 · Dois tipos de empresa</div>
-      <h2 class="s2n-h1">Hoje existem<br><em>dois tipos</em> de empresa.</h2>
-      <p class="s2n-sub">Uma vai <strong>morrer</strong>. A outra vai <strong>dominar</strong>. Não há terceiro caminho.</p>
+<div class="slide s2" id="s2">
+  <div class="bc">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">O Momento</span></div>
+  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="in" style="justify-content:center;align-items:flex-start">
+    <div class="label">02 · O Momento</div>
+    <h2 class="s2-quote">O mercado <em>não está esperando</em><br>você estar pronto para usar IA.</h2>
+    <div class="s2-foot">
+      <p>Ele já está <strong>selecionando quem opera com ela</strong> — e descartando quem não opera.</p>
+      <p>Não é tendência. Não é futuro. É o critério de sobrevivência do mercado de hoje.</p>
+      <p><strong>A diferença entre crescer e fechar não é mais capital. É inteligência aplicada à operação.</strong></p>
     </div>
-    <div class="s2n-grid">
-      <div class="s2n-card s2n-die">
-        <div class="s2n-card-tag">A — Sem IA</div>
-        <h3 class="s2n-card-h">A que vai <span>MORRER.</span></h3>
-        <p class="s2n-card-sub">A que ainda não opera com IA. Cresce com custo, decide no escuro, perde para o concorrente que automatiza.</p>
-        <ul class="s2n-list">
-          <li>Para dobrar resultado, precisa <strong>dobrar time</strong> (e dobrar custo).</li>
-          <li>Decide no feeling — <strong>sem dados em tempo real</strong>.</li>
-          <li>Time queima horas em trabalho repetitivo que <strong>não gera receita</strong>.</li>
-          <li>Concorrente IA-first responde mais rápido, fecha mais, <strong>cobra menos</strong>.</li>
+  </div>
+  <div class="ft"><span class="powered">empresainteligente.ai</span><span>02 / 15</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     S3 — DOIS TIPOS DE EMPRESA
+     ═══════════════════════════════════════════════ -->
+<div class="slide s3" id="s3">
+  <div class="bc">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">Dois tipos de empresa</span></div>
+  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="in">
+    <div class="label">03 · Dois tipos de empresa</div>
+    <h2 class="h-display" style="font-size:38px;max-width:980px;margin-bottom:8px">Existem dois tipos de empresa hoje. <em>Uma cresce. A outra fecha.</em></h2>
+    <div class="s3-grid">
+      <div class="s3-card dim">
+        <div class="s3-card-tag">A · Sem IA</div>
+        <h3>A empresa que ainda não opera com IA.</h3>
+        <ul class="s3-list">
+          <li>Cresce com custo: para dobrar resultado, precisa dobrar time.</li>
+          <li>Decisões no feeling — sem dados em tempo real.</li>
+          <li>Time gasta horas em trabalho repetitivo que não gera resultado.</li>
+          <li>Concorrentes que já usam IA respondem mais rápido, fecham mais, cobram menos.</li>
         </ul>
-        <div class="s2n-card-foot">Não é falta de esforço. É falta de alavancagem.</div>
+        <div class="s3-card-foot">Não é falta de esforço. É falta de alavancagem.</div>
       </div>
-      <div class="s2n-card s2n-rule">
-        <div class="s2n-card-tag">B — IA-first</div>
-        <h3 class="s2n-card-h">A que vai <span>DOMINAR.</span></h3>
-        <p class="s2n-card-sub">A que aplica IA em cada departamento. Multiplica margem, decide em tempo real, fecha mais rápido, escala sem CLT extra.</p>
-        <ul class="s2n-list">
-          <li>Dobra volume <strong>sem dobrar estrutura</strong>. Margem composta, mês a mês.</li>
-          <li>Dashboard em tempo real — financeiro, pipeline, atendimento <strong>visíveis sem relatório</strong>.</li>
-          <li>Time foca no que gera receita. <strong>O resto é automático</strong>.</li>
-          <li>Vantagem que o concorrente <strong>não consegue imitar</strong> sem implementação.</li>
+      <div class="s3-card win">
+        <div class="s3-card-tag">B · IA-first</div>
+        <h3>A empresa que opera com IA.</h3>
+        <ul class="s3-list">
+          <li>Cresce com margem: dobra volume sem dobrar estrutura.</li>
+          <li>Dados em tempo real — financeiro, pipeline, atendimento visíveis sem relatório manual.</li>
+          <li>Time foca no que gera resultado — o resto é automático.</li>
+          <li>Vantagem competitiva real — não dá pra imitar sem implementação.</li>
         </ul>
-        <div class="s2n-card-foot">Vantagem composta. Cresce todo dia.</div>
+        <div class="s3-card-foot">Vantagem composta. Cresce todo dia.</div>
       </div>
     </div>
   </div>
-  <div class="ft dark"><span>empresainteligente.ai</span><span>2 / 13</span></div>
+  <div class="ft"><span class="powered">empresainteligente.ai</span><span>03 / 15</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     S4 — DADOS (5 stats)
+     S4 — DADOS (5 STATS COM FONTE)
      ═══════════════════════════════════════════════ -->
-<div class="slide sw" id="s4">
-  <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">Dados</span></div>
+<div class="slide s4" id="s4">
+  <div class="bc">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">Dados</span></div>
   <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
-  <div class="sw-in" style="justify-content:flex-start;padding-top:104px">
-    <div class="lbl" style="margin-bottom:18px">03 · Os números</div>
-    <h2 class="h1" style="font-size:46px;line-height:1.06;color:var(--text);margin-bottom:14px;max-width:1080px">Os números <em style="color:var(--red);font-style:normal">não são opinião.</em><br>São pesquisa.</h2>
-    <p style="font-size:17px;color:var(--text-mid);max-width:920px;font-weight:500;line-height:1.55">O gap entre quem implementou e quem não implementou só cresce. <strong style="color:var(--text);font-weight:700">E cresce rápido.</strong></p>
+  <div class="in">
+    <div class="label">04 · Os números</div>
+    <h2 class="h-display" style="font-size:38px;max-width:920px;margin-bottom:10px">Os números <em>não são opinião.</em> São pesquisa.</h2>
+    <p class="body-text" style="font-size:15px;max-width:780px">O gap entre quem implementou e quem não implementou só cresce. <strong>E cresce rápido.</strong></p>
     <div class="s4-grid">
       <div class="s4-card">
         <div class="s4-num">2,5<span>×</span></div>
@@ -532,12 +469,12 @@ html,body{width:100%;height:100%;overflow:hidden;background:#F5F5F7;font-family:
       </div>
       <div class="s4-card">
         <div class="s4-num">72<span>%</span></div>
-        <div class="s4-txt">dos executivos dizem que IA é prioridade — mas só <strong style="color:var(--red)">21%</strong> implementaram em escala</div>
+        <div class="s4-txt">dos executivos dizem que IA é prioridade — só <strong>21%</strong> implementaram em escala</div>
         <div class="s4-src">IBM Institute · 2024</div>
       </div>
       <div class="s4-card">
         <div class="s4-num">22<span>%</span></div>
-        <div class="s4-txt">Redução média de custo operacional com automação de processos</div>
+        <div class="s4-txt">Redução média de custo operacional com automação</div>
         <div class="s4-src">Gartner Research · 2023</div>
       </div>
       <div class="s4-card">
@@ -547,199 +484,175 @@ html,body{width:100%;height:100%;overflow:hidden;background:#F5F5F7;font-family:
       </div>
       <div class="s4-card">
         <div class="s4-num">30<span>%</span></div>
-        <div class="s4-txt">PMEs que adotam IA têm mais chances de crescer acima da média do setor</div>
+        <div class="s4-txt">PMEs que adotam IA têm mais chances de crescer acima da média</div>
         <div class="s4-src">FGV-EAESP + Sebrae · 2024</div>
       </div>
     </div>
+    <div class="s4-foot">A escolha de não implementar é uma escolha — e já tem custo.</div>
   </div>
-  <div class="ft"><span>empresainteligente.ai</span><span>3 / 13</span></div>
+  <div class="ft"><span class="powered">empresainteligente.ai</span><span>04 / 15</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     S5 — LÍDER DE REFERÊNCIA (Dario Amodei)
+     S5 — DARIO AMODEI (DARK AUTHORITY)
      ═══════════════════════════════════════════════ -->
-<div class="slide sw sw-alt" id="s5">
-  <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">Líder de referência</span></div>
-  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
-  <div class="sw-in" style="padding:80px 80px 70px;justify-content:center">
-    <div class="lbl" style="margin-bottom:18px">04 · Exemplo de líder</div>
-    <div class="s5-grid">
-      <div class="s5-photo">
-        <div class="s5-photo-ov2"></div>
-        <div class="s5-photo-ov"></div>
-        <div class="s5-photo-line"></div>
-        <div class="s5-photo-cap">
-          <div class="s5-photo-cap-name">Dario Amodei</div>
-          <div class="s5-photo-cap-role">CEO · Anthropic — criador do Claude</div>
-        </div>
-      </div>
-      <div class="s5-text">
-        <div class="s5-text-pre">Quem está no topo da onda</div>
-        <h2 class="s5-h2">Antes de fundar a Anthropic, Dario era VP de Research na OpenAI.</h2>
-        <p class="s5-body">Saiu para construir algo diferente: uma IA criada desde o início para transformar como empresas reais operam. O resultado? A Anthropic foi avaliada em <strong>US$61 bilhões em 2024</strong>. O Claude — a mesma IA que a Empresa Inteligente usa para implementar nas operações dos nossos clientes — está presente em mais de <strong>90% das Fortune 500</strong>.</p>
-        <span class="s5-q-mark">"</span>
-        <p class="s5-quote">A pergunta não é <em>se</em> a IA vai transformar o seu setor. A pergunta é se você vai ser quem usa a IA para fazer essa transformação — ou quem vai ser transformado por ela.</p>
-        <p class="s5-quote-by">— DARIO AMODEI · CEO ANTHROPIC</p>
-        <div class="s5-final">Dario não ensinou empresas a usar IA. Ele construiu o sistema que faz a IA trabalhar por elas. <strong>Esse é o nosso princípio também</strong> — e usamos o Claude para colocar isso em prática na sua empresa.</div>
-      </div>
-    </div>
+<div class="slide s5" id="s5">
+  <div class="s5-bg"></div>
+  <div class="s5-overlay"></div>
+  <div class="s5-glow"></div>
+  <div class="bc dark" style="z-index:6">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">Líder de referência</span></div>
+  <div class="lg dark" style="z-index:6"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="s5-c">
+    <div class="s5-tag">Quem está no topo da onda</div>
+    <h2 class="s5-name">Dario Amodei.</h2>
+    <div class="s5-role">CEO Anthropic — criador do Claude</div>
+    <p class="s5-body">Antes de fundar a Anthropic, Dario era VP de Research na OpenAI. Saiu para construir uma IA criada desde o início para transformar como empresas reais operam. Resultado: Anthropic avaliada em <strong>US$61 bilhões em 2024</strong>, Claude presente em <strong>90% das Fortune 500</strong> — e é a IA que usamos para implementar nas operações dos nossos clientes.</p>
+    <blockquote class="s5-quote">A pergunta não é <em>se</em> a IA vai transformar o seu setor. É se você vai ser quem usa a IA — ou quem vai ser transformado por ela.</blockquote>
+    <div class="s5-quote-by">— DARIO AMODEI · CEO ANTHROPIC</div>
+    <div class="s5-final">Dario não ensinou empresas a usar IA. Ele construiu o sistema que faz a IA trabalhar por elas. <strong>Esse é o nosso princípio também</strong> — usamos o Claude para colocar isso em prática na sua empresa.</div>
   </div>
-  <div class="ft"><span>empresainteligente.ai</span><span>4 / 13</span></div>
-</div>
-
-<!-- ═══════════════════════════════════════════════
-     S5B — BUMPER EDITORIAL (RESPIRA)
-     ═══════════════════════════════════════════════ -->
-<div class="slide" id="s5b" style="background:#0A0A0A;display:flex;align-items:center;justify-content:center;position:absolute;inset:0">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 50%, rgba(215,0,48,0.22) 0%, rgba(215,0,48,0.04) 50%, transparent 80%);pointer-events:none"></div>
-  <div style="position:absolute;top:0;left:50%;width:1px;height:100%;background:linear-gradient(to bottom,transparent 10%,rgba(215,0,48,0.18) 35%,rgba(215,0,48,0.32) 50%,rgba(215,0,48,0.18) 65%,transparent 90%);box-shadow:0 0 16px rgba(255,26,75,0.18);pointer-events:none;user-select:none"></div>
-  <div style="position:relative;z-index:2;text-align:center;padding:0 8vw">
-    <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:rgba(215,0,48,0.85);margin-bottom:32px">Como funciona</div>
-    <h2 style="font-family:'Zen Dots',sans-serif;font-size:72px;line-height:1.1;color:#fff;letter-spacing:-0.02em;max-width:1100px;margin:0 auto">Em 60 dias,<br>sua empresa <em style="color:var(--red);font-style:normal">opera sozinha</em><br>com IA.</h2>
-    <div style="width:60px;height:3px;background:var(--red);margin:36px auto 0;box-shadow:0 0 16px rgba(215,0,48,0.6)"></div>
-  </div>
-  <div class="ft" style="color:rgba(255,255,255,0.4)"><span>empresainteligente.ai</span><span>5 / 13</span></div>
+  <div class="ft dark" style="z-index:6"><span class="powered">empresainteligente.ai</span><span>05 / 15</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
      S6 — O PRODUTO
      ═══════════════════════════════════════════════ -->
-<div class="slide sw" id="s6">
-  <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">O Produto</span></div>
+<div class="slide s6" id="s6">
+  <div class="bc">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">O Produto</span></div>
   <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
-  <div class="sw-in" style="padding:80px 80px 76px;justify-content:flex-start">
-    <div class="lbl" style="margin-bottom:14px">05 · O que é o produto</div>
-    <h2 class="s6-h2" style="font-size:50px;margin-bottom:18px">A Empresa Inteligente OS<br><em>não é</em> um curso.</h2>
-    <p class="s6-sub" style="font-size:17px;margin-bottom:30px">Não é uma imersão de 3 dias. Não é uma assinatura de plataforma. <strong>É a transformação IA-first da sua empresa</strong>, feita com você e para você — de forma permanente.</p>
+  <div class="in">
+    <div class="label">05 · O que é o produto</div>
+    <h2>A Empresa Inteligente OS<br><em>não é</em> um curso.</h2>
+    <p class="s6-sub">Não é uma imersão de 3 dias. Não é uma assinatura de plataforma. <strong>É a transformação IA-first da sua empresa</strong>, feita com você e para você — de forma permanente.</p>
     <div class="s6-grid">
       <div class="s6-not">
-        <div class="s6-not-x"></div>
+        <div class="s6-not-x">×</div>
         <div class="s6-not-t">Curso</div>
         <div class="s6-not-d">Você assiste, aplica sozinho, resultado depende de você.</div>
       </div>
       <div class="s6-not">
-        <div class="s6-not-x"></div>
+        <div class="s6-not-x">×</div>
         <div class="s6-not-t">Imersão de 3 dias</div>
         <div class="s6-not-d">Empolga, ensina, mas a operação volta para o papel da empresa.</div>
       </div>
       <div class="s6-not">
-        <div class="s6-not-x"></div>
+        <div class="s6-not-x">×</div>
         <div class="s6-not-t">Assinatura de plataforma</div>
         <div class="s6-not-d">Ferramenta solta sem implementação. Você paga, ninguém usa.</div>
       </div>
-      <div class="s6-yes" style="padding:24px 28px;margin-top:10px">
-        <div class="s6-yes-tag">É isso aqui</div>
-        <h3 class="s6-yes-h" style="font-size:24px;margin-bottom:10px">Implementação completa <em>com você e para você</em>, de forma permanente.</h3>
-        <p class="s6-yes-d" style="font-size:14.5px">Nossa equipe entra na sua operação, mapeia cada área, implementa IA onde gera mais resultado e instrui seu time a continuar expandindo sozinho. <strong>Você sai autossuficiente. Não dependente de ninguém.</strong></p>
-      </div>
+    </div>
+    <div class="s6-yes">
+      <div class="s6-yes-tag">É isso aqui</div>
+      <h3 class="s6-yes-h">Implementação completa <em>com você e para você</em>, de forma permanente.</h3>
+      <p class="s6-yes-d">Nossa equipe entra na sua operação, mapeia cada área, implementa IA onde gera mais resultado e instrui seu time a continuar expandindo sozinho. <strong>Você sai autossuficiente. Não dependente de ninguém.</strong></p>
     </div>
   </div>
-  <div class="ft"><span>empresainteligente.ai</span><span>6 / 13</span></div>
+  <div class="ft"><span class="powered">empresainteligente.ai</span><span>06 / 15</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     S7 — MÉTODO 6 FASES
+     S7 — METODOLOGIA 6 FASES
      ═══════════════════════════════════════════════ -->
-<div class="slide sw sw-alt" id="s7">
-  <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">Método · 6 fases</span></div>
+<div class="slide s7" id="s7">
+  <div class="bc">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">Metodologia</span></div>
   <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
-  <div class="sw-in" style="padding-top:88px;justify-content:flex-start">
-    <div class="lbl" style="margin-bottom:18px">06 · Como funciona</div>
-    <h2 class="h1" style="font-size:48px;line-height:1.05;color:var(--text);margin-bottom:14px;max-width:1180px">A metodologia <em style="color:var(--red);font-style:normal">de 6 fases.</em></h2>
-    <p style="font-size:16px;color:var(--text-mid);max-width:980px;font-weight:500;line-height:1.55">Do diagnóstico ao resultado comprovado — sua empresa rodando com IA de forma permanente.</p>
+  <div class="in">
+    <div class="label">06 · Como funciona</div>
+    <h2>A metodologia <em>de 6 fases.</em></h2>
+    <p class="s7-sub">Do diagnóstico ao resultado comprovado — sua empresa rodando com IA de forma permanente.</p>
     <div class="s7-grid">
       <div class="s7-card">
         <div class="s7-card-n">FASE 01</div>
         <div class="s7-card-t">Diagnóstico de Impacto</div>
         <div class="s7-card-w">Semanas 1–2</div>
-        <div class="s7-card-d">Encontros online com PO e PM da KTANA. Mapeamos cada área: processos, gargalos, onde IA tem maior impacto financeiro. Você sai com o ROI projetado antes de implementar.</div>
+        <div class="s7-card-d">Mapeamento de cada área: processos, gargalos, onde IA tem maior impacto financeiro. Você sai com ROI projetado antes de implementar.</div>
       </div>
       <div class="s7-card">
         <div class="s7-card-n">FASE 02</div>
         <div class="s7-card-t">Estruturação IA-first</div>
         <div class="s7-card-w">Semanas 3–4</div>
-        <div class="s7-card-d">Desenhamos o plano de transformação completo. Cada departamento recebe um roadmap com metas claras de economia e resultado.</div>
+        <div class="s7-card-d">Plano de transformação completo. Cada departamento recebe roadmap com metas claras de economia e resultado.</div>
       </div>
       <div class="s7-card">
         <div class="s7-card-n">FASE 03</div>
         <div class="s7-card-t">Implementação por Área</div>
         <div class="s7-card-w">Meses 2–5</div>
-        <div class="s7-card-d">Nossa equipe coloca IA rodando em cada departamento, um de cada vez, com validação antes de avançar.</div>
+        <div class="s7-card-d">Equipe coloca IA rodando em cada departamento, um de cada vez, com validação antes de avançar.</div>
       </div>
       <div class="s7-card">
         <div class="s7-card-n">FASE 04</div>
         <div class="s7-card-t">Instrução Interna</div>
         <div class="s7-card-w">Em paralelo</div>
-        <div class="s7-card-d">Capacitamos o seu time para operar, manter e expandir as soluções. Sua empresa aprende a andar com as próprias pernas.</div>
+        <div class="s7-card-d">Capacitamos seu time para operar, manter e expandir as soluções. Empresa anda com as próprias pernas.</div>
       </div>
       <div class="s7-card">
         <div class="s7-card-n">FASE 05</div>
         <div class="s7-card-t">Prova de Resultado</div>
         <div class="s7-card-w">Mês 6</div>
-        <div class="s7-card-d">Relatório completo: horas economizadas, custo reduzido, receita gerada — comparado ao investimento. Retorno em números, não em promessa.</div>
+        <div class="s7-card-d">Relatório completo: horas economizadas, custo reduzido, receita gerada — comparado ao investimento. Em números, não em promessa.</div>
       </div>
-      <div class="s7-card last" style="background:linear-gradient(135deg,var(--red) 0%,#9B0A2A 50%,#73071F 100%);color:#fff;border-color:transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.18),0 0 32px rgba(215,0,48,0.45),0 16px 36px rgba(115,7,31,0.35)">
-        <div class="s7-card-n" style="color:rgba(255,255,255,0.8)">FASE 06 ★ DESTINO</div>
-        <div class="s7-card-t" style="color:#fff">Empresa IA-first Ativa</div>
-        <div class="s7-card-w" style="color:rgba(255,255,255,0.7)">Permanente</div>
-        <div class="s7-card-d" style="color:rgba(255,255,255,0.85)">Sua operação rodando com IA de forma permanente. Equipe capacitada. Plataforma ativa. Resultado comprovado.</div>
+      <div class="s7-card last">
+        <div class="s7-card-n">FASE 06 · DESTINO</div>
+        <div class="s7-card-t">Empresa IA-first</div>
+        <div class="s7-card-w">Permanente</div>
+        <div class="s7-card-d">Operação rodando com IA. Equipe capacitada. Plataforma ativa. Resultado comprovado.</div>
       </div>
     </div>
   </div>
-  <div class="ft"><span>empresainteligente.ai</span><span>7 / 13</span></div>
+  <div class="ft"><span class="powered">empresainteligente.ai</span><span>07 / 15</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     S8 — O TIME (Matheus + Leandro)
+     S8 — TIME
      ═══════════════════════════════════════════════ -->
-<div class="slide sw" id="s8">
-  <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">O Time</span></div>
+<div class="slide s8" id="s8">
+  <div class="bc">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">O Time</span></div>
   <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
-  <div class="sw-in" style="padding-top:104px;justify-content:flex-start">
-    <div class="lbl" style="margin-bottom:18px">07 · Quem está por trás</div>
-    <h2 class="h1" style="font-size:48px;line-height:1.05;color:var(--text);margin-bottom:14px;max-width:1180px">Especialistas em IA aplicada<br>ao <em style="color:var(--red);font-style:normal">negócio brasileiro.</em></h2>
-    <p style="font-size:16px;color:var(--text-mid);max-width:980px;font-weight:500;line-height:1.55">Não é uma agência. É um time enxuto, sênior, com método autoral e responsabilidade direta sobre o resultado.</p>
+  <div class="in">
+    <div class="label">07 · Quem está por trás</div>
+    <h2>Especialistas em IA aplicada<br>ao <em>negócio brasileiro.</em></h2>
+    <p class="s8-sub">Não é uma agência. É um time enxuto, sênior, com método autoral e responsabilidade direta sobre o resultado.</p>
     <div class="s8-grid">
-      <div class="s8-card">
-        <div class="s8-card-photo" style="background-image:url('../img/v19_vendas-b2b-com-ia.jpg')"></div>
-        <div class="s8-card-tag">Co-fundador</div>
-        <div class="s8-card-name">Matheus</div>
-        <div class="s8-card-role">Especialista de Negócios</div>
-        <div class="s8-card-d">Mapeamento de processos e ROI. Responsável por identificar onde IA gera mais impacto financeiro na sua operação. <strong>Já estruturou a transformação IA-first de mais de 200 empresas.</strong></div>
+      <div class="s8-card win">
+        <div class="s8-avatar">M</div>
+        <div class="s8-tag">Co-fundador</div>
+        <div class="s8-name">Matheus.</div>
+        <div class="s8-role">Especialista de Negócios</div>
+        <div class="s8-d">Mapeamento de processos e ROI. Identifica onde IA gera mais impacto financeiro. <strong>Já estruturou a transformação IA-first de mais de 200 empresas.</strong></div>
+      </div>
+      <div class="s8-card win">
+        <div class="s8-avatar">L</div>
+        <div class="s8-tag">Co-fundador</div>
+        <div class="s8-name">Leandro.</div>
+        <div class="s8-role">CTO · Arquiteto das soluções</div>
+        <div class="s8-d">Especialista em automação com Claude AI, n8n, Make e integrações customizadas. <strong>Garante que a tecnologia funcione na sua realidade, não no papel.</strong></div>
       </div>
       <div class="s8-card">
-        <div class="s8-card-photo" style="background-image:url('../img/v19_dados-e-analytics.jpg')"></div>
-        <div class="s8-card-tag">Co-fundador</div>
-        <div class="s8-card-name">Leandro</div>
-        <div class="s8-card-role">CTO · Arquiteto das soluções</div>
-        <div class="s8-card-d">Especialista em automação com Claude AI, n8n, Make e integrações customizadas. <strong>Garante que a tecnologia funcione na sua realidade, não no papel.</strong></div>
-      </div>
-      <div class="s8-card">
-        <div class="s8-card-photo" style="background-image:url('../img/v19_gestao-de-equipes-remotas.jpg')"></div>
-        <div class="s8-card-tag">Squad técnico</div>
-        <div class="s8-card-name">Devs</div>
-        <div class="s8-card-role">Suporte e customização</div>
-        <div class="s8-card-d">Equipe técnica de suporte para customizações específicas de cada setor. <strong>Cada empresa tem necessidades diferentes — nosso time resolve.</strong></div>
+        <div class="s8-avatar">D</div>
+        <div class="s8-tag">Squad técnico</div>
+        <div class="s8-name">Devs.</div>
+        <div class="s8-role">Suporte e customização</div>
+        <div class="s8-d">Equipe técnica de suporte para customizações específicas de cada setor. <strong>Cada empresa tem necessidades diferentes — nosso time resolve.</strong></div>
       </div>
     </div>
   </div>
-  <div class="ft"><span>empresainteligente.ai</span><span>8 / 13</span></div>
+  <div class="ft"><span class="powered">empresainteligente.ai</span><span>08 / 15</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     S9 — PLATAFORMA EI OS (6 departamentos)
+     S9 — PLATAFORMA (6 DEPARTAMENTOS)
      ═══════════════════════════════════════════════ -->
-<div class="slide sw sw-alt" id="s9">
-  <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">Plataforma EI OS</span></div>
+<div class="slide s9" id="s9">
+  <div class="bc">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">Plataforma EI OS</span></div>
   <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
-  <div class="sw-in" style="padding-top:88px;padding-bottom:90px;justify-content:flex-start">
-    <div class="lbl" style="margin-bottom:18px">08 · A plataforma · Bônus incluso</div>
-    <h2 class="s9-h2">Sua plataforma <em>já implementada</em><br>e funcionando.</h2>
-    <p class="s9-sub">Não são cursos. <strong>São soluções rodando.</strong> Quem contrata a implementação ganha acesso à plataforma como legado permanente. Você sai com tecnologia rodando — não com slides sobre tecnologia.</p>
+  <div class="in">
+    <div class="label">08 · A plataforma · bônus incluso</div>
+    <h2>Sua plataforma <em>já implementada</em><br>e funcionando.</h2>
+    <p class="s9-sub">Não são cursos. <strong>São soluções rodando.</strong> Quem contrata a implementação ganha acesso à plataforma como legado permanente.</p>
     <div class="s9-grid">
       <div class="s9-dep">
         <div class="s9-dep-h">
-          <div class="s9-dep-ic"><svg viewBox="0 0 24 24"><path d="M3 3h18v6H3zM3 13h18v8H3z"/><circle cx="7" cy="6" r="0.5" fill="currentColor"/><circle cx="7" cy="17" r="0.5" fill="currentColor"/></svg></div>
+          <div class="s9-dep-ic"><svg viewBox="0 0 24 24"><path d="M3 12l4-7 4 4 4-2 4 5"/><path d="M3 18h18"/></svg></div>
           <div class="s9-dep-name">Comercial</div>
         </div>
         <div class="s9-dep-d">Follow-up automático, qualificação de leads, previsão de fechamento.</div>
@@ -781,45 +694,29 @@ html,body{width:100%;height:100%;overflow:hidden;background:#F5F5F7;font-family:
       </div>
     </div>
   </div>
-  <div class="ft"><span>empresainteligente.ai</span><span>9 / 13</span></div>
+  <div class="ft"><span class="powered">empresainteligente.ai</span><span>09 / 15</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     S10 — RESULTADOS
+     S10 — RESULTADOS (DARK PIVOT)
      ═══════════════════════════════════════════════ -->
-<div class="slide sw" id="s10">
-  <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">Resultados</span></div>
-  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
-  <div class="sw-in" style="padding:80px 80px 76px;justify-content:flex-start">
-    <div class="lbl" style="margin-bottom:14px">09 · Resultados</div>
-    <h2 class="h1" style="font-size:42px;line-height:1.05;color:var(--text);margin-bottom:10px;max-width:1180px">Os números que importam <em style="color:var(--red);font-style:normal">depois da implementação.</em></h2>
-    <p style="font-size:15px;color:var(--text-mid);max-width:980px;font-weight:500;line-height:1.5;margin-bottom:18px">Resultado médio das empresas que passaram pela transformação IA-first.</p>
-    <div style="position:relative;display:flex;align-items:center;gap:0;padding:0 16px 22px;max-width:1280px;margin:0 auto 14px">
-      <div style="position:absolute;top:50%;left:24px;right:24px;height:2px;background:linear-gradient(90deg,rgba(215,0,48,0.18) 0%,rgba(215,0,48,0.6) 50%,rgba(215,0,48,0.18) 100%);transform:translateY(-50%);z-index:0"></div>
-      <div style="position:relative;flex:1;display:flex;flex-direction:column;align-items:center;z-index:1">
-        <div style="width:14px;height:14px;border-radius:50%;background:var(--red);box-shadow:0 0 14px rgba(215,0,48,0.7);margin-bottom:10px"></div>
-        <div style="font-family:'Zen Dots',sans-serif;font-size:14px;color:var(--red);margin-bottom:4px">2023</div>
-        <div style="font-family:'Inter',sans-serif;font-size:11px;color:var(--text-mid);text-align:center;max-width:160px;line-height:1.4">Primeiras 30 implementações · método em validação</div>
-      </div>
-      <div style="position:relative;flex:1;display:flex;flex-direction:column;align-items:center;z-index:1">
-        <div style="width:14px;height:14px;border-radius:50%;background:var(--red);box-shadow:0 0 14px rgba(215,0,48,0.7);margin-bottom:10px"></div>
-        <div style="font-family:'Zen Dots',sans-serif;font-size:14px;color:var(--red);margin-bottom:4px">2024</div>
-        <div style="font-family:'Inter',sans-serif;font-size:11px;color:var(--text-mid);text-align:center;max-width:160px;line-height:1.4">Método EI OS consolidado · 120 empresas ativas</div>
-      </div>
-      <div style="position:relative;flex:1;display:flex;flex-direction:column;align-items:center;z-index:1">
-        <div style="width:18px;height:18px;border-radius:50%;background:var(--red);box-shadow:0 0 24px rgba(215,0,48,0.9);margin-bottom:8px;animation:kg-pulse 2.6s ease-in-out infinite"></div>
-        <div style="font-family:'Zen Dots',sans-serif;font-size:14px;color:var(--red);margin-bottom:4px">2025</div>
-        <div style="font-family:'Inter',sans-serif;font-size:11px;color:var(--text);font-weight:700;text-align:center;max-width:180px;line-height:1.4">200+ empresas · método replicado em 12 setores</div>
-      </div>
-    </div>
+<div class="slide s10" id="s10">
+  <div class="s10-glow-1"></div>
+  <div class="s10-glow-2"></div>
+  <div class="bc dark" style="z-index:6">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">Resultados</span></div>
+  <div class="lg dark" style="z-index:6"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="in">
+    <div class="label dark">09 · Resultados</div>
+    <h2>Os números que importam <em>depois da implementação.</em></h2>
+    <p class="s10-sub">Resultado médio das empresas que passaram pela transformação IA-first.</p>
     <div class="s10-grid">
       <div class="s10-card">
         <div class="s10-num">200<span>+</span></div>
-        <div class="s10-lbl">Empresas implementadas com método autoral KTANA</div>
+        <div class="s10-lbl">Empresas implementadas com método autoral</div>
       </div>
       <div class="s10-card">
         <div class="s10-num">73<span>h</span></div>
-        <div class="s10-lbl">Economizadas por equipe, por semana, em média</div>
+        <div class="s10-lbl">Economizadas por equipe, por semana</div>
       </div>
       <div class="s10-card">
         <div class="s10-num">70<span>%</span></div>
@@ -827,137 +724,172 @@ html,body{width:100%;height:100%;overflow:hidden;background:#F5F5F7;font-family:
       </div>
       <div class="s10-card">
         <div class="s10-num">4–6<span>m</span></div>
-        <div class="s10-lbl">Retorno médio do investimento após implementação</div>
+        <div class="s10-lbl">Retorno médio do investimento</div>
       </div>
     </div>
-    <div class="s10-quote">
-      <div class="s10-quote-txt">Em 30 dias tínhamos IA rodando no atendimento e no comercial. Em 60 dias, o custo operacional tinha caído. Em 90 dias, <strong>meu time parou de fazer trabalho repetitivo.</strong></div>
-    </div>
+    <div class="s10-quote">Em 30 dias tínhamos IA rodando no atendimento e no comercial. Em 60 dias, o custo operacional tinha caído. Em 90 dias, <strong>meu time parou de fazer trabalho repetitivo.</strong></div>
   </div>
-  <div class="ft"><span>empresainteligente.ai</span><span>10 / 13</span></div>
+  <div class="ft dark"><span class="powered">empresainteligente.ai</span><span>10 / 15</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     S10B — BUMPER "O INVESTIMENTO" (RESPIRA antes do preço)
+     S11 — INVESTIMENTO (DARK SÓLIDO)
      ═══════════════════════════════════════════════ -->
-<div class="slide" id="s10b" style="background:#0A0A0A;display:flex;align-items:center;justify-content:center;position:absolute;inset:0">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 50%, rgba(215,0,48,0.22) 0%, rgba(215,0,48,0.04) 50%, transparent 80%);pointer-events:none"></div>
-  <div style="position:absolute;top:0;left:50%;width:1px;height:100%;background:linear-gradient(to bottom,transparent 10%,rgba(215,0,48,0.18) 35%,rgba(215,0,48,0.32) 50%,rgba(215,0,48,0.18) 65%,transparent 90%);box-shadow:0 0 16px rgba(255,26,75,0.18);pointer-events:none;user-select:none"></div>
-  <div style="position:relative;z-index:2;text-align:center;padding:0 8vw">
-    <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:rgba(215,0,48,0.85);margin-bottom:32px">Próximo bloco</div>
-    <h2 style="font-family:'Zen Dots',sans-serif;font-size:96px;line-height:1.05;color:#fff;letter-spacing:-0.02em;margin:0">O <em style="color:var(--red);font-style:normal">investimento</em>.</h2>
-    <p style="font-family:'Inter',sans-serif;font-size:16px;color:rgba(255,255,255,0.55);margin-top:24px;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.55">Não é gasto. É redirecionamento do dinheiro que já está saindo da sua empresa pela porta — agora vira lucro.</p>
-    <div style="width:60px;height:3px;background:var(--red);margin:36px auto 0;box-shadow:0 0 16px rgba(215,0,48,0.6)"></div>
-  </div>
-  <div class="ft" style="color:rgba(255,255,255,0.4)"><span>empresainteligente.ai</span><span>11 / 13</span></div>
-</div>
-
-<!-- ═══════════════════════════════════════════════
-     S11 — INVESTIMENTO + KTANA-ME (BÔNUS)
-     ═══════════════════════════════════════════════ -->
-<div class="slide sw sw-alt" id="s11">
-  <div class="bc">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">Investimento + Bônus</span></div>
-  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
-  <div class="sw-in" style="padding:76px 80px 80px;justify-content:flex-start">
-    <div class="lbl" style="margin-bottom:14px">10 · Investimento</div>
-    <h2 class="h1" style="font-size:38px;line-height:1.06;color:var(--text);margin-bottom:6px;max-width:1180px">A transformação completa <em style="color:var(--red);font-style:normal">+ KTANA-me como bônus.</em></h2>
-    <p style="font-size:14.5px;color:var(--text-mid);max-width:1080px;font-weight:500;line-height:1.55">ROI comprovado em 4 a 6 meses. Equivale a menos de 2 salários de um gerente de TI sênior por mês — com entrega de transformação completa, não de uma função.</p>
-    <div class="s11-grid">
-
-      <!-- INVESTIMENTO -->
-      <div class="s11-inv">
-        <div class="s11-inv-tag">Investimento KTANA</div>
-        <div class="s11-inv-num">R$100.000</div>
-        <div class="s11-inv-sub">12× no cartão · <strong>R$8.333/mês</strong></div>
-        <div class="s11-roi">A partir do mês 7: <strong>a IA está gerando lucro líquido</strong> acima do investimento.</div>
-        <div class="s11-incl">
-          <div class="s11-incl-it">Diagnóstico completo de impacto por área (com ROI projetado)</div>
-          <div class="s11-incl-it">Plano de transformação IA-first customizado</div>
-          <div class="s11-incl-it">Implementação técnica em todos os departamentos</div>
-          <div class="s11-incl-it">Capacitação interna do time para operar e expandir</div>
-          <div class="s11-incl-it">Prova de ROI — relatório de economias vs investimento</div>
-          <div class="s11-incl-it">Acesso permanente à plataforma EI OS</div>
-          <div class="s11-incl-it">Suporte da equipe KTANA durante todo o processo</div>
-        </div>
-        <div class="s11-foot">ROI médio: <strong>retorno comprovado em 4 a 6 meses.</strong></div>
-      </div>
-
-      <!-- KTANA-ME BÔNUS -->
-      <div class="s11-bonus">
-        <div class="s11-bonus-star">★</div>
-        <div class="s11-bonus-tag">Bônus exclusivo</div>
-        <h3 class="s11-bonus-h">KTANA-me — você clonado em IA, operando pelo WhatsApp.</h3>
-        <p class="s11-bonus-d">Após os 30 dias do Sprint, ativamos a sua mente de empresário replicada em IA. <strong>Mesma forma de decidir, mesmo tom de voz, mesmas prioridades.</strong></p>
-        <div class="s11-bonus-trio">
-          <div class="s11-bonus-row"><span>PENSA</span><div>como você. Mapeia padrão de decisão, prioridades e tom.</div></div>
-          <div class="s11-bonus-row"><span>DECIDE</span><div>como você. Aciona o agente departamental certo no WhatsApp.</div></div>
-          <div class="s11-bonus-row"><span>EXECUTA</span><div>como você executaria. Sem app novo. Só WhatsApp.</div></div>
-        </div>
-        <div class="s11-bonus-meta">
-          <span>Ativada após o Sprint</span>
-          <span>Sem app novo</span>
-          <span>Único no mercado</span>
-        </div>
-      </div>
-
+<div class="slide s11" id="s11">
+  <div class="s11-glow"></div>
+  <div class="bc dark" style="z-index:6">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">Investimento</span></div>
+  <div class="lg dark" style="z-index:6"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="in">
+    <div class="s11-left">
+      <div class="s11-tag">Investimento KTANA</div>
+      <h2>A transformação completa <em>+ KTANA-me</em> como bônus.</h2>
+      <div class="s11-num">R$<span>100.000</span></div>
+      <div class="s11-installments">12× no cartão · <strong>R$8.333/mês</strong></div>
+      <div class="s11-roi">A partir do mês 7: <strong>a IA está gerando lucro líquido</strong> acima do investimento. Equivale a menos de 2 salários de um gerente de TI sênior por mês — com entrega de transformação completa.</div>
+    </div>
+    <div class="s11-right">
+      <h4>O que está sendo comprado</h4>
+      <div class="s11-incl">Diagnóstico completo de impacto por área (com ROI projetado)</div>
+      <div class="s11-incl">Plano de transformação IA-first customizado</div>
+      <div class="s11-incl">Implementação técnica em todos os departamentos</div>
+      <div class="s11-incl">Capacitação interna do time</div>
+      <div class="s11-incl">Prova de ROI — relatório de economias vs investimento</div>
+      <div class="s11-incl">Acesso permanente à plataforma EI OS</div>
+      <div class="s11-incl">Suporte da equipe KTANA durante todo o processo</div>
     </div>
   </div>
-  <div class="ft"><span>empresainteligente.ai</span><span>12 / 13</span></div>
+  <div class="ft dark"><span class="powered">empresainteligente.ai</span><span>11 / 15</span></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     S12 — CTA DARK (contracapa fundida)
+     S12 — KTANA-ME BÔNUS
      ═══════════════════════════════════════════════ -->
 <div class="slide s12" id="s12">
-  <div class="s12-bg"></div>
-  <div class="s12-overlay"></div>
   <div class="s12-glow"></div>
-  <div class="s12-katana-cut"></div>
-  <div class="bc dark" style="z-index:6">EMPRESA INTELIGENTE OS <span class="sep">›</span><span class="cur">Próximo passo</span></div>
+  <div class="bc dark" style="z-index:6">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">Bônus exclusivo</span></div>
   <div class="lg dark" style="z-index:6"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
-  <div class="s12-c">
-    <div class="s12-pre">12 · O Próximo passo</div>
-    <h2>Sua mente.<br>Seu WhatsApp.<br>Sua empresa <em>operando.</em></h2>
-    <p class="s12-sub">Em <strong>60 minutos</strong>, nossa equipe mapeia onde IA tem maior impacto financeiro na sua operação — sem compromisso. Você sai com mapa, ROI projetado por área e clareza sobre o próximo passo.</p>
-    <a href="https://empresainteligente.ai/sessao-estrategica" class="s12-btn">
+  <div class="in">
+    <div>
+      <div class="s12-tag">Bônus exclusivo · Pós-Sprint</div>
+      <h2>KTANA-me — <em>você clonado em IA,</em><br>operando pelo WhatsApp.</h2>
+      <p class="s12-d">Após os 30 dias do Sprint, ativamos sua mente de empresário replicada em IA. <strong>Mesma forma de decidir, mesmo tom de voz, mesmas prioridades.</strong></p>
+      <div class="s12-meta">
+        <span>Ativada após o Sprint</span>
+        <span>Sem app novo</span>
+        <span>Único no mercado</span>
+      </div>
+    </div>
+    <div class="s12-trio">
+      <div class="s12-row">
+        <div class="verb">PENSA</div>
+        <div><span class="desc">como você.</span> <span class="desc-sub">Mapeia padrão de decisão e prioridades.</span></div>
+      </div>
+      <div class="s12-row">
+        <div class="verb">DECIDE</div>
+        <div><span class="desc">como você.</span> <span class="desc-sub">Aciona o agente departamental certo no WhatsApp.</span></div>
+      </div>
+      <div class="s12-row">
+        <div class="verb">EXECUTA</div>
+        <div><span class="desc">como você.</span> <span class="desc-sub">Sem app novo. Só WhatsApp.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="ft dark"><span class="powered">empresainteligente.ai</span><span>12 / 15</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     S13 — POR QUE AGORA
+     ═══════════════════════════════════════════════ -->
+<div class="slide s13" id="s13">
+  <div class="s13-glow"></div>
+  <div class="bc dark" style="z-index:6">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">Por que agora</span></div>
+  <div class="lg dark" style="z-index:6"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="in-c">
+    <div class="label dark" style="margin-bottom:24px">13 · Por que agora</div>
+    <h2>A IA não está esperando<br><em>sua empresa estar pronta.</em></h2>
+    <ul class="s13-list">
+      <li>Hora do seu time desperdiçada em trabalho que IA já faz.</li>
+      <li>Lead perdido para quem responde mais rápido.</li>
+      <li>Margem comprimida enquanto concorrente opera com custo menor.</li>
+      <li>Decisão tomada no feeling enquanto concorrente tem dados em tempo real.</li>
+    </ul>
+    <p class="s13-final">O custo de não fazer é maior do que o investimento de fazer.<br>E o custo de não fazer <em>agora</em> é irreversível.</p>
+  </div>
+  <div class="ft dark"><span class="powered">empresainteligente.ai</span><span>13 / 15</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     S14 — CTA
+     ═══════════════════════════════════════════════ -->
+<div class="slide s14" id="s14">
+  <div class="bc">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">Próximo passo</span></div>
+  <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="in-c">
+    <div class="s14-tag">14 · Próximo passo</div>
+    <h2>Sua mente. Seu WhatsApp.<br>Sua empresa <em>operando.</em></h2>
+    <p class="s14-sub">Em <strong>60 minutos</strong>, mapeamos onde IA tem maior impacto financeiro na sua operação — sem compromisso. Você sai com:</p>
+    <ul class="s14-list">
+      <li>Mapa de onde IA gera mais resultado na sua empresa.</li>
+      <li>ROI projetado por área.</li>
+      <li>Clareza sobre o próximo passo.</li>
+    </ul>
+    <a href="https://empresainteligente.ai/sessao-estrategica" class="s14-cta">
       Agendar Sessão Estratégica
       <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
-    <!-- Bloco de dados completos da empresa — TODO Julio: validar handles oficiais -->
-    <div class="s12-contact">
-      <div class="s12-contact-row">
+    <div class="s14-url">empresainteligente.ai/sessao-estrategica</div>
+  </div>
+  <div class="ft"><span class="powered">empresainteligente.ai</span><span>14 / 15</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     S15 — CONTRACAPA (AVATAR + DADOS COMPLETOS)
+     ═══════════════════════════════════════════════ -->
+<div class="slide s15" id="s15">
+  <div class="s15-bg"></div>
+  <div class="s15-overlay"></div>
+  <div class="s15-glow"></div>
+  <div class="s15-katana"></div>
+  <div class="bc dark" style="z-index:6">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">Contato</span></div>
+  <div class="lg dark" style="z-index:6"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
+  <div class="in" style="padding:96px 80px 96px 50%;justify-content:center">
+    <div class="s15-brand">EMPRESA INTELIGENTE <em>OS</em></div>
+    <div class="s15-tagline">Menos caos. Mais clareza. Mais caixa.</div>
+    <div class="s15-divider"></div>
+    <div class="s15-contact">
+      <div class="s15-row">
         <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-        <div><div class="lbl-mini">WhatsApp</div><div class="val-mini">+55 11 95185-4654</div></div>
+        <div class="s15-row-info"><div class="s15-row-lbl">WhatsApp</div><div class="s15-row-val">+55 11 95185-4654</div></div>
       </div>
-      <div class="s12-contact-row">
+      <div class="s15-row">
         <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <div><div class="lbl-mini">E-mail</div><div class="val-mini">contato@ktana.ai</div></div>
+        <div class="s15-row-info"><div class="s15-row-lbl">E-mail</div><div class="s15-row-val">contato@ktana.ai</div></div>
       </div>
-      <div class="s12-contact-row">
+      <div class="s15-row">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-        <div><div class="lbl-mini">Site</div><div class="val-mini">empresainteligente.ai</div></div>
+        <div class="s15-row-info"><div class="s15-row-lbl">Site</div><div class="s15-row-val">empresainteligente.ai</div></div>
       </div>
-      <div class="s12-contact-row">
+      <div class="s15-row">
         <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        <div><div class="lbl-mini">Instagram</div><div class="val-mini">@empresainteligente</div></div>
+        <div class="s15-row-info"><div class="s15-row-lbl">Instagram</div><div class="s15-row-val">@empresainteligente</div></div>
       </div>
-      <div class="s12-contact-row">
+      <div class="s15-row">
         <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        <div><div class="lbl-mini">LinkedIn</div><div class="val-mini">/company/empresainteligente</div></div>
+        <div class="s15-row-info"><div class="s15-row-lbl">LinkedIn</div><div class="s15-row-val">/empresainteligente</div></div>
       </div>
-      <div class="s12-contact-row">
+      <div class="s15-row">
         <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48"/></svg>
-        <div><div class="lbl-mini">YouTube</div><div class="val-mini">@empresainteligente</div></div>
+        <div class="s15-row-info"><div class="s15-row-lbl">YouTube</div><div class="s15-row-val">@empresainteligente</div></div>
       </div>
     </div>
+    <div class="s15-cta-section">
+      <a href="https://empresainteligente.ai/sessao-estrategica" class="s15-cta">
+        Agendar Sessão Estratégica
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
   </div>
-  <div class="s12-endbrand">
-    <div class="s12-endbrand-line"></div>
-    <div class="s12-endbrand-name">EMPRESA INTELIGENTE <span>OS</span></div>
-    <div class="s12-endbrand-pwd">powered by <strong>KTANA</strong></div>
-    <div class="s12-endbrand-meta">Método autoral · 200+ empresas · ROI 4-6 meses</div>
-  </div>
-  <div class="ft dark" style="z-index:6"><span>© 2026 · Todos os direitos reservados</span><span>13 / 13</span></div>
+  <div class="ft dark" style="z-index:6"><span class="powered">© 2026 KTANA · powered by <strong>KTANA</strong></span><span>15 / 15</span></div>
 </div>
 
 </div></div>
@@ -972,8 +904,10 @@ function go(n){sl[c].classList.remove('active');c=(n+T)%T;sl[c].classList.add('a
 document.getElementById('bp').onclick=()=>go(c-1);
 document.getElementById('bn').onclick=()=>go(c+1);
 document.addEventListener('keydown',e=>{
-  if(['ArrowRight','ArrowDown',' '].includes(e.key)){e.preventDefault();go(c+1)}
-  if(['ArrowLeft','ArrowUp'].includes(e.key)){e.preventDefault();go(c-1)}
+  if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();go(c+1)}
+  if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(c-1)}
+  if(e.key==='Home')go(0);
+  if(e.key==='End')go(T-1);
 });
 let tx=0;
 document.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
