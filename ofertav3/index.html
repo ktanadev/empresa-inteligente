@@ -434,6 +434,33 @@ a{text-decoration:none;color:inherit}
 .s7-step-t{font-family:var(--font-display);font-size:14px;line-height:1.18;color:var(--text);font-weight:400;letter-spacing:-0.008em;margin-bottom:8px;min-height:34px}
 .s7-step-d{font-family:var(--font-sans);font-size:12px;color:var(--text-2);line-height:1.45;font-weight:400}
 .s7-step.final .s7-step-t{color:var(--red)}
+
+/* ═══════════════════════════════════════════════
+   V3 DIFF 6+7 — S10/S11 SPLIT half-bleed photos
+   ═══════════════════════════════════════════════ */
+/* S7 — força padding compacto p/ timeline horizontal respirar */
+.s7 .in{padding:90px 70px!important}
+.s7-timeline{margin-top:40px!important}
+
+/* S10 — foto authority.jpg à esquerda 38% half-bleed */
+.s10-photo{position:absolute;left:0;top:0;bottom:0;width:38%;background:url('../img/authority.jpg') center/cover no-repeat;z-index:2;-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 70%,transparent 100%);mask-image:linear-gradient(90deg,#000 0%,#000 70%,transparent 100%)}
+.s10-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,0.35) 0%,rgba(10,10,10,0.55) 60%,rgba(10,10,10,0.95) 100%);pointer-events:none}
+.s10 .in{padding:90px 80px 90px 44%!important;position:relative;z-index:5}
+.s10-grid{grid-template-columns:repeat(2,1fr)!important;gap:14px!important}
+.s10-card{padding:24px 22px!important}
+.s10-num{font-size:48px!important}
+.s10-num span{font-size:26px!important}
+.s10-quote{font-size:15px!important;padding:18px 22px!important;margin-top:24px}
+.s10 h2{font-size:42px!important;max-width:680px!important}
+
+/* S11 — foto ai-business.jpg à direita 40% half-bleed */
+.s11-photo{position:absolute;right:0;top:0;bottom:0;width:40%;background:url('../img/ai-business.jpg') center/cover no-repeat;z-index:2;-webkit-mask-image:linear-gradient(270deg,#000 0%,#000 70%,transparent 100%);mask-image:linear-gradient(270deg,#000 0%,#000 70%,transparent 100%)}
+.s11-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(270deg,rgba(10,10,10,0.35) 0%,rgba(10,10,10,0.55) 60%,rgba(10,10,10,0.95) 100%);pointer-events:none}
+.s11 .in{padding:90px 44% 90px 80px!important;display:block!important;grid-template-columns:none!important;position:relative;z-index:5}
+.s11-left{max-width:780px}
+.s11-right{margin-top:24px;max-width:780px}
+.s11-num{font-size:80px!important}
+.s11 h2{font-size:38px!important;max-width:640px!important}
 </style>
 </head>
 <body>
@@ -744,6 +771,7 @@ a{text-decoration:none;color:inherit}
      S10 — RESULTADOS (DARK PIVOT)
      ═══════════════════════════════════════════════ -->
 <div class="slide s10" id="s10">
+  <div class="s10-photo"></div>
   <div class="s10-glow-1"></div>
   <div class="s10-glow-2"></div>
   <div class="bc dark" style="z-index:6">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">Resultados</span></div>
@@ -779,6 +807,7 @@ a{text-decoration:none;color:inherit}
      S11 — INVESTIMENTO (DARK SÓLIDO)
      ═══════════════════════════════════════════════ -->
 <div class="slide s11" id="s11">
+  <div class="s11-photo"></div>
   <div class="s11-glow"></div>
   <div class="bc dark" style="z-index:6">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">Investimento</span></div>
   <div class="lg dark" style="z-index:6"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
