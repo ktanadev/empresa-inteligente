@@ -988,6 +988,7 @@ document.addEventListener('touchend',e=>{const d=tx-e.changedTouches[0].clientX;
 function scale(){const s=Math.min(window.innerWidth/1440,window.innerHeight/810);document.getElementById('deck').style.transform='scale('+s+')'}
 window.addEventListener('resize',scale);scale();
 const u=new URLSearchParams(location.search);const ns=parseInt(u.get('slide'));if(!isNaN(ns)&&ns>=1&&ns<=T)go(ns-1);
+if(u.get('nonav')==='1'){document.querySelectorAll('.nb,#ct').forEach(e=>e.style.display='none')}
 </script>
 </body>
 </html>
