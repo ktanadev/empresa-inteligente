@@ -377,6 +377,90 @@ a{text-decoration:none;color:inherit}
     background:rgba(255,255,255,0.06)!important
   }
 }
+
+/* ═══════════════════════════════════════════════
+   V3 EDITORIAL OVERRIDES — Apple Keynote scale
+   Tipografia GIGANTE · Whitespace 60% · Cards arredondados 24px
+   ═══════════════════════════════════════════════ */
+.in,.in-c{padding:140px 100px!important}
+.s1-c{padding:140px 100px!important;max-width:760px!important}
+.s1 h1{font-size:84px!important;line-height:1.0!important;letter-spacing:-0.025em!important}
+.s2-quote{font-size:72px!important;line-height:1.05!important;letter-spacing:-0.024em!important;max-width:1200px!important}
+.s5-name{font-size:48px!important;line-height:1.05!important}
+.s5-quote{font-size:32px!important;line-height:1.3!important;max-width:680px!important}
+.s6 h2,.s7 h2,.s8 h2,.s9 h2,.s10 h2,.s11 h2,.s12 h2,.s13 h2,.s14 h2{font-size:54px!important;line-height:1.06!important;letter-spacing:-0.022em!important;max-width:980px!important}
+.bumper-quote{font-size:56px!important;line-height:1.28!important;max-width:1100px!important}
+.s13-final{font-size:34px!important;line-height:1.32!important;max-width:880px!important}
+.s1-sub,.s5-body,.s7-sub,.s8-sub,.s10-sub,.s12-d,.s14-sub,.s9-sub,.s6-sub{font-size:19px!important;line-height:1.6!important;font-weight:300!important;max-width:560px!important}
+.s3-card,.s4-card,.s7-card,.s8-card,.s9-dep,.s10-card,.s6-not,.s6-yes,.s11-right{border-radius:24px!important}
+.s4-grid,.s7-grid,.s9-grid{gap:18px!important;margin-top:64px!important}
+.s4-card{padding:32px 26px!important;min-height:240px!important}
+.s4-num{font-size:54px!important}
+.s7-card{padding:32px 28px!important;min-height:260px!important}
+.s7-card-t{font-size:21px!important}
+.s9-dep{padding:30px 28px!important}
+.s9-dep-num{font-size:42px!important}
+.s9-dep-name{font-size:18px!important}
+.s10-card{padding:36px 30px!important}
+.s10-num{font-size:64px!important;line-height:1.0!important;letter-spacing:-0.03em!important}
+.s10-num span{font-size:34px!important}
+.s1-bg{width:55%!important}
+.s1-mark{margin-bottom:96px!important;font-size:12px!important;letter-spacing:0.18em!important}
+.s1-tagline{font-size:15px!important;margin-bottom:64px!important}
+.s6-yes{padding:48px!important}
+.s6-yes-h{font-size:32px!important}
+.s6-yes-d{font-size:18px!important;font-weight:300!important}
+.s11-num{font-size:96px!important;line-height:0.92!important;letter-spacing:-0.035em!important}
+.s11-installments{font-size:21px!important}
+.s11 h2{font-size:44px!important}
+.s12 h2{font-size:48px!important;max-width:620px!important}
+.s12-row{padding:18px 24px!important;font-size:16px!important;border-radius:16px!important}
+.s14 h2{font-size:64px!important}
+.s14-cta{padding:22px 44px!important;font-size:15px!important}
+.s15-brand{font-size:42px!important}
+.s15-tagline{font-size:16px!important;margin-bottom:40px!important}
+.s15-divider{width:64px!important;margin-bottom:40px!important}
+.s15-row{padding:14px 0!important;font-size:14px!important}
+.s4-card,.s7-card,.s9-dep{box-shadow:0 1px 3px rgba(0,0,0,0.04),0 12px 40px -12px rgba(0,0,0,0.08)!important}
+.s4-card:hover,.s7-card:hover,.s9-dep:hover{transform:translateY(-4px)!important;box-shadow:0 1px 3px rgba(0,0,0,0.04),0 24px 64px -16px rgba(0,0,0,0.14)!important}
+.s4b-glow{width:1200px!important;height:700px!important}
+
+/* Timeline horizontal S7 */
+.s7-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 6px;position:relative}
+.s7-step-num{font-family:var(--font-display);font-size:13px;color:var(--red);letter-spacing:0.08em;margin-bottom:14px;font-weight:400}
+.s7-step-dot{width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid var(--red);box-shadow:0 0 0 4px rgba(215,0,48,0.08),0 4px 12px rgba(215,0,48,0.18);margin-bottom:18px;position:relative;z-index:2}
+.s7-step-dot.final{background:var(--red);box-shadow:0 0 0 4px rgba(215,0,48,0.18),0 0 16px var(--red)}
+.s7-step-w{font-family:var(--font-ui);font-size:10px;color:var(--text-4);font-weight:500;letter-spacing:0.08em;margin-bottom:8px;text-transform:uppercase}
+.s7-step-t{font-family:var(--font-display);font-size:14px;line-height:1.18;color:var(--text);font-weight:400;letter-spacing:-0.008em;margin-bottom:8px;min-height:34px}
+.s7-step-d{font-family:var(--font-sans);font-size:12px;color:var(--text-2);line-height:1.45;font-weight:400}
+.s7-step.final .s7-step-t{color:var(--red)}
+
+/* ═══════════════════════════════════════════════
+   V3 DIFF 6+7 — S10/S11 SPLIT half-bleed photos
+   ═══════════════════════════════════════════════ */
+/* S7 — força padding compacto p/ timeline horizontal respirar */
+.s7 .in{padding:90px 70px!important}
+.s7-timeline{margin-top:40px!important}
+
+/* S10 — foto authority.jpg à esquerda 38% half-bleed */
+.s10-photo{position:absolute;left:0;top:0;bottom:0;width:38%;background:url('../img/authority.jpg') center/cover no-repeat;z-index:2;-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 70%,transparent 100%);mask-image:linear-gradient(90deg,#000 0%,#000 70%,transparent 100%)}
+.s10-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,0.35) 0%,rgba(10,10,10,0.55) 60%,rgba(10,10,10,0.95) 100%);pointer-events:none}
+.s10 .in{padding:90px 80px 90px 44%!important;position:relative;z-index:5}
+.s10-grid{grid-template-columns:repeat(2,1fr)!important;gap:14px!important}
+.s10-card{padding:24px 22px!important}
+.s10-num{font-size:48px!important}
+.s10-num span{font-size:26px!important}
+.s10-quote{font-size:15px!important;padding:18px 22px!important;margin-top:24px}
+.s10 h2{font-size:42px!important;max-width:680px!important}
+
+/* S11 — foto ai-business.jpg à direita 40% half-bleed */
+.s11-photo{position:absolute;right:0;top:0;bottom:0;width:40%;background:url('../img/ai-business.jpg') center/cover no-repeat;z-index:2;-webkit-mask-image:linear-gradient(270deg,#000 0%,#000 70%,transparent 100%);mask-image:linear-gradient(270deg,#000 0%,#000 70%,transparent 100%)}
+.s11-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(270deg,rgba(10,10,10,0.35) 0%,rgba(10,10,10,0.55) 60%,rgba(10,10,10,0.95) 100%);pointer-events:none}
+.s11 .in{padding:90px 44% 90px 80px!important;display:block!important;grid-template-columns:none!important;position:relative;z-index:5}
+.s11-left{max-width:780px}
+.s11-right{margin-top:24px;max-width:780px}
+.s11-num{font-size:80px!important}
+.s11 h2{font-size:38px!important;max-width:640px!important}
 </style>
 </head>
 <body>
@@ -410,14 +494,13 @@ a{text-decoration:none;color:inherit}
      S2 — O MOMENTO
      ═══════════════════════════════════════════════ -->
 <div class="slide s2" id="s2">
+  <div class="s2-photo" style="position:absolute;top:0;right:0;width:42%;height:100%;background:url('../img/hero-stress.jpg') center/cover no-repeat;-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 28%,#000 100%);mask-image:linear-gradient(to right,transparent 0%,#000 28%,#000 100%)"></div>
   <div class="bc">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">O Momento</span></div>
   <div class="lg"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
-  <div class="in" style="justify-content:center;align-items:flex-start">
+  <div class="in" style="justify-content:center;align-items:flex-start;max-width:780px;z-index:5">
     <div class="label">02 · O Momento</div>
     <h2 class="s2-quote">O mercado <em>não está esperando</em><br>você estar pronto para usar IA.</h2>
     <div class="s2-foot">
-      <p>Ele já está <strong>selecionando quem opera com ela</strong> — e descartando quem não opera.</p>
-      <p>Não é tendência. Não é futuro. É o critério de sobrevivência do mercado de hoje.</p>
       <p><strong>A diferença entre crescer e fechar não é mais capital. É inteligência aplicada à operação.</strong></p>
     </div>
   </div>
@@ -434,7 +517,7 @@ a{text-decoration:none;color:inherit}
     <div class="label">03 · Dois tipos de empresa</div>
     <h2 class="h-display" style="font-size:38px;max-width:980px;margin-bottom:8px">Existem dois tipos de empresa hoje. <em>Uma cresce. A outra fecha.</em></h2>
     <div class="s3-grid">
-      <div class="s3-card dim">
+      <div class="s3-card dim" style="background:linear-gradient(180deg,rgba(255,255,255,0.92) 0%,rgba(255,255,255,0.96) 60%),url('../img/problem.jpg') center/cover no-repeat">
         <div class="s3-card-tag">A · Sem IA</div>
         <h3>A empresa que ainda não opera com IA.</h3>
         <ul class="s3-list">
@@ -445,7 +528,7 @@ a{text-decoration:none;color:inherit}
         </ul>
         <div class="s3-card-foot">Não é falta de esforço. É falta de alavancagem.</div>
       </div>
-      <div class="s3-card win">
+      <div class="s3-card win" style="background:linear-gradient(180deg,rgba(255,255,255,0.94) 0%,rgba(255,255,255,0.97) 60%),url('../img/solution.jpg') center/cover no-repeat">
         <div class="s3-card-tag">B · IA-first</div>
         <h3>A empresa que opera com IA.</h3>
         <ul class="s3-list">
@@ -546,8 +629,17 @@ a{text-decoration:none;color:inherit}
   <div class="in">
     <div class="label">05 · O que é o produto</div>
     <h2>A Empresa Inteligente OS<br><em>não é</em> um curso.</h2>
-    <p class="s6-sub">Não é uma imersão de 3 dias. Não é uma assinatura de plataforma. <strong>É a transformação IA-first da sua empresa</strong>, feita com você e para você — de forma permanente.</p>
-    <div class="s6-grid">
+    <p class="s6-sub"><strong>É a transformação IA-first da sua empresa</strong> — feita com você e para você, de forma permanente.</p>
+    <div class="s6-mockup" style="position:absolute;top:140px;right:80px;width:380px;height:260px;border-radius:20px;background:linear-gradient(135deg,#1D1D1F 0%,#0A0A0A 100%);box-shadow:0 24px 60px rgba(0,0,0,0.18),0 0 0 1px rgba(255,255,255,0.04) inset;padding:22px;overflow:hidden;z-index:3">
+      <div style="display:flex;gap:6px;margin-bottom:18px"><span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.18)"></span><span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.18)"></span><span style="width:8px;height:8px;border-radius:50%;background:rgba(215,0,48,0.65);box-shadow:0 0 8px rgba(215,0,48,0.65)"></span></div>
+      <div style="font-family:var(--font-display);font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:0.14em;margin-bottom:14px">EI · DASHBOARD</div>
+      <div style="height:60px;background:linear-gradient(90deg,rgba(215,0,48,0.18) 0%,rgba(215,0,48,0.04) 100%);border-radius:8px;margin-bottom:12px;position:relative;overflow:hidden"><div style="position:absolute;bottom:0;left:0;width:72%;height:2px;background:var(--red);box-shadow:0 0 12px var(--red)"></div><div style="position:absolute;top:14px;left:14px;font-family:var(--font-display);font-size:18px;color:#fff">+62%</div><div style="position:absolute;top:38px;left:14px;font-family:var(--font-ui);font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:0.08em">FATURAMENTO</div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px"><div style="height:42px;background:rgba(255,255,255,0.04);border-radius:6px"></div><div style="height:42px;background:rgba(255,255,255,0.04);border-radius:6px"></div><div style="height:42px;background:rgba(255,255,255,0.04);border-radius:6px"></div></div>
+      <div style="height:6px;background:rgba(255,255,255,0.06);border-radius:3px;margin-bottom:6px"></div>
+      <div style="height:6px;background:rgba(255,255,255,0.04);border-radius:3px;width:78%;margin-bottom:6px"></div>
+      <div style="height:6px;background:rgba(255,255,255,0.04);border-radius:3px;width:62%"></div>
+    </div>
+    <div class="s6-grid" style="max-width:760px">
       <div class="s6-not">
         <div class="s6-not-x">×</div>
         <div class="s6-not-t">Curso</div>
@@ -583,42 +675,15 @@ a{text-decoration:none;color:inherit}
     <div class="label">06 · Como funciona</div>
     <h2>A metodologia <em>de 6 fases.</em></h2>
     <p class="s7-sub">Do diagnóstico ao resultado comprovado — sua empresa rodando com IA de forma permanente.</p>
-    <div class="s7-grid">
-      <div class="s7-card">
-        <div class="s7-card-n">FASE 01</div>
-        <div class="s7-card-t">Diagnóstico de Impacto</div>
-        <div class="s7-card-w">Semanas 1–2</div>
-        <div class="s7-card-d">Mapeamento de cada área: processos, gargalos, onde IA tem maior impacto financeiro. Você sai com ROI projetado antes de implementar.</div>
-      </div>
-      <div class="s7-card">
-        <div class="s7-card-n">FASE 02</div>
-        <div class="s7-card-t">Estruturação IA-first</div>
-        <div class="s7-card-w">Semanas 3–4</div>
-        <div class="s7-card-d">Plano de transformação completo. Cada departamento recebe roadmap com metas claras de economia e resultado.</div>
-      </div>
-      <div class="s7-card">
-        <div class="s7-card-n">FASE 03</div>
-        <div class="s7-card-t">Implementação por Área</div>
-        <div class="s7-card-w">Meses 2–5</div>
-        <div class="s7-card-d">Equipe coloca IA rodando em cada departamento, um de cada vez, com validação antes de avançar.</div>
-      </div>
-      <div class="s7-card">
-        <div class="s7-card-n">FASE 04</div>
-        <div class="s7-card-t">Instrução Interna</div>
-        <div class="s7-card-w">Em paralelo</div>
-        <div class="s7-card-d">Capacitamos seu time para operar, manter e expandir as soluções. Empresa anda com as próprias pernas.</div>
-      </div>
-      <div class="s7-card">
-        <div class="s7-card-n">FASE 05</div>
-        <div class="s7-card-t">Prova de Resultado</div>
-        <div class="s7-card-w">Mês 6</div>
-        <div class="s7-card-d">Relatório completo: horas economizadas, custo reduzido, receita gerada — comparado ao investimento. Em números, não em promessa.</div>
-      </div>
-      <div class="s7-card last">
-        <div class="s7-card-n">FASE 06 · DESTINO</div>
-        <div class="s7-card-t">Empresa IA-first</div>
-        <div class="s7-card-w">Permanente</div>
-        <div class="s7-card-d">Operação rodando com IA. Equipe capacitada. Plataforma ativa. Resultado comprovado.</div>
+    <div class="s7-timeline" style="position:relative;margin-top:60px;padding:40px 0 0">
+      <div style="position:absolute;top:64px;left:24px;right:24px;height:2px;background:linear-gradient(90deg,rgba(215,0,48,0.15) 0%,var(--red) 50%,rgba(215,0,48,0.15) 100%)"></div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:14px;position:relative">
+        <div class="s7-step"><div class="s7-step-num">01</div><div class="s7-step-dot"></div><div class="s7-step-w">Sem 1–2</div><div class="s7-step-t">Diagnóstico de Impacto</div><div class="s7-step-d">ROI projetado antes de implementar.</div></div>
+        <div class="s7-step"><div class="s7-step-num">02</div><div class="s7-step-dot"></div><div class="s7-step-w">Sem 3–4</div><div class="s7-step-t">Estruturação IA-first</div><div class="s7-step-d">Roadmap por departamento.</div></div>
+        <div class="s7-step"><div class="s7-step-num">03</div><div class="s7-step-dot"></div><div class="s7-step-w">Mês 2–5</div><div class="s7-step-t">Implementação por Área</div><div class="s7-step-d">IA rodando, validação a cada passo.</div></div>
+        <div class="s7-step"><div class="s7-step-num">04</div><div class="s7-step-dot"></div><div class="s7-step-w">Em paralelo</div><div class="s7-step-t">Instrução Interna</div><div class="s7-step-d">Time autônomo para expandir.</div></div>
+        <div class="s7-step"><div class="s7-step-num">05</div><div class="s7-step-dot"></div><div class="s7-step-w">Mês 6</div><div class="s7-step-t">Prova de Resultado</div><div class="s7-step-d">Números, não promessa.</div></div>
+        <div class="s7-step final"><div class="s7-step-num">06</div><div class="s7-step-dot final"></div><div class="s7-step-w">Permanente</div><div class="s7-step-t">Empresa IA-first</div><div class="s7-step-d">Destino. Operação consolidada.</div></div>
       </div>
     </div>
   </div>
@@ -706,6 +771,7 @@ a{text-decoration:none;color:inherit}
      S10 — RESULTADOS (DARK PIVOT)
      ═══════════════════════════════════════════════ -->
 <div class="slide s10" id="s10">
+  <div class="s10-photo"></div>
   <div class="s10-glow-1"></div>
   <div class="s10-glow-2"></div>
   <div class="bc dark" style="z-index:6">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">Resultados</span></div>
@@ -741,6 +807,7 @@ a{text-decoration:none;color:inherit}
      S11 — INVESTIMENTO (DARK SÓLIDO)
      ═══════════════════════════════════════════════ -->
 <div class="slide s11" id="s11">
+  <div class="s11-photo"></div>
   <div class="s11-glow"></div>
   <div class="bc dark" style="z-index:6">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">Investimento</span></div>
   <div class="lg dark" style="z-index:6"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
@@ -806,17 +873,18 @@ a{text-decoration:none;color:inherit}
      S13 — POR QUE AGORA
      ═══════════════════════════════════════════════ -->
 <div class="slide s13" id="s13">
+  <div style="position:absolute;inset:0;background:url('../img/ai-future.jpg') center/cover no-repeat;opacity:0.18;mix-blend-mode:luminosity"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.85) 100%)"></div>
   <div class="s13-glow"></div>
   <div class="bc dark" style="z-index:6">EMPRESA INTELIGENTE OS<span class="sep">›</span><span class="cur">Por que agora</span></div>
   <div class="lg dark" style="z-index:6"><div class="lg-d"></div><span class="lg-t">EMPRESA INTELIGENTE</span></div>
   <div class="in-c">
     <div class="label dark" style="margin-bottom:24px">13 · Por que agora</div>
     <h2>A IA não está esperando<br><em>sua empresa estar pronta.</em></h2>
-    <ul class="s13-list">
+    <ul class="s13-list" style="align-items:center">
       <li>Hora do seu time desperdiçada em trabalho que IA já faz.</li>
       <li>Lead perdido para quem responde mais rápido.</li>
       <li>Margem comprimida enquanto concorrente opera com custo menor.</li>
-      <li>Decisão tomada no feeling enquanto concorrente tem dados em tempo real.</li>
     </ul>
     <p class="s13-final">O custo de não fazer é maior do que o investimento de fazer.<br>E o custo de não fazer <em>agora</em> é irreversível.</p>
   </div>
