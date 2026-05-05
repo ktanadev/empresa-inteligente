@@ -12,6 +12,8 @@
 
 A Diretora Comercial do Grupo Silva e seu time de **20 vendedores (12 SDRs + 8 Closers)** oferecem o **Empresa Inteligente OS** à base de clientes, leads não convertidos e novos clientes recém-fechados, usando como **antessala consultiva** o **Diagnóstico Estratégico com IA** — videoconferência conduzida por **dois advisors especialistas** (mercado financeiro + tecnologia aplicada à operação) que entrevistam o empresário, mensuram cada gargalo da operação em R$ e entregam um **Plano de Viabilidade Econômica**: redução de custo operacional + aumento de faturamento + ROI projetado.
 
+> 📲 **CANAL PADRÃO DO GRUPO SILVA (importante):** o time vende por **WhatsApp + videoconferência**. Toda interação inicial é por WhatsApp; a venda em si é em videocall. Telefonema existe, mas é minoria. Toda referência a "ligação" neste playbook deve ser lida primariamente como **WhatsApp + videocall** — não como telefone.
+
 O vendedor **não vende IA na ligação**. O vendedor **agenda o Diagnóstico** com persuasão de seleção. A venda do produto principal KTANA (R$100k) acontece com os advisors, sustentada pelos números do Plano de Viabilidade.
 
 > **REGRA INVIOLÁVEL — NÃO COMPROMETIMENTO DA VENDA PRINCIPAL DO GRUPO SILVA**
@@ -459,7 +461,12 @@ Cada uma com: **lógica persuasiva** → **canal/timing** → **scripts literais
 
 A oferta do EI OS pode acontecer em **5 momentos distintos**. Cada um exige tom, profundidade e timing próprios. **A regra-mãe: nunca comprometer a venda principal do Grupo Silva.** O EI OS sempre **entra como complemento, nunca como concorrente**.
 
-> 📹 **TODAS as calls com cliente — qualificação, agendamento, confirmação, Diagnóstico — são por VIDEOCONFERÊNCIA.** Vídeo aumenta autoridade percebida, reduz no-show, sustenta o tom premium. Telefone só como fallback se o cliente recusar vídeo.
+> 📹 **CANAIS PADRÃO DA OPERAÇÃO COMERCIAL DO GRUPO SILVA:**
+> 1. **WhatsApp** — toda interação inicial e follow-up. É como o time do Grupo Silva já vende hoje.
+> 2. **Videoconferência** — formato principal de conversa de venda (qualificação, descoberta, fechamento, Diagnóstico). Sustenta o tom premium e reduz no-show.
+> 3. **Telefone** — existe, mas é minoria. Usado quando cliente prefere ou como fallback rápido.
+>
+> **Toda menção a "ligação" neste playbook = primariamente WhatsApp + videocall.** Telefonema é exceção, não regra.
 
 ### MOMENTO 1 — Durante a apresentação da venda principal (plantar semente)
 
