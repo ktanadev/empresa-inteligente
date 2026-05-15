@@ -185,3 +185,135 @@ img{max-width:100%;height:auto;display:block}
   .ei-hero h1{font-size:clamp(30px,8vw,48px)}
   .ei-fab{bottom:20px;right:20px;width:48px;height:48px}
 }
+
+/* ============================================================
+   v2 · PERSONAGEM (video) + PRICING (port literal home/index.html)
+   ============================================================ */
+
+/* Variáveis adicionais necessárias (port da home) */
+:root{
+  --red-dark:#B0002A;
+  --gray-bg:#F4F4F4;
+  --gray-border:#E5E5E5;
+  --gray-text:#6B7280;
+  --font-display:'Space Grotesk',sans-serif;
+  --font-body:'Satoshi','Inter',sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  --font-editorial:'IBM Plex Sans',Georgia,serif;
+}
+
+/* Personagem · suporte a <video> dentro de .ei-hero-img (espelho de img) */
+.ei-hero-img video{width:100%;height:100%;object-fit:cover;object-position:center top}
+
+/* ─── PRICING (port literal de index.html linhas 980-1073) ─── */
+.pricing{background:var(--white);padding-top:5.5rem;overflow:visible}
+.pricing-toggle{display:flex;align-items:center;gap:0.75rem;justify-content:center;margin:2rem 0;font-size:0.875rem}
+.toggle-label{color:var(--gray-text);font-weight:500}
+.toggle-label.active{color:var(--black);font-weight:600}
+.toggle-badge{background:rgba(215,0,48,0.1);color:var(--red);font-size:0.7rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:999px}
+.toggle-switch{width:48px;height:26px;background:var(--black);border-radius:999px;position:relative;cursor:pointer;transition:background 0.2s;border:none;padding:0}
+.toggle-switch.annual{background:var(--red)}
+.toggle-knob{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--white);transition:transform 0.2s}
+.toggle-switch.annual .toggle-knob{transform:translateX(22px)}
+
+.pricing-grid{display:grid;grid-template-columns:1fr 1.14fr 1fr;gap:1.5rem;align-items:start}
+.price-card{background:var(--white);border-radius:20px;padding:2rem;border:1px solid var(--gray-border);position:relative;overflow:hidden}
+.price-card.featured{background:var(--red);border:2px solid transparent;isolation:isolate;transform:translateY(-16px) scale(1.02);animation:featuredGlow 3s ease-in-out infinite;padding:2.5rem;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease}
+.price-card.featured:hover{transform:translateY(-22px) scale(1.04) !important;animation:featuredGlowHover 1.5s ease-in-out infinite !important}
+@keyframes featuredGlow{
+  0%,100%{box-shadow:0 8px 48px rgba(215,0,48,0.25),0 2px 0 rgba(215,0,48,0.4)}
+  50%{box-shadow:0 20px 80px rgba(215,0,48,0.45),0 2px 0 rgba(215,0,48,0.6)}
+}
+@keyframes featuredGlowHover{
+  0%,100%{box-shadow:0 24px 90px rgba(215,0,48,0.5),0 0 80px rgba(215,0,48,0.2)}
+  50%{box-shadow:0 32px 110px rgba(215,0,48,0.7),0 0 120px rgba(215,0,48,0.3)}
+}
+.price-popular{position:absolute;top:1rem;right:1rem;background:var(--red);color:var(--white);font-size:0.7rem;font-weight:700;padding:0.25rem 0.7rem;border-radius:999px;text-transform:uppercase;letter-spacing:0.05em}
+.price-plan{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray-text);margin-bottom:0.5rem}
+.price-card.featured .price-plan{color:rgba(255,255,255,0.4)}
+.price-name{font-family:var(--font-display);font-weight:800;font-size:1.4rem;margin-bottom:0.75rem;letter-spacing:-0.02em}
+.price-card.featured .price-name{color:var(--white)}
+.price-anchor{font-size:0.75rem;color:var(--gray-text);margin-bottom:1.25rem;padding:0.5rem 0.75rem;background:var(--gray-bg);border-radius:8px;line-height:1.4}
+.price-card.featured .price-anchor{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.4)}
+.price-amount-wrap{margin-bottom:1.5rem}
+.price-amount{font-family:var(--font-display);font-weight:800;font-size:2.5rem;color:var(--black);letter-spacing:-0.04em;line-height:1}
+.price-card.featured .price-amount{color:var(--white)}
+.price-amount sup{font-size:1rem;vertical-align:super;font-weight:700}
+.price-period{font-size:0.8rem;color:var(--gray-text)}
+.price-card.featured .price-period{color:rgba(255,255,255,0.4)}
+.price-annual{font-size:0.75rem;color:var(--red);font-weight:600;margin-top:0.25rem}
+.price-features{list-style:none;margin-bottom:1.75rem;display:flex;flex-direction:column;gap:0.625rem}
+.price-features li{display:flex;align-items:flex-start;gap:0.625rem;font-size:0.85rem}
+.price-check{color:var(--red);font-weight:900;font-size:0.7rem;margin-top:0.1rem;flex-shrink:0}
+.price-card.featured .price-features li{color:rgba(255,255,255,0.75)}
+.price-btn{display:block;text-align:center;width:100%;background:var(--black);color:var(--white);padding:0.875rem;border-radius:999px;font-weight:700;font-size:0.875rem;text-decoration:none;transition:background 0.2s}
+.price-card.featured .price-btn{background:var(--red)}
+.price-btn:hover{background:var(--red)}
+.price-card.featured .price-btn:hover{background:var(--red-dark)}
+.pricing-note{text-align:center;margin-top:1.5rem;font-size:0.8rem;color:var(--gray-text)}
+
+/* Border animado do plano destaque (port de index.html linhas 1518-1578) */
+@property --border-angle{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes rotateBorder{to{--border-angle:360deg}}
+.price-card.featured::before{
+  content:'';position:absolute;inset:-1px;border-radius:21px;padding:2px;
+  background:conic-gradient(from var(--border-angle),
+    rgba(215,0,48,0.0)   0%,
+    rgba(215,0,48,1)     7%,
+    rgba(255,180,180,1)  11%,
+    rgba(255,255,255,1)  13%,
+    rgba(255,180,180,1)  15%,
+    rgba(215,0,48,1)     19%,
+    rgba(215,0,48,0.0)   27%,
+    rgba(215,0,48,0.06)  100%
+  );
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  animation:rotateBorder 2.5s linear infinite;
+  pointer-events:none;
+}
+
+/* Pricing grid · entrada dramatica (port de index.html linhas 1587-1611) */
+.pricing-grid.reveal-children > *:nth-child(1){
+  opacity:0;transform:translateX(-40px) translateY(30px);
+  transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);
+  transition-delay:0s;
+}
+.pricing-grid.reveal-children > *:nth-child(2){
+  opacity:0;transform:translateY(60px) scale(0.88);
+  transition:opacity .75s cubic-bezier(.34,1.4,.64,1),transform .75s cubic-bezier(.34,1.4,.64,1);
+  transition-delay:.2s;
+}
+.pricing-grid.reveal-children > *:nth-child(3){
+  opacity:0;transform:translateX(40px) translateY(30px);
+  transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);
+  transition-delay:.05s;
+}
+.pricing-grid.reveal-children.visible > *:nth-child(1),
+.pricing-grid.reveal-children.visible > *:nth-child(2),
+.pricing-grid.reveal-children.visible > *:nth-child(3){
+  opacity:1;transform:none;
+}
+.pricing-grid.reveal-children.visible > *:nth-child(2){
+  transform:translateY(-16px) scale(1.02);
+}
+
+/* Hover lift price-card · port de index.html linhas 1624-1639 */
+@keyframes morphicGlow{
+  0%,100%{box-shadow:0 0 10px rgba(215,0,48,0.12),0 8px 32px rgba(0,0,0,0.35)}
+  50%{box-shadow:0 0 28px rgba(215,0,48,0.30),0 8px 48px rgba(0,0,0,0.40)}
+}
+@keyframes morphicGlowLight{
+  0%,100%{box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+  50%{box-shadow:0 4px 32px rgba(215,0,48,0.14),0 0 16px rgba(215,0,48,0.06)}
+}
+.price-card{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.price-card:hover{transform:translateY(-5px);animation:morphicGlowLight 2s ease-in-out infinite}
+.price-card.featured:hover{animation:morphicGlow 2s ease-in-out infinite}
+
+/* Pricing responsivo · port de index.html linha 1394 e 1966 */
+@media(max-width:900px){
+  .pricing-grid{grid-template-columns:1fr !important}
+  .price-card.featured{transform:none !important}
+  .pricing-grid.reveal-children.visible > *:nth-child(2){transform:none !important}
+}
