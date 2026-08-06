@@ -1,0 +1,128 @@
+/*
+ * TOKENS · Recrutamento de Fornecedor · Empresa Inteligente OS
+ * Fonte: docs/design/2026-08-06-recrutamento-fornecedor-spec-visual-v1.md §2
+ * Zero hex fora deste arquivo — telas consomem sempre var(--token).
+ */
+
+:root {
+  /* §2.1 · neutros */
+  --neutral-0:   #FFFFFF;
+  --neutral-50:  #F5F5F7;
+  --neutral-100: #EDEDF0;
+  --neutral-200: #E2E2E6;
+  --neutral-300: #C7C7CC;
+  --neutral-400: #ADADB3;
+  --neutral-500: #86868B;
+  --neutral-600: #68686D;
+  --neutral-700: #4A4A4E;
+  --neutral-800: #2C2C2E;
+  --neutral-900: #1C1C1E;
+  --neutral-950: #0B0B0C;
+
+  /* §2.2 · marca — uso restrito: ação primária, foco, marca. nunca estado */
+  --brand:       #D70030;
+  --brand-hover: #B0002A;
+  --brand-tint:  #FDE7ED;
+
+  /* §2.3 · semântica de evidência — 4 famílias de matiz distintas entre si e de --brand */
+  --state-verified:      #1F8A54;
+  --state-verified-tint: #E7F6ED;
+  --state-verified-line: #A9DDBE;
+
+  --state-declared:      var(--neutral-500);
+  --state-declared-tint: var(--neutral-100);
+  --state-declared-line: var(--neutral-300);
+
+  --state-divergent:      #B45309;
+  --state-divergent-tint: #FDF0DD;
+  --state-divergent-line: #F3CC8F;
+
+  --state-uncollected:      var(--neutral-400);
+  --state-uncollected-tint: transparent;
+  --state-uncollected-line: var(--neutral-300);
+
+  --state-eliminated:      #A02B1F;
+  --state-eliminated-tint: #FBE7E4;
+  --state-eliminated-line: #E2A79E;
+
+  /* §2.4 · classes de score A/B/C — escala de tinta, não hue */
+  --class-a: var(--neutral-900); /* peso 45 */
+  --class-b: var(--neutral-600); /* peso 30 */
+  --class-c: var(--neutral-300); /* peso 25 */
+
+  /* §2.5 · tipografia — font-stacks de sistema, CSP não permite CDN */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", "Consolas", "Liberation Mono", monospace;
+
+  /* §2.6 · espaçamento — base 4px */
+  --sp-1: 4px;   --sp-2: 8px;   --sp-3: 12px;  --sp-4: 16px;
+  --sp-5: 20px;  --sp-6: 24px;  --sp-8: 32px;  --sp-10: 40px;
+  --sp-12: 48px; --sp-16: 64px;
+
+  /* §2.7 · raio — pill só em badge de estado, nunca botão de ação primária */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+
+  /* §2.8 · sombra */
+  --shadow-xs: 0 1px 2px rgba(11,11,12,.06);
+  --shadow-sm: 0 1px 3px rgba(11,11,12,.08), 0 1px 2px rgba(11,11,12,.04);
+  --shadow-md: 0 4px 12px rgba(11,11,12,.08);
+}
+
+/* §2.9 · tema claro (padrão) */
+:root, :root[data-theme="light"] {
+  --bg-canvas:      var(--neutral-50);
+  --bg-surface:     var(--neutral-0);
+  --bg-surface-2:   var(--neutral-100);
+  --border:         var(--neutral-200);
+  --border-strong:  var(--neutral-300);
+  --text-primary:   var(--neutral-900);
+  --text-secondary: var(--neutral-600);
+  --text-tertiary:  var(--neutral-500);
+  --text-inverse:   var(--neutral-0);
+  --focus-ring:     var(--brand);
+  --state-verified-tint-mix:   var(--state-verified-tint);
+  --state-declared-tint-mix:   var(--state-declared-tint);
+  --state-divergent-tint-mix:  var(--state-divergent-tint);
+  --state-eliminated-tint-mix: var(--state-eliminated-tint);
+}
+
+/* segue o SO quando o usuário não forçou um tema explícito */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-canvas:      var(--neutral-950);
+    --bg-surface:     #17181C;
+    --bg-surface-2:   #1F2024;
+    --border:         #2C2D31;
+    --border-strong:  #3A3B40;
+    --text-primary:   var(--neutral-0);
+    --text-secondary: var(--neutral-400);
+    --text-tertiary:  var(--neutral-500);
+    --text-inverse:   var(--neutral-900);
+    /* tint sólido claro não funciona em fundo escuro — opacidade reduzida via color-mix, §2.9 */
+    --state-verified-tint-mix:   color-mix(in srgb, var(--state-verified) 18%, transparent);
+    --state-declared-tint-mix:   color-mix(in srgb, var(--state-declared) 18%, transparent);
+    --state-divergent-tint-mix:  color-mix(in srgb, var(--state-divergent) 18%, transparent);
+    --state-eliminated-tint-mix: color-mix(in srgb, var(--state-eliminated) 18%, transparent);
+  }
+}
+
+/* usuário força dark mesmo com SO em light — vence a media query */
+:root[data-theme="dark"] {
+  --bg-canvas:      var(--neutral-950);
+  --bg-surface:     #17181C;
+  --bg-surface-2:   #1F2024;
+  --border:         #2C2D31;
+  --border-strong:  #3A3B40;
+  --text-primary:   var(--neutral-0);
+  --text-secondary: var(--neutral-400);
+  --text-tertiary:  var(--neutral-500);
+  --text-inverse:   var(--neutral-900);
+  --state-verified-tint-mix:   color-mix(in srgb, var(--state-verified) 18%, transparent);
+  --state-declared-tint-mix:   color-mix(in srgb, var(--state-declared) 18%, transparent);
+  --state-divergent-tint-mix:  color-mix(in srgb, var(--state-divergent) 18%, transparent);
+  --state-eliminated-tint-mix: color-mix(in srgb, var(--state-eliminated) 18%, transparent);
+}
